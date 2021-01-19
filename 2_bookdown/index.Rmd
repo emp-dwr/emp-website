@@ -7,6 +7,7 @@ documentclass: book
 # biblio-style: apalike
 link-citations: yes
 github-repo: https://github.com/EMP-DES/emp-reports
+pagetitle: Index
 description: "This report shows trends in discrete water quality, benthic invertebrates, phytoplankton, and zooplankton collected by EMP."
 ---
 
@@ -16,7 +17,7 @@ description: "This report shows trends in discrete water quality, benthic invert
 <EMP Description>
 
 # Contents
-<h2>[Discrete Water Quality](d_wq.html)</h2>
+<h2>[Discrete Water Quality](01-d_wq.html)</h2>
   * Specific Conductance
   * Turbidity
   * Dissolved Ammonia

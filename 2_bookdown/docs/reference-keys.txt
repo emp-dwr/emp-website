@@ -1,6 +1,3 @@
-contents1
-contents
-section
 bibliography-book.bib-packages.bib
 d-wq
 emp-discrete-water-quality-report

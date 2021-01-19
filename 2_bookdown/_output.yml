@@ -1,0 +1,8 @@
+bookdown::gitbook:
+  css: style.css
+output_dir: '../docs'
+number_sections:  FALSE
+includes:
+  after_body: load-custom-js.html
+keep_tex: yes
+bookdown::epub_book: default 
