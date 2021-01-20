@@ -19,7 +19,7 @@ description: "This report shows trends in discrete water quality, benthic invert
 **THIS IS A TEST SITE.** For official annual EMP reports, please contact Sarah Perry at sarah.perry@water.ca.gov.
 
 # Contents
-<h2>[Discrete Water Quality](01-d_wq.html)</h2>
+<h2>[Discrete Water Quality](d_wq.html)</h2>
   * Specific Conductance
   * Turbidity
   * Dissolved Ammonia
