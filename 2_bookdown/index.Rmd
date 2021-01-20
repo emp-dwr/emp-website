@@ -2,6 +2,7 @@
 title: 'EMP Reports'
 site: bookdown::bookdown_site
 output: bookdown::gitbook
+number_sections: FALSE
 documentclass: book
 # bibliography: [book.bib, packages.bib]
 # biblio-style: apalike
@@ -15,6 +16,7 @@ description: "This report shows trends in discrete water quality, benthic invert
 
 <h1>Description</h1>
 <EMP Description>
+**THIS IS A TEST SITE.** For official annual EMP reports, please contact Sarah Perry at sarah.perry@water.ca.gov.
 
 # Contents
 <h2>[Discrete Water Quality](01-d_wq.html)</h2>
