@@ -21,7 +21,7 @@ Water Quality monitoring is mandated by Water Right Decision 1641 for operation 
 More information about EMP and its connection to the Interagency Ecological Program (IEP) can be found [here](https://water.ca.gov/Programs/Environmental-Services/Interagency-Ecological-Program).
 
 !This map will eventually be to the right!
-```{r out.height='20%', fig.cap='citation',echo=FALSE}
+```{r echo=FALSE, fig.align='center', fig.cap='Map of the San Francisco Estuary. EMP\'s sites are located within the yellow box.'}
 knitr::include_graphics(file.path('figures/general/deltamap.jpg'))
 ```
 
