@@ -1,0 +1,11 @@
+## Metadata
+
+### Data
+EMP's discrete water quality data sets are available publically via the Environmetnal Data Initiative (EDI) [here](https://portal.edirepository.org/nis/mapbrowse?scope=edi&identifier=458&revision=3).
+
+### Archived Reports
+Archived annual reports can be found [here]() (link currently broken).
+
+### Contact Information
+For questions related to EMP's discrete water quality data sets, please contact Morgan Martinez at morgan.martinez@water.ca.gov.
+

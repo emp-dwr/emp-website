@@ -1,8 +1,17 @@
 bookdown::gitbook:
   css: style.css
   number_sections: FALSE
-output_dir: '../docs'
-includes:
-  after_body: load-custom-js.html
-keep_tex: yes
-bookdown::epub_book: default 
+  split_by: rmd
+  config:
+    toc:
+      before: |
+        <li><a href="./">EMP Annual Reports</a></li>
+      toc_depth: 4
+    download: ["pdf", "epub"]
+bookdown::pdf_book:
+  includes:
+    in_header: preamble.tex
+  latex_engine: xelatex
+  citation_package: natbib
+  keep_tex: yes
+bookdown::epub_book: default

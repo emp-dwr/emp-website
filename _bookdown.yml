@@ -1,7 +1,6 @@
-book_filename: 'emp-reports'
+book_filename: "bookdown-demo"
 language:
   ui:
     chapter_name: ''
 delete_merged_file: true
-output_dir: '../docs'
-
+output_dir: '/docs'
