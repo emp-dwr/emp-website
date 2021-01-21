@@ -1,7 +1,7 @@
 # Discrete Water Quality {#dwq}
 
 ### Background
-There are 24 fixed discrete stations within the San Francisco Estuary that are monitored at high water slack tide. The stations are primarily accessed by the Research Vessel Sentinel, or vehicle transport. Discrete sampling is completed once a month due to the intensity of collecting a wide collection of physical parameters (e.g. water temperature) and grab samples for laboratory analysis (e.g. nitrogen and phosphorous). The data from the discrete sampling is helpful to document long-term changes within the estuary.
+There are 24 fixed discrete stations within the San Francisco Estuary that are monitored at high water slack tide. The stations are primarily accessed by the Research Vessel Sentinel, or vehicle transport. Discrete sampling is completed once a month due to the intensity of collecting a wide collection of physical parameters (e.g. water temperature) and grab samples for laboratory analysis (e.g. nitrogen and phosphorous). The data from the discrete sampling is helpful to document long-term changes within the estuary.  
 
 ### Analytes {.unlisted .unnumbered}
 EMP collects data on x different analytes. The ones highlighted in this report are:
