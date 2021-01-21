@@ -1,6 +1,6 @@
 --- 
 site: bookdown::bookdown_site
-output: bookdown::gitbook
+output: pdf_document
 number_sections: FALSE
 documentclass: book
 bibliography: [book.bib, packages.bib]
@@ -12,16 +12,16 @@ description: "This report shows trends in discrete water quality, benthic invert
 ```{r echo = F}
 options(width = 120)
 ```
-# EMP Annual Reports
 
+# EMP Annual Reports
 <b>THIS IS A TEST SITE.</b> For official annual EMP reports, please contact Sarah Perry at sarah.perry@water.ca.gov.
 
 Water Quality monitoring is mandated by Water Right Decision 1641 for operation of the Central Valley Project (CVP) and the State Water Project (SWP). Objectives of the EMP are to document long term trends in the San Francisco Estuary and provide information for water resource management in compliance with flow-related water quality standards. The EMP is not only one of the longest estuary monitoring programs in California, but worldwide. Since 1975, and the EMP has documented long term trends for water quality, benthic invertebrates, phytoplankton, and zooplankton.
 
 More information about EMP and its connection to the Interagency Ecological Program (IEP) can be found [here](https://water.ca.gov/Programs/Environmental-Services/Interagency-Ecological-Program).
 
-!This map will eventually be to the right!
-```{r echo=FALSE, fig.align='center', fig.cap='Map of the San Francisco Estuary. EMP\'s sites are located within the yellow box.'}
+<center>!This map will eventually be to the right!</center>
+```{r echo=FALSE, out.width = '400px', fig.align='center', fig.cap='Map of the Sacramento-San Joaquin Delta. Source: DWR'}
 knitr::include_graphics(file.path('figures/general/deltamap.jpg'))
 ```
 
