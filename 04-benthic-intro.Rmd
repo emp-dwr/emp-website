@@ -1,0 +1,15 @@
+# Benthic {#benthic}
+
+### Background
+Placeholder
+
+### Other Info {.unlisted .unnumbered}
+Placeholder
+
+### All Sites {.unlisted .unnumbered}
+EMP has been collecting benthos data since 1975. The locations of all sites, current and historic, are displayed below.  
+
+<center>!This figure will be updated!</center>
+```{r echo=FALSE, out.width = '90%', fig.align='center', fig.cap='Map of EMP\'s benthic field sites (past and current).'}
+knitr::include_graphics(file.path('figures/benthic/benthic-present-sites.png'))
+```

@@ -1,6 +1,7 @@
 --- 
 site: bookdown::bookdown_site
 output: pdf_document
+title: 'EMP Annual Reports'
 number_sections: FALSE
 documentclass: book
 bibliography: [book.bib, packages.bib]
@@ -13,7 +14,7 @@ description: "This report shows trends in discrete water quality, benthic invert
 options(width = 120)
 ```
 
-# EMP Annual Reports
+## Program Information
 <b>THIS IS A TEST SITE.</b> For official annual EMP reports, please contact Sarah Perry at sarah.perry@water.ca.gov.
 
 Water Quality monitoring is mandated by Water Right Decision 1641 for operation of the Central Valley Project (CVP) and the State Water Project (SWP). Objectives of the EMP are to document long term trends in the San Francisco Estuary and provide information for water resource management in compliance with flow-related water quality standards. The EMP is not only one of the longest estuary monitoring programs in California, but worldwide. Since 1975, and the EMP has documented long term trends for water quality, benthic invertebrates, phytoplankton, and zooplankton.
