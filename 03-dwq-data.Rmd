@@ -1,4 +1,4 @@
-## Metadata
+## Data and Contact Info
 
 ### Data {.unlisted .unnumbered}
 EMP's discrete water quality data sets are available publically via the Environmental Data Initiative (EDI) [here](https://portal.edirepository.org/nis/mapbrowse?scope=edi&identifier=458&revision=3).
