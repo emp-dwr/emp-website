@@ -1,3 +1,14 @@
+---
+  html_document: 
+    code_folding: hide
+    toc: true
+    toc_depth: 1
+    toc_float:
+      collapsed: true
+editor_options: 
+  chunk_output_type: console
+---
+
 # Discrete Water Quality {#dwq}
 
 ### Background
@@ -16,6 +27,6 @@ EMP collects data on x different analytes. The ones highlighted in this report a
 ### Sites {.unlisted .unnumbered}
 To analyze discrete water quality trends from 2019, the EMP stations were grouped into six regions of the San Francisco Bay-Delta estuary: San Pablo Bay, Suisun and Grizzly Bay, Confluence, Central Delta, Southern Interior Delta, and Northern Interior Delta. Their locations are displayed below.  
 
-```{r echo=FALSE, fig.align='center', fig.cap='Map of EMP\'s field sites.'}
+```{r echo=FALSE, fig.align='center', fig.cap='Map of EMP\'s field sites.', fig.alt='Map of Discrete WQ sites'}
 knitr::include_graphics(file.path('figures/wq_graphs/d-wq_station_map.jpg'))
 ```

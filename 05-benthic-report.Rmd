@@ -4,7 +4,7 @@
     toc: true
     toc_depth: 1
     toc_float:
-      collapsed: false
+      collapsed: true
 editor_options: 
   chunk_output_type: console
 ---
@@ -16,7 +16,7 @@ editor_options:
 Benthic monitoring by the Environmental Monitoring Program is conducted monthly at 10 sampling sites distributed throughout several estuarine regions from San Pablo Bay upstream through the Sacramento-San Joaquin Delta.  2019 was designated a “Wet” water year for both the Sacramento Valley and San Joaquin Valley. Benthic communities in 2019 were expected be similar to previous “Wet” years (2011 and 2017) and differ from drier years both in species composition and in species abundances. 
 
 ```{r echo=FALSE, out.width='80%', fig.align='center', fig.cap='Map of EMP\'s current benthic field sites.'}
-knitr::include_graphics(file.path('figures/benthic/benthic-present-sites.png'))
+knitr::include_graphics(file.path('figures/benthic/Benthic_Active_Map.png'))
 ```
 ***
 ### San Pablo Bay
