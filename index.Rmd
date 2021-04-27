@@ -14,7 +14,7 @@ description: 'These reports shows trends in discrete water quality, benthic inve
 options(width = 120)
 ```
 
-```{r echo=FALSE, fig.show = 'hold', out.height= '20%', out.width = '20%', fig.align='center'}
+```{r echo=FALSE, fig.show = 'hold', out.height= '100px', out.width = '100px', fig.align='center'}
 knitr::include_graphics(file.path('figures/general/emp-pic-1.png'))
 knitr::include_graphics(file.path('figures/general/emp-pic-2.png'))
 knitr::include_graphics(file.path('figures/general/emp-pic-3.jpg'))
