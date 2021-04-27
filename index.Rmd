@@ -14,6 +14,12 @@ description: 'These reports shows trends in discrete water quality, benthic inve
 options(width = 120)
 ```
 
+```{r echo=FALSE, fig.show = 'hold', out.width = '33%', fig.align='center'}
+knitr::include_graphics(file.path('figures/benthic/emp-pic-1.png'))
+knitr::include_graphics(file.path('figures/benthic/emp-pic-2.png'))
+knitr::include_graphics(file.path('figures/benthic/emp-pic-3.jpg'))
+```
+
 ## Program Information
 <b>THIS IS A TEST SITE.</b> For official annual EMP reports, please contact Sarah Perry at sarah.perry@water.ca.gov.
 
