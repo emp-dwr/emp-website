@@ -1,0 +1,36 @@
+--- 
+site: bookdown::bookdown_site
+output: html_document
+title: 'EMP Annual Reports'
+number_sections: FALSE
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+github-repo: emp-des/emp-reports
+description: 'These reports shows trends in discrete water quality, benthic invertebrates, phytoplankton, and zooplankton collected by EMP.'
+---
+
+
+```{r echo=FALSE, out.width='20%', out.height='100px', fig.show='hold'}
+# knitr::include_graphics(c('figures/general/emp-pic-1.png','figures/general/emp-pic-2.png','figures/general/emp-pic-3.jpg'))
+```
+
+```{r, echo=FALSE}
+htmltools::includeHTML('html-css/slideshow.html')
+```
+
+<!-- ![](figures/general/emp-pic-1.png){width=200px, height=110px} ![](figures/general/emp-pic-2.png){width=110px, height=110px} ![](figures/general/emp-pic-3.jpg){width=200px, height=300px} -->
+
+## Program Information
+<b>THIS IS A TEST SITE.</b> For official annual EMP reports, please contact Sarah Perry at sarah.perry@water.ca.gov.
+
+The State Water Resources Control Board (SWRCB) sets water quality objectives to protect beneficial uses of water in the Sacramento-San Joaquin Delta and Suisun and San Pablo Bays. These objectives are met by establishing standards mandated in water right permits issued to the Department of Water Resources and U.S. Bureau of Reclamation by the SWRCB. The standards include minimum Delta outflows, limits to Delta water export by the State Water Project (SWP) and the Central Valley Project (CVP), and maximum allowable salinity levels. 
+
+In 1971, the State Water Resources Control Board (SWRCB) established Water Right Decision 1379 (D-1379). This Decision contained new water quality requirements for the San Francisco Bay-Delta Estuary. D-1379 was also the first water right decision to provide terms and conditions for a comprehensive monitoring program to routinely determine water quality conditions and changes in environmental conditions within the estuary. The monitoring program described in D-1379 was developed by the Stanford Research Institute through a contract with the SWRCB. Implementation of the monitoring program began in 1972, as SWRCB, DWR, and USBR met to define their individual responsibilities for various elements of the monitoring program. In 1978, amendments to water quality standards were implemented and resulted in Water Right Decision 1485 (D-1485). These standards were again amended under the 1995 Water Quality Control Plan and Water Right Decision 1641 (D-1641) established in 1999. The SWP and CVP are currently operated to comply with the monitoring and reporting requirements described in D-1641. D-1641 requires DWR and USBR to conduct a comprehensive environmental monitoring program to determine compliance with the water quality standards and also to submit an annual report to the SWRCB discussing data collected. 
+
+More information about EMP and its connection to the Interagency Ecological Program (IEP) can be found [here](https://water.ca.gov/Programs/Environmental-Services/Interagency-Ecological-Program).
+
+```{r echo=FALSE, out.width = '400px', fig.align='center', fig.cap='Map of the Sacramento-San Joaquin Delta. Source: DWR'}
+knitr::include_graphics(file.path('figures/general/deltamap.jpg'))
+```

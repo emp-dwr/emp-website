@@ -1,17 +1,32 @@
 bookdown::gitbook:
-  css: style.css
-  number_sections: FALSE
+  css: html-css/book.css
+  number_sections: false
   split_by: rmd
   config:
     toc:
       before: |
-        <li><a href="./">EMP Annual Reports</a></li>
+        <li class='before'><a href="./">EMP Annual Reports</a></li>
+#      after: |
+#        <li class='after'><a href="./">EMP Annual Reports</a></li>
+#         <li class='after'>
+#            <div style='text-align:center'>
+#               <a href="./">
+#                  <img src="figures/general/dwr-logo.png" style="width:25%; padding:0px 0; display:block; margin: 0 auto;" alt="DWR logo">
+#               </a>
+#            </div>
+#         </li>
       toc_depth: 4
     download: ['pdf']
-bookdown::pdf_book:
-  includes:
-    in_header: preamble.tex
-  latex_engine: xelatex
-  citation_package: natbib
-  keep_tex: yes
-  always_allow_html: true
+    sharing: false
+#    info: false
+#    edit: false
+   #    facebook: false
+   #   twitter: false
+    # highlight: tango
+# bookdown::pdf_book:
+#  includes:
+#    in_header: preamble.tex
+#  latex_engine: xelatex
+#  citation_package: natbib
+#  keep_tex: yes
+#  always_allow_html: true

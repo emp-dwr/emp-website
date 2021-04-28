@@ -5,3 +5,22 @@ language:
 delete_merged_file: true
 output_dir: './docs'
 sharing: null
+
+rmd_files: [
+  'Rmd-files/index.Rmd' #,
+
+  # D-WQ
+#  'Rmd-files/01-dwq-intro.Rmd',
+#  'Rmd-files/02-dwq-report.Rmd',
+#  'Rmd-files/03-dwq-data.Rmd',
+
+  # Benthic
+#  'Rmd-files/04-benthic-intro.Rmd',
+#  'Rmd-files/06-benthic-meta.Rmd',
+#  'Rmd-files/05-benthic-report.Rmd',
+#  'Rmd-files/07-benthic-data.Rmd',
+  
+  # Extra
+#  'Rmd-files/08-refs.Rmd',
+#  'Rmd-files/09-examples.Rmd',
+]
