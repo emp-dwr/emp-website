@@ -1,0 +1,78 @@
+---
+  html_document: 
+    code_folding: hide
+    toc: true
+    toc_depth: 1
+    toc_float:
+      collapsed: true
+editor_options: 
+  chunk_output_type: console
+---
+
+## Current Report {#benthic-report}
+
+### Introduction {.unlisted .unnumbered}
+
+Benthic monitoring by the Environmental Monitoring Program is conducted monthly at 10 sampling sites distributed throughout several estuarine regions from San Pablo Bay upstream through the Sacramento-San Joaquin Delta.  2019 was designated a “Wet” water year for both the Sacramento Valley and San Joaquin Valley. Benthic communities in 2019 were expected be similar to previous “Wet” years (2011 and 2017) and differ from drier years both in species composition and in species abundances. 
+
+```{r echo=FALSE, out.width='80%', fig.align='center', fig.cap='Map of EMP\'s current benthic field sites.'}
+knitr::include_graphics(file.path('figures/benthic/Benthic_Active_Map.png'))
+```
+***
+### San Pablo Bay
+
+The most saline of our sites, D41 and D41A, are polyhaline sites in San Pablo Bay. At D41 in 2019, the most numerous species was the non-native clam Potamocorbula amurensis, whose density peaked in July to 12,587 individuals per square meter, in a pattern seen primarily in wet years.  Site D41 was also notable as the only site where we saw phoronids, also known as horseshoe worms, which are only found in this higher-salinity site.
+
+At D41A, there were high densities of the non-native amphipod Ampelisca abdita, which had a high of 9,846 individuals/m2 in December 2019, as well as Potamocorbula amurensis with an average annual density of 1,686 individuals/m2.
+
+```{r echo=FALSE, fig.show = 'hold', out.width = '50%', fig.cap='Density of benthic organisms, by month, collected at station (left) D41 and (right) D41A in 2019.', fig.align='center'}
+knitr::include_graphics(file.path('figures/benthic/Fig2_D24.png'))
+knitr::include_graphics(file.path('figures/benthic/Fig11_D41A.png'))
+```
+***
+### Suisun and Grizzly Bay
+
+In Suisun Bay and Grizzly Bay in 2019, our mesohaline sites D6 and D7 both saw high numbers of the invasive clam P. amurensis, which had an average density of 9,891 individuals/m2 and comprised 97% of all organisms at D6 in 2019, similar to other recent years.  At D7, P. amurensis had a September peak of 12,471 individuals/m2, and the non-native amphipod Corophium alienense had a November peak of 10,428 individuals/m2.  These two species together made up 94% of all organisms at D7 in 2019.
+
+```{r echo=FALSE, fig.show = 'hold', out.width = '50%', fig.cap='Density of benthic organisms, by month, collected at station (left) D6 and (right) D7 in 2019.', fig.align='center'}
+knitr::include_graphics(file.path('figures/benthic/Fig8_D6.png'))
+knitr::include_graphics(file.path('figures/benthic/Fig9_D7.png'))
+```
+***
+### Confluence
+
+At the confluence of the Sacramento and San Joaquin rivers, site D4’s oligohaline community was comprised in 2019 largely of the amphipods Americorophium spinicorne and Gammarus daiberi, which each had high variability through the year.  The oligochaete worm Varichaetadrilus angustipenis also had high density in the second half of the year. 
+
+```{r echo=FALSE, out.width = '50%', fig.cap='Density of benthic organisms, by month, collected at station D4 in 2019.', fig.align='center'}
+knitr::include_graphics(file.path('figures/benthic/Fig7_D4.png'))
+```
+***
+### Central Delta
+
+In the Sacramento River, freshwater site D24 was dominated by the non-native clam Corbicula fluminea, whose numbers averaged 3,016 per square meter over the course of 2019, similar to the very high densities of 2018. There was also a significant seasonal increase in densities of the amphipod Gammarus daiberi between September and December.
+
+In the San Joaquin River, freshwater site D16 (at Twitchell Island) was dominated in 2019 by the amphipod Gammarus daiberi, which demonstrated an impressive density peak in May, as well as the clam Corbicula fluminea and the oligochaete worm V. angustipenis.  
+
+In Old River, freshwater site D28A had a diverse community in 2019. There were high densities of the ostracod crustacean Cyprideis sp. A and the sabellid worm Manayunkia speciosa at the beginning of the year and lower densities for most of the rest of 2019.  There were also seasonal peaks of the oligochaete worm V. angustipenis and the amphipods G. daiberi and A. spinicorne.
+
+```{r echo=FALSE, fig.show = 'hold', out.width = '50%', fig.cap='Density of benthic organisms, by month, collected at station (left) D24, (center) D16 and (right) D28A in 2019.', fig.align='center'}
+knitr::include_graphics(file.path('figures/benthic/Fig2_D24.png'))
+knitr::include_graphics(file.path('figures/benthic/Fig3_D16.png'))
+knitr::include_graphics(file.path('figures/benthic/Fig4_D28A.png'))
+```
+***
+### Southern Interior Delta
+
+Further upstream in the San Joaquin River, site P8 at Buckley Cove was dominated by the sabellid worm M. speciosa which saw peaks in October and March. In addition to this species, which accounted for 59% of all organisms, site P8 saw a diverse community of freshwater oligochaetes, aquatic insects, and amphipods in addition to the non-native clam C. fluminea.
+
+At Clifton Court Forebay, freshwater site C9 was dominated by a number of annelid species in 2019. Varichaetadrilus angustipenis, Limnodrilus hoffmeisteri,and Ilyodrilus frantzi were present at high densities throughout the year, at moderately higher levels than in 2018. The amphipod Hyalalla sp. A experienced a dramatic peak in density in November and December (Figure 11).  Site C9 is regularly one of our most biodiverse sites, with an additional large number of species present at low densities.
+
+```{r echo=FALSE, fig.show = 'hold', out.width = '50%', fig.cap='Density of benthic organisms, by month, collected at station (left) P8 and (right) C9 in 2019.', fig.align='center'}
+knitr::include_graphics(file.path('figures/benthic/Fig5_P8.png'))
+knitr::include_graphics(file.path('figures/benthic/Fig6_C9.png'))
+```
+***
+### Summary {.unlisted .unnumbered}
+
+In summary, 2019 saw an overall decrease in invasive clam density from 2018 (13% for P. amurensis and 10% for C. fluminea). Other notable features of 2019 were the sharp decrease in overall density of the amphipod A. abdita in Grizzly Bay, after reaching a decadal peak in 2018, likely due to 2019’s decreased salinity, as well as the 2019 increase in the annelid M. speciosa, after its steady decrease from 2015 – 2018.
+ Our ability to recognize these changes highlights the importance of monitoring benthic invertebrates to a high taxonomic resolution across the entire estuarine salinity gradient since the community has important interactions with various abiotic conditions as well as key parts of the estuarine food web.

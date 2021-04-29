@@ -1,4 +1,4 @@
-/*@import url("https://fonts.googleapis.com/css?family=Bitter|Roboto|Roboto+Mono|Roboto+Condensed|Open+Sans|Lato|Lora|Fira+Sans|Yellotail");*/
+@import url("https://fonts.googleapis.com/css?family=Oswald|Arimo");
 
 /* title page */
 .book .book-body .page-wrapper .page-inner section.normal h1.title {
@@ -15,7 +15,7 @@
   font-style:  normal;
   font-variant:  small-caps;
   font-weight: 200;
-  font-family: 'Roboto Condensed', 'Fira Sans', Roboto, 'Open Sans', sans;
+  font-family: 'Arimo';
 }
 
 
@@ -25,7 +25,7 @@
   font-size:  75%;
   font-style:  normal;       /* ignored thanks to bootstrap random enforcement of em*/
   font-variant:  small-caps;
-  font-family:  Roboto, 'Open Sans', sans;
+  font-family: 'Arimo';
 }
 
 .book .book-body .page-wrapper .page-inner section.normal h4.date {
@@ -51,7 +51,7 @@
     background-color: #ffffff;
     color: #585858;
     padding: 5px 15px;
-    font-family: Bitter, Roboto, 'Helvetica Neue', sans-serif;
+    font-family:'Arimo';
     word-wrap: break-word;
     overflow: hidden;
     line-height: 1.7;
@@ -70,10 +70,9 @@
 }
 
 /* link effects */
-/*
-https://stackoverflow.com/questions/28623446/hover-effect-expand-bottom-border
-uri class is for urls
-*/
+a.link {
+  color: #DAA520;
+}
 
 .book .book-body .page-wrapper .page-inner section.normal a:active, 
 .book .book-body .page-wrapper .page-inner section.normal a:focus, 
@@ -110,7 +109,7 @@ uri class is for urls
     height: 48px;    /* adjust to match title space*/
     padding: 0 8px;
     z-index: 2;
-    font-family: Roboto sans-serif;
+    font-family: 'Oswald', sans-serif;
     font-size: .85em;
     color: #7e888b;
     background-color: #ffffff;
@@ -126,7 +125,6 @@ uri class is for urls
 .book.with-summary .book-header.fixed {
   background-color: #ffffff;
   font-variant: small-caps;
-  /*font-family: Stalemate Roboto Sans; ignored as all it is doing is taking from index title*/
   border-bottom: 0 solid rgba(0,0,0,.07);  /*just remove it; this makes height in .book-header above moot*/
   border-bottom-width: 0;
   border-bottom-style: solid;
@@ -160,14 +158,13 @@ i {
     display: block;
     padding: 10px 25px;
     border-bottom: none;
-    color: #364149; /**/
+    color: #364149;
     background: 0 0;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
     position: relative;
-    font-family: Lato,'Roboto Condensed', sans;
-    /* font-variant: small-caps; */
+    font-family: 'Arimo';
 }
 
 
@@ -318,19 +315,6 @@ img {
     transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
 }
 
-
-/* creative commons, github icons */
-.fab .fa-creative-commons, .fa-creative-commons-sa, .fa-creative-commons-by, .fa-github, .fa-lg {
-  color: #006699;
-  background-color: transparent;
-}
-
-.icon {
-  background: url('figures/general/dwr-logo.png');
-  height: 20px;
-  width: 20px;
-}
-
 /* text highlights */
 .book .book-body .page-wrapper .page-inner section.normal em, .emph {
   color: #006699BF;  /*#E32D00 #ff5500 #D14300*/
@@ -338,20 +322,10 @@ img {
   font-style: normal;
 }
 
-/* pack func and objclass colors initially come from hcl(seq(90,360, length.out=4), c=80, l=80); redone for contrast*/
-.pack {
-  color: #1f65b7; /* #990071 #AC9CFF #e41a1c*/
-  font-weight: 500;
-}
-
-.func {
-  color: #007020;   /*#007199 #00CBB6; #984ea3; can just use `` instead*/
-  font-weight: 500;
-}
-
-.objclass {
-  color:  #947100;  /*#AAB400 #4daf4a; #FFC5D0*/
-  font-weight: 500;
+/* address */
+.address {
+  display: block;
+  font-style: bold;
 }
 
 /* miscellaneous */
@@ -396,99 +370,21 @@ div.datatables {
   background-position: center; 
 }
 
-
-/* slideshow stuff */
-* {box-sizing:border-box}
-
-/* Slideshow container */
-.slideshow-container {
-  max-width: 1000px;
-  position: relative;
-  margin: auto;
-}
-
-/* Hide the images by default */
-.mySlides {
-  display: none;
-}
-
-/* Next & previous buttons */
-.prev, .next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  margin-top: -22px;
-  padding: 16px;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
-}
-
-/* Position the "next button" to the right */
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
-
-/* On hover, add a black background color with a little bit see-through */
-.prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
-}
-
-/* Caption text */
-.text {
-  color: #f2f2f2;
-  font-size: 15px;
-  padding: 8px 12px;
-  position: absolute;
-  bottom: 8px;
-  width: 100%;
-  text-align: center;
-}
-
-/* Number text (1/3 etc) */
-.numbertext {
-  color: #f2f2f2;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
-}
-
-/* The dots/bullets/indicators */
-.dot {
-  cursor: pointer;
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
-}
-
-.active, .dot:hover {
-  background-color: #717171;
-}
-
-/* Fading animation */
-.fade {
-  -webkit-animation-name: fade;
-  -webkit-animation-duration: 1.5s;
-  animation-name: fade;
-  animation-duration: 1.5s;
-}
-
-@-webkit-keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
-}
-
-@keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
-}
+/* image stuff */
+.list-unstyled {
+        padding-left: 0;
+        list-style: none;
+    }
+    .list-inline {
+        padding-left: 0;
+        margin-left: -5px;
+        list-style: none;
+    }
+    .list-inline > li {
+        display: inline-block;
+        padding-right: 5px;
+        padding-left: 5px;
+    }
+    .text-center {
+        text-align: center;
+    }
