@@ -11,16 +11,10 @@ github-repo: emp-des/emp-reports
 description: 'These reports shows trends in discrete water quality, benthic invertebrates, phytoplankton, and zooplankton collected by EMP.'
 ---
 
-
-```{r echo=FALSE, out.width='20%', out.height='100px', fig.show='hold'}
-# knitr::include_graphics(c('figures/general/emp-pic-1.png','figures/general/emp-pic-2.png','figures/general/emp-pic-3.jpg'))
-```
-
 ```{r, echo=FALSE}
+# add in slideshow
 htmltools::includeHTML('html-css/slideshow.html')
 ```
-
-<!-- ![](figures/general/emp-pic-1.png){width=200px, height=110px} ![](figures/general/emp-pic-2.png){width=110px, height=110px} ![](figures/general/emp-pic-3.jpg){width=200px, height=300px} -->
 
 ## Program Information
 <b>THIS IS A TEST SITE.</b> For official annual EMP reports, please contact Sarah Perry at sarah.perry@water.ca.gov.

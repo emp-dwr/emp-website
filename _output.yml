@@ -6,15 +6,34 @@ bookdown::gitbook:
     toc:
       before: |
         <li class='before'><a href="./">EMP Annual Reports</a></li>
-#      after: |
-#        <li class='after'><a href="./">EMP Annual Reports</a></li>
+      after: |
+        <li class='after'><a href="./">EMP Annual Reports</a></li>
+        <li class='after'>
+          <div style='text-align:center'>
+            <i class='icon'></i>
+          </div>
+        </li>
 #         <li class='after'>
-#            <div style='text-align:center'>
+#            <div style='text-align:center'> <div style=display:inline-block>
 #               <a href="./">
-#                  <img src="figures/general/dwr-logo.png" style="width:25%; padding:0px 0; display:block; margin: 0 auto;" alt="DWR logo">
+#                  <img src="figures/general/dwr-logo.png" style="width:50px; height:50px; padding:0px 0; display:block; margin: 0 auto;" alt="DWR logo">
 #               </a>
 #            </div>
 #         </li>
+#         <li class='after'>
+#            <div style='text-align:right'>
+#               <a href="./">
+#                  <img src="figures/general/iep-logo.jpg" style="width:50px; height:50px; padding:0px 0; display:block; margin: 0 auto;" alt="IEP logo">
+#               </a>
+#           </div>
+ #        </li>
+#         <li class='after'>
+#            <div style='text-align:left'>
+#               <a href="./">
+#                  <img src="figures/general/cdfw-logo.png" style="width:50px; height:50px; padding:0px 0; display:block; margin: 0 auto;" alt="CDFW logo">
+#               </a>
+#           </div>
+ #        </li>
       toc_depth: 4
     download: ['pdf']
     sharing: false
