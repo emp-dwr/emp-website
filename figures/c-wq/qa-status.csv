@@ -1,0 +1,6 @@
+﻿Analyte,Excellent,Good,Fair,Poor
+Water Temperature (°C),≤±0.2,±0.2-0.5,±0.5-0.8,>±0.8
+Specific Conductance (μS/cm),≤±3%,±3-10%,±10-15%,>±15%
+Dissolved Oxygen (mg/L),≤±0.3 or ≤±5%,±0.3-0.5 or or ±5-10%,±0.5-0.8 or ±10-15%,>±0.8 or >±15%
+pH,≤±0.2,±0.2-0.5,±0.5-0.8,>±0.8
+Turbidity (NTU),≤±0.5 or ≤±5%,±0.5-1.0 or ±5-10%,±1.0-1.5 or ±10-15%,>±1.5 or or >±15%
