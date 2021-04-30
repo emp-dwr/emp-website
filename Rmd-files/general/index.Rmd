@@ -26,5 +26,5 @@ In 1971, the State Water Resources Control Board (SWRCB) established Water Right
 More information about EMP and its connection to the Interagency Ecological Program (IEP) can be found [here](https://water.ca.gov/Programs/Environmental-Services/Interagency-Ecological-Program).
 
 ```{r echo=FALSE, out.width = '400px', fig.align='center', fig.cap='Map of the Sacramento-San Joaquin Delta. Source: DWR'}
-knitr::include_graphics(file.path('figures/general/deltamap.jpg'))
+knitr::include_graphics(file.path('html-css/figures/general/deltamap.jpg'))
 ```

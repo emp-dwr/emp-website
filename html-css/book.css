@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Oswald|Arimo");
+@import url('https://fonts.googleapis.com/css?family=Oswald|Arimo');
 
 /* title page */
 .book .book-body .page-wrapper .page-inner section.normal h1.title {
@@ -67,6 +67,11 @@
     -moz-transition: left 250ms ease;
     -o-transition: left 250ms ease;
     transition: left 250ms ease;
+}
+
+/* remove navigation arrows */
+.book .book-body .navigation {
+    display: none;
 }
 
 /* link effects */
@@ -323,8 +328,7 @@ img {
 }
 
 /* address */
-.address {
-  display: block;
+.address-spec {
   font-style: bold;
 }
 
