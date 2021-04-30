@@ -21,7 +21,7 @@ Biannual sampling was conducted in late spring and fall, from 1975 to 1979. Mont
 ### Sample Sites {.unlisted .unnumbered}
 A list of the stations at which benthic invertebrate sampling has occurred is available
 ```{r echo=FALSE}
-xfun::embed_file(path = 'data/benthic/benthic_site_locs.xlsx', name = 'benthic_site_locs.xslx', text = 'here.')
+xfun::embed_file(path = 'data/benthic/benthic_site_locs.xlsx', name = 'benthic_site_locs.xlsx', text = 'here.')
 ```
 Note: Coordinates are in decimal degrees, and channel position is determined while facing downstream.
 

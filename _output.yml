@@ -4,9 +4,11 @@ bookdown::gitbook:
   split_by: rmd
   config:
     toc:
+      depth: 5
+      collapse: section
       scroll_highlight: yes
       before: |
-        <li class='before'><a>EMP Annual Reports</a></li>
+        <li class='before'><a href='index.html'>EMP Annual Reports</a></li>
       after: |
        <ul class='list-unstyled list-inline text-center'>
           <li class='after'>
@@ -30,11 +32,10 @@ bookdown::gitbook:
             </div>
           </li>
         </li>
-      toc_depth: 2
+    
     download: ['pdf']
     sharing: false
-#    info: false
-#    edit: false
+
    #    facebook: false
    #   twitter: false
     # highlight: tango

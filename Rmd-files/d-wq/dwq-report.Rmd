@@ -1,23 +1,9 @@
----
-  html_document: 
-    code_folding: hide
-    toc: true
-    toc_depth: 1
-    toc_float:
-      collapsed: false
-editor_options: 
-  chunk_output_type: console
----
-
 ## Current Report {#dwq-report}
 
-### Introduction {.unlisted .unnumbered}
+### Introduction
 
 Water year 2019 was classified as Above Average in the Sacramento Valley and San Joaquin Valley, unlike the previous year, which was classified as Below Average. More information about water year types can be found on the hydrology page. The 2018-2019 data from all stations within the same region were plotted on one graph and then combined with the graphs from other regions to make a facet graph for each parameter. The minimum and maximum values in 2019 were determined for each field parameter or laboratory analyte to show the range within a single year. The instances when a result fell below the reporting limit were excluded from these minimum and maximum calculations. When this occurred, a vertical dashed line capped at the reporting limit was added to the graph to represent the presence of a non-detect. 
 
-```{r echo=FALSE, fig.cap='Table 1: Station groupings of the six regions'}
-# knitr::include_graphics(file.path(fig_root_static,"mline.png"))
-```
 ***
 ### Specific Conductance
 
@@ -66,3 +52,11 @@ In 2019, total phosphorous levels ranged from 0.04 mg/L (C3A in Northern Interio
 ```{r echo=FALSE, fig.cap='Total phosphorous concentrations in mg/L at six regions in the San Francisco Bay-Delta estuary during 2018-2019. Dashed lines represent the range of possible values for months where the raw value was a non-detect.', fig.align='center'}
 knitr::include_graphics(file.path('figures/wq_graphs/ARGraph_TotPhos.jpg'))
 ```
+***
+## Data and Archived Reports
+
+EMP's discrete water quality data sets are available publically via the Environmental Data Initiative (EDI) [here](https://portal.edirepository.org/nis/mapbrowse?scope=edi&identifier=458&revision=3).
+
+Archived annual reports can be found [here]() (link currently broken).
+
+For questions related to EMP's discrete water quality data sets, please contact Morgan Martinez at morgan.martinez@water.ca.gov.

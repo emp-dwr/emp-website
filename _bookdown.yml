@@ -4,22 +4,28 @@ language:
     chapter_name: ''
 delete_merged_file: true
 output_dir: './docs'
-sharing: null
 
 rmd_files: [
   'Rmd-files/general/index.Rmd',
+  
+  # C-WQ
+  'Rmd-files/c-wq/cwq-info.Rmd',
+  'Rmd-files/c-wq/cwq-report.Rmd',
 
   # D-WQ
   'Rmd-files/d-wq/dwq-info.Rmd',
   'Rmd-files/d-wq/dwq-report.Rmd',
-  'Rmd-files/d-wq/dwq-data.Rmd',
 
   # Benthic
-  'Rmd-files/benthic/benthic-intro.Rmd',
+  'Rmd-files/benthic/benthic-info.Rmd',
   'Rmd-files/benthic/benthic-meta.Rmd',
   'Rmd-files/benthic/benthic-report.Rmd',
-  'Rmd-files/benthic/benthic-data.Rmd',
   
-  # Extra
-  'Rmd-files/general/refs.Rmd'
+  # Phyto
+  'Rmd-files/phyto/phyto-info.Rmd',
+  'Rmd-files/phyto/phyto-report.Rmd',
+  
+  # Zoop
+  'Rmd-files/zoop/zoop-info.Rmd',
+  'Rmd-files/zoop/zoop-report.Rmd',
 ]
