@@ -1,14 +1,11 @@
 --- 
 site: bookdown::bookdown_site
-output: html_document
 title: 'EMP Annual Reports'
 number_sections: FALSE
 documentclass: book
-bibliography: [book.bib, packages.bib]
-biblio-style: apalike
 link-citations: yes
 github-repo: emp-des/emp-reports
-description: 'These reports shows trends in discrete water quality, benthic invertebrates, phytoplankton, and zooplankton collected by EMP.'
+description: 'These reports shows trends in water quality, benthic invertebrates, phytoplankton, and zooplankton collected by EMP.'
 ---
 
 ```{r, echo=FALSE}
@@ -16,7 +13,7 @@ description: 'These reports shows trends in discrete water quality, benthic inve
 htmltools::includeHTML('html-css/slideshow.html')
 ```
 
-## Program Information
+# Program Information
 <b>THIS IS A TEST SITE.</b> For official annual EMP reports, please contact Sarah Perry at sarah.perry@water.ca.gov.
 
 The State Water Resources Control Board (SWRCB) sets water quality objectives to protect beneficial uses of water in the Sacramento-San Joaquin Delta and Suisun and San Pablo Bays. These objectives are met by establishing standards mandated in water right permits issued to the Department of Water Resources and U.S. Bureau of Reclamation by the SWRCB. The standards include minimum Delta outflows, limits to Delta water export by the State Water Project (SWP) and the Central Valley Project (CVP), and maximum allowable salinity levels.
@@ -28,3 +25,14 @@ More information about EMP and its connection to the Interagency Ecological Prog
 ```{r echo=FALSE, out.width = '400px', fig.align='center', fig.cap='Map of the Sacramento-San Joaquin Delta. Source: DWR'}
 knitr::include_graphics(file.path('figures/general/deltamap.jpg'))
 ```
+
+## Videos {.unlisted}
+<div align='center'>
+  <iframe width='560' height='315' src='http://www.youtube.com/embed/I8gLVt7RlmU' frameborder='0' allowfullscreen></iframe>
+</div>
+
+<br>
+
+<div align='center'>
+  <iframe width='560' height='315' src='http://www.youtube.com/embed/8TfORxxAvZ8' frameborder='0' allowfullscreen></iframe>
+</div>

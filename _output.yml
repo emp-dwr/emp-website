@@ -2,9 +2,9 @@ bookdown::gitbook:
   css: [html-css/book.css, html-css/slideshow.css, 'https://use.fontawesome.com/releases/v5.14.0/css/all.css']
   number_sections: false
   split_by: rmd
+  toc_depth: 5
   config:
     toc:
-      depth: 5
       collapse: section
       scroll_highlight: yes
       before: |
@@ -25,15 +25,13 @@ bookdown::gitbook:
           </li>
         </ul>
         
-        <li class='address-spec'>
-          <li class='after'>
-            <div style='text-align:center'>
+        <address>
+          <div style='text-align:center'>
             <a href='mailto:theodore.flynn@water.ca.gov'>contact us</a>
-            </div>
-          </li>
-        </li>
+          </div>
+        </address>
     
-    download: ['pdf']
+    download: false # ['pdf']
     sharing: false
 
    #    facebook: false
