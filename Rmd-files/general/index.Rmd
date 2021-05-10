@@ -28,11 +28,11 @@ knitr::include_graphics(file.path('figures/general/deltamap.jpg'))
 
 ## Videos {.unlisted}
 <div align='center'>
-  <iframe width='560' height='315' src='http://www.youtube.com/embed/I8gLVt7RlmU' frameborder='0' allowfullscreen></iframe>
+  <iframe width='560' height='315' src='https://www.youtube.com/embed/I8gLVt7RlmU' frameborder='0' allowfullscreen></iframe>
 </div>
 
 <br>
 
 <div align='center'>
-  <iframe width='560' height='315' src='http://www.youtube.com/embed/8TfORxxAvZ8' frameborder='0' allowfullscreen></iframe>
+  <iframe width='560' height='315' src='https://www.youtube.com/embed/8TfORxxAvZ8' frameborder='0' allowfullscreen></iframe>
 </div>
