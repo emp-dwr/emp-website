@@ -23,7 +23,6 @@
   display: block;
   margin: 0 0 10px 0;
   font-size:  75%;
-  font-style:  normal;       /* ignored thanks to bootstrap random enforcement of em*/
   font-variant:  small-caps;
   font-family: 'Arimo';
 }
@@ -35,7 +34,6 @@
 }
 
 /* main */
-
 .book  {
   background-color: #ffffff;
 }
@@ -43,8 +41,6 @@
 .section {
   background-color: #ffffff;
 }
-
-
 
 .book .book-body .page-wrapper .page-inner section.normal {
     display: block;
@@ -121,7 +117,7 @@ a.link {
     /* background: 0 0; */
 }
 
-/* only way to set bgcolor of top bar?*/
+/* top bar bg color */
 .book-body.fixed {
   background-color: #ffffff;
 }
@@ -149,8 +145,8 @@ i {
     bottom: 0;
     z-index: 1;
     width: 300px;
-    color: #364149;  /**/
-    background: #f5f5f540; /* #eaf5fb;  #d9edf7#bdcadb #3572D9 #fafafa*/
+    color: #364149;
+    background: #f5f5f540;
     border-right: 1px solid rgba(0,0,0,.07);
     -webkit-transition: left 250ms ease;
     -moz-transition: left 250ms ease;
@@ -228,14 +224,13 @@ i {
 
 .book .book-body .page-wrapper .page-inner section.normal .note {
   background-color: #fafafa;
-  /*background-image: url('../img/R.ico');*/
   font-size: 80% ;
   margin: auto;
   font-weight: 500;
   /*max-width: 75%;*/
   border-width: 10px;
   border-color: #bfbfbf;
-  box-shadow: 10px 10px 5px #EBEBEB; /*#888888*/
+  box-shadow: 10px 10px 5px #EBEBEB;
   padding: 1em;
 }
 
@@ -254,26 +249,11 @@ h1, h2, h3, h4, h5 {
 }
 */
 
-.footnotes {
-  color: #00000080;
-}
-
-
 /* code */
-
-/* logical NA */
-.ot {
- color: #337ab7;
-}
 
 /* char/string */
 .ch, .st {
  color: #aa5500;
-}
-
-/* args */
-.dt {
-
 }
 
 /* package */
@@ -298,21 +278,6 @@ img {
   margin: 0 auto;
 }
 
-/*.arc {
-  display: block;
-  width:30%; 
-  padding:5px 0; 
-  margin: 0 0 10px 0;
-}
-
-.cscar {
-  display: block;
-  width:21%; 
-  padding:5px 0; 
-  margin: 0 0 10px 0;
-}
-*/
-
 /* zoom for img
 .zoom {
     transition: all .3s;
@@ -325,7 +290,7 @@ img {
 
 /* text highlights */
 .book .book-body .page-wrapper .page-inner section.normal em, .emph {
-  color: #006699BF;  /*#E32D00 #ff5500 #D14300*/
+  color: #006699BF;
   font-weight: 500;
   font-style: normal;
 }
@@ -349,23 +314,6 @@ img {
   -moz-columns: 3 100px;
 }
 
-/* tables
-
-table {
-  margin: auto;
-}
-
-.book .book-body .page-wrapper .page-inner section.normal table tr:nth-child(2n) {
-    background-color: white;
-}
-
-*/
-
-.datatables {
-    margin-left: auto;     /* to center them when full is not necessary. */
-    margin-right: auto;
-}
-
 .book .book-body .page-wrapper .page-inner section.normal .outro {
   text-align: center;
   line-height: 1000px; /* <-- this is what you must define */
@@ -374,7 +322,6 @@ table {
   color: hotpink;
   font-family: yellowtail;
   height: 1000px;
-/*  background-image: url('../img/mc_sunset_2.png'); */
   background-size: 50%;
   background-repeat: no-repeat;
   background-position: center; 
