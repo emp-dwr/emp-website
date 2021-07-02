@@ -349,7 +349,7 @@ img {
 
 /* part headers */
 li.part, .part span {
-  text-decoration: underline;
+  /* text-decoration: underline overline; */
   font-size: 103%;
   opacity: .9 !important;
   color: #006699 !important;
