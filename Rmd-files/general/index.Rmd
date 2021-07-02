@@ -8,12 +8,12 @@ github-repo: emp-des/emp-reports
 description: "Website for CA DWR's Environmental Monitoring Program."
 ---
 
-# (PART) General {-}
-
 ```{r, echo=FALSE}
 # add in slideshow
 htmltools::includeHTML('html-css/slideshow.html')
 ```
+
+# (PART) General {-}
 
 # Program Information
 <b>THIS IS A TEST SITE.</b> For official annual EMP reports, please contact Sarah Perry at sarah.perry@water.ca.gov.
