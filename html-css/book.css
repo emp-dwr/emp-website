@@ -347,6 +347,7 @@ img {
         text-align: center;
     }
 
+/* part headers */
 li.part, .part span {
   text-decoration: underline;
   font-size: 103%;
