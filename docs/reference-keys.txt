@@ -1,15 +1,14 @@
 fig:unnamed-chunk-2
 fig:unnamed-chunk-4
 tab:unnamed-chunk-5
-tab:unnamed-chunk-6
 tab:unnamed-chunk-7
-fig:unnamed-chunk-8
-tab:unnamed-chunk-9
+tab:unnamed-chunk-8
+fig:unnamed-chunk-9
 tab:unnamed-chunk-10
 tab:unnamed-chunk-11
 tab:unnamed-chunk-12
 tab:unnamed-chunk-13
-fig:unnamed-chunk-14
+tab:unnamed-chunk-14
 fig:unnamed-chunk-15
 fig:unnamed-chunk-16
 fig:unnamed-chunk-17
@@ -48,7 +47,7 @@ fig:unnamed-chunk-49
 fig:unnamed-chunk-50
 fig:unnamed-chunk-51
 fig:unnamed-chunk-52
-fig:unnamed-chunk-54
+fig:unnamed-chunk-53
 fig:unnamed-chunk-55
 fig:unnamed-chunk-56
 fig:unnamed-chunk-57
@@ -59,9 +58,9 @@ fig:unnamed-chunk-61
 fig:unnamed-chunk-62
 fig:unnamed-chunk-63
 fig:unnamed-chunk-64
-fig:unnamed-chunk-67
-tab:unnamed-chunk-68
-fig:unnamed-chunk-69
+fig:unnamed-chunk-65
+fig:unnamed-chunk-68
+tab:unnamed-chunk-69
 fig:unnamed-chunk-70
 fig:unnamed-chunk-71
 fig:unnamed-chunk-72
@@ -79,3 +78,4 @@ fig:unnamed-chunk-83
 fig:unnamed-chunk-84
 fig:unnamed-chunk-85
 fig:unnamed-chunk-86
+fig:unnamed-chunk-87

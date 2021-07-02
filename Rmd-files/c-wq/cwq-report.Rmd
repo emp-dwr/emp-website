@@ -12,19 +12,6 @@ kable_tables <- function(data, caption) {
 }
 ```
 
-### Introduction
-The Continuous Environmental Monitoring Program provides real-time quarter-hourly water quality and environmental data from 15 automated sampling stations in the estuary (Figure 1). The stations provide continuous measurements of 6 water quality parameters and up to 4 environmental parameters at select locations. These measurements are used by operators of the State Water Project (SWP) and the Central Valley Project (CVP) to assess the impacts of the project operations and to adjust project operations to comply with mandated water quality standards. The continuous monitoring program has been in operation since 1983. This report summarizes the results of continuous water quality monitoring at 15 sites for calendar year 2019. The stations are categorized into 5 regions. (Table 1, Figure 1): Northern Interior Delta, Southern Interior Delta, Central Delta, Confluence and Grizzly & Suisun Bays.
-
-```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Map of EMP Continuous Water Quality Stations.', fig.align='center'}
-knitr::include_graphics(file.path('figures/c-wq/2019/CEMPStationMap.png'))
-```
-
-```{r echo=FALSE, warning=FALSE, message=FALSE, results = 'asis'}
-cwq_stations <- readr::read_csv('figures/c-wq/cwq_stations.csv')
-kable_tables(cwq_stations, caption = 'Regions of Continuous EMP')
-```
-
-***
 ### Methods
 Continuous data were collected for the water quality and environmental parameters shown below. Each of the 15 monitoring stations collected continuous data for water temperature (WT), pH, dissolved oxygen (DO), surface specific conductance (SpC), chlorophyll a fluorescence, and turbidity. Additional sensors were installed at the Antioch, Mallard Island, and Martinez stations in the 1990’s to monitor bottom SpC. These measurements, along with river stage data measured at the Mallard Island and Martinez stations, were needed to determine compliance with the salinity standard (also known as X2) that was mandated by the Bay-Delta Plan (SWRCB, 1995).
 Environmental data, such as air temperature (AT), solar radiation (SRI), wind speed (WV), and wind direction (WD), were measured at all stations as part of D-1641’s Table 3 objectives (SWRCB, 1999). The only environmental parameter analyzed for this report was air temperature from a MET-1 Instrument Mod. 062 sensor.
