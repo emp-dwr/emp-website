@@ -346,3 +346,12 @@ img {
     .text-center {
         text-align: center;
     }
+
+li.part, .part span {
+  text-decoration: underline;
+  font-size: 103%;
+  opacity: .9 !important;
+  color: #006699 !important;
+  font-family: 'Arimo', sans-serif !important;
+  font-variant:  small-caps;
+}

@@ -1,12 +1,14 @@
 --- 
 site: bookdown::bookdown_site
-title: 'EMP Annual Reports'
+title: 'Environmental Monitoring Program'
 number_sections: FALSE
 documentclass: book
 link-citations: yes
 github-repo: emp-des/emp-reports
-description: 'These reports shows trends in water quality, benthic invertebrates, phytoplankton, and zooplankton collected by EMP.'
+description: "Website for CA DWR's Environmental Monitoring Program."
 ---
+
+# (PART) General {-}
 
 ```{r, echo=FALSE}
 # add in slideshow

@@ -2,6 +2,7 @@ book_filename: 'EMP Reports'
 language:
   ui:
     chapter_name: ''
+    part: ''
 delete_merged_file: true
 output_dir: './docs'
 
@@ -28,4 +29,7 @@ rmd_files: [
   # Zoop
   'Rmd-files/zoop/zoop-info.Rmd',
   'Rmd-files/zoop/zoop-report.Rmd',
+  
+  # Special Studies
+    'Rmd-files/general/index-studies.Rmd',
 ]
