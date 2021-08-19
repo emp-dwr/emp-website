@@ -7,29 +7,29 @@ delete_merged_file: true
 output_dir: './docs'
 
 rmd_files: [
-  'Rmd-files/general/index.Rmd',
+  'sections/general/Rmd-files/index.Rmd',
   
   # C-WQ
-  'Rmd-files/c-wq/cwq-info.Rmd',
-  'Rmd-files/c-wq/cwq-report.Rmd',
+  'sections/c-wq/Rmd-files//cwq-info.Rmd',
+  'sections/c-wq/Rmd-files/cwq-report.Rmd',
 
   # D-WQ
-  'Rmd-files/d-wq/dwq-info.Rmd',
-  'Rmd-files/d-wq/dwq-report.Rmd',
+  'sections/d-wq/Rmd-files/dwq-info.Rmd',
+  'sections/d-wq/Rmd-files/dwq-report.Rmd',
 
   # Benthic
-  'Rmd-files/benthic/benthic-info.Rmd',
-  'Rmd-files/benthic/benthic-meta.Rmd',
-  'Rmd-files/benthic/benthic-report.Rmd',
+  'sections/benthic/Rmd-files/benthic-info.Rmd',
+  'sections/benthic/Rmd-files/benthic-meta.Rmd',
+  'sections/benthic/Rmd-files/benthic-report.Rmd',
   
   # Phyto
-  'Rmd-files/phyto/phyto-info.Rmd',
-  'Rmd-files/phyto/phyto-report.Rmd',
+  'sections/phyto/Rmd-files/phyto-info.Rmd',
+  'sections/phyto/Rmd-files/phyto-report.Rmd',
   
   # Zoop
-  'Rmd-files/zoop/zoop-info.Rmd',
-  'Rmd-files/zoop/zoop-report.Rmd',
+  'sections/zoop/Rmd-files/zoop-info.Rmd',
+  'sections/zoop/Rmd-files/zoop-report.Rmd',
   
   # Special Studies
-    'Rmd-files/general/index-studies.Rmd',
+    'sections/general/Rmd-files/index-studies.Rmd',
 ]
