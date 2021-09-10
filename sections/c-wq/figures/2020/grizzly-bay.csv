@@ -1,0 +1,5 @@
+﻿Statistic,Specific Conductance (μs/cm),Specific Conductance (μs/cm),Turbidity (NTU),Water Temperature (°C),Water Temperature (°C),Dissolved Oxygen (mg/L),pH,Fluorescence (μg/L)
+,Surface,Bottom,Surface,Surface,Bottom,Surface,Surface,Surface
+MIN,1933,2026,5.00,8.97,9.11,7.21,7.54,0.62
+MAX,30939,33350,98.80,23.61,23.57,10.60,8.19,9.32
+AVERAGE,13913,18080,21.10,16.90,16.70,8.87,7.89,2.15

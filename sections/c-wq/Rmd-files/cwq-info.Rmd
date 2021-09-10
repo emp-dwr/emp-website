@@ -3,7 +3,10 @@
 # Continuous Water Quality {#cwq}
 
 ## Background {.unlisted}
-The Continuous Environmental Monitoring Program provides real-time quarter-hourly water quality and environmental data from 15 automated sampling stations in the estuary (Figure 1). The stations provide continuous measurements of 6 water quality parameters and up to 4 environmental parameters at select locations. These measurements are used by operators of the State Water Project (SWP) and the Central Valley Project (CVP) to assess the impacts of the project operations and to adjust project operations to comply with mandated water quality standards. The continuous monitoring program has been in operation since 1983. This report summarizes the results of continuous water quality monitoring at 15 sites for calendar year 2019. The stations are categorized into 5 regions. (Table 1, Figure 1): Northern Interior Delta, Southern Interior Delta, Central Delta, Confluence and Grizzly & Suisun Bays.
+The Continuous Environmental Monitoring Program (CEMP) provides real-time quarter-hourly water quality and environmental data from 15 automated sampling stations in the estuary (Figure 1). The stations provide continuous measurements of 6 water quality parameters and up to 4 environmental parameters at select locations. These measurements are used by operators of the State Water Project (SWP) and the Central Valley Project (CVP) to assess the impacts of the project operations and to adjust project operations to comply with mandated water quality standards. The continuous monitoring program has been in operation since 1983. This report summarizes the results of continuous water quality monitoring at 15 sites for calendar year 2020. The stations are categorized into 5 regions. (Table 1, Figure 1): Northern Interior Delta, Southern Interior Delta, Central Delta, Confluence and Grizzly & Suisun Bays.
+
+NOTE: CEMP's Sherman Island station (SSI), which was called D11A in previous reports, has been renamed D22A to better reflect it's location in relation to historical station D22.
+
 ```{r echo = FALSE}
 # import pipe operator
 `%>%` <- magrittr::`%>%`
@@ -18,10 +21,10 @@ kable_tables <- function(data, caption) {
 ```
 
 ```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Map of EMP Continuous Water Quality Stations.', fig.align='center'}
-knitr::include_graphics(file.path('sections/c-wq/figures/2019/CEMPStationMap.png'))
+knitr::include_graphics(file.path('sections/c-wq/figures/2020/CEMPStationMap.png'))
 ```
 
 ```{r echo=FALSE, warning=FALSE, message=FALSE, results = 'asis'}
-cwq_stations <- readr::read_csv('sections/c-wq/figures/cwq_stations.csv')
+cwq_stations <- readr::read_csv('sections/c-wq/figures/2020/cwq_stations.csv')
 kable_tables(cwq_stations, caption = 'Regions of Continuous EMP')
 ```

@@ -13,233 +13,237 @@ kable_tables <- function(data, caption) {
 ```
 
 ### Methods
-Continuous data were collected for the water quality and environmental parameters shown below. Each of the 15 monitoring stations collected continuous data for water temperature (WT), pH, dissolved oxygen (DO), surface specific conductance (SpC), chlorophyll a fluorescence, and turbidity. Additional sensors were installed at the Antioch, Mallard Island, and Martinez stations in the 1990’s to monitor bottom SpC. These measurements, along with river stage data measured at the Mallard Island and Martinez stations, were needed to determine compliance with the salinity standard (also known as X2) that was mandated by the Bay-Delta Plan (SWRCB, 1995).
-Environmental data, such as air temperature (AT), solar radiation (SRI), wind speed (WV), and wind direction (WD), were measured at all stations as part of D-1641’s Table 3 objectives (SWRCB, 1999). The only environmental parameter analyzed for this report was air temperature from a MET-1 Instrument Mod. 062 sensor.
+Continuous data were collected for the water quality and environmental parameters shown in Table 2. Each of the 15 monitoring stations collected continuous data for water temperature (WT), pH, dissolved oxygen (DO), surface specific conductance (SpC), chlorophyll a fluorescence, and turbidity.  Additional sensors were installed at the Antioch, Mallard Island, and Martinez stations in the 1990’s to monitor bottom SpC. These measurements, along with river stage data measured at the Mallard Island and Martinez stations, were needed to determine compliance with the salinity standard (also known as X2) that was mandated by the Bay-Delta Plan (SWRCB, 1995). 
 
-Except for bottom SpC, all water samples were collected at 1-m below the water surface using a float-mounted YSI EXO2 multi-parameter water quality sonde. In contrast, bottom SpC was measured at 1.5 m above the channel bottom using a YSI EXO1 sonde. Water quality data and environmental data were recorded at 15-minute intervals.
+Environmental data, such as air temperature (AT), solar radiation (SRI), wind speed (WV), and wind direction (WD), were measured at all stations as part of D-1641’s  objectives (SWRCB, 1999). The only environmental parameter analyzed for this report was air temperature from a MET-1 Instrument Mod. 062 sensor. 
+
+Except for bottom specific conductance, all water samples were collected at 1-m below the water surface using a float-mounted YSI EXO2 multi-parameter water quality sonde.  In contrast, bottom specific conductance was measured at 1.5 m above the channel bottom using a YSI EXO1 sonde. Water quality data and environmental data were recorded at 15-minute intervals. 
+
 
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
-params <- readr::read_csv('sections/c-wq/figures/params.csv')
+params <- readr::read_csv('sections/c-wq/figures/2020/params.csv')
 kable_tables(params, caption = 'Parameters sampled by Continuous EMP')
 ```
 
 ***
 ### QA Status
-On a monthly basis, quality assurance and control measures were applied using field verification data sheets. Data affiliated with instrument issues were flagged and excluded from the analysis.
+On a monthly basis, quality assurance and control measures were applied using field verification data sheets. Data that did not pass quality control checks or were affiliated with instrument issues were flagged and excluded from the analysis. 
+
 
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
-qa_status <- readr::read_csv('sections/c-wq/figures/qa-status.csv')
+qa_status <- readr::read_csv('sections/c-wq/figures/2020/qa-status.csv')
 kable_tables(qa_status, caption = 'Rating criteria for continuous sonde calibration')
 ```
 
 ***
 ### Regions
-The daily averages of the continuous 15-minute data collected for air and water temperature, pH, DO, surface and bottom SpC, chlorophyll a fluorescence, and turbidity for calendar year 2019 are shown in Figures 2 to 8. The range of monthly DO values at the Stockton station is shown below. Data gaps in the daily plots result from days where more than 30% of the 15-minute data are flagged or unavailable.
+The daily averages of the continuous 15-minute data collected for air and water temperature, pH, DO, surface and bottom SpC, chlorophyll a fluorescence, and turbidity for calendar year 2020 are shown in Figures 2 to 7. The range of monthly DO values at the Stockton station is shown below. 
 
-```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Range of daily dissolved oxygen Rough and Ready Isl. (P8), 2019',  fig.align='center'}
-knitr::include_graphics(file.path('sections/c-wq/figures/2019/Fig4f.png'))
+```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Range of daily dissolved oxygen Rough and Ready Isl. (P8), 2020',  fig.align='center'}
+knitr::include_graphics(file.path('sections/c-wq/figures/2020/Fig4f.png'))
 ```
 
 #### Northern Interior Delta
-The Northern Interior Delta stations had surface specific conductance values that ranged from 84 μS/cm (C3A in February) to 284 μS/cm (D24A in February). Surface turbidity values ranged from 2 NTU (C3A in November) to 169 NTU (D24A in March). Surface water temperature values ranged from 7.8 °C (C3A in January) to 23.8 °C (D24A in July). Surface dissolved oxygen values ranged from 7.5 mg/L (D24A in September) to 11.4 mg/L (C3A in February). Surface pH values ranged from 7.2 (C3A in November) to 7.9 (D24A in May). Surface fluorescence values ranged from 0.58 μg/L (D24A in August) to 14.46 μg/L (D24A in March).
+The Northern Interior Delta stations had surface specific conductance values that ranged from 125 µS/cm (C3A in July) to 541 µS/cm (D24A in November). Surface turbidity values ranged from 1.7 NTU (C3A in October) to 41.27 NTU (C3A in January). Surface water temperature values ranged from 8.57 °C (C3A in January) to 25.44 °C (D24A in August). Surface dissolved oxygen values ranged from 6.67 mg/L (D24A in August) to 11.19 mg/L (C3A in January). Surface pH values ranged from 7.12 (C3A in May) to 7.86 (D24A in March). Surface fluorescence values ranged from 0.12 μg/L (D24A in November) to 10.90 μg/L (C3A in April).
 
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
-nid <- readr::read_csv('sections/c-wq/figures/northern-interior-delta.csv')
-kable_tables(nid, caption = 'Summary statistics for Northern Interior Delta, 2019')
+nid <- readr::read_csv('sections/c-wq/figures/2020/northern-interior-delta.csv')
+kable_tables(nid, caption = 'Summary statistics for Northern Interior Delta, 2020')
 ```
 
 #### Central Interior Delta
-The Central Interior Delta stations had surface specific conductance values that ranged from 96 μS/cm (D16A in June) to 956 μS/cm (D16A in January). Surface turbidity values ranged from 1 NTU (D19A in July) to 67 NTU (D19A in February). Surface water temperature values ranged from 8.3 °C (D19A in January) to 26.60 °C (D19A in August). Surface dissolved oxygen values ranged from 7.0 mg/L (D16A in August) to 13.5 mg/L (D19A in October). Surface pH values ranged from 7.1 (D29 in June) to 9.6 (D19A in September). Surface fluorescence values ranged from 0.67 μg/L (D19A in October) to 7.67 μg/L (D19A in February).
+The Central Interior Delta stations had surface specific conductance values that ranged from 172 µS/cm (D29 in July) to 1484 µS/cm (D16A in August). Surface turbidity values ranged from 0.28 NTU (D19A in October) to 77.16 NTU (D19A in February). Surface water temperature values ranged from 8.64 °C (D19A in January) to 26.95 °C (D19A in August). Surface dissolved oxygen values ranged from 6.97 mg/L (D29 in August) to 13.69 mg/L (D19A in August). Surface pH values ranged from 7.40 (D29 in February to 9.64 (D19A in June). Surface fluorescence values ranged from 0.55  μg/L (D19A in August) to 19.32 μg/L (D29 in August).
 
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
-cid <- readr::read_csv('sections/c-wq/figures/central-interior-delta.csv')
-kable_tables(cid, caption = 'Summary statistics for Central Interior Delta, 2019')
+cid <- readr::read_csv('sections/c-wq/figures/2020/central-interior-delta.csv')
+kable_tables(cid, caption = 'Summary statistics for Central Interior Delta, 2020')
 ```
 
 #### Southern Interior Delta
-The Southern Interior Delta stations had surface specific conductance values that ranged from 77 μS/cm (C7A in June) to 1,013 μS/cm (P8A in January). Surface turbidity values ranged from 1 NTU (P8A in November) to 104 NTU (C10A in January). Surface water temperature values ranged from 7.6 °C (C10A in January) to 26.1 °C (P8A in July). Surface dissolved oxygen values ranged from 6.2 mg/L (P8A in July) to 12.7 mg/L (C7A in August). Surface pH values ranged from 6.8 (C10A in June) to 8.7 (C7A in August). Surface fluorescence values ranged from 0.63 μg/L (P8A in December) to 50.02 μg/L (C7A in August).
+The Southern Interior Delta stations had surface specific conductance values that ranged from 177 µS/cm (C10A in July) to 995 µS/cm (P8A in December). Surface turbidity values ranged from 1.20 NTU (P8A in November) to 57.83 NTU (C10A in April). Surface water temperature values ranged from 8.65 °C (C10A in December) to 29.56 °C (C7A in August). Surface dissolved oxygen values ranged from 5.94 mg/L (P8A in August) to 15.06 mg/L (C10A in July). Surface pH values ranged from 7.3 (P8A in May) to 9.18 (C7A in July). Surface fluorescence values ranged from 0.73 μg/L (P8A in June) to 72.76 μg/L (C10A in July).
 
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
-sid <- readr::read_csv('sections/c-wq/figures/southern-interior-delta.csv')
-kable_tables(sid, caption = 'Summary statistics for Southern Interior Delta, 2019')
+sid <- readr::read_csv('sections/c-wq/figures/2020/southern-interior-delta.csv')
+kable_tables(sid, caption = 'Summary statistics for Southern Interior Delta, 2020')
 ```
 
 #### Confluence
-The Confluence stations had surface specific conductance values that ranged from 100 μS/cm (D12A in June) to 12,148 μS/cm (D12A in December). Bottom specific conductance values ranged from 51 μS/cm (D12A in April) to 13,119 μS/cm (D12A in December). Surface turbidity values ranged from 4.0 NTU (D12A in October) to 113 NTU (D12A in January). Surface water temperature values ranged from 8.3°C (D12A in January) to 24.50 °C (D12A in August). Bottom water temperature values ranged from 2 °C (D12A in December) to 24.0 °C (D12A in August). Surface dissolved oxygen values ranged from 7.60 mg/L (D12A in August) to 10.8 mg/L (D12A in January). Surface pH values ranged from 7.1 (D12A in June) to 8.0 (D12A in May). Surface fluorescence values ranged from 0.17 μg/L (D12A in December) to 7.71 μg/L (D12A in March).
+The Confluence stations had surface specific conductance values that ranged from 209 µS/cm (D22A in February) to 16,086 µS/cm (D10A in November). Bottom specific conductance values ranged from 410 µS/cm (D12A in April) to 16818 µS/cm (D10A in December).  Surface turbidity values ranged from 3.56 NTU (D12A in October) to 95.4 NTU (D22A in December). Surface water temperature values ranged from 9.0 2 °C (D12A in January) to 24.42 °C (D22A in August). Bottom water temperature values ranged from 9.03  °C (D12A in January) to 24.24 °C (D12A in August). Surface dissolved oxygen values ranged from 7.56 mg/L (D22A in August) to 10.95 mg/L (D12A in February). Surface pH values ranged from 7.52 (D22A in February) to 8.07 (D12A in August). Surface fluorescence values ranged from 0.65 μg/L (D10A in April) to 6.87 μg/L (D22A in October).
 
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
-conf <- readr::read_csv('sections/c-wq/figures/confluence.csv')
-kable_tables(conf, caption = 'Rating criteria for Confluence, 2019')
+conf <- readr::read_csv('sections/c-wq/figures/2020/confluence.csv')
+kable_tables(conf, caption = 'Rating criteria for Confluence, 2020')
 ```
 
 #### Grizzly/Suisun Bay
-The Grizzly Suisun Bay stations had surface specific conductance values that ranged from 139 μS/cm (D9A in June) to 26,944 μS/cm (D6A in November). Bottom specific conductance values ranged from 192 μS/cm (D6A in March) to 30,440 μS/cm (D6A in December). Surface turbidity values ranged from 7.0 NTU (D6A in September) to 135.0 NTU (D7A in March). Surface water temperature values ranged from 8.5 °C (D9A in February) to 24.4 °C (D7A in August). Bottom water temperature values ranged from 9.0 °C (D6A in February) to 22.0 °C (D6A in August). Surface dissolved oxygen values ranged from 7.4 mg/L (D6A in August) to 10.7 mg/L (D9A in January). Surface pH values ranged from 7.3 (D9A in January) to 8.1 (D8A in May). Surface fluorescence values ranged from 0.52 μg/L (D9A in December) to 13.34 μg/L (D7A in November).
+The Grizzly Suisun Bay stations had surface specific conductance values that ranged from 2,026  µS/cm (D9A in June) to 30,939 µS/cm (D6A in November). Bottom specific conductance values ranged from 2,026 µS/cm (D10A in January) to 33,350 µS/cm (D6A in November). Surface turbidity values ranged from 5.0 NTU (D6A in September) to 98.8 NTU  (D7A in March). Surface water temperature values ranged from 8.97 °C (D9A in February) to 23.61  °C (D10A in August). Bottom water temperature values ranged from 9.11 °C (D10A in January) to 23.57 °C (D10A in August). Surface dissolved oxygen values ranged from 7.21 mg/L (D6A in August) to 10.6 mg/L (D9A in January). Surface pH values ranged from 7.54 (D9A in January) to 8.19  (D8A in May). Surface fluorescence values ranged from 0.62 μg/L (D9A in December) to 9.32 μg /L (D7A in November).
 
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
-grizzly <- readr::read_csv('sections/c-wq/figures/grizzly-bay.csv')
-kable_tables(grizzly, caption = 'Rating criteria for Grizzly/Suisun Bay, 2019')
+grizzly <- readr::read_csv('sections/c-wq/figures/2020/grizzly-bay.csv')
+kable_tables(grizzly, caption = 'Rating criteria for Grizzly/Suisun Bay, 2020')
 ```
 
 ### Parameters
 #### Water Temperature
-Average daily water temperatures in the estuary ranged from 7.6 °C to 26.6°C, with the lower values in the Southern Interior Delta location and the higher values found in the Central Delta stations.
-
+Average daily water temperatures in the estuary ranged from 8.57 °C to 29.6°C, with the lower values in the Northern Interior Delta location and the higher values found in the Southern Interior Delta stations.
 Average daily water temperatures at the Northern Interior Delta stations were usually lower in comparison to the Southern Interior Delta stations, with the greatest divergence occurring in the months of July through September at the Southern Interior Delta locations.
 
-```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average daily water temperature in the Northern Interior Delta, 2019',  fig.align='center'}
-knitr::include_graphics(file.path('sections/c-wq/figures/2019/Fig2a.png'))
+
+```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average daily water temperature in the Northern Interior Delta, 2020',  fig.align='center'}
+knitr::include_graphics(file.path('sections/c-wq/figures/2020/Fig2a.png'))
 ```
 
-```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average daily water temperature in the Southern Interior Delta, 2019',  fig.align='center'}
-knitr::include_graphics(file.path('sections/c-wq/figures/2019/Fig2b.png'))
+```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average daily water temperature in the Southern Interior Delta, 2020',  fig.align='center'}
+knitr::include_graphics(file.path('sections/c-wq/figures/2020/Fig2b.png'))
 ```
 
-```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average daily water temperature in the Central Delta, 2019',  fig.align='center'}
-knitr::include_graphics(file.path('sections/c-wq/figures/2019/Fig2c.png'))
+```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average daily water temperature in the Central Delta, 2020',  fig.align='center'}
+knitr::include_graphics(file.path('sections/c-wq/figures/2020/Fig2c.png'))
 ```
 
-```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average daily water temperature in the Confleunce, 2019',  fig.align='center'}
-knitr::include_graphics(file.path('sections/c-wq/figures/2019/Fig2d.png'))
+```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average daily water temperature in the Confleunce, 2020',  fig.align='center'}
+knitr::include_graphics(file.path('sections/c-wq/figures/2020/Fig2d.png'))
 ```
 
-```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average daily water temperature in the Grizzly/Suisun Bays, 2019',  fig.align='center'}
-knitr::include_graphics(file.path('sections/c-wq/figures/2019/Fig2e.png'))
+```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average daily water temperature in the Grizzly/Suisun Bays, 2020',  fig.align='center'}
+knitr::include_graphics(file.path('sections/c-wq/figures/2020/Fig2e.png'))
 ```
 
 #### Specific Conductance
-Daily average surface specific conductance for the estuary ranged from 77 μS/cm to 26,944 μS/cm, with the lower values in the Southern Interior Delta stations and the higher values at the more tidally influenced Grizzly/Suisun Bay locations (Figure 3e).
-All stations showed a decrease in specific conductance in late March (Figure 3a to 3e). The Northern Interior Delta station C3A and D24 showed a large jump in specific conductance for the months of January, February, March, November, and December 2019. In addition, the Southern Interior Delta stations on the San Joaquin River showed a significant decrease in surface specific conductance starting April June 2019 (Figure 3b). specific conductance from these 3 stations would remain low until the beginning of July.
+DDaily average surface specific conductance for the estuary ranged from 125 µS/cm to 30,939 µS/cm, with the lower values in the Northern Interior Delta stations and the higher values at the more tidally influenced Grizzly/Suisun Bay locations (Figure 3e). 
 
-Bottom SpC measured in 2019 at D12A, D10A, and D6A stations exhibited seasonal patterns and ranges similar to the surface SpC (Figure 3f).
+The Central Delta Stations showed increases in specific conductance from August onward (Figure 3c). In addition, the Southern Interior Delta stations on the San Joaquin River showed a large decrease in surface specific conductance in October through November (Figure 3b). 
 
-```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average daily specific conductance in the Northern Interior Delta, 2019',  fig.align='center'}
-knitr::include_graphics(file.path('sections/c-wq/figures/2019/Fig3a.png'))
+Bottom specific conductance measured in 2020 at D12A, D10A, and D6A stations exhibited seasonal patterns and ranges similar to the surface specific conductance (Figure 3f).
+
+
+```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average daily specific conductance in the Northern Interior Delta, 2020',  fig.align='center'}
+knitr::include_graphics(file.path('sections/c-wq/figures/2020/Fig3a.png'))
 ```
 
-```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average daily specific conductance in the Southern Interior Delta, 2019',  fig.align='center'}
-knitr::include_graphics(file.path('sections/c-wq/figures/2019/Fig3b.png'))
+```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average daily specific conductance in the Southern Interior Delta, 2020',  fig.align='center'}
+knitr::include_graphics(file.path('sections/c-wq/figures/2020/Fig3b.png'))
 ```
 
-```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average daily specific conductance in the Central Delta, 2019',  fig.align='center'}
-knitr::include_graphics(file.path('sections/c-wq/figures/2019/Fig3c.png'))
+```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average daily specific conductance in the Central Delta, 2020',  fig.align='center'}
+knitr::include_graphics(file.path('sections/c-wq/figures/2020/Fig3c.png'))
 ```
 
-```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average daily specific conductance in the Confleunce, 2019',  fig.align='center'}
-knitr::include_graphics(file.path('sections/c-wq/figures/2019/Fig3d.png'))
+```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average daily specific conductance in the Confleunce, 2020',  fig.align='center'}
+knitr::include_graphics(file.path('sections/c-wq/figures/2020/Fig3d.png'))
 ```
 
-```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average daily specific conductance in the Grizzly/Suisun Bays, 2019',  fig.align='center'}
-knitr::include_graphics(file.path('sections/c-wq/figures/2019/Fig3e.png'))
+```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average daily specific conductance in the Grizzly/Suisun Bays, 2020',  fig.align='center'}
+knitr::include_graphics(file.path('sections/c-wq/figures/2020/Fig3e.png'))
 ```
 
-```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average daily specific conductance Surface-Bottom, 2019',  fig.align='center'}
-knitr::include_graphics(file.path('sections/c-wq/figures/2019/Fig3f.png'))
+```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average daily specific conductance Surface-Bottom, 2020',  fig.align='center'}
+knitr::include_graphics(file.path('sections/c-wq/figures/2020/Fig3f.png'))
 ```
 
-#### DO
-Average daily DO values in the estuary ranged from 6.2 mg/L to 13.5 mg/L (Figure 4a to 4e). The greatest degree of variability was seen at the Southern Interior Delta stations ranging from 6.2 mg/L at P8A in July 2019 to 12.7 mg/L at the C7A August 2019.
+#### Dissolved Oxygen
+Average daily DO values in the estuary ranged from 5.94 mg/L to 15.1 mg/L (Figure 4a to 4e). The greatest degree of variability was seen at the Southern Interior Delta stations.
 
-All compliance monitoring stations recorded daily averages above the standard of 5.0 mg/L that was set by the CVRWQCB in the Basin Plan (CVRWQCB, 1998). The monthly average DO levels at the Stockton station did not fall below the 5.0 mg/L standard that was set by the CVRWQCB (1998). The monthly average DO levels did not drop below the 6.0 mg/L standard (SWRCB, 1995) for the passage of fall-run Chinook salmon through the ship channel for the September through November 2019 control period.
+All compliance monitoring stations recorded daily averages above the standard of 5.0 mg/L that was set by the CVRWQCB in the Basin Plan (CVRWQCB, 1998). The monthly average DO levels at the Stockton station did not fall below the 5.0 mg/L standard that was set by the CVRWQCB (1998). The monthly average DO levels did not drop below the 6.0 mg/L standard (SWRCB, 1995) for the passage of fall-run Chinook salmon through the ship channel for the September through November 2020 control period.
 
-```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average daily dissolved oyxgen in the Northern Interior Delta, 2019',  fig.align='center'}
-knitr::include_graphics(file.path('sections/c-wq/figures/2019/Fig4a.png'))
+
+```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average daily dissolved oyxgen in the Northern Interior Delta, 2020',  fig.align='center'}
+knitr::include_graphics(file.path('sections/c-wq/figures/2020/Fig4a.png'))
 ```
 
-```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average daily dissolved oyxgen in the Southern Interior Delta, 2019',  fig.align='center'}
-knitr::include_graphics(file.path('sections/c-wq/figures/2019/Fig4b.png'))
+```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average daily dissolved oyxgen in the Southern Interior Delta, 2020',  fig.align='center'}
+knitr::include_graphics(file.path('sections/c-wq/figures/2020/Fig4b.png'))
 ```
 
-```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average daily dissolved oyxgen in the Central Delta, 2019',  fig.align='center'}
-knitr::include_graphics(file.path('sections/c-wq/figures/2019/Fig4c.png'))
+```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average daily dissolved oyxgen in the Central Delta, 2020',  fig.align='center'}
+knitr::include_graphics(file.path('sections/c-wq/figures/2020/Fig4c.png'))
 ```
 
-```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average daily dissolved oyxgen in the Confleunce, 2019',  fig.align='center'}
-knitr::include_graphics(file.path('sections/c-wq/figures/2019/Fig4d.png'))
+```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average daily dissolved oyxgen in the Confleunce, 2020',  fig.align='center'}
+knitr::include_graphics(file.path('sections/c-wq/figures/2020/Fig4d.png'))
 ```
 
-```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average daily dissolved oyxgen in the Grizzly/Suisun Bays, 2019',  fig.align='center'}
-knitr::include_graphics(file.path('sections/c-wq/figures/2019/Fig4e.png'))
+```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average daily dissolved oyxgen in the Grizzly/Suisun Bays, 2020',  fig.align='center'}
+knitr::include_graphics(file.path('sections/c-wq/figures/2020/Fig4e.png'))
 ```
 
 
 #### pH
-Daily average pH levels at all stations in the estuary ranged from 6.8 to 9.6 (Figure 5a to 5e). The Southern Interior Delta stations showed a significant increase in daily average pH beginning June 2019 to September 2019 (Figure b). Values ranged from a low of 6.8 at C10A in June 2019 to a high of 8.7 at C7A in August 2019. The Central Delta statin D19A showed an increase in pH values beginning May 2019 until the end of October 2019 (Figure 5c).
+Daily average pH levels at all stations in the estuary ranged from 7.12 to 9.64 (Figure 5a to 5e). The Southern Interior Delta stations showed a large increase in daily average pH beginning June 2020 to September 2020 (Figure 5b). The Central Delta station D19A showed an increase in pH values beginning April 2020 until the end of October 2020 (Figure 5c). 
 
-```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average daily pH in the Northern Interior Delta, 2019', fig.align='center'}
-knitr::include_graphics(file.path('sections/c-wq/figures/2019/Fig5a.png'))
+```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average daily pH in the Northern Interior Delta, 2020', fig.align='center'}
+knitr::include_graphics(file.path('sections/c-wq/figures/2020/Fig5a.png'))
 ```
 
-```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average daily pH in the Southern Interior Delta, 2019', fig.align='center'}
-knitr::include_graphics(file.path('sections/c-wq/figures/2019/Fig5b.png'))
+```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average daily pH in the Southern Interior Delta, 2020', fig.align='center'}
+knitr::include_graphics(file.path('sections/c-wq/figures/2020/Fig5b.png'))
 ```
 
-```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average daily pH in the Central Delta, 2019', fig.align='center'}
-knitr::include_graphics(file.path('sections/c-wq/figures/2019/Fig5c.png'))
+```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average daily pH in the Central Delta, 2020', fig.align='center'}
+knitr::include_graphics(file.path('sections/c-wq/figures/2020/Fig5c.png'))
 ```
 
-```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average daily pH in the Confleunce, 2019', fig.align='center'}
-knitr::include_graphics(file.path('sections/c-wq/figures/2019/Fig5d.png'))
+```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average daily pH in the Confleunce, 2020', fig.align='center'}
+knitr::include_graphics(file.path('sections/c-wq/figures/2020/Fig5d.png'))
 ```
 
-```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average daily pH in the Grizzly/Suisun Bays, 2019', fig.align='center'}
-knitr::include_graphics(file.path('sections/c-wq/figures/2019/Fig5e.png'))
+```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average daily pH in the Grizzly/Suisun Bays, 2020', fig.align='center'}
+knitr::include_graphics(file.path('sections/c-wq/figures/2020/Fig5e.png'))
 ```
 
 
 #### Turbidity
-Daily average turbidity levels at all stations in the estuary ranged from 1 to 169 (Figure 6a to 6e). The Northern Interior and Southern Interior Delta stations showed significant increase in daily average turbidity beginning January 2019 to the middle of February 2019 (Figure 6b).
+DDaily average turbidity levels at all stations in the estuary ranged from 0.28 to 98.8 (Figure 6a to 6e). The Northern Interior Delta stations showed a large increase in turbidity in January and February, peaking at 41.27 FNU (Figure 6a). The Southern interior Delta stations all showed a significant spike in turbidity readings in mid-April which gradually decreased through May (figure 6b).
 
-Values ranged for the Northern Interior from a low of 6.0 at C3A in January 2019 to a high of 169 at D24A in March 2019.
-
-Values ranged for the Southern Interior Delta from a low of 4.0 at P8A in June 2019 to a high of 104 at C10A in January 2019. The Central Delta station D19A showed an increase in turbidity values beginning January 2019 until the middle of February and the beginning to the middle of December 2019 (6c).
-
-```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average daily turbidity in the Northern Interior Delta, 2019',  fig.align='center'}
-knitr::include_graphics(file.path('sections/c-wq/figures/2019/Fig6a.png'))
+```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average daily turbidity in the Northern Interior Delta, 2020',  fig.align='center'}
+knitr::include_graphics(file.path('sections/c-wq/figures/2020/Fig6a.png'))
 ```
 
-```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average daily turbidity in the Southern Interior Delta, 2019',  fig.align='center'}
-knitr::include_graphics(file.path('sections/c-wq/figures/2019/Fig6b.png'))
+```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average daily turbidity in the Southern Interior Delta, 2020',  fig.align='center'}
+knitr::include_graphics(file.path('sections/c-wq/figures/2020/Fig6b.png'))
 ```
 
-```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average daily turbidity in the Central Delta, 2019',  fig.align='center'}
-knitr::include_graphics(file.path('sections/c-wq/figures/2019/Fig6c.png'))
+```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average daily turbidity in the Central Delta, 2020',  fig.align='center'}
+knitr::include_graphics(file.path('sections/c-wq/figures/2020/Fig6c.png'))
 ```
 
-```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average daily turbidity in the Confleunce, 2019',  fig.align='center'}
-knitr::include_graphics(file.path('sections/c-wq/figures/2019/Fig6d.png'))
+```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average daily turbidity in the Confleunce, 2020',  fig.align='center'}
+knitr::include_graphics(file.path('sections/c-wq/figures/2020/Fig6d.png'))
 ```
 
-```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average daily turbidity in the Grizzly/Suisun Bays, 2019',  fig.align='center'}
-knitr::include_graphics(file.path('sections/c-wq/figures/2019/Fig6e.png'))
+```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average daily turbidity in the Grizzly/Suisun Bays, 2020',  fig.align='center'}
+knitr::include_graphics(file.path('sections/c-wq/figures/2020/Fig6e.png'))
 ```
 
 #### Chlorophyll a Fluorescence
-Daily average chlorophyll a fluorescence recorded at all the stations ranged from a low of 0.17 (μg/L) in December 2019 for the Confluence station D11A to a high of 50.02 (μg/L) in August 2019 for the Southern Interior Delta station C7A (Figure 7a to 7e).
+Daily average chlorophyll a fluorescence recorded at all the stations ranged from a low of 0.12 (µg/L) in December 2020 for the Northern Interior station D24A to a high of 72.8 (µg/L) in July 2020 for the Southern Interior Delta station C10A (Figure 7a to 7e). 
 
-For most of the 2019 calendar year, daily fluorescence averages at Southern Interior Delta stations were higher than other regions with sustained higher values from July 2019 through the middle of August 2019 with the exception of P8A (Figure 7b).
+For most of the 2020 calendar year, daily fluorescence averages at Southern Interior Delta stations were higher than other regions with sustained higher values, with the exception of P8A (Figure 7b).
 
-```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average daily fluorescence in the Northern Interior Delta, 2019',  fig.align='center'}
-knitr::include_graphics(file.path('sections/c-wq/figures/2019/Fig7a.png'))
+
+
+```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average daily fluorescence in the Northern Interior Delta, 2020',  fig.align='center'}
+knitr::include_graphics(file.path('sections/c-wq/figures/2020/Fig7a.png'))
 ```
 
-```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average daily fluorescence in the Southern Interior Delta, 2019',  fig.align='center'}
-knitr::include_graphics(file.path('sections/c-wq/figures/2019/Fig7b.png'))
+```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average daily fluorescence in the Southern Interior Delta, 2020',  fig.align='center'}
+knitr::include_graphics(file.path('sections/c-wq/figures/2020/Fig7b.png'))
 ```
 
-```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average daily fluorescence in the Central Delta, 2019',  fig.align='center'}
-knitr::include_graphics(file.path('sections/c-wq/figures/2019/Fig7c.png'))
+```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average daily fluorescence in the Central Delta, 2020',  fig.align='center'}
+knitr::include_graphics(file.path('sections/c-wq/figures/2020/Fig7c.png'))
 ```
 
-```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average daily fluorescence in the Confleunce, 2019',  fig.align='center'}
-knitr::include_graphics(file.path('sections/c-wq/figures/2019/Fig7d.png'))
+```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average daily fluorescence in the Confleunce, 2020',  fig.align='center'}
+knitr::include_graphics(file.path('sections/c-wq/figures/2020/Fig7d.png'))
 ```
 
-```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average daily fluorescence in the Grizzly/Suisun Bays, 2019',  fig.align='center'}
-knitr::include_graphics(file.path('sections/c-wq/figures/2019/Fig7e.png'))
+```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average daily fluorescence in the Grizzly/Suisun Bays, 2020',  fig.align='center'}
+knitr::include_graphics(file.path('sections/c-wq/figures/2020/Fig7e.png'))
 ```
 
 #### Air Temperature
-Daily average air temperatures in the estuary ranged from 4.2 °C in January 2019 at Southern Interior station C10A to 30.6 °C in June 2019 at the Southern Interior Delta station C7A (Figure 8a to f).
+Daily average air temperatures in the estuary ranged from 3.38 °C in December 2020 at Northern Interior station C3A to 33.27 °C in August 2020 at the Southern Interior Delta station C7A.  
 
 ***
 ### References
