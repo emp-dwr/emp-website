@@ -2,11 +2,33 @@
 
 ### Introduction
 
-Benthic monitoring by the Environmental Monitoring Program is conducted monthly at 10 sampling sites distributed throughout several estuarine regions from San Pablo Bay upstream through the Sacramento-San Joaquin Delta.  2019 was designated a “Wet” water year for both the Sacramento Valley and San Joaquin Valley. Benthic communities in 2019 were expected be similar to previous “Wet” years (2011 and 2017) and differ from drier years both in species composition and in species abundances. 
+Benthic monitoring conducted by the California Department of Water Resources (DWR) since 1975 has documented changes in the composition, density, and distribution of the macrobenthic biota inhabiting the upper San Francisco Estuary. This monitoring is performed by the Environmental Monitoring Program (EMP) as part of the Interagency Ecological Program (IEP) and is one component of the biological monitoring mandated by Water Right Decision D-1641. Since benthic species respond to changes in physical factors such as freshwater inflows, salinity, and substrate composition, benthic community data provides an indication of physical changes occurring within the Estuary. Benthic monitoring is an important component of the EMP because operation of the State Water Project can change the Estuary’s flow characteristics, affecting the density and distribution of benthic biota. Benthic monitoring data is also used to detect and document the presence of new, non-native species in the Upper Estuary, such as the 1986 arrival and subsequent wide spread of the overbite clam, *Potamocorbula amurensis*. This article summarizes benthic community characteristics at EMP monitoring sites in 2020 and contextualizes these observations using community data from the preceeding decade. 
+
+### Methods
+
+Benthic monitoring was conducted monthly at 10 sampling sites distributed throughout the Estuary, from San Pablo Bay upstream through the Sacramento-San Joaquin Delta. Sampling in April, May, and December 2020 was not conducted due to the COVID-19 pandemic. EMP staff collected five bottom grab samples at each station using a Ponar dredge with a sampling area of 0.052 m^2^. Four replicate grab samples were analyzed for benthic macrofauna and the fifth sample was analyzed for sediment composition. Benthic macrofauna samples were analyzed by Hydrozoology, a private laboratory under contract with DWR. All organisms were identified to the lowest taxon possible and enumerated. Sediment composition analysis was conducted at the DWR Soils and Concrete Laboratory. Field collection methodology and laboratory analysis of benthic macroinvertebrates and sediment composition are described in detail in the benthic metadata found at https://emp-des.github.io/emp-reports/benthic-meta.html
+
 ```{r echo=FALSE, out.width='70%', fig.align='center', fig.cap='Map of EMP\'s current benthic field sites.'}
 knitr::include_graphics(file.path('sections/benthic/figures/Benthic_Active_Map.png'))
 ```
 ***
+
+Prior to analysis, the units for individual organisms were transformed from count data to densities of individuals per square meter, and the average density was calculated across the four replicate grabs at each site. Species were then grouped by phyla, and time series for each station were constructed to depict seasonal patterns in benthic communities. Rare phyla (< 5% of the total organisms for the given year) were omitted from the plots. We did not report sediment compositions for 2020 because the data for most months was not yet available, due to delays from the COVID-19 pandemic.
+
+The 2020 water year was designated as “Dry” for both the Sacramento Valley and the San Joaquin Valley according to the DWR’s Water Year Hydrologic Classification Indices. Benthic communities in 2020 were expected to be like previous “Dry” and “Critically Dry” years (most recently during the 2013-2016 drought) and differ from years designated Wet or Above Normal both in species composition and in species abundances.
+
+### Results
+
+The benthic fauna collected in 2020 comprised nine phyla: Mollusca (40% of total organisms), Arthropoda (40%), and Annelida (19%), with Phoronida, Nemotoda, Nemertea, Platyhelminthes, Chordata, and Cnidaria each representing < 1% of total organisms. Of the 180 benthic species collected in 2020, the ten most abundant species represented 83% of all individuals collected throughout the year (Table 1). These include four species of amphipod, two clams, two oligochate worms, and two polychate worms. Only one species in this group (the amphipod *Americorophium spinicorne*) is known to be native to this estuary; all others are non-native or are cosmopolitan species of unknown origin. Refer to Fields and Messer (1999) for descriptions of the habitat requirements, physical attributes, and feeding methods of many of these species. 
+
+```{r echo=FALSE, out.width='70%', fig.align='center', fig.cap='List of ten most numerous benthic invertebrate species found at EMP sites in 2020.'}
+knitr::include_graphics(file.path('sections/benthic/figures/Table1_species_list.png'))
+```
+***
+
+In the site descriptions that follow, most species densities are reported as the annual densities of individuals/m^2^, sometimes noting dramatic seasonal peaks. Some species, especially arthropods, display strong seasonal variability, with peak monthly densities several times higher than their annual densities. In these cases, we reported the time and magnitude of the peaks as well as the annual densities. Please note, however, that the reported annual densities omit three months of 2020 (April, May, and December) when sampling did not occur, and comparisons to other years’ annual densities or seasonal patterns should take these omissions into account. Readers who wish to see the full dataset can access it at https://emp.baydeltalive.com/.
+
+
 ### San Pablo Bay
 
 The most saline of our sites, D41 and D41A, are polyhaline sites in San Pablo Bay. At D41 in 2019, the most numerous species was the non-native clam Potamocorbula amurensis, whose density peaked in July to 12,587 individuals per square meter, in a pattern seen primarily in wet years.  Site D41 was also notable as the only site where we saw phoronids, also known as horseshoe worms, which are only found in this higher-salinity site.
