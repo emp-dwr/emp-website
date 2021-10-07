@@ -2,11 +2,11 @@
 
 ### Introduction
 
-Water year 2020 was classified as Dry in the Sacramento Valley and San Joaquin Valley, unlike the previous year, which was classified as Wet [(source)](https://cdec.water.ca.gov/reportapp/javareports?name=WSIHIST). The 2019-2020 data from all stations within the same region were plotted on one graph and then combined with the graphs from other regions to make a facet graph for each parameter. Samples were not collected in April and May 2020 due to logistical issues caused by COVID-19. The minimum and maximum values in 2020 were determined for each field parameter or laboratory analyte to show the range within a single year. The instances when a result fell below the reporting limit were excluded from these minimum and maximum calculations. When this occurred, a vertical dashed line capped at the reporting limit was added to the graph to represent the presence of a non-detect.
+Water year 2020 was classified as Dry in the Sacramento Valley and San Joaquin Valley, unlike the previous year, which was classified as Wet [(source)](https://cdec.water.ca.gov/reportapp/javareports?name=WSIHIST). The 2019-2020 data from all stations within the same region were plotted on one graph and then combined with the graphs from other regions to make a facet graph for each parameter. The minimum and maximum values in 2020 were determined for each field parameter or laboratory analyte to show the range within a single year. The instances when a result fell below the reporting limit were excluded from these minimum and maximum calculations. When this occurred, a vertical dashed line capped at the reporting limit was added to the graph to represent the presence of a non-detect. It should be noted that sampling was not conducted in April, May, and some of December 2020 due to the stay-at-home order and safety concerns caused by the COVID-19 pandemic.
 ***
 ### Specific Conductance
 
-Specific conductance varied greatly in 2020 across the sampling regions with the highest levels occurring in the western regions (San Pablo Bay, Suisun & Grizzly Bays, Confluence) due to the salty waters from Pacific Ocean having a stronger influence. Specific conductance ranged from an average of 134 µS/cm (C3A in Northern Interior Delta, July) to 45,349 µS/cm (D41 in San Pablo Bay, November) during 2020. Higher specific conductance values were seen in 2020 (μ = 11,310 μS/cm) than in 2019 (μ = 6,702 μS/cm), which was likely due to the on-going drought keeping the San Francisco Estuary drier throughout the year.
+Surface specific conductance varied greatly in 2020 across the sampling regions with the highest levels occurring in the western regions (San Pablo Bay, Suisun & Grizzly Bays, Confluence) due to the strong marine influence from the Pacific Ocean. Surface specific conductance ranged from an average of 134 µS/cm (C3A in Northern Interior Delta, July) to 45,349 µS/cm (D41 in San Pablo Bay, November) during 2020. Higher specific conductance values were seen in 2020 (μ = 11,310 μS/cm) than in 2019 (μ = 6,702 μS/cm), which was likely due to the on-going drought keeping the San Francisco Estuary drier throughout the year.
 
 ```{r echo=FALSE, fig.cap='Surface specific conductance in µS/cm at six regions in the San Francisco Bay-Delta estuary during 2019-2020.', fig.align='center'}
 knitr::include_graphics(file.path('sections/d-wq/figures/ARGraph_SpCndSurface.jpg'))
@@ -14,14 +14,15 @@ knitr::include_graphics(file.path('sections/d-wq/figures/ARGraph_SpCndSurface.jp
 ***
 ### Turbidity
 
-Turbidity values ranged from 0.3 FNU (D19 in Central Delta, March) to 41.4 FNU (D7 in Suisun & Grizzly Bays, Nov during 2020. The year 2020 had lower average turbidity than in 2019 (9.8 FNU vs. 19.6 FNU), possibly due to the relative lack of rain and snowpack runoff during the winter months due to drought. All six regions experienced a spike in turbidity in February 2019 when the first set of big storms hit, causing higher flows throughout the estuary and therefore a higher likelihood of increased sediment disturbance.   
+Surface turbidity values ranged from 0.3 FNU (D19 in Central Delta, March) to 41.4 FNU (D7 in Suisun & Grizzly Bays, November) during 2020. The year 2020 had lower average turbidity than in 2019 (9.8 FNU vs. 19.6 FNU), likely due to the drought conditions that result in lack of rainfall and snowpack runoff during the winter months.
+
 ```{r echo=FALSE, fig.cap='Surface turbidity in NTU at six regions in the San Francisco Bay-Delta estuary during 2019-2020.', fig.align='center'}
 knitr::include_graphics(file.path('sections/d-wq/figures/ARGraph_TurbiditySurface.jpg'))
 ```
 ***
 ### Dissolved Ammonia
 
-Dissolved ammonia levels in 2020 ranged from ≤ 0.05 mg/L (the reporting limit) in several regions to 0.7 mg/L (C3A in Northern Interior Delta, March and Jine). Dissolved ammonia levels are typically higher at C3A in the Northern Interior Delta due to its location downstream of the effluent discharge from Sacramento Regional Sanitation District. Ammonia levels are typically lower throughout the Delta and Bays, likely due to dilution and nitrification.
+Dissolved ammonia levels in 2020 ranged from ≤ 0.05 mg/L (the reporting limit) in several regions to 0.7 mg/L (C3A in Northern Interior Delta, March and June). Dissolved ammonia levels are typically higher at C3A in the Northern Interior Delta due to its location downstream of the effluent discharge from Sacramento Regional Sanitation District. Ammonia levels are typically lower throughout the Delta and Bays, likely due to dilution and nitrification.
 
 ```{r echo=FALSE, fig.cap='Dissolved ammonia concentrations in mg/L at six regions in the San Francisco Bay-Delta estuary during 2019-2020. Dashed lines represent the range of possible values for months where the raw value was a non-detect.', fig.align='center'}
 knitr::include_graphics(file.path('sections/d-wq/figures/ARGraph_DissAmmonia.jpg'))
@@ -57,4 +58,4 @@ EMP's discrete water quality data sets are available publically via the Environm
 
 Archived annual reports can be found [here]() (link currently broken).
 
-For questions related to EMP's discrete water quality data sets, please contact Morgan Martinez at morgan.martinez@water.ca.gov.
+For questions related to EMP's discrete water quality data sets, please contact Morgan Martinez at Morgan.Martinez@water.ca.gov.
