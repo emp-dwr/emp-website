@@ -14,7 +14,17 @@ kable_tables <- function(data, caption) {
 
 ### Introduction 
 
-The Department of Water Resources (DWR) and the US Bureau of Reclamation (USBR) are required by Water Right Decision 1641 (D-1641) to collect phytoplankton and chlorophyll a samples to monitor algal community composition and biomass at select sites in the upper San Francisco Estuary (Estuary). The twenty-four sites range from San Pablo Bay to the inland rivers of the Sacramento-San Joaquin Delta (“the Delta”). These sites represent a variety of aquatic habitats, from narrow, freshwater channels to broad, estuarine bays. This newsletter describes the results of these monitoring efforts for calendar year 2019.  
+The Department of Water Resources (DWR) and the US Bureau of Reclamation (USBR) are required by Water Right Decision 1641 (D-1641) to collect phytoplankton and chlorophyll a samples to monitor algal community composition and biomass at select sites in the upper San Francisco Estuary (Estuary). The twenty-four sites range from San Pablo Bay to the inland rivers of the Sacramento-San Joaquin Delta (“the Delta”). These sites represent a variety of aquatic habitats, from narrow, freshwater channels to broad, estuarine bays. This report describes the results of these monitoring efforts for calendar year 2020. 
+
+Phytoplankton are small, free-floating organisms that occur as unicellular, colonial, or filamentous forms (Horne and Goldman, 1994). Phytoplankton are a key component of the Estuary’s food web, serving as food for zooplankton, invertebrates, and certain fish species. Their metabolic processes also impact water chemistry, and their ability to fix carbon through photosynthesis is one of the key processes influencing water quality in the Estuary. Via this process, phytoplankton can affect the pH, dissolved oxygen, color, taste, and odor of natural waters. 
+
+Under certain conditions, some species of phytoplankton (e.g., Microcystis aeruginosa) can cause harmful algal blooms (HABs), releasing toxin compounds which can be dangerous or even lethal to animals and humans (Carmichael, 1981). In freshwater, the cyanobacteria, or blue-green algae (class Cyanophyceae), are responsible for producing toxic blooms, particularly in waters that are polluted with phosphates (van den Hoek et al., 1995). Phytoplankton are also useful for assessing water quality (Gannon and Stemberger 1978); their short life cycles allow them to respond quickly to environmental changes, meaning their standing crop and species composition are indicative of source water characteristics (APHA 2012). However, because of their transient nature, patchiness, and free movement in a lotic environment, the utility of phytoplankton as water quality indicators is limited and should be interpreted in conjunction with other biological and physiochemical data (APHA 2012). 
+
+In addition to collecting phytoplankton samples to assess community composition, we use the measured concentration of chlorophyll a as a proxy to infer phytoplankton biomass. Chlorophyll molecules are complex phytopigments found in most photosynthetic organisms. There are several types of chlorophyll, which are distinguished by slight differences in their molecular structures and constituents. These include chlorophyll a, b, c, and d, with a being the principal photosynthetic pigment in most phytoplankton. This makes the chlorophyll a pigment a reliable proxy measurement for phytoplankton biomass.
+
+In addition, we measured the concentration of a different pigment in our water samples, pheophytin a. Pheophytin a is a primary degradation product of chlorophyll a. Comparing its concentration relative to chlorophyll a is a useful metric for estimating the general physiological state of phytoplankton populations. When phytoplankton are actively growing, the concentrations of pheophytin a are normally expected to be low relative to chlorophyll a. Conversely, when the phytoplankton have died and are decaying, levels of pheophytin a are expected to be high in relation to chlorophyll a. 
+
+Phytoplankton biomass and the resulting amount of chlorophyll a in some areas of the Estuary may be influenced by extensive filtration of the water column by the introduced Asian clam, Potamocorbula amurensis (Alpine and Cloern 1992). Well-established benthic populations of P. amurensis in Suisun and San Pablo bays are thought to have contributed to the low chlorophyll a concentrations (and increased water clarity) measured in these westerly bays since the mid-1980s (Alpine and Cloern 1992). 
 
  
 
@@ -33,7 +43,17 @@ Phytoplankton biomass and the resulting chlorophyll a concentrations in some are
 
 #### Phytoplankton  
 
-Phytoplankton samples were collected monthly at 24 monitoring sites throughout the Upper Estuary, which were grouped into regions based on their geographic location (Figure 1; Table 1). Samples were collected 1 meter below the water’s surface using a submersible pump and stored in 50 mL amber glass bottles. 200 µL of Lugol’s solution was added to each sample as a stain and preservative. All samples were kept at room temperature and away from direct sunlight until they were analyzed. Phytoplankton identification and enumeration were performed by BSA Environmental, Inc. according to the Utermöhl microscopic method (Utermöhl, 1958) and modified Standard Methods (APHA, 2012). An aliquot was placed into a counting chamber and allowed to settle for a minimum of 12 hours. The aliquot volume, normally 10-20 mL, was adjusted according to the algal population density and the turbidity of the sample. Phytoplankton taxa were enumerated in randomly chosen transects for each settled aliquot. This process was performed at 800x magnification using a Leica DMIL inverted microscope. For each aliquot, a minimum of 400 total algal units were counted, with the dominant taxon accounting for a minimum of 100 algal units. For taxa that were in filaments or colonies, the number of cells per filament or colony was recorded.
+Phytoplankton samples were collected monthly at 24 monitoring sites throughout the Upper Estuary, which were grouped into regions based on their geographic location (Figure 1; Table 1). Samples were collected 1 meter below the water’s surface using a submersible pump and stored in 50 mL amber glass bottles. 200 µL of Lugol’s solution was added to each sample as a stain and preservative. All samples were kept at room temperature and away from direct sunlight until they were analyzed. 
+
+Phytoplankton identification and enumeration were performed by BSA Environmental, Inc. according to the Utermöhl microscopic method (Utermöhl, 1958) and modified Standard Methods (APHA, 2012). An aliquot of sample was placed into a counting chamber and allowed to settle for a minimum of 12 hours. The aliquot volume, normally 10-20 mL, was adjusted according to the algal population density and the turbidity of the sample. Phytoplankton taxa were enumerated in randomly chosen transects for each settled aliquot. This process was performed at 800x magnification using a Leica DMIL inverted microscope. For each aliquot, a minimum of 400 total algal units were counted, with the dominant taxon accounting for a minimum of 100 algal units. For filamentous or colonial taxa, the number of cells per filament or colony was recorded. Raw organism counts were normalized to the sample volume using the following formula:
+organisms/mL=C/(VA_f F)
+where C is the organism count, A_c is the area of the cell bottom (mm2), A_f is the area of each grid field (mm2), F is the number of fields examined, and V is the settled volume (mL). This simplifies to:
+organisms/mL=C/cV
+
+where cV=A_c/VA_f F and is equal to the counted volume.
+
+The 10 most common genera were determined by summing the normalized organism counts across all stations and months for each genus. For the bar graphs, average organism counts were calculated per month, per region, and normalized to the number of stations.
+
 
 ```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Map of phytoplankton stations sampled by the Environmental Monitoring Program',  fig.align='center'}
 knitr::include_graphics(file.path('sections/phyto/figures/phyto_map.png'))
@@ -75,44 +95,45 @@ is the area of each grid field (mm\(^2\)), \(F\) is the number of fields examine
 </body>
  
 
-The 10 most common genera were determined by summing the normalized organism counts across all stations and months for each genus. For the bar graphs, average organism counts were calculated per month, per region, and normalized to the number of stations. 
 
 #### Chlorophyll a and Pheophytin a 
 
-Chlorophyll a and pheophytin a samples were collected monthly at 24 monitoring sites throughout the upper Estuary (Figure 1; Table 1) using a submersible pump positioned 1 meter below the water’s surface. The analytes were collected by filtering a known volume of sample water through a glass-fiber filter (1.0 µm pore size) at a pressure of 10 mmHg. If the turbidity was 20 NFU or greater, a 200 mL volume was used, while 500mL of water was filtered through if the turbidity was less than 20 NFU; this was done to prevent clogging of the filtering apparatus. The filters were immediately frozen and transported to DWR’s Bryte Laboratory for analysis using the spectrophotometric procedure, in accordance with the Standard Methods (APHA, 2012). Samples were processed by mechanically grinding the glass-fiber filters and extracting the phytopigments with acetone. Chlorophyll a and pheophytin a pigment absorptions were measured with a spectrophotometer before and after acidification of the sample. Concentrations were calculated according to Standard Method’s formula (APHA, 2012). For the bar graphs, average analyte concentrations were calculated per month, per region, and were normalized to the number of stations. 
+Samples of chlorophyll a and pheophytin a were collected monthly at 24 monitoring sites throughout the upper Estuary (Figure 1; Table 1) using a submersible pump positioned 1 meter below the water’s surface. Samples were collected by filtering a known volume of water through a glass-fiber filter (1.0 µm pore size) at a pressure of 10 mmHg. For turbid water (> 20 NTU), 200 mL was filtered while 500mL of water was filtered when turbidity was < 20 NTU to prevent clogging. 
+
+Filters were immediately frozen and transported to DWR’s Bryte Laboratory for analysis using spectrophotometry in accordance with the Standard Method 10200 H (APHA, 2012). Samples were processed by mechanically grinding the filter and extracting phytopigments using acetone. Pigment absorption spectra were measured before and after acidification to quantify the amount of chlorophyll a and pheophytin a, respectively. Concentrations were calculated according to a formula specified in the methodology (APHA, 2012). Average analyte concentrations were then calculated per month, per region, and were normalized to the number of stations.
+
  
 ***
 ### Results 
 
 #### Phytoplankton Identification 
 
-All organisms collected in 2019 fell into these ten algal groups:
+All organisms collected in 2020 fell into these ten algal groups:
+•	Pennate diatoms
+•	Centric diatoms
+•	Chrysophytes
+•	Synurophytes
+•	Cyanobacteria
+•	Cryptophytes
+•	Dinoflagellates
+•	Euglenoids
+•	Haptophytes
+•	Green Algae
 
-* Pennate diatoms 
-* Centric diatoms 
-* Chrysophytes 
-* Ciliates 
-* Cyanobacteria 
-* Cryptophytes 
-* Dinoflagellates 
-* Euglenoids 
-* Haptophytes 
-* Green Algae 
+The 10 most common genera collected in 2020 were, in order:
+•	Eucapsis (cyanobacterium)
+•	Chroococcus (cyanobacterium)
+•	Cyclotella (centric diatom)
+•	Chlorella (green alga) 
+•	Plagioselmis (cryptophyte flagellate)
+•	Aulacoseira (centric diatom)
+•	Skeletonema (centric diatom)
+•	Cocconeis (pennate diatom)
+•	Nitzschia (pennate diatom)
+•	Pseudanabaena (cyanobacterium)
 
-The 10 most common genera collected in 2019 were, in order: 
+Of the ten groups identified, cyanobacteria constituted the vast majority (98.2%) of the organisms collected (Figure 2).
 
-* Eucapsis (cyanobacterium) 
-* Chlorella (green alga) 
-* Cyclotella (centric diatom) 
-* Chroococcus (cyanobacterium)  
-* Nitzschia (pennate diatom) 
-* Plagioselmis (cryptophyte flagellate) 
-* Coccomyxa (green alga) 
-* Aulacoseira (centric diatom) 
-* Skeletonema (centric diatom) 
-* Monoraphidium (green alga) 
-
-Of the ten groups identified, cyanobacteria constituted the vast majority (98.2%) of the organisms collected (Figure 2). 
 
 ```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Phytoplankton composition by algal group (other are chrysophytes, ciliates, dinoflagellates, euglenoids, and haptophytes)',  fig.align='center'}
 knitr::include_graphics(file.path('sections/phyto/figures/fig2.png'))
@@ -120,21 +141,21 @@ knitr::include_graphics(file.path('sections/phyto/figures/fig2.png'))
 
 #### Pigment Concentrations 
 
-Some stations showed seasonal patterns in chlorophyll a concentration, while others did not. Most maxima occurred in spring and summer, while minima occurred in fall or winter. 
+Some stations showed seasonal patterns in chlorophyll a concentration, while others did not. Most maxima occurred in spring and summer, while minima occurred in fall or winter. Monthly chlorophyll a concentrations throughout much of the estuary were low relative to historic levels. Of the 223 samples taken in 2020, 97.3% (217 samples) had chlorophyll a levels below 10 μg/L. Chlorophyll a levels below 10 μg/L are considered limiting for zooplankton growth (Müller-Solger et al., 2002). Of the 6 samples with chlorophyll a concentrations equal to or above 10 μg/L, five were at C10A (June through October) and one was at P8 in August.
 
-Monthly chlorophyll a concentrations throughout much of the estuary were relatively low. Of the 288 samples taken in 2019, 98.3% (283 samples) had chlorophyll a levels below 10 μg/L. Chlorophyll a levels below 10 μg/L are considered limiting for zooplankton growth (Müller-Solger et al., 2002).  Of the 5 samples with chlorophyll a concentrations equal to or above 10 μg/L, two were at C10A (July and August), two were at NZ032 (August and November), and one was at P8 (September). 
+The mean chlorophyll a concentration for all samples in 2020 was 2.86 μg/L; the median value was 1.88 μg/L. Both values are slightly higher than in 2019 (mean = 2.26 μg/L, median = 1.67 μg/L). The maximum chlorophyll a concentration in 2020 was 32.50 μg/L, recorded in July at C10A. This is similar to the 2019 maximum (38.10 μg/L). The minimum for 2020 chlorophyll a concentration was 0.53 μg/L, recorded at NZ325 in March, and again at C10A in November. It was nearly identical to the 2019 value (0.55 μg/L). Eight chlorophyll a samples were below the reporting limit.
 
-The mean chlorophyll a concentration for all samples in 2019 was 2.26 μg/L; the median value was 1.67 μg/L. Both values were lower than their 2018 equivalents (mean = 3.51 μg/L, median = 2.12 μg/L). The maximum chlorophyll a concentration in 2019 was 38.10 μg/L, recorded in July at C10A. This is much lower than the 2018 value (71.87 μg/L). The minimum for 2019 chlorophyll a concentration recorded was 0.50 μg/L, recorded in June at D16, similar to the 2018 value (0.55 μg/L). 
+The mean pheophytin a concentration for all samples in 2020 was 1.65 μg/L, slightly higher than the 2019 value (1.41 μg/L). The median value was 1.16 μg/L, which was also slightly higher than in 2019 (1.02 μg/L). The maximum pheophytin a concentration was 11.69 μg/L, recorded at NZ032 in August. This value was lower than in 2019 (13.55 μg/L). The minimum pheophytin a concentration was 0.50 μg/L, which is equivalent to the reporting limit; this was recorded at 2 stations (NZ002 and NZ004) in February. Twenty pheophytin a samples were below the reporting limit; they were observed primarily in the fall/winter.
 
-The mean pheophytin a concentration for all samples in 2019 was 1.41 μg/L, nearly identical to the 2018 value (1.40 μg/L), and the median value was 1.02 μg/L, which was slightly higher than the 2018 value (0.95 μg/L). The maximum pheophytin a concentration was 13.55 μg/L, recorded at D19 in February, compared to 15.40 μg/L in 2018. The minimum pheophytin a concentration was 0.50 μg/L, which is equivalent to the reporting limit and identical to the 2018 minimum; this was observed at C3A in March and D6 in August. Several sites had pheophytin a levels below the reporting limit, primarily in the fall/winter. 
 
 #### Northern Interior Delta 
 
-Chlorophyll a average concentrations were higher in early spring and mid-summer (Figure 3).  The highest concentration was recorded at C3A in April (3.39 µg/L) and the lowest was recorded at NZ068 in July (0.61 µg/L). The mean and median values were 1.54 μg/L and 1.22 μg/L, respectively. 
+Chlorophyll a average concentrations were higher in early winter, summer, and fall (Figure 3). The highest concentration was recorded at NZ068 in October (2.78 µg/L) and the lowest was recorded at C3A in December (0.53 µg/L), which was one of two recordings of the lowest concentration. The mean and median values were 1.42 μg/L and 1.18 μg/L, respectively. There were no samples below the detection limit.
 
-Pheophytin a average concentrations were highest in the winter and late summer; values were lower compared to chlorophyll a (Figure 3). The maximum (2.29 µg/L) was recorded at NZ068 in January and the minimum (0.50 µg/L) was recorded at C3A in March, although in June concentrations were below the detection limit. The mean and median were 1.05 µg/L and 0.94 µg/L, respectively. 
+Pheophytin a average concentrations were highest in the fall; values were similar to chlorophyll a (Figure 3). The maximum (3.20 µg/L) was recorded at NZ068 in September and the minimum (0.52 µg/L) was recorded at C3A in December, although there were four samples below the detection limit (C3A in November, and NZ068 in February, March, and July). The mean and median were 0.98 µg/L and 0.81 µg/L, respectively.
 
-Phytoplankton average concentrations were highest in February-April, with cyanobacteria dominating throughout the year (Figure 4; “other” are chrysophytes, cryptophytes, and dinoflagellates). Green algae concentrations were relatively high in January through April, and again in August. 
+Phytoplankton average densities were highest in early winter and early fall, with cyanobacteria dominating throughout the year (Figure 4; “other taxa” are cryptophytes and dinoflagellates). Pennate diatom density was high in January, and green algae concentrations were relatively high in March and October.
+
 
 ```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average chlorophyll a and pheophytin a concentrations in the Northern Interior Delta',  fig.align='center'}
 knitr::include_graphics(file.path('sections/phyto/figures/fig3.png'))
@@ -146,11 +167,12 @@ knitr::include_graphics(file.path('sections/phyto/figures/fig4.png'))
 
 #### Southern Interior Delta 
 
-Chlorophyll a average concentrations were highest in the summer and early fall (Figure 5). The maximum was recorded at C10A in July (38.10 µg/L); the minimum was at MD10A in January (0.62 µg/L). The mean and median were 3.76 µg/L and 2.32 µg/L, respectively.  
+Chlorophyll a average concentrations were highest in the summer (Figure 5). The maximum was recorded at C10A in July (32.50 µg/L), which also was the maximum for the year; the minimum was at P8 in January (0.64 µg/L). The mean and median were 5.56 µg/L and 2.98 µg/L, respectively. There were two samples below the detection limit at C9 in December and MD10A in January.
 
-Pheophytin a average concentrations were fairly constant throughout the year, with a slight spike in the early fall (Figure 5). The maximum pheophytin a value was recorded at C10A in July (7.53 µg/L); the minimum occurred at P8 in November (0.53 µg/L). The mean and median values were 1.88 µg/L and 1.24 µg/L, respectively. 
+Pheophytin a average concentrations were fairly constant throughout the year, with slight spikes in the summer months (Figure 5). The maximum pheophytin a value was recorded at C10A in July (6.06 µg/L); the minimum occurred at P8 in March (0.56 µg/L). The mean and median values were 1.84 µg/L and 1.46 µg/L, respectively. Two samples in January at MD10A and P8 were below the detection limit.
 
-Phytoplankton average concentrations were highest in late winter and mid-summer, with the highest concentrations occurring in July (Figure 6; “other” are chrysophytes, ciliates, dinoflagellates, euglenoids, and haptophytes). There was a peak of cyanobacteria in February and green algae in July. 
+Phytoplankton average densities were highest in the summer and fall, with the highest concentrations occurring in July (Figure 6; “other taxa” are chrysophytes, cryptophytes, euglenoids, and synurophytes). Cyanobacteria dominated throughout the year and centric diatom concentrations were relatively high in the summer months.
+
 
 ```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average chlorophyll a and pheophytin a concentrations in the Southern Interior Delta',  fig.align='center'}
 knitr::include_graphics(file.path('sections/phyto/figures/fig5.png'))
@@ -162,11 +184,12 @@ knitr::include_graphics(file.path('sections/phyto/figures/fig6.png'))
 
 #### Central Delta 
 
-Chlorophyll a average concentrations were low all year, below 4 µg/L (Figure 7). The highest chlorophyll a concentration for this region at occurred at D19 in February (3.55 µg/L); the minimum occurred at D16 in June (0.65 µg/L). The mean and median values were 1.25 µg/L and 1.18 µg/L, respectively.  
+Chlorophyll a average concentrations were highest in the summer and early fall months (Figure 7). The highest chlorophyll a concentration for this region at occurred at D16 in September (8.50 µg/L); the minimum occurred at the same station in January (1.01 µg/L). The mean and median values were 2.63 µg/L and 2.09 µg/L, respectively. There were no samples below the detection limit.
 
-Pheophytin a average concentrations were relatively consistent throughout the year excluding two large spikes in February and December (Figure 7); the spike in February was the maximum for the year (13.55 µg/L at D19). The minimum was 0.54 µg/L, and was recorded at both D16 in November and D28A in June. The mean and median values were 1.38 µg/L and 0.84 µg/L, respectively.  
+Pheophytin a average concentrations were relatively consistent throughout the year excluding a large spike in November (Figure 7), when the highest concentration in the region was recorded (15.40 µg/L, station D19). The minimum occurred at D19 in October (0.50 µg/L). The mean and median values were 1.28 µg/L and 0.90 µg/L, respectively. There was one sample below the detection limit at D16 in January.
 
-Phytoplankton average concentrations were high throughout the year, dominated by cyanobacteria and green algae (Figure 8; “other” are chrysophytes and cryptophytes). 
+With the exception of cyanobacteria, phytoplankton average densities were low all year except for a bloom of centric diatoms in August (Figure 8; “other taxa” are chrysophytes, cryptophytes, and green algae). 
+
 
 ```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average chlorophyll a and pheophytin a concentrations in the Central Delta',  fig.align='center'}
 knitr::include_graphics(file.path('sections/phyto/figures/fig7.png'))
@@ -178,11 +201,12 @@ knitr::include_graphics(file.path('sections/phyto/figures/fig8.png'))
 
 #### Confluence 
 
-Chlorophyll a average concentrations were highest during the late-spring and summer (Figure 9). The highest concentration occurred at D10 in May (4.19 µg/L); the minimum was recorded at D10 in December (0.67 µg/L). The mean and median values were 1.96 µg/L and 1.88 µg/L, respectively.  
+Chlorophyll a average concentrations were highest during early spring and mid-summer (Figure 9). The highest concentration occurred at D12 in August (5.27 µg/L); the minimum was recorded at D22 in November (0.95 µg/L). The mean and median values were 2.53 µg/L and 2.12 µg/L, respectively. There was one sample below the detection limit at D10 in October.
 
-Pheophytin a average concentrations fluctuated throughout the year, being higher in winter and fall. The maximum concentration was recorded at D10 in August (6.32 µg/L) and the minimum at D10 in November (0.64 µg/L) (Figure 9). The mean and median for this region were 1.39 µg/L and 1.17 µg/L, respectively. 
+Pheophytin a average concentrations were relatively consistent throughout the year except for a peak in September, which was the maximum for the year (Figure 9). The maximum concentration was recorded at D22 in September (5.20 µg/L) and the minimum at the same station in January (0.51 µg/L) (Figure 9). The mean and median for this region were 1.47 µg/L and 1.24 µg/L, respectively. There were two samples below the detection limit at D10 in August and D22 in February.
 
-Phytoplankton average concentrations were relatively consistent throughout the year, dominated by cyanobacteria and green algae (Figure 10; “other” are cryptophytes and haptophytes).  
+Phytoplankton average densities were higher in winter and early spring; the peak of “other taxa” in October was mainly cryptophytes and green algae (Figure 10; “other taxa” are chrysophytes, cryptophytes, euglenoids, and green algae). Cyanobacteria also dominated throughout the year.
+
 
 ```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average chlorophyll a and pheophytin a concentrations in the Confluence',  fig.align='center'}
 knitr::include_graphics(file.path('sections/phyto/figures/fig9.png'))
@@ -193,12 +217,12 @@ knitr::include_graphics(file.path('sections/phyto/figures/fig10.png'))
 ```
 
 #### Grizzly Bay and Suisun Bay 
+Chlorophyll a average concentrations in this region was relatively consistent throughout the year (Figure 11). The maximum was recorded at NZS42 in August (9.69 µg/L); the minimum was recorded at D7 in January (0.67 µg/L). The mean and median were 2.71 µg/L and 2.05 µg/L, respectively. There were two samples below the detection limit at D7 in August and NZS42 in September.
 
-Chlorophyll a average concentrations in this region showed a slight seasonal pattern, with higher values in the spring and summer, excluding a fall peak in November (Figure 11). The maximum was 12.70 µg/L, recorded in August at NZ032; the minimum was recorded at D8 in December (0.65 µg/L). The mean and median were 1.96 µg/L and 1.88 µg/L, respectively.  
+Pheophytin a average concentrations were relatively consistent throughout the year except for a peak in August, which was the maximum for the year (Figure 11). The maximum concentration was recorded at NZ032 in August (11.69 µg/L) and the minimum at D8 in July (0.56 µg/L). The mean and median were 1.39 µg/L and 1.00 µg/L, respectively. There were two samples below the detection limit at D7 in February and D8 in August. 
 
-Pheophytin a average concentrations were relatively low all year, below 4 µg/L (Figure 11). The maximum (3.56 µg/L) and minimum (0.51 µg/L) concentrations were both recorded at NZS42 in February and October, respectively. The mean and median were 1.45 µg/L and 1.23 µg/L, respectively.  
+Phytoplankton average densities were relatively higher early in the year, driven mostly by pennate diatoms, centric diatoms, and cyanobacteria (Figure 12; “other taxa” are cryptophytes, dinoflagellates, euglenoids, green algae, and haptophytes). The peak of “other taxa” in October was driven mainly by cryptophytes and green algae. Except for cyanobacteria, average densities were low compared to other regions (less than 1000 organisms per milliliter
 
-Phytoplankton average concentrations were higher in late winter and early spring, and lower the rest of the year (Figure 12; “other” are chrysophytes, cryptophytes, euglenoids and haptophytes). Cyanobacteria was the dominate algal group throughout the year, and green algae concentrations spiked in January-July.
 
 ```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average chlorophyll a and pheophytin a concentrations in the Grizzly/Suisun Bays',  fig.align='center'}
 knitr::include_graphics(file.path('sections/phyto/figures/fig11.png'))
@@ -210,11 +234,12 @@ knitr::include_graphics(file.path('sections/phyto/figures/fig12.png'))
 
 #### San Pablo Bay 
 
-Chlorophyll a average concentrations were relatively consistent throughout the year (Figure 13). The maximum value for the region was recorded at D41 in April (4.46 µg/L); the minimum concentration was recorded at NZ004 in November (0.58 µg/L). The mean and median were 1.84 µg/L and 1.72 µg/L, respectively. 
+Chlorophyll a average concentrations were slightly higher in summer and early fall (Figure 13). The maximum was recorded at D41A in September (8.93 µg/L); the minimum concentration was recorded at NZ325 in March, one of two minimums recorded for the year (0.53 µg/L). The mean and median were 2.02 µg/L and 1.71 µg/L, respectively. There were three samples below the detection limit: D6 and NZ325 in August, and NZ002 in November.
 
-Pheophytin a average concentrations had peaks in Februray and July, but overall values were low, below 4 µg/L (Figure 13). The maximum was recorded at D41A in February (3.11 µg/L) and the minimum at D6 in August (0.50 µg/L), although November’s concentrations were below the reporting limit. The mean and median were 1.06 µg/L and 0.72 µg/L, respectively.  
+Pheophytin a average concentrations were lower in the first half of the year, and higher in the second half (Figure 13). The maximum was recorded at D41A in October (7.72 µg/L) and the minimum at both NZ002 and NZ004 in February, which were the lowest values for the year and also the detection limit (0.50 µg/L). The mean and median were 1.76 µg/L and 0.99 µg/L, respectively. There were nine samples below the detection limit: D41, D41A, and NZ325 in January; D41 and NZ325 in February; NZ325 in March; NZ004 in June and July; and NZ325 in October. 
 
-Phytoplankton average concentrations were highest in the first half of the year (Figure 14; “other” are chrysophytes, dinoflagellates, euglenoids, and haptophytes). Green algae and cyanobacteria were the dominant taxa. 
+There were peaks of cyanobacteria in January and October; most of the phytoplankton average densities were lower for the rest of the year (Figure 14; “other taxa” are cryptophytes, euglenoids, green algae, and haptophytes). The peak of “other taxa” in June was driven by cryptophytes and green algae. 
+
 
 ```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average chlorophyll a and pheophytin a concentrations in the San Pablo Bay',  fig.align='center'}
 knitr::include_graphics(file.path('sections/phyto/figures/fig13.png'))
