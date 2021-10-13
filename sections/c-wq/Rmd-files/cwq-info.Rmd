@@ -21,7 +21,7 @@ kable_tables <- function(data, caption) {
 ```
 
 ```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Map of EMP Continuous Water Quality Stations.', fig.align='center'}
-knitr::include_graphics(file.path('sections/c-wq/figures/2020/CEMPStationMap.png'))
+knitr::include_graphics(file.path('sections/c-wq/figures/CEMPStationMap.png'))
 ```
 
 ```{r echo=FALSE, warning=FALSE, message=FALSE, results = 'asis'}
