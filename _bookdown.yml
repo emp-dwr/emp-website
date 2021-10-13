@@ -10,7 +10,7 @@ rmd_files: [
   'sections/general/Rmd-files/index.Rmd',
   
   # C-WQ
-  'sections/c-wq/Rmd-files//cwq-info.Rmd',
+  'sections/c-wq/Rmd-files/cwq-info.Rmd',
   'sections/c-wq/Rmd-files/cwq-report.Rmd',
 
   # D-WQ

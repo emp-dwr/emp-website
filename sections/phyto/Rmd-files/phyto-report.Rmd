@@ -26,16 +26,9 @@ In addition, we measured the concentration of a different pigment in our water s
 
 Phytoplankton biomass and the resulting amount of chlorophyll a in some areas of the Estuary may be influenced by extensive filtration of the water column by the introduced Asian clam, Potamocorbula amurensis (Alpine and Cloern 1992). Well-established benthic populations of P. amurensis in Suisun and San Pablo bays are thought to have contributed to the low chlorophyll a concentrations (and increased water clarity) measured in these westerly bays since the mid-1980s (Alpine and Cloern 1992). 
 
- 
-
 Phytoplankton are small, free-floating organisms that occur as unicellular, colonial, or filamentous forms (Horne and Goldman, 1994). They primarily serve as an important food source for zooplankton, invertebrates, and certain fish species, although they also have a direct effects on water chemistry. Primary production by phytoplankton, primarily via carbon fixation through photosynthesis, is one of the key processes that influence water quality in the Estuary. Via this process, phytoplankton can affect pH, dissolved oxygen, color, taste, and odor. Under certain conditions, some species (eg. Microcystis aeruginosa) can cause harmful algal blooms (HABs), resulting in animal deaths and human illness (Carmichael, 1981). In freshwater, the cyanobacteria, or blue-green algae (class Cyanophyceae), are responsible for producing toxic blooms, particularly in waters that are polluted with phosphates (van den Hoek et al., 1995). Phytoplankton are also useful for assessing water quality (Gannon and Stemberger 1978); their short life cycles allow them to respond quickly to environmental changes, meaning their standing crop and species composition are indicative of source water characteristics (APHA 2012). However, because of their transient nature, patchiness, and free movement in a lotic environment, the utility of phytoplankton as water quality indicators is limited and should be interpreted in conjunction with other biological and physiochemical data (APHA 2012).  
 
- 
-
 In addition to collecting phytoplankton samples to assess community composition, we use chlorophyll a concentrations as proxies to calculate phytoplankton biomass. Chlorophylls are complex phytopigment molecules found in all photosynthetic organisms. There are several types of chlorophyll, which are distinguished by slight differences in their molecular structures and constituents. These include chlorophyll a, b, c, and d, with a being the principal photosynthetic pigment in the majority of phytoplankton. This makes the chlorophyll a pigment a reliable proxy measurement for phytoplankton biomass. Furthermore, water samples were analyzed for pheophytin a. Pheophytin a is a primary degradation product of chlorophyll a. Its concentration, relative to chlorophyll a, is useful for estimating the general physiological state of phytoplankton populations. When phytoplankton are actively growing, the concentrations of pheophytin a are normally expected to be low in relation to chlorophyll a. Conversely, when the phytoplankton have died and are decaying, levels of pheophytin a are expected to be high in relation to chlorophyll a.  
-
- 
-
 Phytoplankton biomass and the resulting chlorophyll a concentrations in some areas of the Estuary may be influenced by extensive filtration of the water column by the introduced Asian clam, Potamocorbula amurensis (Alpine and Cloern 1992). Well-established benthic populations of P. amurensis in Suisun and San Pablo bays are thought to have contributed to the low chlorophyll a concentrations (and increased water clarity) measured in these westerly bays since the mid-1980s (Alpine and Cloern 1992).  
 
 ***
@@ -45,15 +38,39 @@ Phytoplankton biomass and the resulting chlorophyll a concentrations in some are
 
 Phytoplankton samples were collected monthly at 24 monitoring sites throughout the Upper Estuary, which were grouped into regions based on their geographic location (Figure 1; Table 1). Samples were collected 1 meter below the water’s surface using a submersible pump and stored in 50 mL amber glass bottles. 200 µL of Lugol’s solution was added to each sample as a stain and preservative. All samples were kept at room temperature and away from direct sunlight until they were analyzed. 
 
-Phytoplankton identification and enumeration were performed by BSA Environmental, Inc. according to the Utermöhl microscopic method (Utermöhl, 1958) and modified Standard Methods (APHA, 2012). An aliquot of sample was placed into a counting chamber and allowed to settle for a minimum of 12 hours. The aliquot volume, normally 10-20 mL, was adjusted according to the algal population density and the turbidity of the sample. Phytoplankton taxa were enumerated in randomly chosen transects for each settled aliquot. This process was performed at 800x magnification using a Leica DMIL inverted microscope. For each aliquot, a minimum of 400 total algal units were counted, with the dominant taxon accounting for a minimum of 100 algal units. For filamentous or colonial taxa, the number of cells per filament or colony was recorded. Raw organism counts were normalized to the sample volume using the following formula:
-organisms/mL=C/(VA_f F)
-where C is the organism count, A_c is the area of the cell bottom (mm2), A_f is the area of each grid field (mm2), F is the number of fields examined, and V is the settled volume (mL). This simplifies to:
-organisms/mL=C/cV
-
-where cV=A_c/VA_f F and is equal to the counted volume.
-
+Phytoplankton identification and enumeration were performed by BSA Environmental, Inc. according to the Utermöhl microscopic method (Utermöhl, 1958) and modified Standard Methods (APHA, 2012). An aliquot of sample was placed into a counting chamber and allowed to settle for a minimum of 12 hours. The aliquot volume, normally 10-20 mL, was adjusted according to the algal population density and the turbidity of the sample. Phytoplankton taxa were enumerated in randomly chosen transects for each settled aliquot. This process was performed at 800x magnification using a Leica DMIL inverted microscope. For each aliquot, a minimum of 400 total algal units were counted, with the dominant taxon accounting for a minimum of 100 algal units. For filamentous or colonial taxa, the number of cells per filament or colony was recorded. 
+<!-- This section writes out the formula to convert raw organism counts. If the text needs to be modified, let Sarah know. -->
+<!-- The text is: Raw organism counts were normalized to the sample volume using the following formula: organisms/mL=C/(VA_f F) where C is the organism count, A_c is the area of the cell bottom (mm2), A_f is the area of each grid field (mm2), F is the number of fields examined, and V is the settled volume (mL). This simplifies to: organisms/mL=C/cV where cV=A_c/VA_f F and is equal to the counted volume. -->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js">
+  </script>
+</head>
+<body>
+<p>
+  Raw organism counts
+were normalized to the sample volume using the following formula:
+  <br>
+  <center>
+  \(organisms/mL = {CA_{c} \over VA_{f}F}\)
+  </center>
+  <br>
+where \(C\) is the organism count, \(A_{c}\) is the area of the cell bottom (mm\(^2\)), \(A_{f}\)
+is the area of each grid field (mm\(^2\)), \(F\) is the number of fields examined, and
+\(V\) is the settled volume (mL). This simplifies to:
+  <br>
+  <center>
+  \(organisms/mL = {C \over cV}\)
+  </center>
+  <br>
+  where \(cV = {A_{c} \over VA_{f}F}\) and is equal to the counted volume.
+</p>
+</body>
+<!-- back to normal text -->
 The 10 most common genera were determined by summing the normalized organism counts across all stations and months for each genus. For the bar graphs, average organism counts were calculated per month, per region, and normalized to the number of stations.
-
 
 ```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Map of phytoplankton stations sampled by the Environmental Monitoring Program',  fig.align='center'}
 knitr::include_graphics(file.path('sections/phyto/figures/phyto_map.png'))
@@ -136,7 +153,7 @@ Of the ten groups identified, cyanobacteria constituted the vast majority (98.2%
 
 
 ```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Phytoplankton composition by algal group (other are chrysophytes, ciliates, dinoflagellates, euglenoids, and haptophytes)',  fig.align='center'}
-knitr::include_graphics(file.path('sections/phyto/figures/fig2.png'))
+knitr::include_graphics(file.path('sections/phyto/figures/community_comp.png'))
 ```
 
 #### Pigment Concentrations 
@@ -158,11 +175,11 @@ Phytoplankton average densities were highest in early winter and early fall, wit
 
 
 ```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average chlorophyll a and pheophytin a concentrations in the Northern Interior Delta',  fig.align='center'}
-knitr::include_graphics(file.path('sections/phyto/figures/fig3.png'))
+knitr::include_graphics(file.path('sections/phyto/figures/NID_chla_pheo.png'))
 ```
 
 ```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average organism density in the Northern Interior Delta; other are chrysophytes, cryptophytes, and dinoflagellates',  fig.align='center'}
-knitr::include_graphics(file.path('sections/phyto/figures/fig4.png'))
+knitr::include_graphics(file.path('sections/phyto/figures/NID_phyto.png'))
 ```
 
 #### Southern Interior Delta 
@@ -175,11 +192,11 @@ Phytoplankton average densities were highest in the summer and fall, with the hi
 
 
 ```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average chlorophyll a and pheophytin a concentrations in the Southern Interior Delta',  fig.align='center'}
-knitr::include_graphics(file.path('sections/phyto/figures/fig5.png'))
+knitr::include_graphics(file.path('sections/phyto/figures/SID_chla_pheo.png'))
 ```
 
 ```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average organism density in the Southern Interior Delta; other are chrysophytes, cryptophytes, and dinoflagellates',  fig.align='center'}
-knitr::include_graphics(file.path('sections/phyto/figures/fig6.png'))
+knitr::include_graphics(file.path('sections/phyto/figures/SID_phyto.png'))
 ```
 
 #### Central Delta 
@@ -192,11 +209,11 @@ With the exception of cyanobacteria, phytoplankton average densities were low al
 
 
 ```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average chlorophyll a and pheophytin a concentrations in the Central Delta',  fig.align='center'}
-knitr::include_graphics(file.path('sections/phyto/figures/fig7.png'))
+knitr::include_graphics(file.path('sections/phyto/figures/CED_chla_pheo.png'))
 ```
 
 ```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average organism density in the Central Delta; other are chrysophytes, cryptophytes, and dinoflagellates',  fig.align='center'}
-knitr::include_graphics(file.path('sections/phyto/figures/fig8.png'))
+knitr::include_graphics(file.path('sections/phyto/figures/CED_phyto.png'))
 ```
 
 #### Confluence 
@@ -209,11 +226,11 @@ Phytoplankton average densities were higher in winter and early spring; the peak
 
 
 ```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average chlorophyll a and pheophytin a concentrations in the Confluence',  fig.align='center'}
-knitr::include_graphics(file.path('sections/phyto/figures/fig9.png'))
+knitr::include_graphics(file.path('sections/phyto/figures/CON_chla_pheo.png'))
 ```
 
 ```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average organism density in the Confluence; other are chrysophytes, cryptophytes, and dinoflagellates',  fig.align='center'}
-knitr::include_graphics(file.path('sections/phyto/figures/fig10.png'))
+knitr::include_graphics(file.path('sections/phyto/figures/CON_phyto.png'))
 ```
 
 #### Grizzly Bay and Suisun Bay 
@@ -225,11 +242,11 @@ Phytoplankton average densities were relatively higher early in the year, driven
 
 
 ```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average chlorophyll a and pheophytin a concentrations in the Grizzly/Suisun Bays',  fig.align='center'}
-knitr::include_graphics(file.path('sections/phyto/figures/fig11.png'))
+knitr::include_graphics(file.path('sections/phyto/figures/GSB_chla_pheo.png'))
 ```
 
 ```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average organism density in the Grizzly/Suisun Bays; other are chrysophytes, cryptophytes, and dinoflagellates',  fig.align='center'}
-knitr::include_graphics(file.path('sections/phyto/figures/fig12.png'))
+knitr::include_graphics(file.path('sections/phyto/figures/GSB_phyto.png'))
 ```
 
 #### San Pablo Bay 
@@ -242,11 +259,11 @@ There were peaks of cyanobacteria in January and October; most of the phytoplank
 
 
 ```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average chlorophyll a and pheophytin a concentrations in the San Pablo Bay',  fig.align='center'}
-knitr::include_graphics(file.path('sections/phyto/figures/fig13.png'))
+knitr::include_graphics(file.path('sections/phyto/figures/SPB_chla_pheo.png'))
 ```
 
 ```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average organism density in the San Pablo Bay; other are chrysophytes, cryptophytes, and dinoflagellates',  fig.align='center'}
-knitr::include_graphics(file.path('sections/phyto/figures/fig14.png'))
+knitr::include_graphics(file.path('sections/phyto/figures/SPB_phyto.png'))
 ```
 
 ***
