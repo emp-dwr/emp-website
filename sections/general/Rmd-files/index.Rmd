@@ -16,8 +16,6 @@ htmltools::includeHTML('html-css/slideshow.html')
 # (PART) General {-}
 
 # Program Information
-<b> CHANGE TEST IGNORE </b>
-
 <b>THIS IS A TEST SITE.</b> For official annual EMP reports, please contact Sarah Perry at sarah.perry@water.ca.gov.
 
 The State Water Resources Control Board (SWRCB) sets water quality objectives to protect beneficial uses of water in the Sacramento-San Joaquin Delta and Suisun and San Pablo Bays. These objectives are met by establishing standards mandated in water right permits issued to the Department of Water Resources and U.S. Bureau of Reclamation by the SWRCB. The standards include minimum Delta outflows, limits to Delta water export by the State Water Project (SWP) and the Central Valley Project (CVP), and maximum allowable salinity levels.
