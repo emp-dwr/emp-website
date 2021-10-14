@@ -1,4 +1,8 @@
 ## Current Report {#phyto-report}
+\makeatletter
+\g@addto@macro\@floatboxreset\centering
+\makeatother
+
 ```{r echo = FALSE}
 # import pipe operator
 `%>%` <- magrittr::`%>%`
@@ -54,19 +58,15 @@ Phytoplankton identification and enumeration were performed by BSA Environmental
   Raw organism counts
 were normalized to the sample volume using the following formula:
   <br>
-  <center>
-  \(organisms/mL = {CA_{c} \over VA_{f}F}\)
-  </center>
+  \(organisms/mL = {CA_{c} \frac VA_{f}F}\)
   <br>
 where \(C\) is the organism count, \(A_{c}\) is the area of the cell bottom (mm\(^2\)), \(A_{f}\)
 is the area of each grid field (mm\(^2\)), \(F\) is the number of fields examined, and
 \(V\) is the settled volume (mL). This simplifies to:
   <br>
-  <center>
-  \(organisms/mL = {C \over cV}\)
-  </center>
+  \(organisms/mL = {C \frac cV}\)
   <br>
-  where \(cV = {A_{c} \over VA_{f}F}\) and is equal to the counted volume.
+  where \(cV = {A_{c} \frac VA_{f}F}\) and is equal to the counted volume.
 </p>
 </body>
 <!-- back to normal text -->
@@ -80,38 +80,6 @@ knitr::include_graphics(file.path('sections/phyto/figures/phyto_map.png'))
 phyto_stations <- readr::read_csv('sections/phyto/figures/phyto-stations.csv')
 kable_tables(phyto_stations, caption = 'Stations included within each region of the Delta')
 ```
-
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script id="MathJax-script" async
-          src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js">
-  </script>
-</head>
-<body>
-<p>
-  Raw organism counts
-were normalized to the sample volume using the following formula:
-  <br>
-  <center>
-  \(organisms/mL = {CA_{c} \over VA_{f}F}\)
-  </center>
-  <br>
-where \(C\) is the organism count, \(A_{c}\) is the area of the cell bottom (mm\(^2\)), \(A_{f}\)
-is the area of each grid field (mm\(^2\)), \(F\) is the number of fields examined, and
-\(V\) is the settled volume (mL). This simplifies to:
-  <br>
-  <center>
-  \(organisms/mL = {C \over cV}\)
-  </center>
-  <br>
-  where \(cV = {A_{c} \over VA_{f}F}\) and is equal to the counted volume.
-</p>
-</body>
- 
-
 
 #### Chlorophyll a and Pheophytin a 
 

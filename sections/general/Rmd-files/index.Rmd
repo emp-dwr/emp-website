@@ -1,8 +1,6 @@
 --- 
-site: bookdown::bookdown_site
 title: 'Environmental Monitoring Program'
 number_sections: FALSE
-documentclass: book
 link-citations: yes
 github-repo: emp-des/emp-reports
 description: "Website for CA DWR's Environmental Monitoring Program."

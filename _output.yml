@@ -33,14 +33,13 @@ bookdown::gitbook:
     
     download: false # ['pdf']
     sharing: false
-
-   #    facebook: false
-   #   twitter: false
     # highlight: tango
-# bookdown::pdf_book:
+bookdown::pdf_document2:
+  latex_engine: lualatex
+  documentclass: oneside
+  number_sections: FALSE
 #  includes:
 #    in_header: preamble.tex
-#  latex_engine: xelatex
 #  citation_package: natbib
 #  keep_tex: yes
-#  always_allow_html: true
+  always_allow_html: true
