@@ -51,8 +51,6 @@
 
 <link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
-<script src="libs/kePrint-0.0.1/kePrint.js"></script>
-<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 
@@ -96,7 +94,7 @@
 <ul>
 <li class="chapter" data-level="" data-path="cwq-report.html"><a href="cwq-report.html#water-temperature"><i class="fa fa-check"></i>Water Temperature</a></li>
 <li class="chapter" data-level="" data-path="cwq-report.html"><a href="cwq-report.html#specific-conductance"><i class="fa fa-check"></i>Specific Conductance</a></li>
-<li class="chapter" data-level="" data-path="cwq-report.html"><a href="cwq-report.html#do"><i class="fa fa-check"></i>DO</a></li>
+<li class="chapter" data-level="" data-path="cwq-report.html"><a href="cwq-report.html#dissolved-oxygen"><i class="fa fa-check"></i>Dissolved Oxygen</a></li>
 <li class="chapter" data-level="" data-path="cwq-report.html"><a href="cwq-report.html#ph"><i class="fa fa-check"></i>pH</a></li>
 <li class="chapter" data-level="" data-path="cwq-report.html"><a href="cwq-report.html#turbidity"><i class="fa fa-check"></i>Turbidity</a></li>
 <li class="chapter" data-level="" data-path="cwq-report.html"><a href="cwq-report.html#chlorophyll-a-fluorescence"><i class="fa fa-check"></i>Chlorophyll a Fluorescence</a></li>
@@ -111,7 +109,6 @@
 <li class="chapter" data-level="" data-path="dwq-report.html"><a href="dwq-report.html"><i class="fa fa-check"></i>Current Report</a>
 <ul>
 <li class="chapter" data-level="" data-path="dwq-report.html"><a href="dwq-report.html#introduction"><i class="fa fa-check"></i>Introduction</a></li>
-<li class="chapter" data-level="" data-path="dwq-report.html"><a href="dwq-report.html#specific-conductance-1"><i class="fa fa-check"></i>Specific Conductance</a></li>
 <li class="chapter" data-level="" data-path="dwq-report.html"><a href="dwq-report.html#turbidity-1"><i class="fa fa-check"></i>Turbidity</a></li>
 <li class="chapter" data-level="" data-path="dwq-report.html"><a href="dwq-report.html#dissolved-ammonia"><i class="fa fa-check"></i>Dissolved Ammonia</a></li>
 <li class="chapter" data-level="" data-path="dwq-report.html"><a href="dwq-report.html#chlorophyll-a"><i class="fa fa-check"></i>Chlorophyll a</a></li>
@@ -126,6 +123,8 @@
 <li class="chapter" data-level="" data-path="benthic-report.html"><a href="benthic-report.html"><i class="fa fa-check"></i>Current Report</a>
 <ul>
 <li class="chapter" data-level="" data-path="benthic-report.html"><a href="benthic-report.html#introduction-1"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="benthic-report.html"><a href="benthic-report.html#methods-1"><i class="fa fa-check"></i>Methods</a></li>
+<li class="chapter" data-level="" data-path="benthic-report.html"><a href="benthic-report.html#results"><i class="fa fa-check"></i>Results</a></li>
 <li class="chapter" data-level="" data-path="benthic-report.html"><a href="benthic-report.html#san-pablo-bay"><i class="fa fa-check"></i>San Pablo Bay</a></li>
 <li class="chapter" data-level="" data-path="benthic-report.html"><a href="benthic-report.html#suisun-and-grizzly-bay"><i class="fa fa-check"></i>Suisun and Grizzly Bay</a></li>
 <li class="chapter" data-level="" data-path="benthic-report.html"><a href="benthic-report.html#confluence-1"><i class="fa fa-check"></i>Confluence</a></li>
@@ -140,12 +139,12 @@
 <li class="chapter" data-level="" data-path="phyto-report.html"><a href="phyto-report.html"><i class="fa fa-check"></i>Current Report</a>
 <ul>
 <li class="chapter" data-level="" data-path="phyto-report.html"><a href="phyto-report.html#introduction-2"><i class="fa fa-check"></i>Introduction</a></li>
-<li class="chapter" data-level="" data-path="phyto-report.html"><a href="phyto-report.html#methods-1"><i class="fa fa-check"></i>Methods</a>
+<li class="chapter" data-level="" data-path="phyto-report.html"><a href="phyto-report.html#methods-2"><i class="fa fa-check"></i>Methods</a>
 <ul>
 <li class="chapter" data-level="" data-path="phyto-report.html"><a href="phyto-report.html#phytoplankton"><i class="fa fa-check"></i>Phytoplankton</a></li>
 <li class="chapter" data-level="" data-path="phyto-report.html"><a href="phyto-report.html#chlorophyll-a-and-pheophytin-a"><i class="fa fa-check"></i>Chlorophyll a and Pheophytin a</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="phyto-report.html"><a href="phyto-report.html#results"><i class="fa fa-check"></i>Results</a>
+<li class="chapter" data-level="" data-path="phyto-report.html"><a href="phyto-report.html#results-1"><i class="fa fa-check"></i>Results</a>
 <ul>
 <li class="chapter" data-level="" data-path="phyto-report.html"><a href="phyto-report.html#phytoplankton-identification"><i class="fa fa-check"></i>Phytoplankton Identification</a></li>
 <li class="chapter" data-level="" data-path="phyto-report.html"><a href="phyto-report.html#pigment-concentrations"><i class="fa fa-check"></i>Pigment Concentrations</a></li>
@@ -227,15 +226,15 @@
 <p>This importance of zooplankton prompted the implementation of the Zooplankton Study in 1972 to assess fish food resources in the upper SFE. Mandated by the State Water Resources Control Board’s Water Right Decision D-1641, the study is conducted jointly by the California Department of Fish and Wildlife and the California Department of Water Resources under the guidance and management of the Interagency Ecological Program. For nearly 5 decades, this study has monitored the zooplankton community in the region, tracking abundance trends and distributional patterns, detecting and monitoring introduced species, and documenting the dramatic shifts in the community’s composition. Changes in zooplankton abundance and composition have since been linked to major declines of the pelagic fishes in the upper estuary (Sommer et al. 2007; Winder and Jassby 2011).</p>
 <hr />
 </div>
-<div id="methods-2" class="section level3 unlisted unnumbered">
+<div id="methods-3" class="section level3 unlisted unnumbered">
 <h3>Methods</h3>
-<p>Zooplankton sampling has been conducted since 1974 at least once a month March-November through 1995, monthly from 1995 on. at 20 fixed stations in the upper SFE (Figure 1). Three gear types are used for each sampling event: a pump with a 43-micron mesh net for micro-zooplankton (rotifers, nauplii, and small cyclopoid copepods); a Clarke-Bumpus (CB) net with a 160-micron mesh for sampling meso-zooplankton (cladocera and most juvenile and adult calanoid copepods); and a mysid net with a 505-micron mesh for sampling mysid shrimp and other macro-zooplankton. Both the mysid and CB nets are attached to a sled and towed obliquely from the bottom through the surface for a 10-minute tow. Volume is measured using a General Oceanics flowmeter placed in the mouth of each net so that: V=(end meter-start meter)k*a; where V is the volume of water sampled, k is a flowmeter correction value, and a is the area of the mouth of the net. The Teel Marine 12V utility pump is also used at each station to sample approximately 19.8 gallons from the entire water column, which is filtered through a 43-micron mesh net to concentrate the pump sample. Samples are preserved in 10% formalin with Rose Bengal dye before being processed in the laboratory for identification and enumeration of organisms using a dissecting microscope. More information about the sampling and processing methods can be found in the metadata at <a href="ftp://ftp.wildlife.ca.gov/IEP_Zooplankton/">here</a> (link currently broken).</p>
-<p>Abundance indices are calculated for each organism based on the gear type most effective at its capture and reported as the mean catch-per-unit-effort (CPUE). CPUE is calculated as the number of each organism collected per cubic meter of water sampled, so that: CPUE=s*V^(-1); where s is the estimated count of the target organism in the sample. Copepod abundance indices reported here only include adults, as juveniles were not always identified to species. Annual and seasonal abundance indices were calculated using 14 fixed stations sampled consistently since 1974 (Figure 1) and 2 non-fixed stations sampled where bottom specific conductance was roughly 2 and 6 millisiemens per centimeter (approximately 1 and 3 psu).</p>
+<p>Zooplankton sampling has been conducted since 1974 at least once a month March-November through 1995, monthly from 1995 on. at 20 fixed stations in the upper SFE (Figure 69). Three gear types are used for each sampling event: a pump with a 43-micron mesh net for micro-zooplankton (rotifers, nauplii, and small cyclopoid copepods); a Clarke-Bumpus (CB) net with a 160-micron mesh for sampling meso-zooplankton (cladocera and most juvenile and adult calanoid copepods); and a mysid net with a 505-micron mesh for sampling mysid shrimp and other macro-zooplankton. Both the mysid and CB nets are attached to a sled and towed obliquely from the bottom through the surface for a 10-minute tow. Volume is measured using a General Oceanics flowmeter placed in the mouth of each net so that: V=(end meter-start meter)k*a; where V is the volume of water sampled, k is a flowmeter correction value, and a is the area of the mouth of the net. The Teel Marine 12V utility pump is also used at each station to sample approximately 19.8 gallons from the entire water column, which is filtered through a 43-micron mesh net to concentrate the pump sample. Samples are preserved in 10% formalin with Rose Bengal dye before being processed in the laboratory for identification and enumeration of organisms using a dissecting microscope. More information about the sampling and processing methods can be found in the metadata at <a href="ftp://ftp.wildlife.ca.gov/IEP_Zooplankton/">here</a> (link currently broken).</p>
+<p>Abundance indices are calculated for each organism based on the gear type most effective at its capture and reported as the mean catch-per-unit-effort (CPUE). CPUE is calculated as the number of each organism collected per cubic meter of water sampled, so that: CPUE=s*V^(-1); where s is the estimated count of the target organism in the sample. Copepod abundance indices reported here only include adults, as juveniles were not always identified to species. Annual and seasonal abundance indices were calculated using 14 fixed stations sampled consistently since 1974 (Figure 69) and 2 non-fixed stations sampled where bottom specific conductance was roughly 2 and 6 millisiemens per centimeter (approximately 1 and 3 psu).</p>
 <p>To analyze long-term trends (1974 to present), annual abundance indices were calculated as the mean CPUE for samples collected from March through November, as winter sampling was inconsistent before 1995. Seasonal abundance indices were calculated as the mean CPUE for samples collected during each season: winter (previous December to February), spring (March to May), summer (June to August), and fall (September to November). Long-term seasonal trends for winter are only shown for 1995 to present. Spatial distribution indices for organisms is described as seasonal mean CPUE for by region. Estuary regions were defined as San Pablo Bay (stations D41 and D41A), Suisun Bay (stations D6, 28, 54, and 48), Suisun Marsh (stations 32 and S42), West Delta (stations 60, 64, and 74), Central Delta (stations D16, 86, and D28), and the East Delta (92 and M10).</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-83"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-84"></span>
 <img src="sections/zoop/figures/zoop-map.png" alt="Map of fixed Zooplankton Study stations in the San Francisco Estuary." width="70%" />
 <p class="caption">
-Figure 68: Map of fixed Zooplankton Study stations in the San Francisco Estuary.
+Figure 69: Map of fixed Zooplankton Study stations in the San Francisco Estuary.
 </p>
 </div>
 

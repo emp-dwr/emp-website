@@ -51,8 +51,6 @@
 
 <link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
-<script src="libs/kePrint-0.0.1/kePrint.js"></script>
-<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 
@@ -96,7 +94,7 @@
 <ul>
 <li class="chapter" data-level="" data-path="cwq-report.html"><a href="cwq-report.html#water-temperature"><i class="fa fa-check"></i>Water Temperature</a></li>
 <li class="chapter" data-level="" data-path="cwq-report.html"><a href="cwq-report.html#specific-conductance"><i class="fa fa-check"></i>Specific Conductance</a></li>
-<li class="chapter" data-level="" data-path="cwq-report.html"><a href="cwq-report.html#do"><i class="fa fa-check"></i>DO</a></li>
+<li class="chapter" data-level="" data-path="cwq-report.html"><a href="cwq-report.html#dissolved-oxygen"><i class="fa fa-check"></i>Dissolved Oxygen</a></li>
 <li class="chapter" data-level="" data-path="cwq-report.html"><a href="cwq-report.html#ph"><i class="fa fa-check"></i>pH</a></li>
 <li class="chapter" data-level="" data-path="cwq-report.html"><a href="cwq-report.html#turbidity"><i class="fa fa-check"></i>Turbidity</a></li>
 <li class="chapter" data-level="" data-path="cwq-report.html"><a href="cwq-report.html#chlorophyll-a-fluorescence"><i class="fa fa-check"></i>Chlorophyll a Fluorescence</a></li>
@@ -111,7 +109,6 @@
 <li class="chapter" data-level="" data-path="dwq-report.html"><a href="dwq-report.html"><i class="fa fa-check"></i>Current Report</a>
 <ul>
 <li class="chapter" data-level="" data-path="dwq-report.html"><a href="dwq-report.html#introduction"><i class="fa fa-check"></i>Introduction</a></li>
-<li class="chapter" data-level="" data-path="dwq-report.html"><a href="dwq-report.html#specific-conductance-1"><i class="fa fa-check"></i>Specific Conductance</a></li>
 <li class="chapter" data-level="" data-path="dwq-report.html"><a href="dwq-report.html#turbidity-1"><i class="fa fa-check"></i>Turbidity</a></li>
 <li class="chapter" data-level="" data-path="dwq-report.html"><a href="dwq-report.html#dissolved-ammonia"><i class="fa fa-check"></i>Dissolved Ammonia</a></li>
 <li class="chapter" data-level="" data-path="dwq-report.html"><a href="dwq-report.html#chlorophyll-a"><i class="fa fa-check"></i>Chlorophyll a</a></li>
@@ -126,6 +123,8 @@
 <li class="chapter" data-level="" data-path="benthic-report.html"><a href="benthic-report.html"><i class="fa fa-check"></i>Current Report</a>
 <ul>
 <li class="chapter" data-level="" data-path="benthic-report.html"><a href="benthic-report.html#introduction-1"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="benthic-report.html"><a href="benthic-report.html#methods-1"><i class="fa fa-check"></i>Methods</a></li>
+<li class="chapter" data-level="" data-path="benthic-report.html"><a href="benthic-report.html#results"><i class="fa fa-check"></i>Results</a></li>
 <li class="chapter" data-level="" data-path="benthic-report.html"><a href="benthic-report.html#san-pablo-bay"><i class="fa fa-check"></i>San Pablo Bay</a></li>
 <li class="chapter" data-level="" data-path="benthic-report.html"><a href="benthic-report.html#suisun-and-grizzly-bay"><i class="fa fa-check"></i>Suisun and Grizzly Bay</a></li>
 <li class="chapter" data-level="" data-path="benthic-report.html"><a href="benthic-report.html#confluence-1"><i class="fa fa-check"></i>Confluence</a></li>
@@ -140,12 +139,12 @@
 <li class="chapter" data-level="" data-path="phyto-report.html"><a href="phyto-report.html"><i class="fa fa-check"></i>Current Report</a>
 <ul>
 <li class="chapter" data-level="" data-path="phyto-report.html"><a href="phyto-report.html#introduction-2"><i class="fa fa-check"></i>Introduction</a></li>
-<li class="chapter" data-level="" data-path="phyto-report.html"><a href="phyto-report.html#methods-1"><i class="fa fa-check"></i>Methods</a>
+<li class="chapter" data-level="" data-path="phyto-report.html"><a href="phyto-report.html#methods-2"><i class="fa fa-check"></i>Methods</a>
 <ul>
 <li class="chapter" data-level="" data-path="phyto-report.html"><a href="phyto-report.html#phytoplankton"><i class="fa fa-check"></i>Phytoplankton</a></li>
 <li class="chapter" data-level="" data-path="phyto-report.html"><a href="phyto-report.html#chlorophyll-a-and-pheophytin-a"><i class="fa fa-check"></i>Chlorophyll a and Pheophytin a</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="phyto-report.html"><a href="phyto-report.html#results"><i class="fa fa-check"></i>Results</a>
+<li class="chapter" data-level="" data-path="phyto-report.html"><a href="phyto-report.html#results-1"><i class="fa fa-check"></i>Results</a>
 <ul>
 <li class="chapter" data-level="" data-path="phyto-report.html"><a href="phyto-report.html#phytoplankton-identification"><i class="fa fa-check"></i>Phytoplankton Identification</a></li>
 <li class="chapter" data-level="" data-path="phyto-report.html"><a href="phyto-report.html#pigment-concentrations"><i class="fa fa-check"></i>Pigment Concentrations</a></li>
@@ -223,71 +222,69 @@
 <h2>Current Report</h2>
 <div id="introduction" class="section level3">
 <h3>Introduction</h3>
-<p>Water year 2019 was classified as Above Average in the Sacramento Valley and San Joaquin Valley, unlike the previous year, which was classified as Below Average. More information about water year types can be found on the hydrology page. The 2018-2019 data from all stations within the same region were plotted on one graph and then combined with the graphs from other regions to make a facet graph for each parameter. The minimum and maximum values in 2019 were determined for each field parameter or laboratory analyte to show the range within a single year. The instances when a result fell below the reporting limit were excluded from these minimum and maximum calculations. When this occurred, a vertical dashed line capped at the reporting limit was added to the graph to represent the presence of a non-detect.</p>
-<hr />
-</div>
-<div id="specific-conductance-1" class="section level3">
-<h3>Specific Conductance</h3>
-<p>Specific conductance varied greatly in 2019 across the sampling regions with the highest levels occurring in the western regions (San Pablo Bay, Suisun Bay and Grizzly Bay and Confluence) where water from the Pacific Ocean has the strongest influence. Specific conductance ranged from 77.8 µS/cm (C10A in Southern Interior Delta, June) to 41,956 µS/cm (D41 in San Pablo Bay, November) during 2019. Lower specific conductance values were seen in 2019 than compared to 2018, which was likely due to increased precipitation and runoff during a wet year, keeping the San Francisco Estuary fresher throughout the year.</p>
+<p>Water year 2020 was classified as Dry in the Sacramento Valley and San Joaquin Valley, unlike the previous year, which was classified as Wet <a href="https://cdec.water.ca.gov/reportapp/javareports?name=WSIHIST">(source)</a>. The 2019-2020 data from all stations within the same region were plotted on one graph and then combined with the graphs from other regions to make a facet graph for each parameter. The minimum and maximum values in 2020 were determined for each field parameter or laboratory analyte to show the range within a single year. The instances when a result fell below the reporting limit were excluded from these minimum and maximum calculations. When this occurred, a vertical dashed line capped at the reporting limit was added to the graph to represent the presence of a non-detect. It should be noted that sampling was not conducted in April, May, and some of December 2020 due to the stay-at-home order and safety concerns caused by the COVID-19 pandemic.
+***
+### Specific Conductance</p>
+<p>Surface specific conductance varied greatly in 2020 across the sampling regions with the highest levels occurring in the western regions (San Pablo Bay, Suisun &amp; Grizzly Bays, Confluence) due to the strong marine influence from the Pacific Ocean. Surface specific conductance ranged from an average of 134 µS/cm (C3A in Northern Interior Delta, July) to 45,349 µS/cm (D41 in San Pablo Bay, November) during 2020. Higher specific conductance values were seen in 2020 (μ = 11,310 μS/cm) than in 2019 (μ = 6,702 μS/cm), which was likely due to the on-going drought keeping the San Francisco Estuary drier throughout the year.</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-47"></span>
-<img src="sections/d-wq/figures/ARGraph_SpCndSurface.jpg" alt="Surface specific conductance in µS/cm at six regions in the San Francisco Bay-Delta estuary during 2018-2019." width="1425" />
+<img src="sections/d-wq/figures/ARGraph_SpCndSurface.jpg" alt="Surface specific conductance in µS/cm at six regions in the San Francisco Bay-Delta estuary during 2019-2020." width="1425" />
 <p class="caption">
-Figure 36: Surface specific conductance in µS/cm at six regions in the San Francisco Bay-Delta estuary during 2018-2019.
+Figure 36: Surface specific conductance in µS/cm at six regions in the San Francisco Bay-Delta estuary during 2019-2020.
 </p>
 </div>
 <hr />
 </div>
 <div id="turbidity-1" class="section level3">
 <h3>Turbidity</h3>
-<p>Turbidity values ranged from 0.3 NTU (MD10A in Southern Interior Delta, April) to 142.3 NTU (NZ325 in San Pablo Bay, February) during 2019. The year 2019 had much higher levels of turbidity than in 2018, especially during the winter months in the northern and western regions when rain and snowpack runoff occurred more frequently and to a much larger degree in the watershed. All six regions experienced a spike in turbidity in February 2019 when the first set of big storms hit, causing higher flows throughout the estuary and therefore a higher likelihood of increased sediment disturbance.</p>
+<p>Surface turbidity values ranged from 0.3 FNU (D19 in Central Delta, March) to 41.4 FNU (D7 in Suisun &amp; Grizzly Bays, November) during 2020. The year 2020 had lower average turbidity than in 2019 (9.8 FNU vs. 19.6 FNU), likely due to the drought conditions that result in lack of rainfall and snowpack runoff during the winter months.</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-48"></span>
-<img src="sections/d-wq/figures/ARGraph_TurbiditySurface.jpg" alt="Surface turbidity in NTU at six regions in the San Francisco Bay-Delta estuary during 2018-2019." width="1425" />
+<img src="sections/d-wq/figures/ARGraph_TurbiditySurface.jpg" alt="Surface turbidity in NTU at six regions in the San Francisco Bay-Delta estuary during 2019-2020." width="1425" />
 <p class="caption">
-Figure 37: Surface turbidity in NTU at six regions in the San Francisco Bay-Delta estuary during 2018-2019.
+Figure 37: Surface turbidity in NTU at six regions in the San Francisco Bay-Delta estuary during 2019-2020.
 </p>
 </div>
 <hr />
 </div>
 <div id="dissolved-ammonia" class="section level3">
 <h3>Dissolved Ammonia</h3>
-<p>Dissolved ammonia levels in 2019 ranged from ≤ 0.05 mg/L (which is the reporting limit) to 0.75 mg/L (C3A in Northern Interior Delta, November). Dissolved ammonia levels are typically higher at C3A in the Northern Interior Delta due to its location downstream of the effluent discharge from Sacramento Regional Sanitation District. Ammonia levels are typically lower throughout the Delta and Bays, likely due to dilution and nitrification. More non-detects were seen in 2019 compared to 2018, but this was in fact due to the reporting limit increasing from 0.01 mg/L to 0.05 mg/L and was not necessarily a product of lower concentrations.</p>
+<p>Dissolved ammonia levels in 2020 ranged from ≤ 0.05 mg/L (the reporting limit) in several regions to 0.7 mg/L (C3A in Northern Interior Delta, March and June). Dissolved ammonia levels are typically higher at C3A in the Northern Interior Delta due to its location downstream of the effluent discharge from Sacramento Regional Sanitation District. Ammonia levels are typically lower throughout the Delta and Bays, likely due to dilution and nitrification.</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-49"></span>
-<img src="sections/d-wq/figures/ARGraph_DissAmmonia.jpg" alt="Dissolved ammonia concentrations in mg/L at six regions in the San Francisco Bay-Delta estuary during 2018-2019. Dashed lines represent the range of possible values for months where the raw value was a non-detect." width="1425" />
+<img src="sections/d-wq/figures/ARGraph_DissAmmonia.jpg" alt="Dissolved ammonia concentrations in mg/L at six regions in the San Francisco Bay-Delta estuary during 2019-2020. Dashed lines represent the range of possible values for months where the raw value was a non-detect." width="1425" />
 <p class="caption">
-Figure 38: Dissolved ammonia concentrations in mg/L at six regions in the San Francisco Bay-Delta estuary during 2018-2019. Dashed lines represent the range of possible values for months where the raw value was a non-detect.
+Figure 38: Dissolved ammonia concentrations in mg/L at six regions in the San Francisco Bay-Delta estuary during 2019-2020. Dashed lines represent the range of possible values for months where the raw value was a non-detect.
 </p>
 </div>
 <hr />
 </div>
 <div id="chlorophyll-a" class="section level3">
 <h3>Chlorophyll a</h3>
-<p>Chlorophyll a values in 2019 ranged from ≤ 0.5 µg/L (which is the reporting limit) to 38.1 µg/L (C10A in Southern Interior Delta, July). The highest levels of chlorophyll a were seen in the Southern Interior Delta region during the summer months in 2019. This was mostly due to elevated levels at station C10A, which is known for being shallow during dry periods of the year (as low as 3.5 feet in 2019), with increased temperatures and lower flows allowing for increased phytoplankton production. These elevated chlorophyll a levels in the summer at C10A also align with the continuous fluorescence data collected at this station. More information about the phytoplankton genera is described in the phytoplankton section. Chlorophyll levels were consistently lower in 2019 than 2018 for all regions, as most regions saw a spike in chlorophyll in Spring 2018 that did not occur in 2019.</p>
+<p>Chlorophyll a values in 2020 ranged from 0.53 µg/L (C3A in the Northern Interior Bay, November and NZ325 in San Pablo Bay, March) to 32.5 µg/L (C10A in Southern Interior Delta, July). The highest levels of chlorophyll a were seen in the Southern Interior Delta region during the summer months in 2020. This was mostly due to elevated levels at station C10A, which is known for being shallow during dry periods of the year, with increased temperatures and lower flows allowing for increased phytoplankton production. These elevated chlorophyll a levels in the summer at C10A also align with the continuous fluorescence data collected at this station. More information about the phytoplankton genera is described in the phytoplankton section. Average chlorophyll levels across all regions were similar in 2020 to those in 2019 (2.84 µg/L vs. 2.28 µg/L).</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-50"></span>
-<img src="sections/d-wq/figures/ARGraph_Chla.jpg" alt="Chlorophyll a concentrations in µg/L at six regions in the San Francisco Bay-Delta estuary during 2018-2019. Dashed lines represent the range of possible values for months where the raw value was a non-detect." width="1425" />
+<img src="sections/d-wq/figures/ARGraph_Chla.jpg" alt="Chlorophyll a concentrations in µg/L at six regions in the San Francisco Bay-Delta estuary during 2019-2020. Dashed lines represent the range of possible values for months where the raw value was a non-detect." width="1425" />
 <p class="caption">
-Figure 39: Chlorophyll a concentrations in µg/L at six regions in the San Francisco Bay-Delta estuary during 2018-2019. Dashed lines represent the range of possible values for months where the raw value was a non-detect.
+Figure 39: Chlorophyll a concentrations in µg/L at six regions in the San Francisco Bay-Delta estuary during 2019-2020. Dashed lines represent the range of possible values for months where the raw value was a non-detect.
 </p>
 </div>
 <hr />
 </div>
 <div id="dissolved-nitrate-nitrite" class="section level3">
 <h3>Dissolved Nitrate + Nitrite</h3>
-<p>Dissolved nitrate + nitrite values ranged from ≤ 0.05 mg/L (which is the lowest reporting limit) to 3.6 mg/L (P8 in Southern Interior Delta, January) in 2019. The Southern Interior Delta region had the highest fluctuation of dissolved nitrate + nitrite concentrations and had the highest levels compared to the rest of the estuary, likely due to influence from nearby agricultural land use and wastewater treatment effluent. Most regions saw a spike in dissolved nitrate + nitrite in late 2018 to early 2019, but all regions saw less variability in 2019 compared to 2018. Reporting limits for dissolved nitrate + nitrate were as high as 7.5 and 15 mg/L for western regions in late 2019 due to chloride influence on the analytical method. These reporting limits were cropped out of graphs for scale. The dissolved nitrate + nitrite values for D4 in January and D10 in November were removed from the graphs because they were outliers.</p>
+<p>Dissolved nitrate + nitrite values ranged from ≤ 0.05 mg/L (the lowest reporting limit) to 3.5 mg/L (P8 in Southern Interior Delta, October) in 2020. The Southern Interior Delta region had the highest fluctuation of dissolved nitrate + nitrite concentrations and had the highest levels compared to the rest of the estuary, likely due to influence from nearby agricultural land use and wastewater treatment effluent. Reporting limits for dissolved nitrate + nitrate were as high as 7.5 and 15 mg/L for western regions in late 2019 due to chloride influence on the analytical method. These reporting limits were cropped out of graphs for scale.</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-51"></span>
-<img src="sections/d-wq/figures/ARGraph_DissNitrateNitrite.jpg" alt="Dissolved nitrate and nitrite concentrations in mg/L at six regions in the San Francisco Bay-Delta estuary during 2018-2019. Dashed lines represent the range of possible values for months where the raw value was a non-detect." width="1425" />
+<img src="sections/d-wq/figures/ARGraph_DissNitrateNitrite.jpg" alt="Dissolved nitrate and nitrite concentrations in mg/L at six regions in the San Francisco Bay-Delta estuary during 2019-2020. Dashed lines represent the range of possible values for months where the raw value was a non-detect." width="1425" />
 <p class="caption">
-Figure 40: Dissolved nitrate and nitrite concentrations in mg/L at six regions in the San Francisco Bay-Delta estuary during 2018-2019. Dashed lines represent the range of possible values for months where the raw value was a non-detect.
+Figure 40: Dissolved nitrate and nitrite concentrations in mg/L at six regions in the San Francisco Bay-Delta estuary during 2019-2020. Dashed lines represent the range of possible values for months where the raw value was a non-detect.
 </p>
 </div>
 <hr />
 </div>
 <div id="total-phosphorus" class="section level3">
 <h3>Total Phosphorus</h3>
-<p>In 2019, total phosphorous levels ranged from 0.04 mg/L (C3A in Northern Interior Delta-June, NZ068 in Northern Interior Delta-May, and D19 in Central Delta-May, D22 in Confluence-July) to 0.37 mg/L (P8 in Southern Interior Delta, January). Total phosphorus concentrations were similar in 2019 compared to 2018 in most regions except for the Southern Interior Delta, which experienced lower levels in 2019. This was likely due to increased precipitation and more water moving through the system causing dilution. The total phosphorus value for NZ002 in April was removed from the graph because it was an outlier.</p>
+<p>In 2020, total phosphorous levels ranged from 0.04 mg/L (D28A in Central Delta, December) to 0.49 mg/L (P8 in Southern Interior Delta, September). Total phosphorus concentrations were overall similar compared to 2019 (both averaging 0.10 mg/L).</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-52"></span>
-<img src="sections/d-wq/figures/ARGraph_TotPhos.jpg" alt="Total phosphorous concentrations in mg/L at six regions in the San Francisco Bay-Delta estuary during 2018-2019. Dashed lines represent the range of possible values for months where the raw value was a non-detect." width="1425" />
+<img src="sections/d-wq/figures/ARGraph_TotPhos.jpg" alt="Total phosphorous concentrations in mg/L at six regions in the San Francisco Bay-Delta estuary during 2019-2020. Dashed lines represent the range of possible values for months where the raw value was a non-detect." width="1425" />
 <p class="caption">
-Figure 41: Total phosphorous concentrations in mg/L at six regions in the San Francisco Bay-Delta estuary during 2018-2019. Dashed lines represent the range of possible values for months where the raw value was a non-detect.
+Figure 41: Total phosphorous concentrations in mg/L at six regions in the San Francisco Bay-Delta estuary during 2019-2020. Dashed lines represent the range of possible values for months where the raw value was a non-detect.
 </p>
 </div>
 <hr />
@@ -297,7 +294,7 @@ Figure 41: Total phosphorous concentrations in mg/L at six regions in the San Fr
 <h2>Data and Archived Reports</h2>
 <p>EMP’s discrete water quality data sets are available publically via the Environmental Data Initiative (EDI) <a href="https://portal.edirepository.org/nis/mapbrowse?scope=edi&amp;identifier=458&amp;revision=4">here</a>.</p>
 <p>Archived annual reports can be found <a href="">here</a> (link currently broken).</p>
-<p>For questions related to EMP’s discrete water quality data sets, please contact Morgan Martinez at <a href="mailto:morgan.martinez@water.ca.gov" class="email">morgan.martinez@water.ca.gov</a>.</p>
+<p>For questions related to EMP’s discrete water quality data sets, please contact Morgan Martinez at <a href="mailto:Morgan.Martinez@water.ca.gov" class="email">Morgan.Martinez@water.ca.gov</a>.</p>
 
 </div>
 </div>

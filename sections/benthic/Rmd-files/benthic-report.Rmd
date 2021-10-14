@@ -90,7 +90,7 @@ knitr::include_graphics(file.path('sections/benthic/figures/Fig4_D28A.png'))
 
 Further upstream in the San Joaquin River, site P8 at Buckley Cove was dominated by the sabellid worm M. speciosa which saw peaks in October and March. In addition to this species, which accounted for 59% of all organisms, site P8 saw a diverse community of freshwater oligochaetes, aquatic insects, and amphipods in addition to the non-native clam C. fluminea.
 
-At Clifton Court Forebay, freshwater site C9 was dominated by a number of annelid species in 2019. Varichaetadrilus angustipenis, Limnodrilus hoffmeisteri,and Ilyodrilus frantzi were present at high densities throughout the year, at moderately higher levels than in 2018. The amphipod Hyalalla sp. A experienced a dramatic peak in density in November and December (Figure 11).  Site C9 is regularly one of our most biodiverse sites, with an additional large number of species present at low densities.
+At Clifton Court Forebay, freshwater site C9 was dominated by a number of annelid species in 2019. Varichaetadrilus angustipenis, Limnodrilus hoffmeisteri,and Ilyodrilus frantzi were present at high densities throughout the year, at moderately higher levels than in 2018. The amphipod Hyalalla sp. A experienced a dramatic peak in density in November and December.  Site C9 is regularly one of our most biodiverse sites, with an additional large number of species present at low densities.
 
 ```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Density of benthic organisms, by month, collected at station P8 in 2019.', fig.align='center'}
 knitr::include_graphics(file.path('sections/benthic/figures/Fig5_P8.png'))

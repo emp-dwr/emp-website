@@ -37,7 +37,7 @@ kable_tables(qa_status, caption = 'Rating criteria for continuous sonde calibrat
 
 ***
 ### Regions
-The daily averages of the continuous 15-minute data collected for air and water temperature, pH, DO, surface and bottom SpC, chlorophyll a fluorescence, and turbidity for calendar year 2020 are shown in Figures 2 to 7. The range of monthly DO values at the Stockton station is shown below. 
+The daily averages of the continuous 15-minute data collected for air and water temperature, pH, DO, surface and bottom SpC, chlorophyll a fluorescence, and turbidity for calendar year 2020 are shown in Figures 3 to 34. The range of monthly DO values at the Stockton station is shown below. 
 
 ```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Range of daily dissolved oxygen Rough and Ready Isl. (P8), 2020',  fig.align='center'}
 knitr::include_graphics(file.path('sections/c-wq/figures/2020/Fig4f.png'))
@@ -110,11 +110,11 @@ knitr::include_graphics(file.path('sections/c-wq/figures/2020/Fig2e.png'))
 ```
 
 #### Specific Conductance
-DDaily average surface specific conductance for the estuary ranged from 125 µS/cm to 30,939 µS/cm, with the lower values in the Northern Interior Delta stations and the higher values at the more tidally influenced Grizzly/Suisun Bay locations (Figure 3e). 
+DDaily average surface specific conductance for the estuary ranged from 125 µS/cm to 30,939 µS/cm, with the lower values in the Northern Interior Delta stations and the higher values at the more tidally influenced Grizzly/Suisun Bay locations. 
 
-The Central Delta Stations showed increases in specific conductance from August onward (Figure 3c). In addition, the Southern Interior Delta stations on the San Joaquin River showed a large decrease in surface specific conductance in October through November (Figure 3b). 
+The Central Delta Stations showed increases in specific conductance from August onward. In addition, the Southern Interior Delta stations on the San Joaquin River showed a large decrease in surface specific conductance in October through November. 
 
-Bottom specific conductance measured in 2020 at D12A, D10A, and D6A stations exhibited seasonal patterns and ranges similar to the surface specific conductance (Figure 3f).
+Bottom specific conductance measured in 2020 at D12A, D10A, and D6A stations exhibited seasonal patterns and ranges similar to the surface specific conductance.
 
 
 ```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average daily specific conductance in the Northern Interior Delta, 2020',  fig.align='center'}
@@ -142,7 +142,7 @@ knitr::include_graphics(file.path('sections/c-wq/figures/2020/Fig3f.png'))
 ```
 
 #### Dissolved Oxygen
-Average daily DO values in the estuary ranged from 5.94 mg/L to 15.1 mg/L (Figure 4a to 4e). The greatest degree of variability was seen at the Southern Interior Delta stations.
+Average daily DO values in the estuary ranged from 5.94 mg/L to 15.1 mg/L. The greatest degree of variability was seen at the Southern Interior Delta stations.
 
 All compliance monitoring stations recorded daily averages above the standard of 5.0 mg/L that was set by the CVRWQCB in the Basin Plan (CVRWQCB, 1998). The monthly average DO levels at the Stockton station did not fall below the 5.0 mg/L standard that was set by the CVRWQCB (1998). The monthly average DO levels did not drop below the 6.0 mg/L standard (SWRCB, 1995) for the passage of fall-run Chinook salmon through the ship channel for the September through November 2020 control period.
 
@@ -169,7 +169,7 @@ knitr::include_graphics(file.path('sections/c-wq/figures/2020/Fig4e.png'))
 
 
 #### pH
-Daily average pH levels at all stations in the estuary ranged from 7.12 to 9.64 (Figure 5a to 5e). The Southern Interior Delta stations showed a large increase in daily average pH beginning June 2020 to September 2020 (Figure 5b). The Central Delta station D19A showed an increase in pH values beginning April 2020 until the end of October 2020 (Figure 5c). 
+Daily average pH levels at all stations in the estuary ranged from 7.12 to 9.64. The Southern Interior Delta stations showed a large increase in daily average pH beginning June 2020 to September 2020. The Central Delta station D19A showed an increase in pH values beginning April 2020 until the end of October 2020. 
 
 ```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average daily pH in the Northern Interior Delta, 2020', fig.align='center'}
 knitr::include_graphics(file.path('sections/c-wq/figures/2020/Fig5a.png'))
@@ -193,7 +193,7 @@ knitr::include_graphics(file.path('sections/c-wq/figures/2020/Fig5e.png'))
 
 
 #### Turbidity
-DDaily average turbidity levels at all stations in the estuary ranged from 0.28 to 98.8 (Figure 6a to 6e). The Northern Interior Delta stations showed a large increase in turbidity in January and February, peaking at 41.27 FNU (Figure 6a). The Southern interior Delta stations all showed a significant spike in turbidity readings in mid-April which gradually decreased through May (figure 6b).
+DDaily average turbidity levels at all stations in the estuary ranged from 0.28 to 98.8. The Northern Interior Delta stations showed a large increase in turbidity in January and February, peaking at 41.27 FNU. The Southern interior Delta stations all showed a significant spike in turbidity readings in mid-April which gradually decreased through May.
 
 ```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average daily turbidity in the Northern Interior Delta, 2020',  fig.align='center'}
 knitr::include_graphics(file.path('sections/c-wq/figures/2020/Fig6a.png'))
@@ -216,11 +216,9 @@ knitr::include_graphics(file.path('sections/c-wq/figures/2020/Fig6e.png'))
 ```
 
 #### Chlorophyll a Fluorescence
-Daily average chlorophyll a fluorescence recorded at all the stations ranged from a low of 0.12 (µg/L) in December 2020 for the Northern Interior station D24A to a high of 72.8 (µg/L) in July 2020 for the Southern Interior Delta station C10A (Figure 7a to 7e). 
+Daily average chlorophyll a fluorescence recorded at all the stations ranged from a low of 0.12 (µg/L) in December 2020 for the Northern Interior station D24A to a high of 72.8 (µg/L) in July 2020 for the Southern Interior Delta station C10A. 
 
-For most of the 2020 calendar year, daily fluorescence averages at Southern Interior Delta stations were higher than other regions with sustained higher values, with the exception of P8A (Figure 7b).
-
-
+For most of the 2020 calendar year, daily fluorescence averages at Southern Interior Delta stations were higher than other regions with sustained higher values, with the exception of P8A.
 
 ```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average daily fluorescence in the Northern Interior Delta, 2020',  fig.align='center'}
 knitr::include_graphics(file.path('sections/c-wq/figures/2020/Fig7a.png'))
