@@ -51,6 +51,8 @@
 
 <link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 
@@ -225,11 +227,208 @@
 <p>Continuous data were collected for the water quality and environmental parameters shown in Table 2. Each of the 15 monitoring stations collected continuous data for water temperature (WT), pH, dissolved oxygen (DO), surface specific conductance (SpC), chlorophyll a fluorescence, and turbidity. Additional sensors were installed at the Antioch, Mallard Island, and Martinez stations in the 1990’s to monitor bottom SpC. These measurements, along with river stage data measured at the Mallard Island and Martinez stations, were needed to determine compliance with the salinity standard (also known as X2) that was mandated by the Bay-Delta Plan (SWRCB, 1995).</p>
 <p>Environmental data, such as air temperature (AT), solar radiation (SRI), wind speed (WV), and wind direction (WD), were measured at all stations as part of D-1641’s objectives (SWRCB, 1999). The only environmental parameter analyzed for this report was air temperature from a MET-1 Instrument Mod. 062 sensor.</p>
 <p>Except for bottom specific conductance, all water samples were collected at 1-m below the water surface using a float-mounted YSI EXO2 multi-parameter water quality sonde. In contrast, bottom specific conductance was measured at 1.5 m above the channel bottom using a YSI EXO1 sonde. Water quality data and environmental data were recorded at 15-minute intervals.</p>
+<table class="table table-striped" style="font-size: 14px; font-family: Arimo; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:unnamed-chunk-7">Table 2: </span>Parameters sampled by Continuous EMP
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;">
+Parameter
+</th>
+<th style="text-align:center;">
+Units
+</th>
+<th style="text-align:center;">
+Frequency
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+Water Temperature
+</td>
+<td style="text-align:center;">
+°C
+</td>
+<td style="text-align:center;">
+15 minute instantaneous
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+Specific Conductance
+</td>
+<td style="text-align:center;">
+µS/cm
+</td>
+<td style="text-align:center;">
+15 minute instantaneous
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+DO
+</td>
+<td style="text-align:center;">
+mg/L
+</td>
+<td style="text-align:center;">
+15 minute instantaneous
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+pH
+</td>
+<td style="text-align:center;">
+unitless
+</td>
+<td style="text-align:center;">
+15 minute instantaneous
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+Turbidity
+</td>
+<td style="text-align:center;">
+NTU
+</td>
+<td style="text-align:center;">
+15 minute instantaneous
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+Fluorescence
+</td>
+<td style="text-align:center;">
+FU
+</td>
+<td style="text-align:center;">
+15 minute instantaneous
+</td>
+</tr>
+</tbody>
+</table>
 <hr />
 </div>
 <div id="qa-status" class="section level3">
 <h3>QA Status</h3>
 <p>On a monthly basis, quality assurance and control measures were applied using field verification data sheets. Data that did not pass quality control checks or were affiliated with instrument issues were flagged and excluded from the analysis.</p>
+<table class="table table-striped" style="font-size: 14px; font-family: Arimo; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:unnamed-chunk-8">Table 3: </span>Rating criteria for continuous sonde calibration
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;">
+Analyte
+</th>
+<th style="text-align:center;">
+Excellent
+</th>
+<th style="text-align:center;">
+Good
+</th>
+<th style="text-align:center;">
+Fair
+</th>
+<th style="text-align:center;">
+Poor
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+Water Temperature (°C)
+</td>
+<td style="text-align:center;">
+&lt;±0.2
+</td>
+<td style="text-align:center;">
+±0.2-0.5
+</td>
+<td style="text-align:center;">
+±0.5-0.8
+</td>
+<td style="text-align:center;">
+&gt;±0.8
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+Specific Conductance (µS/cm)
+</td>
+<td style="text-align:center;">
+&lt;±3%
+</td>
+<td style="text-align:center;">
+±3-10%
+</td>
+<td style="text-align:center;">
+±10-15%
+</td>
+<td style="text-align:center;">
+&gt;±15%
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+Dissolved Oxygen (mg/L)
+</td>
+<td style="text-align:center;">
+&lt;±0.3 or &lt;±5%
+</td>
+<td style="text-align:center;">
+±0.3-0.5 or or ±5-10%
+</td>
+<td style="text-align:center;">
+±0.5-0.8 or ±10-15%
+</td>
+<td style="text-align:center;">
+&gt;±0.8 or &gt;±15%
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+pH
+</td>
+<td style="text-align:center;">
+&lt;±0.2
+</td>
+<td style="text-align:center;">
+±0.2-0.5
+</td>
+<td style="text-align:center;">
+±0.5-0.8
+</td>
+<td style="text-align:center;">
+&gt;±0.8
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+Turbidity (NTU)
+</td>
+<td style="text-align:center;">
+&lt;±0.5 or &lt;±5%
+</td>
+<td style="text-align:center;">
+±0.5-1.0 or ±5-10%
+</td>
+<td style="text-align:center;">
+±1.0-1.5 or ±10-15%
+</td>
+<td style="text-align:center;">
+&gt;±1.5 or or &gt;±15%
+</td>
+</tr>
+</tbody>
+</table>
 <hr />
 </div>
 <div id="regions" class="section level3">
@@ -244,22 +443,697 @@ Figure 3: Range of daily dissolved oxygen Rough and Ready Isl. (P8), 2020
 <div id="northern-interior-delta" class="section level4">
 <h4>Northern Interior Delta</h4>
 <p>The Northern Interior Delta stations had surface specific conductance values that ranged from 125 µS/cm (C3A in July) to 541 µS/cm (D24A in November). Surface turbidity values ranged from 1.7 NTU (C3A in October) to 41.27 NTU (C3A in January). Surface water temperature values ranged from 8.57 °C (C3A in January) to 25.44 °C (D24A in August). Surface dissolved oxygen values ranged from 6.67 mg/L (D24A in August) to 11.19 mg/L (C3A in January). Surface pH values ranged from 7.12 (C3A in May) to 7.86 (D24A in March). Surface fluorescence values ranged from 0.12 μg/L (D24A in November) to 10.90 μg/L (C3A in April).</p>
+<table class="table table-striped" style="font-size: 14px; font-family: Arimo; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:unnamed-chunk-10">Table 4: </span>Summary statistics for Northern Interior Delta, 2020
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;">
+Statistic
+</th>
+<th style="text-align:center;">
+Specific Conductance (μs/cm)
+</th>
+<th style="text-align:center;">
+Turbidity (NTU)
+</th>
+<th style="text-align:center;">
+Water Temperature (°C)
+</th>
+<th style="text-align:center;">
+Dissolved Oxygen (mg/L)
+</th>
+<th style="text-align:center;">
+pH
+</th>
+<th style="text-align:center;">
+Fluorescence (μg/L)
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+Surface
+</td>
+<td style="text-align:center;">
+Surface
+</td>
+<td style="text-align:center;">
+Surface
+</td>
+<td style="text-align:center;">
+Surface
+</td>
+<td style="text-align:center;">
+Surface
+</td>
+<td style="text-align:center;">
+Surface
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+MIN
+</td>
+<td style="text-align:center;">
+125
+</td>
+<td style="text-align:center;">
+1.71
+</td>
+<td style="text-align:center;">
+8.57
+</td>
+<td style="text-align:center;">
+6.67
+</td>
+<td style="text-align:center;">
+7.12
+</td>
+<td style="text-align:center;">
+0.12
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+MAX
+</td>
+<td style="text-align:center;">
+541
+</td>
+<td style="text-align:center;">
+41.27
+</td>
+<td style="text-align:center;">
+25.44
+</td>
+<td style="text-align:center;">
+11.19
+</td>
+<td style="text-align:center;">
+7.86
+</td>
+<td style="text-align:center;">
+10.90
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+AVERAGE
+</td>
+<td style="text-align:center;">
+188
+</td>
+<td style="text-align:center;">
+5.24
+</td>
+<td style="text-align:center;">
+17.04
+</td>
+<td style="text-align:center;">
+8.93
+</td>
+<td style="text-align:center;">
+7.56
+</td>
+<td style="text-align:center;">
+1.48
+</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div id="central-interior-delta" class="section level4">
 <h4>Central Interior Delta</h4>
 <p>The Central Interior Delta stations had surface specific conductance values that ranged from 172 µS/cm (D29 in July) to 1484 µS/cm (D16A in August). Surface turbidity values ranged from 0.28 NTU (D19A in October) to 77.16 NTU (D19A in February). Surface water temperature values ranged from 8.64 °C (D19A in January) to 26.95 °C (D19A in August). Surface dissolved oxygen values ranged from 6.97 mg/L (D29 in August) to 13.69 mg/L (D19A in August). Surface pH values ranged from 7.40 (D29 in February to 9.64 (D19A in June). Surface fluorescence values ranged from 0.55 μg/L (D19A in August) to 19.32 μg/L (D29 in August).</p>
+<table class="table table-striped" style="font-size: 14px; font-family: Arimo; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:unnamed-chunk-11">Table 5: </span>Summary statistics for Central Interior Delta, 2020
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;">
+Statistic
+</th>
+<th style="text-align:center;">
+Specific Conductance (μs/cm)
+</th>
+<th style="text-align:center;">
+Turbidity (NTU)
+</th>
+<th style="text-align:center;">
+Water Temperature (°C)
+</th>
+<th style="text-align:center;">
+Dissolved Oxygen (mg/L)
+</th>
+<th style="text-align:center;">
+pH
+</th>
+<th style="text-align:center;">
+Fluorescence (μg/L)
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+Surface
+</td>
+<td style="text-align:center;">
+Surface
+</td>
+<td style="text-align:center;">
+Surface
+</td>
+<td style="text-align:center;">
+Surface
+</td>
+<td style="text-align:center;">
+Surface
+</td>
+<td style="text-align:center;">
+Surface
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+MIN
+</td>
+<td style="text-align:center;">
+172
+</td>
+<td style="text-align:center;">
+0.28
+</td>
+<td style="text-align:center;">
+8.64
+</td>
+<td style="text-align:center;">
+6.97
+</td>
+<td style="text-align:center;">
+7.40
+</td>
+<td style="text-align:center;">
+0.55
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+MAX
+</td>
+<td style="text-align:center;">
+1484
+</td>
+<td style="text-align:center;">
+77.16
+</td>
+<td style="text-align:center;">
+26.95
+</td>
+<td style="text-align:center;">
+13.69
+</td>
+<td style="text-align:center;">
+9.64
+</td>
+<td style="text-align:center;">
+19.32
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+AVERAGE
+</td>
+<td style="text-align:center;">
+463
+</td>
+<td style="text-align:center;">
+3.68
+</td>
+<td style="text-align:center;">
+17.50
+</td>
+<td style="text-align:center;">
+9.45
+</td>
+<td style="text-align:center;">
+7.92
+</td>
+<td style="text-align:center;">
+2.28
+</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div id="southern-interior-delta" class="section level4">
 <h4>Southern Interior Delta</h4>
 <p>The Southern Interior Delta stations had surface specific conductance values that ranged from 177 µS/cm (C10A in July) to 995 µS/cm (P8A in December). Surface turbidity values ranged from 1.20 NTU (P8A in November) to 57.83 NTU (C10A in April). Surface water temperature values ranged from 8.65 °C (C10A in December) to 29.56 °C (C7A in August). Surface dissolved oxygen values ranged from 5.94 mg/L (P8A in August) to 15.06 mg/L (C10A in July). Surface pH values ranged from 7.3 (P8A in May) to 9.18 (C7A in July). Surface fluorescence values ranged from 0.73 μg/L (P8A in June) to 72.76 μg/L (C10A in July).</p>
+<table class="table table-striped" style="font-size: 14px; font-family: Arimo; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:unnamed-chunk-12">Table 6: </span>Summary statistics for Southern Interior Delta, 2020
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;">
+Statistic
+</th>
+<th style="text-align:center;">
+Specific Conductance (μs/cm)
+</th>
+<th style="text-align:center;">
+Turbidity (NTU)
+</th>
+<th style="text-align:center;">
+Water Temperature (°C)
+</th>
+<th style="text-align:center;">
+Dissolved Oxygen (mg/L)
+</th>
+<th style="text-align:center;">
+pH
+</th>
+<th style="text-align:center;">
+Fluorescence (μg/L)
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+Surface
+</td>
+<td style="text-align:center;">
+Surface
+</td>
+<td style="text-align:center;">
+Surface
+</td>
+<td style="text-align:center;">
+Surface
+</td>
+<td style="text-align:center;">
+Surface
+</td>
+<td style="text-align:center;">
+Surface
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+MIN
+</td>
+<td style="text-align:center;">
+177
+</td>
+<td style="text-align:center;">
+1.20
+</td>
+<td style="text-align:center;">
+8.65
+</td>
+<td style="text-align:center;">
+5.94
+</td>
+<td style="text-align:center;">
+7.30
+</td>
+<td style="text-align:center;">
+0.73
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+MAX
+</td>
+<td style="text-align:center;">
+995
+</td>
+<td style="text-align:center;">
+57.83
+</td>
+<td style="text-align:center;">
+29.56
+</td>
+<td style="text-align:center;">
+15.06
+</td>
+<td style="text-align:center;">
+9.18
+</td>
+<td style="text-align:center;">
+72.76
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+AVERAGE
+</td>
+<td style="text-align:center;">
+553
+</td>
+<td style="text-align:center;">
+7.30
+</td>
+<td style="text-align:center;">
+18.10
+</td>
+<td style="text-align:center;">
+9.42
+</td>
+<td style="text-align:center;">
+7.83
+</td>
+<td style="text-align:center;">
+8.99
+</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div id="confluence" class="section level4">
 <h4>Confluence</h4>
 <p>The Confluence stations had surface specific conductance values that ranged from 209 µS/cm (D22A in February) to 16,086 µS/cm (D10A in November). Bottom specific conductance values ranged from 410 µS/cm (D12A in April) to 16818 µS/cm (D10A in December). Surface turbidity values ranged from 3.56 NTU (D12A in October) to 95.4 NTU (D22A in December). Surface water temperature values ranged from 9.0 2 °C (D12A in January) to 24.42 °C (D22A in August). Bottom water temperature values ranged from 9.03 °C (D12A in January) to 24.24 °C (D12A in August). Surface dissolved oxygen values ranged from 7.56 mg/L (D22A in August) to 10.95 mg/L (D12A in February). Surface pH values ranged from 7.52 (D22A in February) to 8.07 (D12A in August). Surface fluorescence values ranged from 0.65 μg/L (D10A in April) to 6.87 μg/L (D22A in October).</p>
+<table class="table table-striped" style="font-size: 14px; font-family: Arimo; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:unnamed-chunk-13">Table 7: </span>Rating criteria for Confluence, 2020
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;">
+Statistic
+</th>
+<th style="text-align:center;">
+Specific Conductance (μs/cm)
+</th>
+<th style="text-align:center;">
+Specific Conductance (µs/cm)_1
+</th>
+<th style="text-align:center;">
+Turbidity (NTU)
+</th>
+<th style="text-align:center;">
+Water Temperature (°C)
+</th>
+<th style="text-align:center;">
+Water Temperature (°C)_1
+</th>
+<th style="text-align:center;">
+Dissolved Oxygen (mg/L)
+</th>
+<th style="text-align:center;">
+pH
+</th>
+<th style="text-align:center;">
+Fluorescence (μg/L)
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+Surface
+</td>
+<td style="text-align:center;">
+Bottom
+</td>
+<td style="text-align:center;">
+Surface
+</td>
+<td style="text-align:center;">
+Surface
+</td>
+<td style="text-align:center;">
+Bottom
+</td>
+<td style="text-align:center;">
+Surface
+</td>
+<td style="text-align:center;">
+Surface
+</td>
+<td style="text-align:center;">
+Surface
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+MIN
+</td>
+<td style="text-align:center;">
+209
+</td>
+<td style="text-align:center;">
+410
+</td>
+<td style="text-align:center;">
+3.56
+</td>
+<td style="text-align:center;">
+9.02
+</td>
+<td style="text-align:center;">
+9.03
+</td>
+<td style="text-align:center;">
+7.56
+</td>
+<td style="text-align:center;">
+7.52
+</td>
+<td style="text-align:center;">
+0.65
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+MAX
+</td>
+<td style="text-align:center;">
+16086
+</td>
+<td style="text-align:center;">
+16819
+</td>
+<td style="text-align:center;">
+95.40
+</td>
+<td style="text-align:center;">
+24.42
+</td>
+<td style="text-align:center;">
+24.24
+</td>
+<td style="text-align:center;">
+10.95
+</td>
+<td style="text-align:center;">
+8.07
+</td>
+<td style="text-align:center;">
+6.87
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+AVERAGE
+</td>
+<td style="text-align:center;">
+4382
+</td>
+<td style="text-align:center;">
+6102
+</td>
+<td style="text-align:center;">
+10.60
+</td>
+<td style="text-align:center;">
+17.00
+</td>
+<td style="text-align:center;">
+17.00
+</td>
+<td style="text-align:center;">
+9.12
+</td>
+<td style="text-align:center;">
+7.82
+</td>
+<td style="text-align:center;">
+1.97
+</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div id="grizzlysuisun-bay" class="section level4">
 <h4>Grizzly/Suisun Bay</h4>
 <p>The Grizzly Suisun Bay stations had surface specific conductance values that ranged from 2,026 µS/cm (D9A in June) to 30,939 µS/cm (D6A in November). Bottom specific conductance values ranged from 2,026 µS/cm (D10A in January) to 33,350 µS/cm (D6A in November). Surface turbidity values ranged from 5.0 NTU (D6A in September) to 98.8 NTU (D7A in March). Surface water temperature values ranged from 8.97 °C (D9A in February) to 23.61 °C (D10A in August). Bottom water temperature values ranged from 9.11 °C (D10A in January) to 23.57 °C (D10A in August). Surface dissolved oxygen values ranged from 7.21 mg/L (D6A in August) to 10.6 mg/L (D9A in January). Surface pH values ranged from 7.54 (D9A in January) to 8.19 (D8A in May). Surface fluorescence values ranged from 0.62 μg/L (D9A in December) to 9.32 μg /L (D7A in November).</p>
+<table class="table table-striped" style="font-size: 14px; font-family: Arimo; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:unnamed-chunk-14">Table 8: </span>Rating criteria for Grizzly/Suisun Bay, 2020
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;">
+Statistic
+</th>
+<th style="text-align:center;">
+Specific Conductance (μs/cm)
+</th>
+<th style="text-align:center;">
+Specific Conductance (µs/cm)_1
+</th>
+<th style="text-align:center;">
+Turbidity (NTU)
+</th>
+<th style="text-align:center;">
+Water Temperature (°C)
+</th>
+<th style="text-align:center;">
+Water Temperature (°C)_1
+</th>
+<th style="text-align:center;">
+Dissolved Oxygen (mg/L)
+</th>
+<th style="text-align:center;">
+pH
+</th>
+<th style="text-align:center;">
+Fluorescence (μg/L)
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+Surface
+</td>
+<td style="text-align:center;">
+Bottom
+</td>
+<td style="text-align:center;">
+Surface
+</td>
+<td style="text-align:center;">
+Surface
+</td>
+<td style="text-align:center;">
+Bottom
+</td>
+<td style="text-align:center;">
+Surface
+</td>
+<td style="text-align:center;">
+Surface
+</td>
+<td style="text-align:center;">
+Surface
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+MIN
+</td>
+<td style="text-align:center;">
+1933
+</td>
+<td style="text-align:center;">
+2026
+</td>
+<td style="text-align:center;">
+5.00
+</td>
+<td style="text-align:center;">
+8.97
+</td>
+<td style="text-align:center;">
+9.11
+</td>
+<td style="text-align:center;">
+7.21
+</td>
+<td style="text-align:center;">
+7.54
+</td>
+<td style="text-align:center;">
+0.62
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+MAX
+</td>
+<td style="text-align:center;">
+30939
+</td>
+<td style="text-align:center;">
+33350
+</td>
+<td style="text-align:center;">
+98.80
+</td>
+<td style="text-align:center;">
+23.61
+</td>
+<td style="text-align:center;">
+23.57
+</td>
+<td style="text-align:center;">
+10.60
+</td>
+<td style="text-align:center;">
+8.19
+</td>
+<td style="text-align:center;">
+9.32
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+AVERAGE
+</td>
+<td style="text-align:center;">
+13913
+</td>
+<td style="text-align:center;">
+18080
+</td>
+<td style="text-align:center;">
+21.10
+</td>
+<td style="text-align:center;">
+16.90
+</td>
+<td style="text-align:center;">
+16.70
+</td>
+<td style="text-align:center;">
+8.87
+</td>
+<td style="text-align:center;">
+7.89
+</td>
+<td style="text-align:center;">
+2.15
+</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div id="parameters" class="section level3">
