@@ -83,7 +83,7 @@ kable_tables(phyto_stations, caption = 'Stations included within each region of 
 
 #### Chlorophyll a and Pheophytin a 
 
-Samples of chlorophyll a and pheophytin a were collected monthly at 24 monitoring sites throughout the upper Estuary (Figure 1; Table 1) using a submersible pump positioned 1 meter below the water’s surface. Samples were collected by filtering a known volume of water through a glass-fiber filter (1.0 µm pore size) at a pressure of 10 mmHg. For turbid water (> 20 NTU), 200 mL was filtered while 500mL of water was filtered when turbidity was < 20 NTU to prevent clogging. 
+Samples of chlorophyll a and pheophytin a were collected monthly at 24 monitoring sites throughout the upper Estuary using a submersible pump positioned 1 meter below the water’s surface. Samples were collected by filtering a known volume of water through a glass-fiber filter (1.0 µm pore size) at a pressure of 10 mmHg. For turbid water (> 20 NTU), 200 mL was filtered while 500mL of water was filtered when turbidity was < 20 NTU to prevent clogging. 
 
 Filters were immediately frozen and transported to DWR’s Bryte Laboratory for analysis using spectrophotometry in accordance with the Standard Method 10200 H (APHA, 2012). Samples were processed by mechanically grinding the filter and extracting phytopigments using acetone. Pigment absorption spectra were measured before and after acidification to quantify the amount of chlorophyll a and pheophytin a, respectively. Concentrations were calculated according to a formula specified in the methodology (APHA, 2012). Average analyte concentrations were then calculated per month, per region, and were normalized to the number of stations.
 
