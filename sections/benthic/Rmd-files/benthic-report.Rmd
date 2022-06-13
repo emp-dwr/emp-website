@@ -67,7 +67,7 @@ knitr::include_graphics(file.path('sections/benthic/figures/Fig7_D4.png'))
 ***
 ### Central Delta
 
-In the Sacramento River, freshwater site D24 was dominated by the non-native clam Corbicula fluminea, whose numbers averaged 3,016 per square meter over the course of 2020, similar to the very high densities of 2018. There was also a significant seasonal increase in densities of the amphipod Gammarus daiberi between September and December.
+In the Sacramento River, freshwater site D24 was dominated by the non-native clam Corbicula fluminea, whose numbers averaged 3,016 per square meter over the course of 2020, similar to the very high densities of 2020. There was also a significant seasonal increase in densities of the amphipod Gammarus daiberi between September and December.
 
 In the San Joaquin River, freshwater site D16 (at Twitchell Island) was dominated in 2020 by the amphipod Gammarus daiberi, which demonstrated an impressive density peak in May, as well as the clam Corbicula fluminea and the oligochaete worm V. angustipenis.  
 
@@ -90,7 +90,7 @@ knitr::include_graphics(file.path('sections/benthic/figures/Fig4_D28A.png'))
 
 Further upstream in the San Joaquin River, site P8 at Buckley Cove was dominated by the sabellid worm M. speciosa which saw peaks in October and March. In addition to this species, which accounted for 59% of all organisms, site P8 saw a diverse community of freshwater oligochaetes, aquatic insects, and amphipods in addition to the non-native clam C. fluminea.
 
-At Clifton Court Forebay, freshwater site C9 was dominated by a number of annelid species in 2020. Varichaetadrilus angustipenis, Limnodrilus hoffmeisteri,and Ilyodrilus frantzi were present at high densities throughout the year, at moderately higher levels than in 2018. The amphipod Hyalalla sp. A experienced a dramatic peak in density in November and December.  Site C9 is regularly one of our most biodiverse sites, with an additional large number of species present at low densities.
+At Clifton Court Forebay, freshwater site C9 was dominated by a number of annelid species in 2020. Varichaetadrilus angustipenis, Limnodrilus hoffmeisteri,and Ilyodrilus frantzi were present at high densities throughout the year, at moderately higher levels than in 2020. The amphipod Hyalalla sp. A experienced a dramatic peak in density in November and December.  Site C9 is regularly one of our most biodiverse sites, with an additional large number of species present at low densities.
 
 ```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Density of benthic organisms, by month, collected at station P8 in 2020.', fig.align='center'}
 knitr::include_graphics(file.path('sections/benthic/figures/Fig5_P8.png'))
@@ -104,7 +104,7 @@ knitr::include_graphics(file.path('sections/benthic/figures/Fig6_C9.png'))
 ***
 ### Summary
 
-In summary, 2020 saw an overall decrease in invasive clam density from 2018 (13% for P. amurensis and 10% for C. fluminea). Other notable features of 2020 were the sharp decrease in overall density of the amphipod A. abdita in Grizzly Bay, after reaching a decadal peak in 2018, likely due to 2020’s decreased salinity, as well as the 2020 increase in the annelid M. speciosa, after its steady decrease from 2015 – 2018.
+In summary, 2020 saw an overall decrease in invasive clam density from 2020 (13% for P. amurensis and 10% for C. fluminea). Other notable features of 2020 were the sharp decrease in overall density of the amphipod A. abdita in Grizzly Bay, after reaching a decadal peak in 2020, likely due to 2020’s decreased salinity, as well as the 2020 increase in the annelid M. speciosa, after its steady decrease from 2015 – 2020.
  Our ability to recognize these changes highlights the importance of monitoring benthic invertebrates to a high taxonomic resolution across the entire estuarine salinity gradient since the community has important interactions with various abiotic conditions as well as key parts of the estuarine food web.
 
 ***

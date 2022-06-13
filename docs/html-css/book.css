@@ -72,7 +72,7 @@
 
 /* link effects */
 a.link {
-  color: #DAA520;
+  color: #E6CE1D;
 }
 
 .book .book-body .page-wrapper .page-inner section.normal a:active, 
@@ -186,7 +186,7 @@ i {
 
 .book .book-summary ul.summary li.before a:hover,
 .book .book-summary ul.summary li.before li.active>a {
-  color: #ffffff;  /*#6197D5*/
+  color: #ffffff;
   background-color: #006699;
   text-decoration: none;
 }
@@ -195,7 +195,7 @@ i {
   background-color: transparent;
 }
 
-/* divider line for the title before and other stuff  after toc */
+/* divider line for the title */
 .book .book-summary ul.summary .divider{
     height:1px;
     margin:7px 0;
@@ -240,17 +240,7 @@ h1, h2, h3, h4, h5 {
   color:#006699;
   font-family: 'Oswald', sans-serif;
 }
-
-/* notes */
-
-/*.img-note {
-  vertical-align: central;
-  width: 2em;
-}
-*/
-
 /* code */
-
 /* char/string */
 .ch, .st {
  color: #aa5500;
@@ -349,7 +339,6 @@ img {
 
 /* part headers */
 li.part, .part span {
-  /* text-decoration: underline overline; */
   font-size: 103%;
   opacity: .9 !important;
   color: #006699 !important;
