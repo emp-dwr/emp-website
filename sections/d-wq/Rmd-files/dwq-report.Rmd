@@ -30,7 +30,7 @@ knitr::include_graphics(file.path('sections/d-wq/figures/ARGraph_DissAmmonia.jpg
 ***
 ### Chlorophyll a
 
-Chlorophyll a values in 2020 ranged from 0.53 µg/L (C3A in the Northern Interior Bay, November and NZ325 in San Pablo Bay, March) to 32.5 µg/L (C10A in Southern Interior Delta, July). The highest levels of chlorophyll a were seen in the Southern Interior Delta region during the summer months in 2020. This was mostly due to elevated levels at station C10A, which is known for being shallow during dry periods of the year, with increased temperatures and lower flows allowing for increased phytoplankton production. These elevated chlorophyll a levels in the summer at C10A also align with the continuous fluorescence data collected at this station. More information about the phytoplankton genera is described in the phytoplankton section. Average chlorophyll levels across all regions were similar in 2020 to those in 2019 (2.84 µg/L vs. 2.28 µg/L).
+Chlorophyll a values in 2021 ranged from ≤ 0.5 µg/L (the lowest reporting limit) to 25.51 µg/L (C10A in the Southern Interior Delta, March). The highest levels of chlorophyll a were seen in the Southern Interior Delta region during the early spring months in 2021. This was mostly due to elevated levels at station C10A, which is known for being shallow during dry periods of the year, with increased temperatures and lower flows allowing for increased phytoplankton production. These elevated chlorophyll a levels in the early spring at C10A also align with the continuous fluorescence data collected at this station. More information about the phytoplankton genera is described in the phytoplankton section.
 
 ```{r echo=FALSE, fig.cap='Chlorophyll a concentrations in µg/L at six regions in the San Francisco Bay-Delta estuary during 2019-2020. Dashed lines represent the range of possible values for months where the raw value was a non-detect.', fig.align='center'}
 knitr::include_graphics(file.path('sections/d-wq/figures/ARGraph_Chla.jpg'))
@@ -38,7 +38,7 @@ knitr::include_graphics(file.path('sections/d-wq/figures/ARGraph_Chla.jpg'))
 ***
 ### Dissolved Nitrate + Nitrite
 
-Dissolved nitrate + nitrite values ranged from ≤ 0.05 mg/L (the lowest reporting limit) to 3.5 mg/L (P8 in Southern Interior Delta, October) in 2020. The Southern Interior Delta region had the highest fluctuation of dissolved nitrate + nitrite concentrations and had the highest levels compared to the rest of the estuary, likely due to influence from nearby agricultural land use and wastewater treatment effluent. Reporting limits for dissolved nitrate + nitrate were as high as 7.5 and 15 mg/L for western regions in late 2019 due to chloride influence on the analytical method. These reporting limits were cropped out of graphs for scale.
+Dissolved nitrate + nitrite values in 2021 ranged from ≤ 0.05 mg/L (the lowest reporting limit) to 3.58 mg/L (P8 in the Southern Interior Delta, December). The Southern Interior Delta region had the highest fluctuation of dissolved nitrate + nitrite concentrations and had the highest levels compared to the rest of the estuary, likely due to influence from nearby agricultural land use and wastewater treatment effluent.
 
 ```{r echo=FALSE, fig.cap='Dissolved nitrate and nitrite concentrations in mg/L at six regions in the San Francisco Bay-Delta estuary during 2019-2020. Dashed lines represent the range of possible values for months where the raw value was a non-detect.', fig.align='center'}
 knitr::include_graphics(file.path('sections/d-wq/figures/ARGraph_DissNitrateNitrite.jpg'))
@@ -46,7 +46,7 @@ knitr::include_graphics(file.path('sections/d-wq/figures/ARGraph_DissNitrateNitr
 ***
 ### Total Phosphorus
 
-In 2020, total phosphorous levels ranged from 0.04 mg/L (D28A in Central Delta, December) to 0.49 mg/L (P8 in Southern Interior Delta, September). Total phosphorus concentrations were overall similar compared to 2019 (both averaging 0.10 mg/L).
+Total phosphorus values in 2021 ranged from 0.02 mg/L (C3A in the Northern Interior Delta, October) to 0.47 mg/L (P8 in the Southern Interior Delta, October). The Southern Interior Delta region had the highest fluctuation of total phosphorus concentrations and had the highest levels compared to the rest of the estuary, likely due to influence from nearby agricultural land use and wastewater treatment effluent.
 
 ```{r echo=FALSE, fig.cap='Total phosphorous concentrations in mg/L at six regions in the San Francisco Bay-Delta estuary during 2019-2020. Dashed lines represent the range of possible values for months where the raw value was a non-detect.', fig.align='center'}
 knitr::include_graphics(file.path('sections/d-wq/figures/ARGraph_TotPhos.jpg'))
