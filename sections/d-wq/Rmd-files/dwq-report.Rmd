@@ -6,7 +6,7 @@ Water year 2020 was classified as Dry in the Sacramento Valley and San Joaquin V
 ***
 ### Specific Conductance
 
-Surface specific conductance varied greatly in 2020 across the sampling regions with the highest levels occurring in the western regions (San Pablo Bay, Suisun & Grizzly Bays, Confluence) due to the strong marine influence from the Pacific Ocean. Surface specific conductance ranged from an average of 134 µS/cm (C3A in Northern Interior Delta, July) to 45,349 µS/cm (D41 in San Pablo Bay, November) during 2020. Higher specific conductance values were seen in 2020 (μ = 11,310 μS/cm) than in 2019 (μ = 6,702 μS/cm), which was likely due to the on-going drought keeping the San Francisco Estuary drier throughout the year.
+Surface specific conductance varied greatly in 2021 across the sampling regions with the highest levels occurring in the western regions (San Pablo Bay, Suisun & Grizzly Bays, Confluence) due to the strong marine influence from the Pacific Ocean. Surface specific conductance ranged from an average of 84 µS/cm (C10A in Southern Interior Delta, August) to 46,189 µS/cm (D41 in San Pablo Bay, October) during 2021. Higher specific conductance values were seen in 2021 (μ = 13,364 μS/cm) than in 2020 (μ = 11,310 μS/cm), which was likely due to the on-going drought keeping the San Francisco Estuary drier throughout the year.
 
 ```{r echo=FALSE, fig.cap='Surface specific conductance in µS/cm at six regions in the San Francisco Bay-Delta estuary during 2019-2020.', fig.align='center'}
 knitr::include_graphics(file.path('sections/d-wq/figures/ARGraph_SpCndSurface.jpg'))
@@ -14,7 +14,7 @@ knitr::include_graphics(file.path('sections/d-wq/figures/ARGraph_SpCndSurface.jp
 ***
 ### Turbidity
 
-Surface turbidity values ranged from 0.3 FNU (D19 in Central Delta, March) to 41.4 FNU (D7 in Suisun & Grizzly Bays, November) during 2020. The year 2020 had lower average turbidity than in 2019 (9.8 FNU vs. 19.6 FNU), likely due to the drought conditions that result in lack of rainfall and snowpack runoff during the winter months.
+Surface turbidity values ranged from 0.2 FNU (C3A in Northern Interior Delta, August) to 111.3 FNU (D41A in San Pablo Bay, July) during 2021. The year 2021 had slightly higher average turbidity than in 2020 (11.7 FNU vs. 9.8 FNU).
 
 ```{r echo=FALSE, fig.cap='Surface turbidity in NTU at six regions in the San Francisco Bay-Delta estuary during 2019-2020.', fig.align='center'}
 knitr::include_graphics(file.path('sections/d-wq/figures/ARGraph_TurbiditySurface.jpg'))
@@ -22,7 +22,7 @@ knitr::include_graphics(file.path('sections/d-wq/figures/ARGraph_TurbiditySurfac
 ***
 ### Dissolved Ammonia
 
-Dissolved ammonia levels in 2020 ranged from ≤ 0.05 mg/L (the reporting limit) in several regions to 0.7 mg/L (C3A in Northern Interior Delta, March and June). Dissolved ammonia levels are typically higher at C3A in the Northern Interior Delta due to its location downstream of the effluent discharge from Sacramento Regional Sanitation District. Ammonia levels are typically lower throughout the Delta and Bays, likely due to dilution and nitrification.
+Dissolved ammonia levels in 2021 ranged from ≤ 0.05 mg/L (the reporting limit) in several regions to 0.27 mg/L (C3A in Northern Interior Delta, March). Dissolved ammonia levels are typically higher at C3A in the Northern Interior Delta due to its location downstream of the effluent discharge from Sacramento Regional Sanitation District. Ammonia levels are typically lower throughout the Delta and Bays, likely due to dilution and nitrification.
 
 ```{r echo=FALSE, fig.cap='Dissolved ammonia concentrations in mg/L at six regions in the San Francisco Bay-Delta estuary during 2019-2020. Dashed lines represent the range of possible values for months where the raw value was a non-detect.', fig.align='center'}
 knitr::include_graphics(file.path('sections/d-wq/figures/ARGraph_DissAmmonia.jpg'))
