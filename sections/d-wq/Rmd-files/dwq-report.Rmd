@@ -2,7 +2,7 @@
 
 ### Introduction
 
-Water year 2020 was classified as Dry in the Sacramento Valley and San Joaquin Valley, unlike the previous year, which was classified as Wet [(source)](https://cdec.water.ca.gov/reportapp/javareports?name=WSIHIST). The 2019-2020 data from all stations within the same region were plotted on one graph and then combined with the graphs from other regions to make a facet graph for each parameter. The minimum and maximum values in 2020 were determined for each field parameter or laboratory analyte to show the range within a single year. The instances when a result fell below the reporting limit were excluded from these minimum and maximum calculations. When this occurred, a vertical dashed line capped at the reporting limit was added to the graph to represent the presence of a non-detect. It should be noted that sampling was not conducted in April, May, and some of December 2020 due to the stay-at-home order and safety concerns caused by the COVID-19 pandemic.
+Water year 2021 was classified as Critical in the Sacramento Valley and San Joaquin Valley due to ongoing drought. The previous year was classified as Dry. [(source)](https://cdec.water.ca.gov/reportapp/javareports?name=WSIHIST). The 2020-2021 data from all stations within the same region were plotted on one graph and then combined with the graphs from other regions to make a facet graph for each parameter. The minimum and maximum values in 2021 were determined for each field parameter or laboratory analyte to show the range within a single year. The instances when a result fell below the reporting limit were excluded from these minimum and maximum calculations. When this occurred, a vertical dashed line capped at the reporting limit was added to the graph to represent the presence of a non-detect. It should be noted that sampling was not conducted in January and February of 2021 due to the stay-at-home order and safety concerns caused by the COVID-19 pandemic.
 ***
 ### Specific Conductance
 
@@ -14,7 +14,7 @@ knitr::include_graphics(file.path('sections/d-wq/figures/ARGraph_SpCndSurface.jp
 ***
 ### Turbidity
 
-Surface turbidity values ranged from 0.2 FNU (C3A in Northern Interior Delta, August) to 111.3 FNU (D41A in San Pablo Bay, July) during 2021. The year 2021 had slightly higher average turbidity than in 2020 (11.7 FNU vs. 9.8 FNU).
+Surface turbidity values ranged from 0.2 FNU (C3A in Northern Interior Delta, August) to 111.3 FNU (D41A in San Pablo Bay, July) during 2021. The year 2021 had slightly higher average turbidity than 2020 (11.7 FNU vs. 9.8 FNU).
 
 ```{r echo=FALSE, fig.cap='Surface turbidity in NTU at six regions in the San Francisco Bay-Delta estuary during 2019-2020.', fig.align='center'}
 knitr::include_graphics(file.path('sections/d-wq/figures/ARGraph_TurbiditySurface.jpg'))
@@ -58,4 +58,4 @@ EMP's discrete water quality data sets are available publically via the Environm
 
 Archived annual reports can be found [here]() (link currently broken).
 
-For questions related to EMP's discrete water quality data sets, please contact Morgan Martinez at Morgan.Martinez@water.ca.gov.
+For questions related to EMP's discrete water quality data sets, please contact Morgan Battey at Morgan.Battey@water.ca.gov.
