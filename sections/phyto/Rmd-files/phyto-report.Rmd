@@ -39,7 +39,7 @@ Primary production by phytoplankton, primarily via carbon fixation through photo
 
 #### Phytoplankton  
 
-Phytoplankton samples were collected monthly at 24 monitoring sites throughout the Upper Estuary, which were grouped into regions based on their geographic location (Figure 1; Table 1). Samples were collected 1 meter below the water’s surface using a submersible pump and stored in 50 mL amber glass bottles. 200 µL of Lugol’s solution was added to each sample as a stain and preservative. All samples were kept at room temperature and away from direct sunlight until they were analyzed. 
+Phytoplankton samples were collected monthly at 24 monitoring sites throughout the Upper Estuary, which were grouped into regions based on their geographic location (Figure 1; Table 1). Sampling occurred from March through December; sampling for January and February were cancelled because of the COVID pandemic. Samples were collected 1 meter below the water’s surface using a submersible pump and stored in 50 mL amber glass bottles. 200 µL of Lugol’s solution was added to each sample as a stain and preservative. All samples were kept at room temperature and away from direct sunlight until they were analyzed. 
 
 Phytoplankton identification and enumeration were performed by BSA Environmental, Inc. according to the Utermöhl microscopic method (Utermöhl, 1958) and modified Standard Methods (APHA, 2012). An aliquot of sample was placed into a counting chamber and allowed to settle for a minimum of 12 hours. The aliquot volume, normally 10-20 mL, was adjusted according to the algal population density and the turbidity of the sample. Phytoplankton taxa were enumerated in randomly chosen transects for each settled aliquot. This process was performed at 800x magnification using a Leica DMIL inverted microscope. For each aliquot, a minimum of 400 total algal units were counted, with the dominant taxon accounting for a minimum of 100 algal units. For filamentous or colonial taxa, the number of cells per filament or colony was recorded. 
 <!-- This section writes out the formula to convert raw organism counts. If the text needs to be modified, let Sarah know. -->
@@ -82,7 +82,7 @@ kable_tables(phyto_stations, caption = 'Stations included within each region of 
 
 #### Chlorophyll a and Pheophytin a 
 
-Samples of chlorophyll a and pheophytin a were collected monthly at 24 monitoring sites throughout the upper Estuary using a submersible pump positioned 1 meter below the water’s surface. Samples were collected by filtering a known volume of water through a glass-fiber filter (1.0 µm pore size) at a pressure of 10 mmHg. For turbid water (> 20 NTU), 200 mL was filtered while 500mL of water was filtered when turbidity was < 20 NTU to prevent clogging. 
+Samples of chlorophyll a and pheophytin a were collected monthly at 24 monitoring sites throughout the upper Estuary using a submersible pump positioned 1 meter below the water’s surface. Sampling occurred from March through December; sampling for January and February were cancelled because of the COVID pandemic. Samples were collected by filtering a known volume of water through a glass-fiber filter (1.0 µm pore size) at a pressure of 10 mmHg. For turbid water (> 20 NTU), 200 mL was filtered while 500mL of water was filtered when turbidity was < 20 NTU to prevent clogging. 
 
 Filters were immediately frozen and transported to DWR’s Bryte Laboratory for analysis using spectrophotometry in accordance with the Standard Method 10200 H (APHA, 2012). Samples were processed by mechanically grinding the filter and extracting phytopigments using acetone. Pigment absorption spectra were measured before and after acidification to quantify the amount of chlorophyll a and pheophytin a, respectively. Concentrations were calculated according to a formula specified in the methodology (APHA, 2012). Average analyte concentrations were then calculated per month, per region, and were normalized to the number of stations.
 
@@ -135,7 +135,7 @@ The mean pheophytin a concentration for all samples in 2021 was 1.49 μg/L, slig
 
 Chlorophyll a average concentrations were higher in early spring, and lower the rest of the year (Figure 3). The highest concentration was recorded at NZ068 in April (5.12 µg/L) and the lowest was recorded at C3A in November (0.51 µg/L). The mean and median values were 2.09 μg/L and 1.55 μg/L, respectively. There were three samples below the detection limit.
 
-Pheophytin a average concentrations were low throughout the year (below 1.5 µg/L); values were generally lower than chlorophyll a (Figure 3). The maximum (2.12 µg/L) was recorded at NZ068 in December and the minimum (0.56 µg/L) was recorded at C3A in November. There were seven samples below the detection limit. The mean and median were 1.09 µg/L and 0.93 µg/L, respectively.
+Pheophytin a average concentrations were low throughout the year (below 1.5 µg/L); values were generally lower than chlorophyll a (Figure 3). The maximum (2.12 µg/L) was recorded at NZ068 in December and the minimum (0.56 µg/L) was recorded at C3A in November. There were seven samples below the detection limit, occurring at both stations in the region throughout the year. The mean and median were 1.09 µg/L and 0.93 µg/L, respectively.
 
 Phytoplankton average densities were highest in spring and summer, with cyanobacteria dominating throughout the year (Figure 4; “other taxa” are euglenoids, haptophytes, and synurophytes). There was a peak of cryptophytes in March, with smaller peaks occurring again in July and August. There was a small peak of diatoms in November.
 
@@ -167,11 +167,11 @@ knitr::include_graphics(file.path('sections/phyto/figures/SID_phyto.png'))
 
 #### Central Delta 
 
-Chlorophyll a average concentrations were highest in the summer and early fall months (Figure 7). The highest chlorophyll a concentration for this region at occurred at D16 in September (8.50 µg/L); the minimum occurred at the same station in January (1.01 µg/L). The mean and median values were 2.63 µg/L and 2.09 µg/L, respectively. There were no samples below the detection limit.
+Chlorophyll a average concentrations were low all year except for a large peak in August, which was the maximum for the year (Figure 7). The highest chlorophyll a concentration occurred at D28A in August (15.50 µg/L); the minimum occurred at the same station in November (0.72 µg/L). The mean and median values were 3.54 µg/L and 2.21 µg/L, respectively. There were three samples below the detection limit, all occurring in fall or winter, at D16, D26, and D28A.
 
-Pheophytin a average concentrations were relatively consistent throughout the year excluding a large spike in November (Figure 7), when the highest concentration in the region was recorded (15.40 µg/L, station D19). The minimum occurred at D19 in October (0.50 µg/L). The mean and median values were 1.28 µg/L and 0.90 µg/L, respectively. There was one sample below the detection limit at D16 in January.
+Pheophytin a average concentrations were similar in pattern to chlorophyll a; values were low all year except in August (Figure 7), when the highest concentration in the region was recorded (4.72 µg/L, station D28A). The minimum occurred at D19 in May (0.52 µg/L). The mean and median values were 1.39 µg/L and 1.18 µg/L, respectively. There was one sample below the detection limit at D16 in May.
 
-With the exception of cyanobacteria, phytoplankton average densities were low all year except for a bloom of centric diatoms in August (Figure 8; “other taxa” are chrysophytes, cryptophytes, and green algae). 
+With the exception of cyanobacteria, phytoplankton average densities were low all year except for a peak of diatoms in November (Figure 8; “other taxa” are euglenoids, haptophytes, and synurophytes). 
 
 
 ```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average chlorophyll a and pheophytin a concentrations in the Central Delta',  fig.align='center'}
@@ -184,11 +184,11 @@ knitr::include_graphics(file.path('sections/phyto/figures/CED_phyto.png'))
 
 #### Confluence 
 
-Chlorophyll a average concentrations were highest during early spring and mid-summer (Figure 9). The highest concentration occurred at D12 in August (5.27 µg/L); the minimum was recorded at D22 in November (0.95 µg/L). The mean and median values were 2.53 µg/L and 2.12 µg/L, respectively. There was one sample below the detection limit at D10 in October.
+Chlorophyll a average concentrations were highest during early spring and mid-summer (Figure 9). The highest concentration occurred at D22 in April (12.07 µg/L); the minimum was recorded at D4 in October (0.53 µg/L). The mean and median values were 3.07 µg/L and 2.27 µg/L, respectively. There were no samples below the detection limit.
 
-Pheophytin a average concentrations were relatively consistent throughout the year except for a peak in September, which was the maximum for the year (Figure 9). The maximum concentration was recorded at D22 in September (5.20 µg/L) and the minimum at the same station in January (0.51 µg/L) (Figure 9). The mean and median for this region were 1.47 µg/L and 1.24 µg/L, respectively. There were two samples below the detection limit at D10 in August and D22 in February.
+Pheophytin a average concentrations were relatively consistent throughout the year and lower than chlorophyll a concentrations except for the last three months of the year (Figure 9). The maximum concentration was recorded at D10 in December (3.08 µg/L) and the minimum at D4 in June (0.57 µg/L) (Figure 9). The mean and median for this region were 1.58 µg/L and 1.26 µg/L, respectively. There was one sample below the detection limit at D10 in June.
 
-Phytoplankton average densities were higher in winter and early spring; the peak of “other taxa” in October was mainly cryptophytes and green algae (Figure 10; “other taxa” are chrysophytes, cryptophytes, euglenoids, and green algae). Cyanobacteria also dominated throughout the year.
+Phytoplankton average densities were higher in spring; cyanobacteria were the most dominant, and a large peak of cryptophytes occurred in March (Figure 10; “other taxa” are euglenoids, haptophytes, and synurophytes). There were large peaks of diatoms in April and December.
 
 
 ```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average chlorophyll a and pheophytin a concentrations in the Confluence',  fig.align='center'}
