@@ -133,11 +133,11 @@ The mean pheophytin a concentration for all samples in 2021 was 1.49 μg/L, slig
 
 #### Northern Interior Delta 
 
-Chlorophyll a average concentrations were higher in early winter, summer, and fall (Figure 3). The highest concentration was recorded at NZ068 in October (2.78 µg/L) and the lowest was recorded at C3A in December (0.53 µg/L), which was one of two recordings of the lowest concentration. The mean and median values were 1.42 μg/L and 1.18 μg/L, respectively. There were no samples below the detection limit.
+Chlorophyll a average concentrations were higher in early spring, and lower the rest of the year (Figure 3). The highest concentration was recorded at NZ068 in April (5.12 µg/L) and the lowest was recorded at C3A in November (0.51 µg/L). The mean and median values were 2.09 μg/L and 1.55 μg/L, respectively. There were three samples below the detection limit.
 
-Pheophytin a average concentrations were highest in the fall; values were similar to chlorophyll a (Figure 3). The maximum (3.20 µg/L) was recorded at NZ068 in September and the minimum (0.52 µg/L) was recorded at C3A in December, although there were four samples below the detection limit (C3A in November, and NZ068 in February, March, and July). The mean and median were 0.98 µg/L and 0.81 µg/L, respectively.
+Pheophytin a average concentrations were low throughout the year (below 1.5 µg/L); values were generally lower than chlorophyll a (Figure 3). The maximum (2.12 µg/L) was recorded at NZ068 in December and the minimum (0.56 µg/L) was recorded at C3A in November. There were seven samples below the detection limit. The mean and median were 1.09 µg/L and 0.93 µg/L, respectively.
 
-Phytoplankton average densities were highest in early winter and early fall, with cyanobacteria dominating throughout the year (Figure 4; “other taxa” are cryptophytes and dinoflagellates). Pennate diatom density was high in January, and green algae concentrations were relatively high in March and October.
+Phytoplankton average densities were highest in spring and summer, with cyanobacteria dominating throughout the year (Figure 4; “other taxa” are euglenoids, haptophytes, and synurophytes). There was a peak of cryptophytes in March, with smaller peaks occurring again in July and August. There was a small peak of diatoms in November.
 
 
 ```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average chlorophyll a and pheophytin a concentrations in the Northern Interior Delta',  fig.align='center'}
@@ -150,11 +150,11 @@ knitr::include_graphics(file.path('sections/phyto/figures/NID_phyto.png'))
 
 #### Southern Interior Delta 
 
-Chlorophyll a average concentrations were highest in the summer (Figure 5). The maximum was recorded at C10A in July (32.50 µg/L), which also was the maximum for the year; the minimum was at P8 in January (0.64 µg/L). The mean and median were 5.56 µg/L and 2.98 µg/L, respectively. There were two samples below the detection limit at C9 in December and MD10A in January.
+Chlorophyll a average concentrations were highest in spring and summer (Figure 5). The maximum was recorded at C10A in March (25.51 µg/L), which also was the maximum for the year; the minimum was at MD10A in November (0.68 µg/L). The mean and median were 3.48 µg/L and 1.98 µg/L, respectively. There was one sample below the detection limit at C9 in December.
 
-Pheophytin a average concentrations were fairly constant throughout the year, with slight spikes in the summer months (Figure 5). The maximum pheophytin a value was recorded at C10A in July (6.06 µg/L); the minimum occurred at P8 in March (0.56 µg/L). The mean and median values were 1.84 µg/L and 1.46 µg/L, respectively. Two samples in January at MD10A and P8 were below the detection limit.
+Pheophytin a average concentrations were fairly constant throughout the year, with slight spikes in the summer months (Figure 5). The maximum pheophytin a value was recorded at C9 in July (3.47 µg/L); the minimum occurred at P8 in October and C10A in August (0.57 µg/L). The mean and median values were 1.33 µg/L and 1.15 µg/L, respectively. Two samples in March and June at P8 were below the detection limit.
 
-Phytoplankton average densities were highest in the summer and fall, with the highest concentrations occurring in July (Figure 6; “other taxa” are chrysophytes, cryptophytes, euglenoids, and synurophytes). Cyanobacteria dominated throughout the year and centric diatom concentrations were relatively high in the summer months.
+Phytoplankton average densities were highest in the spring and summer with the highest concentrations occurring in April and August (Figure 6; “other taxa” are euglenoids, synurophytes, and haptophytes). Cyanobacteria dominated throughout the year; there was a peak of diatoms in April, and small peaks of cryptophytes in March and May.
 
 
 ```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average chlorophyll a and pheophytin a concentrations in the Southern Interior Delta',  fig.align='center'}
