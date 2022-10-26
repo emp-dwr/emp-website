@@ -18,7 +18,7 @@ kable_tables <- function(data, caption) {
 
 ### Introduction 
 
-The Department of Water Resources (DWR) and the US Bureau of Reclamation (USBR) are required by Water Right Decision 1641 (D-1641) to collect phytoplankton and chlorophyll a samples to monitor algal community composition and biomass at select sites in the upper San Francisco Estuary (Estuary). The twenty-four sites range from San Pablo Bay to the inland rivers of the Sacramento-San Joaquin Delta (“the Delta”). These sites represent a variety of aquatic habitats, from narrow, freshwater channels to broad, estuarine bays. This report describes the results of these monitoring efforts for calendar year 2020. 
+The Department of Water Resources (DWR) and the US Bureau of Reclamation (USBR) are required by Water Right Decision 1641 (D-1641) to collect phytoplankton and chlorophyll a samples to monitor algal community composition and biomass at select sites in the upper San Francisco Estuary (Estuary). The twenty-four sites range from San Pablo Bay to the inland rivers of the Sacramento-San Joaquin Delta (“the Delta”). These sites represent a variety of aquatic habitats, from narrow, freshwater channels to broad, estuarine bays. This report describes the results of these monitoring efforts for calendar year 2021. 
 
 Phytoplankton are small, free-floating organisms that occur as unicellular, colonial, or filamentous forms (Horne and Goldman, 1994). Phytoplankton are a key component of the Estuary’s food web, serving as food for zooplankton, invertebrates, and certain fish species. Their metabolic processes also impact water chemistry, and their ability to fix carbon through photosynthesis is one of the key processes influencing water quality in the Estuary. Via this process, phytoplankton can affect the pH, dissolved oxygen, color, taste, and odor of natural waters. 
 
@@ -30,10 +30,9 @@ In addition, we measured the concentration of a different pigment in our water s
 
 Phytoplankton biomass and the resulting amount of chlorophyll a in some areas of the Estuary may be influenced by extensive filtration of the water column by the introduced Asian clam, Potamocorbula amurensis (Alpine and Cloern 1992). Well-established benthic populations of P. amurensis in Suisun and San Pablo bays are thought to have contributed to the low chlorophyll a concentrations (and increased water clarity) measured in these westerly bays since the mid-1980s (Alpine and Cloern 1992). 
 
-Phytoplankton are small, free-floating organisms that occur as unicellular, colonial, or filamentous forms (Horne and Goldman, 1994). They primarily serve as an important food source for zooplankton, invertebrates, and certain fish species, although they also have a direct effects on water chemistry. Primary production by phytoplankton, primarily via carbon fixation through photosynthesis, is one of the key processes that influence water quality in the Estuary. Via this process, phytoplankton can affect pH, dissolved oxygen, color, taste, and odor. Under certain conditions, some species (eg. Microcystis aeruginosa) can cause harmful algal blooms (HABs), resulting in animal deaths and human illness (Carmichael, 1981). In freshwater, the cyanobacteria, or blue-green algae (class Cyanophyceae), are responsible for producing toxic blooms, particularly in waters that are polluted with phosphates (van den Hoek et al., 1995). Phytoplankton are also useful for assessing water quality (Gannon and Stemberger 1978); their short life cycles allow them to respond quickly to environmental changes, meaning their standing crop and species composition are indicative of source water characteristics (APHA 2012). However, because of their transient nature, patchiness, and free movement in a lotic environment, the utility of phytoplankton as water quality indicators is limited and should be interpreted in conjunction with other biological and physiochemical data (APHA 2012).  
+Primary production by phytoplankton, primarily via carbon fixation through photosynthesis, is one of the key processes that influence water quality in the Estuary. Via this process, phytoplankton can affect pH, dissolved oxygen, color, taste, and odor. Under certain conditions, some species (eg. Microcystis aeruginosa) can cause harmful algal blooms (HABs), resulting in animal deaths and human illness (Carmichael, 1981). In freshwater, the cyanobacteria, or blue-green algae (class Cyanophyceae), are responsible for producing toxic blooms, particularly in waters that are polluted with phosphates (van den Hoek et al., 1995). Phytoplankton are also useful for assessing water quality (Gannon and Stemberger 1978); their short life cycles allow them to respond quickly to environmental changes, meaning their standing crop and species composition are indicative of source water characteristics (APHA 2012). However, because of their transient nature, patchiness, and free movement in a lotic environment, the utility of phytoplankton as water quality indicators is limited and should be interpreted in conjunction with other biological and physiochemical data (APHA 2012).  
 
-In addition to collecting phytoplankton samples to assess community composition, we use chlorophyll a concentrations as proxies to calculate phytoplankton biomass. Chlorophylls are complex phytopigment molecules found in all photosynthetic organisms. There are several types of chlorophyll, which are distinguished by slight differences in their molecular structures and constituents. These include chlorophyll a, b, c, and d, with a being the principal photosynthetic pigment in the majority of phytoplankton. This makes the chlorophyll a pigment a reliable proxy measurement for phytoplankton biomass. Furthermore, water samples were analyzed for pheophytin a. Pheophytin a is a primary degradation product of chlorophyll a. Its concentration, relative to chlorophyll a, is useful for estimating the general physiological state of phytoplankton populations. When phytoplankton are actively growing, the concentrations of pheophytin a are normally expected to be low in relation to chlorophyll a. Conversely, when the phytoplankton have died and are decaying, levels of pheophytin a are expected to be high in relation to chlorophyll a.  
-Phytoplankton biomass and the resulting chlorophyll a concentrations in some areas of the Estuary may be influenced by extensive filtration of the water column by the introduced Asian clam, Potamocorbula amurensis (Alpine and Cloern 1992). Well-established benthic populations of P. amurensis in Suisun and San Pablo bays are thought to have contributed to the low chlorophyll a concentrations (and increased water clarity) measured in these westerly bays since the mid-1980s (Alpine and Cloern 1992).  
+
 
 ***
 ### Methods 
@@ -94,8 +93,7 @@ Filters were immediately frozen and transported to DWR’s Bryte Laboratory for 
 #### Phytoplankton Identification 
 
 All organisms collected in 2020 fell into these ten algal groups:
-•	Pennate diatoms
-•	Centric diatoms
+•	Diatoms (pennate and centric)
 •	Chrysophytes
 •	Synurophytes
 •	Cyanobacteria
@@ -107,17 +105,17 @@ All organisms collected in 2020 fell into these ten algal groups:
 
 The 10 most common genera collected in 2020 were, in order:
 •	Eucapsis (cyanobacterium)
-•	Chroococcus (cyanobacterium)
+•	Plagioselmis (cryptophyte)
 •	Cyclotella (centric diatom)
-•	Chlorella (green alga) 
-•	Plagioselmis (cryptophyte flagellate)
+•	Microcystis (cyanobacterium) 
+•	Chlorella (green alga)
 •	Aulacoseira (centric diatom)
-•	Skeletonema (centric diatom)
+•	Cryptomonas (cryptophyte)
 •	Cocconeis (pennate diatom)
-•	Nitzschia (pennate diatom)
-•	Pseudanabaena (cyanobacterium)
+•	Dolichospermum (cyanobacterium)
+•	Drepanochloris (green alga)
 
-Of the ten groups identified, cyanobacteria constituted the vast majority (98.2%) of the organisms collected (Figure 2).
+Of the nine groups identified, cyanobacteria, diatoms, and cryptophytes constituted the vast majority (99.3.%) of the organisms collected (Figure 2).
 
 
 ```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Phytoplankton composition by algal group (other are chrysophytes, ciliates, dinoflagellates, euglenoids, and haptophytes)',  fig.align='center'}
@@ -146,7 +144,7 @@ Phytoplankton average densities were highest in early winter and early fall, wit
 knitr::include_graphics(file.path('sections/phyto/figures/NID_chla_pheo.png'))
 ```
 
-```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average organism density in the Northern Interior Delta; other are chrysophytes, cryptophytes, and dinoflagellates',  fig.align='center'}
+```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average organism density in the Northern Interior Delta',  fig.align='center'}
 knitr::include_graphics(file.path('sections/phyto/figures/NID_phyto.png'))
 ```
 
@@ -163,7 +161,7 @@ Phytoplankton average densities were highest in the summer and fall, with the hi
 knitr::include_graphics(file.path('sections/phyto/figures/SID_chla_pheo.png'))
 ```
 
-```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average organism density in the Southern Interior Delta; other are chrysophytes, cryptophytes, and dinoflagellates',  fig.align='center'}
+```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average organism density in the Southern Interior Delta; other are euglenoids, haptophytes, and synurophytes',  fig.align='center'}
 knitr::include_graphics(file.path('sections/phyto/figures/SID_phyto.png'))
 ```
 
@@ -180,7 +178,7 @@ With the exception of cyanobacteria, phytoplankton average densities were low al
 knitr::include_graphics(file.path('sections/phyto/figures/CED_chla_pheo.png'))
 ```
 
-```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average organism density in the Central Delta; other are chrysophytes, cryptophytes, and dinoflagellates',  fig.align='center'}
+```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average organism density in the Central Delta; other are euglenoids, haptophytes, and synurophytes',  fig.align='center'}
 knitr::include_graphics(file.path('sections/phyto/figures/CED_phyto.png'))
 ```
 
@@ -197,7 +195,7 @@ Phytoplankton average densities were higher in winter and early spring; the peak
 knitr::include_graphics(file.path('sections/phyto/figures/CON_chla_pheo.png'))
 ```
 
-```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average organism density in the Confluence; other are chrysophytes, cryptophytes, and dinoflagellates',  fig.align='center'}
+```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average organism density in the Confluence; other are euglenoids, haptophytes, and synurophytes',  fig.align='center'}
 knitr::include_graphics(file.path('sections/phyto/figures/CON_phyto.png'))
 ```
 
@@ -213,7 +211,7 @@ Phytoplankton average densities were relatively higher early in the year, driven
 knitr::include_graphics(file.path('sections/phyto/figures/GSB_chla_pheo.png'))
 ```
 
-```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average organism density in the Grizzly/Suisun Bays; other are chrysophytes, cryptophytes, and dinoflagellates',  fig.align='center'}
+```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average organism density in the Grizzly/Suisun Bays; other are euglenoids, haptophytes, and synurophytes',  fig.align='center'}
 knitr::include_graphics(file.path('sections/phyto/figures/GSB_phyto.png'))
 ```
 
@@ -230,7 +228,7 @@ There were peaks of cyanobacteria in January and October; most of the phytoplank
 knitr::include_graphics(file.path('sections/phyto/figures/SPB_chla_pheo.png'))
 ```
 
-```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average organism density in the San Pablo Bay; other are chrysophytes, cryptophytes, and dinoflagellates',  fig.align='center'}
+```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average organism density in the San Pablo Bay; other are euglenoids, haptophytes, and synurophytes',  fig.align='center'}
 knitr::include_graphics(file.path('sections/phyto/figures/SPB_phyto.png'))
 ```
 
