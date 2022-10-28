@@ -1,5 +1,5 @@
 bookdown::gitbook:
-  css: [html-css/book.css, html-css/slideshow.css, 'https://use.fontawesome.com/releases/v5.14.0/css/all.css']
+  css: [../../html-css/book.css, ../../html-css/slideshow.css, 'https://use.fontawesome.com/releases/v5.14.0/css/all.css']
   number_sections: false
   split_by: rmd
   toc_depth: 5
@@ -12,16 +12,16 @@ bookdown::gitbook:
       after: |
        <ul class='list-unstyled list-inline text-center'>
           <li class='after'>
-                  <img src="figures/general/usbr-logo.jpg" style="width:50px; height:50px; padding:0px 0; display:block; margin: 0 auto;" alt="USBR logo">
+                  <img src="sections/general/figures/usbr-logo.jpg" style="width:50px; height:50px; padding:0px 0; display:block; margin: 0 auto;" alt="USBR logo">
           </li>
           <li class='after'>
-                  <img src="figures/general/dwr-logo.png" style="width:50px; height:50px; padding:0px 0; display:block; margin: 0 auto;" alt="DWR logo">
+                  <img src="sections/general/figures/dwr-logo.png" style="width:50px; height:50px; padding:0px 0; display:block; margin: 0 auto;" alt="DWR logo">
           </li>
           <li class='after'>
-                  <img src="figures/general/iep-logo.jpg" style="width:50px; height:50px; padding:0px 0; display:block; margin: 0 auto;" alt="IEP logo">
+                  <img src="sections/general/figures/iep-logo.jpg" style="width:50px; height:50px; padding:0px 0; display:block; margin: 0 auto;" alt="IEP logo">
           </li>
           <li class='after'>
-                  <img src="figures/general/cdfw-logo.png" style="width:50px; height:50px; padding:0px 0; display:block; margin: 0 auto;" alt="CDFW logo">
+                  <img src="sections/general/figures/cdfw-logo.png" style="width:50px; height:50px; padding:0px 0; display:block; margin: 0 auto;" alt="CDFW logo">
           </li>
         </ul>
         

@@ -115,6 +115,4 @@ EMP's benthos data sets are available to download
 xfun::embed_file(path = 'sections/benthic/data/test.csv', name = 'test.csv', text = 'here.')
 ```
 
-Archived annual reports can be found [here]() (link currently broken).
-
 For questions related to EMP's benthos data sets, please contact Betsy Wells at elizabeth.wells@water.ca.gov.

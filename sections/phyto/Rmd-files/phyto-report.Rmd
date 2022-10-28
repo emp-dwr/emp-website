@@ -93,6 +93,7 @@ Filters were immediately frozen and transported to DWR’s Bryte Laboratory for 
 #### Phytoplankton Identification 
 
 All organisms collected in 2021 fell into these nine algal groups:
+
 •	Diatoms (pennate and centric)
 •	Chrysophytes
 •	Synurophytes
@@ -104,6 +105,7 @@ All organisms collected in 2021 fell into these nine algal groups:
 •	Green Algae
 
 The 10 most common genera collected in 2020 were, in order:
+
 •	Eucapsis (cyanobacterium)
 •	Plagioselmis (cryptophyte)
 •	Cyclotella (centric diatom)

@@ -1,4 +1,5 @@
-book_filename: 'EMP Reports'
+---
+book_filename: 'EMP-Reports'
 language:
   ui:
     chapter_name: ''
@@ -7,6 +8,7 @@ delete_merged_file: true
 output_dir: './docs'
 
 rmd_files: [
+  # General Info
   'sections/general/Rmd-files/index.Rmd',
   
   # C-WQ
@@ -31,5 +33,6 @@ rmd_files: [
   'sections/zoop/Rmd-files/zoop-report.Rmd',
   
   # Special Studies
-    'sections/general/Rmd-files/index-studies.Rmd',
+  'sections/special-studies/Rmd-files/veliger.Rmd',
 ]
+---
