@@ -288,12 +288,13 @@ img {
 }
 */
 
-/* text highlights */
+/* text highlights 
 .book .book-body .page-wrapper .page-inner section.normal em, .emph {
   color: #006699BF;
   font-weight: 500;
   font-style: normal;
 }
+*/
 
 /* address */
 .address-spec {

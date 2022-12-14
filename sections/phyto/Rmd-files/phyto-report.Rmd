@@ -65,13 +65,13 @@ Phytoplankton identification and enumeration were performed by BSA Environmental
 <p>
 Raw organism counts were normalized to the sample volume using the following formula:
 <br>
-<center>$organisms/mL = {CA_{c} \frac VA_{f}F}$</center>
+<center>$organisms/mL = {CA_c \frac V{A_f}F}$</center>
 <br>
-where $C$ is the organism count, $A_{c}$ is the area of the cell bottom (mm$^2$), $A_{f}$ is the area of each grid field (mm$^2$), $F$ is the number of fields examined, and $V$ is the settled volume (mL). This simplifies to:
+where $C$ is the organism count, $A_c$ is the area of the cell bottom (mm$^2$), $A_f$ is the area of each grid field (mm$^2$), $F$ is the number of fields examined, and $V$ is the settled volume (mL). This simplifies to:
 <br>
-<center>$organisms/mL = {C \frac cV}$</center>
+<center>$organisms/mL = {\frac C{cV}}$</center>
 <br>
-where $cV = {A_{c} \frac VA_{f}F}$ and is equal to the counted volume.
+where $cV = {A_c \frac V{A_f}F}$ and is equal to the counted volume.
 </p>
 </body>
 

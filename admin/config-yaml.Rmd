@@ -1,14 +1,16 @@
 --- 
-title: "Environmental Monitoring Program"
-description: "Website for CA DWR's Environmental Monitoring Program."
+title: ""
+description: "Information and annual reports for CA DWR's Environmental Monitoring Program."
 number_sections: FALSE
 # link-citations: yes
+info: false
 github-repo: emp-des/emp-reports
 output:
   bookdown::gitbook:
     anchor_sections: false
     auto_ids: false
-    css: [html-css/book.css, html-css/slideshow.css, 'https://use.fontawesome.com/releases/v5.14.0/css/all.css']
+    favicon: sections/general/figures/sentinel.ico
+    css: [admin/html-css/book.css, admin/html-css/slideshow.css, 'https://use.fontawesome.com/releases/v5.14.0/css/all.css']
     number_sections: false
     split_by: rmd
     toc_depth: 5
