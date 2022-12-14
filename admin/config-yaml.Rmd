@@ -8,7 +8,7 @@ output:
   bookdown::gitbook:
     anchor_sections: false
     auto_ids: false
-    css: [../html-css/book.css, ../html-css/slideshow.css, 'https://use.fontawesome.com/releases/v5.14.0/css/all.css']
+    css: [html-css/book.css, html-css/slideshow.css, 'https://use.fontawesome.com/releases/v5.14.0/css/all.css']
     number_sections: false
     split_by: rmd
     toc_depth: 5
