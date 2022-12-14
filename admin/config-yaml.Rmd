@@ -1,15 +1,17 @@
 --- 
-title: ""
+title: "CADWR EMP"
 description: "Information and annual reports for CA DWR's Environmental Monitoring Program."
 number_sections: FALSE
 # link-citations: yes
 info: false
+lang: en
+favicon: sections/general/figures/sentinel.ico
 github-repo: emp-des/emp-reports
+
 output:
   bookdown::gitbook:
     anchor_sections: false
     auto_ids: false
-    favicon: sections/general/figures/sentinel.ico
     css: [admin/html-css/book.css, admin/html-css/slideshow.css, 'https://use.fontawesome.com/releases/v5.14.0/css/all.css']
     number_sections: false
     split_by: rmd
@@ -45,4 +47,3 @@ output:
       download: false # ['pdf']
       sharing: false
 ---
-<html lang="en">
