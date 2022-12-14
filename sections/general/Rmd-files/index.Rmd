@@ -1,32 +1,26 @@
---- 
-title: 'Environmental Monitoring Program'
-number_sections: FALSE
-link-citations: yes
-github-repo: emp-des/emp-reports
-description: "Website for CA DWR's Environmental Monitoring Program."
----
+# (PART) General {-}
 
-```{r, echo=FALSE}
+# CA Dept of Water Resources - Environmental Monitoring Program {.unlisted .unnumbered}
+```{r, echo=FALSE, fig.cap='Slideshow of DWR EMP locations.'}
 # add in slideshow
 htmltools::includeHTML('html-css/slideshow.html')
 ```
 
-# (PART) General {-}
+# Program Information {-}
+The Environmental Monitoring Program (EMP) is a joint effort by the California Department of Water Resources (DWR) and the United States Bureau of Reclamation (USBR) to characterize the aquatic environment of the Sacramento-San Joaquin Delta, Suisun, and San Pablo Bays. With assistance from the California Department of Water Resources (CDFW), each month EMP scientists visit up to 28 (24 fixed and 4 floating) stations to sample water quality and biological communities (phytoplankton, zooplankton, and benthic invertebrates). EMP also services and maintains a network of 15 continuous water quality stations that provide data in real time through the California Data Exchange Network. Since 1975, these efforts have established an irreplaceable ecological record in the San Francisco estuary that has been used in dozens of peer-review scientific articles and technical reports. 
 
-# Program Information
-<b>THIS IS A TEST SITE.</b> For official annual EMP reports, please contact Sarah Perry at sarah.perry@water.ca.gov.
+As a public endeavor, EMP embraces the principles of Open Science and makes the data it collects openly and freely available. This website provides yearly status-and-trends reports on water quality, phytoplankton, zooplankton, and benthic invertebrates while also providing links to Environmental Data Initiative portals where quality-checked versions of EMP’s various datasets are available for download. For questions and comments about the website, please contact Sarah Perry (sarah.perry@water.ca.gov) at DWR. 
 
-The State Water Resources Control Board (SWRCB) sets water quality objectives to protect beneficial uses of water in the Sacramento-San Joaquin Delta and Suisun and San Pablo Bays. These objectives are met by establishing standards mandated in water right permits issued to the Department of Water Resources and U.S. Bureau of Reclamation by the SWRCB. The standards include minimum Delta outflows, limits to Delta water export by the State Water Project (SWP) and the Central Valley Project (CVP), and maximum allowable salinity levels.
-
-In 1971, the State Water Resources Control Board (SWRCB) established Water Right Decision 1379 (D-1379). This Decision contained new water quality requirements for the San Francisco Bay-Delta Estuary. D-1379 was also the first water right decision to provide terms and conditions for a comprehensive monitoring program to routinely determine water quality conditions and changes in environmental conditions within the estuary. The monitoring program described in D-1379 was developed by the Stanford Research Institute through a contract with the SWRCB. Implementation of the monitoring program began in 1972, as SWRCB, DWR, and USBR met to define their individual responsibilities for various elements of the monitoring program. In 1978, amendments to water quality standards were implemented and resulted in Water Right Decision 1485 (D-1485). These standards were again amended under the 1995 Water Quality Control Plan and Water Right Decision 1641 (D-1641) established in 1999. The SWP and CVP are currently operated to comply with the monitoring and reporting requirements described in D-1641. D-1641 requires DWR and USBR to conduct a comprehensive environmental monitoring program to determine compliance with the water quality standards and also to submit an annual report to the SWRCB discussing data collected.
-
-More information about EMP and its connection to the Interagency Ecological Program (IEP) can be found [here](https://water.ca.gov/Programs/Environmental-Services/Interagency-Ecological-Program). To watch EMP in action, click [here](https://www.youtube.com/watch?app=desktop&v=I8gLVt7RlmU) for discrete monitoring and [here](https://www.youtube.com/watch?app=desktop&v=8TfORxxAvZ8) for continuous monitoring.  
+# Program History {- .unlisted .unnumbered}
+EMP was formed in response to water quality objectives set by California’s State Water Resources Control Board (SWRCB) to protect beneficial uses of water in the Sacramento-San Joaquin Delta, Suisun, and San Pablo Bays. The data collected and analyzed by EMP scientists is essential for the effective management of water resources in the estuary and assures that the objectives mandated by SWRCB in the permits issued to DWR and UBSR are met. The standards include minimum Delta outflows, limits to Delta water export by the State Water Project (SWP) and the Central Valley Project (CVP), and maximum allowable salinity levels in the Delta. 
+The regulatory basis for what became EMP began in 1971 when the State Water Resources Control Board (SWRCB) established new water quality requirements for the San Francisco Bay-Delta Estuary in Water Right Decision 1379 (D-1379). This decision provided the terms and conditions for a comprehensive monitoring program to evaluate changes in environmental conditions within the estuary. A monitoring program was first implemented in 1971 following the design laid out by the Stanford Research Institute (SWRCB Publication 40). These water quality standards were amended in 1978 (D-1485) and again in 1999 (D-1641). The SWP and CVP are currently operated to comply with the requirements of the latter. The annual reports displayed on this website constitute the annual reports submitted to SWRCB by DWR and USBR in fulfillment of the D-1641 reporting requirement.
+  
 
 ```{r echo=FALSE, out.width = '400px', fig.align='center', fig.cap='Map of the Sacramento-San Joaquin Delta. Source: DWR'}
-knitr::include_graphics(file.path('sections/general/figures/deltamap.jpg'))
+# knitr::include_graphics(file.path('sections/general/figures/deltamap.jpg'))
 ```
 
-## Videos {.unlisted}
+# Videos {- .unlisted .unnumbered}
 <div align='center'>
   <iframe width='560' height='315' src='https://www.youtube.com/embed/I8gLVt7RlmU' frameborder='0' allowfullscreen></iframe>
 </div>

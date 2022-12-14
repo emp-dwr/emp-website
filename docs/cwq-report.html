@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Current Report | Environmental Monitoring Program</title>
   <meta name="description" content="Website for CA DWR’s Environmental Monitoring Program." />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Current Report | Environmental Monitoring Program" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="Website for CA DWR’s Environmental Monitoring Program." />
   <meta name="github-repo" content="emp-des/emp-reports" />
@@ -31,8 +30,8 @@
   
 <link rel="prev" href="cwq-info.html"/>
 <link rel="next" href="dwq-info.html"/>
-<script src="libs/header-attrs-2.8/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -48,18 +47,15 @@
 
 
 
-
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 
 
-<link rel="stylesheet" href="html-css/book.css" type="text/css" />
-<link rel="stylesheet" href="html-css/slideshow.css" type="text/css" />
-<link rel="stylesheet" href="https:/use.fontawesome.com/releases/v5.14.0/css/all.css" type="text/css" />
+<link rel="stylesheet" href="../html-css/book.css" type="text/css" />
+<link rel="stylesheet" href="../html-css/slideshow.css" type="text/css" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" type="text/css" />
 </head>
 
 <body>
@@ -87,8 +83,8 @@
 <li class="chapter" data-level="" data-path="cwq-report.html"><a href="cwq-report.html#regions"><i class="fa fa-check"></i>Regions</a>
 <ul>
 <li class="chapter" data-level="" data-path="cwq-report.html"><a href="cwq-report.html#northern-interior-delta"><i class="fa fa-check"></i>Northern Interior Delta</a></li>
-<li class="chapter" data-level="" data-path="cwq-report.html"><a href="cwq-report.html#central-interior-delta"><i class="fa fa-check"></i>Central Interior Delta</a></li>
 <li class="chapter" data-level="" data-path="cwq-report.html"><a href="cwq-report.html#southern-interior-delta"><i class="fa fa-check"></i>Southern Interior Delta</a></li>
+<li class="chapter" data-level="" data-path="cwq-report.html"><a href="cwq-report.html#central-interior-delta"><i class="fa fa-check"></i>Central Interior Delta</a></li>
 <li class="chapter" data-level="" data-path="cwq-report.html"><a href="cwq-report.html#confluence"><i class="fa fa-check"></i>Confluence</a></li>
 <li class="chapter" data-level="" data-path="cwq-report.html"><a href="cwq-report.html#grizzlysuisun-bay"><i class="fa fa-check"></i>Grizzly/Suisun Bay</a></li>
 </ul></li>
@@ -100,7 +96,6 @@
 <li class="chapter" data-level="" data-path="cwq-report.html"><a href="cwq-report.html#ph"><i class="fa fa-check"></i>pH</a></li>
 <li class="chapter" data-level="" data-path="cwq-report.html"><a href="cwq-report.html#turbidity"><i class="fa fa-check"></i>Turbidity</a></li>
 <li class="chapter" data-level="" data-path="cwq-report.html"><a href="cwq-report.html#chlorophyll-a-fluorescence"><i class="fa fa-check"></i>Chlorophyll a Fluorescence</a></li>
-<li class="chapter" data-level="" data-path="cwq-report.html"><a href="cwq-report.html#air-temperature"><i class="fa fa-check"></i>Air Temperature</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="cwq-report.html"><a href="cwq-report.html#references"><i class="fa fa-check"></i>References</a></li>
 </ul></li>
@@ -111,13 +106,14 @@
 <li class="chapter" data-level="" data-path="dwq-report.html"><a href="dwq-report.html"><i class="fa fa-check"></i>Current Report</a>
 <ul>
 <li class="chapter" data-level="" data-path="dwq-report.html"><a href="dwq-report.html#introduction"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="dwq-report.html"><a href="dwq-report.html#specific-conductance-1"><i class="fa fa-check"></i>Specific Conductance</a></li>
 <li class="chapter" data-level="" data-path="dwq-report.html"><a href="dwq-report.html#turbidity-1"><i class="fa fa-check"></i>Turbidity</a></li>
 <li class="chapter" data-level="" data-path="dwq-report.html"><a href="dwq-report.html#dissolved-ammonia"><i class="fa fa-check"></i>Dissolved Ammonia</a></li>
 <li class="chapter" data-level="" data-path="dwq-report.html"><a href="dwq-report.html#chlorophyll-a"><i class="fa fa-check"></i>Chlorophyll a</a></li>
 <li class="chapter" data-level="" data-path="dwq-report.html"><a href="dwq-report.html#dissolved-nitrate-nitrite"><i class="fa fa-check"></i>Dissolved Nitrate + Nitrite</a></li>
 <li class="chapter" data-level="" data-path="dwq-report.html"><a href="dwq-report.html#total-phosphorus"><i class="fa fa-check"></i>Total Phosphorus</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="dwq-report.html"><a href="dwq-report.html#data-and-archived-reports"><i class="fa fa-check"></i>Data and Archived Reports</a></li>
+<li class="chapter" data-level="" data-path="dwq-report.html"><a href="dwq-report.html#data-and-contact-info"><i class="fa fa-check"></i>Data and Contact Info</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="benthic-info.html"><a href="benthic-info.html"><i class="fa fa-check"></i>Benthic Invertebrates</a>
 <ul>
@@ -134,7 +130,7 @@
 <li class="chapter" data-level="" data-path="benthic-report.html"><a href="benthic-report.html#southern-interior-delta-1"><i class="fa fa-check"></i>Southern Interior Delta</a></li>
 <li class="chapter" data-level="" data-path="benthic-report.html"><a href="benthic-report.html#summary"><i class="fa fa-check"></i>Summary</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="benthic-report.html"><a href="benthic-report.html#data-and-archived-reports-1"><i class="fa fa-check"></i>Data and Archived Reports</a></li>
+<li class="chapter" data-level="" data-path="benthic-report.html"><a href="benthic-report.html#data-and-archived-reports"><i class="fa fa-check"></i>Data and Archived Reports</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="phyto-info.html"><a href="phyto-info.html"><i class="fa fa-check"></i>Phytoplankton</a>
 <ul>
@@ -177,31 +173,31 @@
 <li class="chapter" data-level="" data-path="zoop-report.html"><a href="zoop-report.html#conclusion"><i class="fa fa-check"></i>Conclusion</a></li>
 <li class="chapter" data-level="" data-path="zoop-report.html"><a href="zoop-report.html#references-2"><i class="fa fa-check"></i>References</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="zoop-report.html"><a href="zoop-report.html#data-and-contact-info"><i class="fa fa-check"></i>Data and Contact Info</a></li>
+<li class="chapter" data-level="" data-path="zoop-report.html"><a href="zoop-report.html#data-and-contact-info-1"><i class="fa fa-check"></i>Data and Contact Info</a></li>
 </ul></li>
 <li class="part"><span><b>III Special Studies</b></span></li>
-<li class="chapter" data-level="" data-path="index-studies.html"><a href="index-studies.html"><i class="fa fa-check"></i>Coming Soon!</a></li>
+<li class="chapter" data-level="" data-path="veliger.html"><a href="veliger.html"><i class="fa fa-check"></i>Veliger Monitoring Program</a></li>
 <li class="divider"></li>
 <ul class='list-unstyled list-inline text-center'>
-   <li class='after'>
-           <img src="figures/general/usbr-logo.jpg" style="width:50px; height:50px; padding:0px 0; display:block; margin: 0 auto;" alt="USBR logo">
-   </li>
-   <li class='after'>
-           <img src="figures/general/dwr-logo.png" style="width:50px; height:50px; padding:0px 0; display:block; margin: 0 auto;" alt="DWR logo">
-   </li>
-   <li class='after'>
-           <img src="figures/general/iep-logo.jpg" style="width:50px; height:50px; padding:0px 0; display:block; margin: 0 auto;" alt="IEP logo">
-   </li>
-   <li class='after'>
-           <img src="figures/general/cdfw-logo.png" style="width:50px; height:50px; padding:0px 0; display:block; margin: 0 auto;" alt="CDFW logo">
-   </li>
- </ul>
- 
- <address>
-   <div style='text-align:center'>
-     <a href='mailto:theodore.flynn@water.ca.gov'>contact us</a>
-   </div>
- </address>
+  <li class='after'>
+    <img src="sections/general/figures/usbr-logo.jpg" style="width:50px; height:50px; padding:0px 0; display:block; margin: 0 auto;" alt="USBR logo">
+  </li>
+  <li class='after'>
+    <img src="sections/general/figures/dwr-logo.png" style="width:50px; height:50px; padding:0px 0; display:block; margin: 0 auto;" alt="DWR logo">
+  </li>
+  <li class='after'>
+    <img src="sections/general/figures/iep-logo.jpg" style="width:50px; height:50px; padding:0px 0; display:block; margin: 0 auto;" alt="IEP logo">
+  </li>
+  <li class='after'>
+    <img src="sections/general/figures/cdfw-logo.png" style="width:50px; height:50px; padding:0px 0; display:block; margin: 0 auto;" alt="CDFW logo">
+  </li>
+</ul>
+
+<address>
+  <div style='text-align:center'>
+    <a href='mailto:theodore.flynn@water.ca.gov'>contact us</a>
+  </div>
+</address>
 
 </ul>
 
@@ -224,9 +220,8 @@
 <h2>Current Report</h2>
 <div id="methods" class="section level3">
 <h3>Methods</h3>
-<p>Continuous data were collected for the water quality and environmental parameters shown in Table 2. Each of the 15 monitoring stations collected continuous data for water temperature (WT), pH, dissolved oxygen (DO), surface specific conductance (SpC), chlorophyll a fluorescence, and turbidity. Additional sensors were installed at the Antioch, Mallard Island, and Martinez stations in the 1990’s to monitor bottom SpC. These measurements, along with river stage data measured at the Mallard Island and Martinez stations, were needed to determine compliance with the salinity standard (also known as X2) that was mandated by the Bay-Delta Plan (SWRCB, 1995).</p>
-<p>Environmental data, such as air temperature (AT), solar radiation (SRI), wind speed (WV), and wind direction (WD), were measured at all stations as part of D-1641’s objectives (SWRCB, 1999). The only environmental parameter analyzed for this report was air temperature from a MET-1 Instrument Mod. 062 sensor.</p>
-<p>Except for bottom specific conductance, all water samples were collected at 1-m below the water surface using a float-mounted YSI EXO2 multi-parameter water quality sonde. In contrast, bottom specific conductance was measured at 1.5 m above the channel bottom using a YSI EXO1 sonde. Water quality data and environmental data were recorded at 15-minute intervals.</p>
+<p>Continuous data were collected for the water quality shown in Table 2. Each of the 15 monitoring stations collected continuous data for water temperature (WT), pH, dissolved oxygen (DO), surface-specific conductance (SpC), chlorophyll a fluorescence, and turbidity. Additionally, sensors were installed at the Antioch, Mallard Island, and Martinez stations in the 1990’s to monitor bottom SpC. Along with river stage data measured at the Mallard Island and Martinez stations, these bottom SpC measurements determine compliance with the mandated salinity standard (also known as X2) set by the State Water Resources Control Board (SWRCB) in the 1995 Bay-Delta Plan.
+Except for bottom-specific conductance, all water samples were collected 1-meter below the water surface using a float-mounted YSI EXO2 multi-parameter water quality sonde. In contrast, bottom-specific conductance was measured at 1.5 meters above the channel bottom using a YSI EXO1 sonde. Water quality data was recorded at 15-minute intervals.</p>
 <table class="table table-striped" style="font-size: 14px; font-family: Arimo; width: auto !important; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
 <span id="tab:unnamed-chunk-7">Table 2: </span>Parameters sampled by Continuous EMP
@@ -294,7 +289,7 @@ unitless
 Turbidity
 </td>
 <td style="text-align:center;">
-NTU
+FNU
 </td>
 <td style="text-align:center;">
 15 minute instantaneous
@@ -305,7 +300,7 @@ NTU
 Fluorescence
 </td>
 <td style="text-align:center;">
-FU
+µg/L
 </td>
 <td style="text-align:center;">
 15 minute instantaneous
@@ -317,135 +312,24 @@ FU
 </div>
 <div id="qa-status" class="section level3">
 <h3>QA Status</h3>
-<p>On a monthly basis, quality assurance and control measures were applied using field verification data sheets. Data that did not pass quality control checks or were affiliated with instrument issues were flagged and excluded from the analysis.</p>
-<table class="table table-striped" style="font-size: 14px; font-family: Arimo; width: auto !important; margin-left: auto; margin-right: auto;">
-<caption style="font-size: initial !important;">
-<span id="tab:unnamed-chunk-8">Table 3: </span>Rating criteria for continuous sonde calibration
-</caption>
-<thead>
-<tr>
-<th style="text-align:center;">
-Analyte
-</th>
-<th style="text-align:center;">
-Excellent
-</th>
-<th style="text-align:center;">
-Good
-</th>
-<th style="text-align:center;">
-Fair
-</th>
-<th style="text-align:center;">
-Poor
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center;">
-Water Temperature (°C)
-</td>
-<td style="text-align:center;">
-&lt;±0.2
-</td>
-<td style="text-align:center;">
-±0.2-0.5
-</td>
-<td style="text-align:center;">
-±0.5-0.8
-</td>
-<td style="text-align:center;">
-&gt;±0.8
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-Specific Conductance (µS/cm)
-</td>
-<td style="text-align:center;">
-&lt;±3%
-</td>
-<td style="text-align:center;">
-±3-10%
-</td>
-<td style="text-align:center;">
-±10-15%
-</td>
-<td style="text-align:center;">
-&gt;±15%
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-Dissolved Oxygen (mg/L)
-</td>
-<td style="text-align:center;">
-&lt;±0.3 or &lt;±5%
-</td>
-<td style="text-align:center;">
-±0.3-0.5 or or ±5-10%
-</td>
-<td style="text-align:center;">
-±0.5-0.8 or ±10-15%
-</td>
-<td style="text-align:center;">
-&gt;±0.8 or &gt;±15%
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-pH
-</td>
-<td style="text-align:center;">
-&lt;±0.2
-</td>
-<td style="text-align:center;">
-±0.2-0.5
-</td>
-<td style="text-align:center;">
-±0.5-0.8
-</td>
-<td style="text-align:center;">
-&gt;±0.8
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-Turbidity (NTU)
-</td>
-<td style="text-align:center;">
-&lt;±0.5 or &lt;±5%
-</td>
-<td style="text-align:center;">
-±0.5-1.0 or ±5-10%
-</td>
-<td style="text-align:center;">
-±1.0-1.5 or ±10-15%
-</td>
-<td style="text-align:center;">
-&gt;±1.5 or or &gt;±15%
-</td>
-</tr>
-</tbody>
-</table>
+<p>Quality assurance and control measures were applied according to CEMP’s Quality Assurance Project Plan (QAPP) (Appendix A). Only data validated as “Good Data” according to Section 22 of the QAPP were analyzed for this report.</p>
 <hr />
 </div>
 <div id="regions" class="section level3">
 <h3>Regions</h3>
-<p>The daily averages of the continuous 15-minute data collected for air and water temperature, pH, DO, surface and bottom SpC, chlorophyll a fluorescence, and turbidity for calendar year 2020 are shown in Figures 3 to 34. The range of monthly DO values at the Stockton station is shown below.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-9"></span>
-<img src="sections/c-wq/figures/2020/Fig4f.png" alt="Range of daily dissolved oxygen Rough and Ready Isl. (P8), 2020" width="70%" />
+<p>The daily averages of the continuous 15-minute data collected for air and water temperature, pH, DO, surface and bottom SpC, chlorophyll a fluorescence, and turbidity for calendar year 2021 are shown in Figures 3 to 34. The range of monthly DO values at the Stockton station is shown below.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-8"></span>
+<img src="sections/c-wq/figures/2021/Fig4f.png" alt="Range of daily dissolved oxygen Rough and Ready Isl. (P8), 2021" width="70%" />
 <p class="caption">
-Figure 3: Range of daily dissolved oxygen Rough and Ready Isl. (P8), 2020
+Figure 2: Range of daily dissolved oxygen Rough and Ready Isl. (P8), 2021
 </p>
 </div>
 <div id="northern-interior-delta" class="section level4">
 <h4>Northern Interior Delta</h4>
-<p>The Northern Interior Delta stations had surface specific conductance values that ranged from 125 µS/cm (C3A in July) to 541 µS/cm (D24A in November). Surface turbidity values ranged from 1.7 NTU (C3A in October) to 41.27 NTU (C3A in January). Surface water temperature values ranged from 8.57 °C (C3A in January) to 25.44 °C (D24A in August). Surface dissolved oxygen values ranged from 6.67 mg/L (D24A in August) to 11.19 mg/L (C3A in January). Surface pH values ranged from 7.12 (C3A in May) to 7.86 (D24A in March). Surface fluorescence values ranged from 0.12 μg/L (D24A in November) to 10.90 μg/L (C3A in April).</p>
+<p>The Northern Interior Delta stations had surface-specific conductance values that ranged from 126 µS/cm (C3A in June) to 1414 µS/cm (D24A in June). Surface turbidity values ranged from 1.05 NTU (C3A in October) to 79.22 NTU (C3A in October). Surface water temperature values ranged from 7.83 °C (C3A in December) to 26.31°C (C3A in July). Surface dissolved oxygen values ranged from 6.16 mg/L (D24A in November) to 11.07 mg/L (C3A in January). Surface pH values ranged from 7.05 (C3A in October) to 8.12 (D24A in September). Surface fluorescence values ranged from 0.55 μg/L (D24A in November) to 6.57 μg/L (C3A in December).</p>
 <table class="table table-striped" style="font-size: 14px; font-family: Arimo; width: auto !important; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
-<span id="tab:unnamed-chunk-10">Table 4: </span>Summary statistics for Northern Interior Delta, 2020
+<span id="tab:unnamed-chunk-9">Table 3: </span>Summary statistics for Northern Interior Delta, 2021
 </caption>
 <thead>
 <tr>
@@ -456,7 +340,7 @@ Statistic
 Specific Conductance (μs/cm)
 </th>
 <th style="text-align:center;">
-Turbidity (NTU)
+Turbidity (FNU)
 </th>
 <th style="text-align:center;">
 Water Temperature (°C)
@@ -500,146 +384,19 @@ Surface
 MIN
 </td>
 <td style="text-align:center;">
-125
+126
 </td>
 <td style="text-align:center;">
-1.71
+1.05
 </td>
 <td style="text-align:center;">
-8.57
+7.83
 </td>
 <td style="text-align:center;">
-6.67
+6.16
 </td>
 <td style="text-align:center;">
-7.12
-</td>
-<td style="text-align:center;">
-0.12
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-MAX
-</td>
-<td style="text-align:center;">
-541
-</td>
-<td style="text-align:center;">
-41.27
-</td>
-<td style="text-align:center;">
-25.44
-</td>
-<td style="text-align:center;">
-11.19
-</td>
-<td style="text-align:center;">
-7.86
-</td>
-<td style="text-align:center;">
-10.90
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-AVERAGE
-</td>
-<td style="text-align:center;">
-188
-</td>
-<td style="text-align:center;">
-5.24
-</td>
-<td style="text-align:center;">
-17.04
-</td>
-<td style="text-align:center;">
-8.93
-</td>
-<td style="text-align:center;">
-7.56
-</td>
-<td style="text-align:center;">
-1.48
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div id="central-interior-delta" class="section level4">
-<h4>Central Interior Delta</h4>
-<p>The Central Interior Delta stations had surface specific conductance values that ranged from 172 µS/cm (D29 in July) to 1484 µS/cm (D16A in August). Surface turbidity values ranged from 0.28 NTU (D19A in October) to 77.16 NTU (D19A in February). Surface water temperature values ranged from 8.64 °C (D19A in January) to 26.95 °C (D19A in August). Surface dissolved oxygen values ranged from 6.97 mg/L (D29 in August) to 13.69 mg/L (D19A in August). Surface pH values ranged from 7.40 (D29 in February to 9.64 (D19A in June). Surface fluorescence values ranged from 0.55 μg/L (D19A in August) to 19.32 μg/L (D29 in August).</p>
-<table class="table table-striped" style="font-size: 14px; font-family: Arimo; width: auto !important; margin-left: auto; margin-right: auto;">
-<caption style="font-size: initial !important;">
-<span id="tab:unnamed-chunk-11">Table 5: </span>Summary statistics for Central Interior Delta, 2020
-</caption>
-<thead>
-<tr>
-<th style="text-align:center;">
-Statistic
-</th>
-<th style="text-align:center;">
-Specific Conductance (μs/cm)
-</th>
-<th style="text-align:center;">
-Turbidity (NTU)
-</th>
-<th style="text-align:center;">
-Water Temperature (°C)
-</th>
-<th style="text-align:center;">
-Dissolved Oxygen (mg/L)
-</th>
-<th style="text-align:center;">
-pH
-</th>
-<th style="text-align:center;">
-Fluorescence (μg/L)
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center;">
-</td>
-<td style="text-align:center;">
-Surface
-</td>
-<td style="text-align:center;">
-Surface
-</td>
-<td style="text-align:center;">
-Surface
-</td>
-<td style="text-align:center;">
-Surface
-</td>
-<td style="text-align:center;">
-Surface
-</td>
-<td style="text-align:center;">
-Surface
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-MIN
-</td>
-<td style="text-align:center;">
-172
-</td>
-<td style="text-align:center;">
-0.28
-</td>
-<td style="text-align:center;">
-8.64
-</td>
-<td style="text-align:center;">
-6.97
-</td>
-<td style="text-align:center;">
-7.40
+7.05
 </td>
 <td style="text-align:center;">
 0.55
@@ -650,22 +407,22 @@ MIN
 MAX
 </td>
 <td style="text-align:center;">
-1484
+1414
 </td>
 <td style="text-align:center;">
-77.16
+79.22
 </td>
 <td style="text-align:center;">
-26.95
+26.31
 </td>
 <td style="text-align:center;">
-13.69
+11.07
 </td>
 <td style="text-align:center;">
-9.64
+8.12
 </td>
 <td style="text-align:center;">
-19.32
+6.57
 </td>
 </tr>
 <tr>
@@ -673,22 +430,22 @@ MAX
 AVERAGE
 </td>
 <td style="text-align:center;">
-463
+299
 </td>
 <td style="text-align:center;">
-3.68
+8.05
 </td>
 <td style="text-align:center;">
-17.50
+17.3
 </td>
 <td style="text-align:center;">
-9.45
+8.96
 </td>
 <td style="text-align:center;">
-7.92
+7.72
 </td>
 <td style="text-align:center;">
-2.28
+1.63
 </td>
 </tr>
 </tbody>
@@ -696,10 +453,10 @@ AVERAGE
 </div>
 <div id="southern-interior-delta" class="section level4">
 <h4>Southern Interior Delta</h4>
-<p>The Southern Interior Delta stations had surface specific conductance values that ranged from 177 µS/cm (C10A in July) to 995 µS/cm (P8A in December). Surface turbidity values ranged from 1.20 NTU (P8A in November) to 57.83 NTU (C10A in April). Surface water temperature values ranged from 8.65 °C (C10A in December) to 29.56 °C (C7A in August). Surface dissolved oxygen values ranged from 5.94 mg/L (P8A in August) to 15.06 mg/L (C10A in July). Surface pH values ranged from 7.3 (P8A in May) to 9.18 (C7A in July). Surface fluorescence values ranged from 0.73 μg/L (P8A in June) to 72.76 μg/L (C10A in July).</p>
+<p>The Southern Interior Delta stations had surface-specific conductance values that ranged from 74 µS/cm (C10A in July) to 1242 µS/cm (P8A in March). Surface turbidity values ranged from 0.16 NTU (C7A in October) to 86.29 NTU (C10A in January). Surface water temperature values ranged from 8.41 °C (C10A in December) to 26.66 °C (P8A in July). Surface dissolved oxygen values ranged from 6.09 mg/L (P8A in November) to 13.10 mg/L (C7A in April). Surface pH values ranged from 7.19 (P8A in October) to 8.52 (C7A in April). Surface fluorescence values ranged from 0.66 μg/L (C7A in December) to 47.77 μg/L (C7A in April).</p>
 <table class="table table-striped" style="font-size: 14px; font-family: Arimo; width: auto !important; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
-<span id="tab:unnamed-chunk-12">Table 6: </span>Summary statistics for Southern Interior Delta, 2020
+<span id="tab:unnamed-chunk-10">Table 4: </span>Summary statistics for Southern Interior Delta, 2021
 </caption>
 <thead>
 <tr>
@@ -710,7 +467,7 @@ Statistic
 Specific Conductance (μs/cm)
 </th>
 <th style="text-align:center;">
-Turbidity (NTU)
+Turbidity (FNU)
 </th>
 <th style="text-align:center;">
 Water Temperature (°C)
@@ -754,22 +511,22 @@ Surface
 MIN
 </td>
 <td style="text-align:center;">
-177
+74
 </td>
 <td style="text-align:center;">
-1.20
+0.16
 </td>
 <td style="text-align:center;">
-8.65
+8.41
 </td>
 <td style="text-align:center;">
-5.94
+6.09
 </td>
 <td style="text-align:center;">
-7.30
+7.19
 </td>
 <td style="text-align:center;">
-0.73
+0.66
 </td>
 </tr>
 <tr>
@@ -777,22 +534,22 @@ MIN
 MAX
 </td>
 <td style="text-align:center;">
-995
+1242
 </td>
 <td style="text-align:center;">
-57.83
+86.29
 </td>
 <td style="text-align:center;">
-29.56
+26.66
 </td>
 <td style="text-align:center;">
-15.06
+13.10
 </td>
 <td style="text-align:center;">
-9.18
+8.52
 </td>
 <td style="text-align:center;">
-72.76
+47.77
 </td>
 </tr>
 <tr>
@@ -800,22 +557,149 @@ MAX
 AVERAGE
 </td>
 <td style="text-align:center;">
-553
+554
 </td>
 <td style="text-align:center;">
-7.30
+6.04
 </td>
 <td style="text-align:center;">
-18.10
+17.56
 </td>
 <td style="text-align:center;">
-9.42
+8.95
 </td>
 <td style="text-align:center;">
-7.83
+7.68
 </td>
 <td style="text-align:center;">
-8.99
+4.86
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="central-interior-delta" class="section level4">
+<h4>Central Interior Delta</h4>
+<p>The Central Interior Delta stations had surface-specific conductance values that ranged from 314 µS/cm (D16A in December) to 2370 µS/cm (D16A in October). Surface turbidity values ranged from 0.11 NTU (D19A in September) to 148.9 NTU (D19A in January). Surface water temperature values ranged from 8.37 °C (D19A in January) to 25.36 °C (D19A in July). Surface dissolved oxygen values ranged from 6.80 mg/L (D29 in November) to 15.81 mg/L (D19A in October). Surface pH values ranged from 7.23 (D29 in November) to 10.42 (D19A in September). Surface fluorescence values ranged from 0.38 μg/L (D19A in September) to 25.68 μg/L (D29 in May).</p>
+<table class="table table-striped" style="font-size: 14px; font-family: Arimo; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:unnamed-chunk-11">Table 5: </span>Summary statistics for Central Interior Delta, 2021
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;">
+Statistic
+</th>
+<th style="text-align:center;">
+Specific Conductance (μs/cm)
+</th>
+<th style="text-align:center;">
+Turbidity (FNU)
+</th>
+<th style="text-align:center;">
+Water Temperature (°C)
+</th>
+<th style="text-align:center;">
+Dissolved Oxygen (mg/L)
+</th>
+<th style="text-align:center;">
+pH
+</th>
+<th style="text-align:center;">
+Fluorescence (μg/L)
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+Surface
+</td>
+<td style="text-align:center;">
+Surface
+</td>
+<td style="text-align:center;">
+Surface
+</td>
+<td style="text-align:center;">
+Surface
+</td>
+<td style="text-align:center;">
+Surface
+</td>
+<td style="text-align:center;">
+Surface
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+MIN
+</td>
+<td style="text-align:center;">
+314
+</td>
+<td style="text-align:center;">
+0.11
+</td>
+<td style="text-align:center;">
+8.37
+</td>
+<td style="text-align:center;">
+6.80
+</td>
+<td style="text-align:center;">
+7.23
+</td>
+<td style="text-align:center;">
+0.38
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+MAX
+</td>
+<td style="text-align:center;">
+2369
+</td>
+<td style="text-align:center;">
+148.90
+</td>
+<td style="text-align:center;">
+25.36
+</td>
+<td style="text-align:center;">
+15.81
+</td>
+<td style="text-align:center;">
+10.42
+</td>
+<td style="text-align:center;">
+25.68
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+AVERAGE
+</td>
+<td style="text-align:center;">
+699
+</td>
+<td style="text-align:center;">
+6.37
+</td>
+<td style="text-align:center;">
+17.11
+</td>
+<td style="text-align:center;">
+9.46
+</td>
+<td style="text-align:center;">
+8.05
+</td>
+<td style="text-align:center;">
+2.94
 </td>
 </tr>
 </tbody>
@@ -823,10 +707,10 @@ AVERAGE
 </div>
 <div id="confluence" class="section level4">
 <h4>Confluence</h4>
-<p>The Confluence stations had surface specific conductance values that ranged from 209 µS/cm (D22A in February) to 16,086 µS/cm (D10A in November). Bottom specific conductance values ranged from 410 µS/cm (D12A in April) to 16818 µS/cm (D10A in December). Surface turbidity values ranged from 3.56 NTU (D12A in October) to 95.4 NTU (D22A in December). Surface water temperature values ranged from 9.0 2 °C (D12A in January) to 24.42 °C (D22A in August). Bottom water temperature values ranged from 9.03 °C (D12A in January) to 24.24 °C (D12A in August). Surface dissolved oxygen values ranged from 7.56 mg/L (D22A in August) to 10.95 mg/L (D12A in February). Surface pH values ranged from 7.52 (D22A in February) to 8.07 (D12A in August). Surface fluorescence values ranged from 0.65 μg/L (D10A in April) to 6.87 μg/L (D22A in October).</p>
+<p>The Confluence stations had surface-specific conductance values that ranged from 242 µS/cm (D22A in December) to 18400 µS/cm (D10A in October). Bottom-specific conductance values ranged from 506 µS/cm (D12A in December) to 19122 µS/cm (D10A in October). Surface turbidity values ranged from 4.57 NTU (D10A in October) to 32.65 NTU (D10A in June). Surface water temperature values ranged from 8.55 °C (D12A in January) to 22.52 °C (D22A in August). Bottom water temperature values ranged from 8.78 °C (D22A in December) to 22.47 °C (D12A in June). Surface dissolved oxygen values ranged from 6.44 mg/L (D22A in November) to 10.98 mg/L (D22A in January). Surface pH values ranged from 7.30 (D22A in November) to 8.07 (D12A in December). Surface fluorescence values ranged from 0.67 μg/L (D22A in October) to 11.92 μg/L (D10A in June).</p>
 <table class="table table-striped" style="font-size: 14px; font-family: Arimo; width: auto !important; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
-<span id="tab:unnamed-chunk-13">Table 7: </span>Rating criteria for Confluence, 2020
+<span id="tab:unnamed-chunk-12">Table 6: </span>Rating criteria for Confluence, 2021
 </caption>
 <thead>
 <tr>
@@ -834,19 +718,23 @@ AVERAGE
 Statistic
 </th>
 <th style="text-align:center;">
-Specific Conductance (μs/cm)
+Specific Conductance - S
+(μs/cm)
 </th>
 <th style="text-align:center;">
-Specific Conductance (µs/cm)_1
+Specific Conductance - B
+(μs/cm)
 </th>
 <th style="text-align:center;">
-Turbidity (NTU)
+Turbidity (FNU)
 </th>
 <th style="text-align:center;">
-Water Temperature (°C)
+Water Temperature - S
+(°C)
 </th>
 <th style="text-align:center;">
-Water Temperature (°C)_1
+Water Temperature - B
+(°C)
 </th>
 <th style="text-align:center;">
 Dissolved Oxygen (mg/L)
@@ -893,28 +781,28 @@ Surface
 MIN
 </td>
 <td style="text-align:center;">
-209
+242
 </td>
 <td style="text-align:center;">
-410
+506
 </td>
 <td style="text-align:center;">
-3.56
+4.57
 </td>
 <td style="text-align:center;">
-9.02
+8.55
 </td>
 <td style="text-align:center;">
-9.03
+8.78
 </td>
 <td style="text-align:center;">
-7.56
+6.44
 </td>
 <td style="text-align:center;">
-7.52
+7.3
 </td>
 <td style="text-align:center;">
-0.65
+0.67
 </td>
 </tr>
 <tr>
@@ -922,28 +810,28 @@ MIN
 MAX
 </td>
 <td style="text-align:center;">
-16086
+18400
 </td>
 <td style="text-align:center;">
-16819
+19122
 </td>
 <td style="text-align:center;">
-95.40
+32.65
 </td>
 <td style="text-align:center;">
-24.42
+22.52
 </td>
 <td style="text-align:center;">
-24.24
+22.47
 </td>
 <td style="text-align:center;">
-10.95
+10.98
 </td>
 <td style="text-align:center;">
 8.07
 </td>
 <td style="text-align:center;">
-6.87
+11.92
 </td>
 </tr>
 <tr>
@@ -951,28 +839,28 @@ MAX
 AVERAGE
 </td>
 <td style="text-align:center;">
-4382
+6441
 </td>
 <td style="text-align:center;">
-6102
+8172
 </td>
 <td style="text-align:center;">
-10.60
+13.67
 </td>
 <td style="text-align:center;">
-17.00
+16.51
 </td>
 <td style="text-align:center;">
-17.00
+16.49
 </td>
 <td style="text-align:center;">
-9.12
+8.14
 </td>
 <td style="text-align:center;">
-7.82
+7.84
 </td>
 <td style="text-align:center;">
-1.97
+2.47
 </td>
 </tr>
 </tbody>
@@ -980,10 +868,10 @@ AVERAGE
 </div>
 <div id="grizzlysuisun-bay" class="section level4">
 <h4>Grizzly/Suisun Bay</h4>
-<p>The Grizzly Suisun Bay stations had surface specific conductance values that ranged from 2,026 µS/cm (D9A in June) to 30,939 µS/cm (D6A in November). Bottom specific conductance values ranged from 2,026 µS/cm (D10A in January) to 33,350 µS/cm (D6A in November). Surface turbidity values ranged from 5.0 NTU (D6A in September) to 98.8 NTU (D7A in March). Surface water temperature values ranged from 8.97 °C (D9A in February) to 23.61 °C (D10A in August). Bottom water temperature values ranged from 9.11 °C (D10A in January) to 23.57 °C (D10A in August). Surface dissolved oxygen values ranged from 7.21 mg/L (D6A in August) to 10.6 mg/L (D9A in January). Surface pH values ranged from 7.54 (D9A in January) to 8.19 (D8A in May). Surface fluorescence values ranged from 0.62 μg/L (D9A in December) to 9.32 μg /L (D7A in November).</p>
+The Grizzly Suisun Bay stations had surface-specific conductance values that ranged from 770 µS/cm (D9A in December) to 33077 µS/cm (D6A in June). Bottom-specific conductance values ranged from 12441 µS/cm (D6A in December) to 34768 µS/cm (D6A in June). Surface turbidity values ranged from 2.22 NTU (D7A in October) to 170.18 NTU (D7A in January). Surface water temperature values ranged from 8.32 °C (D7A in December) to 22.52 °C (D7A in June). Bottom water temperature values ranged from 9.38 °C (D6A in December) to 20.77°C (D6A in June). Surface dissolved oxygen values ranged from 7.50 mg/L (D6A in August) to 10.99 mg/L (D7A in January). Surface pH values ranged from 7.54 (D9A in November) to 8.17 (D7A in March). Surface fluorescence values ranged from 0.25 μg/L (D6A in October) to 21.61 μg/L (D7A in March).
 <table class="table table-striped" style="font-size: 14px; font-family: Arimo; width: auto !important; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
-<span id="tab:unnamed-chunk-14">Table 8: </span>Rating criteria for Grizzly/Suisun Bay, 2020
+<span id="tab:unnamed-chunk-13">Table 7: </span>Rating criteria for Grizzly/Suisun Bay, 2021
 </caption>
 <thead>
 <tr>
@@ -991,19 +879,23 @@ AVERAGE
 Statistic
 </th>
 <th style="text-align:center;">
-Specific Conductance (μs/cm)
+Specific Conductance - S
+(μs/cm)
 </th>
 <th style="text-align:center;">
-Specific Conductance (µs/cm)_1
+Specific Conductance - B
+(μs/cm)
 </th>
 <th style="text-align:center;">
 Turbidity (NTU)
 </th>
 <th style="text-align:center;">
-Water Temperature (°C)
+Water Temperature - S
+(°C)
 </th>
 <th style="text-align:center;">
-Water Temperature (°C)_1
+Water Temperature - B
+(°C)
 </th>
 <th style="text-align:center;">
 Dissolved Oxygen (mg/L)
@@ -1050,28 +942,28 @@ Surface
 MIN
 </td>
 <td style="text-align:center;">
-1933
+770
 </td>
 <td style="text-align:center;">
-2026
+12441
 </td>
 <td style="text-align:center;">
-5.00
+2.22
 </td>
 <td style="text-align:center;">
-8.97
+8.32
 </td>
 <td style="text-align:center;">
-9.11
+9.38
 </td>
 <td style="text-align:center;">
-7.21
+7.5
 </td>
 <td style="text-align:center;">
 7.54
 </td>
 <td style="text-align:center;">
-0.62
+0.25
 </td>
 </tr>
 <tr>
@@ -1079,28 +971,28 @@ MIN
 MAX
 </td>
 <td style="text-align:center;">
-30939
+33977
 </td>
 <td style="text-align:center;">
-33350
+34768
 </td>
 <td style="text-align:center;">
-98.80
+170.18
 </td>
 <td style="text-align:center;">
-23.61
+22.52
 </td>
 <td style="text-align:center;">
-23.57
+20.77
 </td>
 <td style="text-align:center;">
-10.60
+10.99
 </td>
 <td style="text-align:center;">
-8.19
+8.17
 </td>
 <td style="text-align:center;">
-9.32
+21.61
 </td>
 </tr>
 <tr>
@@ -1108,28 +1000,28 @@ MAX
 AVERAGE
 </td>
 <td style="text-align:center;">
-13913
+18506
 </td>
 <td style="text-align:center;">
-18080
+28889
 </td>
 <td style="text-align:center;">
-21.10
+27.72
 </td>
 <td style="text-align:center;">
-16.90
+16.18
 </td>
 <td style="text-align:center;">
-16.70
+16.12
 </td>
 <td style="text-align:center;">
-8.87
+8.89
 </td>
 <td style="text-align:center;">
-7.89
+7.91
 </td>
 <td style="text-align:center;">
-2.15
+3.07
 </td>
 </tr>
 </tbody>
@@ -1140,222 +1032,210 @@ AVERAGE
 <h3>Parameters</h3>
 <div id="water-temperature" class="section level4">
 <h4>Water Temperature</h4>
-<p>Average daily water temperatures in the estuary ranged from 8.57 °C to 29.6°C, with the lower values in the Northern Interior Delta location and the higher values found in the Southern Interior Delta stations.
-Average daily water temperatures at the Northern Interior Delta stations were usually lower in comparison to the Southern Interior Delta stations, with the greatest divergence occurring in the months of July through September at the Southern Interior Delta locations.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-15"></span>
-<img src="sections/c-wq/figures/2020/Fig2a.png" alt="Average daily water temperature in the Northern Interior Delta, 2020" width="70%" />
+<p>Average daily water temperatures in the estuary ranged from 7.83 °C to 26.66°C, with the lower values occurring in the Northern Interior Delta location and the higher values found in the Southern Interior Delta stations.
+Average daily water temperatures at the Northern Interior Delta stations were typically lower than those observed at the Southern Interior Delta stations. The most significant divergence occurred from July through September at the Southern Interior Delta locations.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-14"></span>
+<img src="sections/c-wq/figures/2021/Fig2a.png" alt="Average daily water temperature in the Northern Interior Delta, 2021" width="70%" />
 <p class="caption">
-Figure 4: Average daily water temperature in the Northern Interior Delta, 2020
+Figure 3: Average daily water temperature in the Northern Interior Delta, 2021
 </p>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-16"></span>
-<img src="sections/c-wq/figures/2020/Fig2b.png" alt="Average daily water temperature in the Southern Interior Delta, 2020" width="70%" />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-15"></span>
+<img src="sections/c-wq/figures/2021/Fig2b.png" alt="Average daily water temperature in the Southern Interior Delta, 2021" width="70%" />
 <p class="caption">
-Figure 5: Average daily water temperature in the Southern Interior Delta, 2020
+Figure 4: Average daily water temperature in the Southern Interior Delta, 2021
 </p>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-17"></span>
-<img src="sections/c-wq/figures/2020/Fig2c.png" alt="Average daily water temperature in the Central Delta, 2020" width="70%" />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-16"></span>
+<img src="sections/c-wq/figures/2021/Fig2c.png" alt="Average daily water temperature in the Central Delta, 2021" width="70%" />
 <p class="caption">
-Figure 6: Average daily water temperature in the Central Delta, 2020
+Figure 5: Average daily water temperature in the Central Delta, 2021
 </p>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-18"></span>
-<img src="sections/c-wq/figures/2020/Fig2d.png" alt="Average daily water temperature in the Confleunce, 2020" width="70%" />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-17"></span>
+<img src="sections/c-wq/figures/2021/Fig2d.png" alt="Average daily water temperature in the Confleunce, 2021" width="70%" />
 <p class="caption">
-Figure 7: Average daily water temperature in the Confleunce, 2020
+Figure 6: Average daily water temperature in the Confleunce, 2021
 </p>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-19"></span>
-<img src="sections/c-wq/figures/2020/Fig2e.png" alt="Average daily water temperature in the Grizzly/Suisun Bays, 2020" width="70%" />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-18"></span>
+<img src="sections/c-wq/figures/2021/Fig2e.png" alt="Average daily water temperature in the Grizzly/Suisun Bays, 2021" width="70%" />
 <p class="caption">
-Figure 8: Average daily water temperature in the Grizzly/Suisun Bays, 2020
+Figure 7: Average daily water temperature in the Grizzly/Suisun Bays, 2021
 </p>
 </div>
 </div>
 <div id="specific-conductance" class="section level4">
 <h4>Specific Conductance</h4>
-<p>DDaily average surface specific conductance for the estuary ranged from 125 µS/cm to 30,939 µS/cm, with the lower values in the Northern Interior Delta stations and the higher values at the more tidally influenced Grizzly/Suisun Bay locations.</p>
-<p>The Central Delta Stations showed increases in specific conductance from August onward. In addition, the Southern Interior Delta stations on the San Joaquin River showed a large decrease in surface specific conductance in October through November.</p>
-<p>Bottom specific conductance measured in 2020 at D12A, D10A, and D6A stations exhibited seasonal patterns and ranges similar to the surface specific conductance.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-20"></span>
-<img src="sections/c-wq/figures/2020/Fig3a.png" alt="Average daily specific conductance in the Northern Interior Delta, 2020" width="70%" />
+<p>Average daily surface-specific conductance for the estuary ranged from 74 µS/cm to 33,077 µS/cm. The lower values were observed at the Northern Interior Delta stations and the higher at the more tidally influenced Grizzly/Suisun Bay locations (Figure 3e). In response to extreme precipitation and runoff events, most stations showed significant decreases in specific conductance values in October and December.</p>
+<p>Bottom-specific conductance measured in 2021 at D12A, D10A, and D6A stations exhibited seasonal patterns and ranges similar to the surface-specific conductance values.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-19"></span>
+<img src="sections/c-wq/figures/2021/Fig3a.png" alt="Average daily specific conductance in the Northern Interior Delta, 2021" width="70%" />
 <p class="caption">
-Figure 9: Average daily specific conductance in the Northern Interior Delta, 2020
+Figure 8: Average daily specific conductance in the Northern Interior Delta, 2021
 </p>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-21"></span>
-<img src="sections/c-wq/figures/2020/Fig3b.png" alt="Average daily specific conductance in the Southern Interior Delta, 2020" width="70%" />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-20"></span>
+<img src="sections/c-wq/figures/2021/Fig3b.png" alt="Average daily specific conductance in the Southern Interior Delta, 2021" width="70%" />
 <p class="caption">
-Figure 10: Average daily specific conductance in the Southern Interior Delta, 2020
+Figure 9: Average daily specific conductance in the Southern Interior Delta, 2021
 </p>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-22"></span>
-<img src="sections/c-wq/figures/2020/Fig3c.png" alt="Average daily specific conductance in the Central Delta, 2020" width="70%" />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-21"></span>
+<img src="sections/c-wq/figures/2021/Fig3c.png" alt="Average daily specific conductance in the Central Delta, 2021" width="70%" />
 <p class="caption">
-Figure 11: Average daily specific conductance in the Central Delta, 2020
+Figure 10: Average daily specific conductance in the Central Delta, 2021
 </p>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-23"></span>
-<img src="sections/c-wq/figures/2020/Fig3d.png" alt="Average daily specific conductance in the Confleunce, 2020" width="70%" />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-22"></span>
+<img src="sections/c-wq/figures/2021/Fig3d.png" alt="Average daily specific conductance in the Confleunce, 2021" width="70%" />
 <p class="caption">
-Figure 12: Average daily specific conductance in the Confleunce, 2020
+Figure 11: Average daily specific conductance in the Confleunce, 2021
 </p>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-24"></span>
-<img src="sections/c-wq/figures/2020/Fig3e.png" alt="Average daily specific conductance in the Grizzly/Suisun Bays, 2020" width="70%" />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-23"></span>
+<img src="sections/c-wq/figures/2021/Fig3e.png" alt="Average daily specific conductance in the Grizzly/Suisun Bays, 2021" width="70%" />
 <p class="caption">
-Figure 13: Average daily specific conductance in the Grizzly/Suisun Bays, 2020
-</p>
-</div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-25"></span>
-<img src="sections/c-wq/figures/2020/Fig3f.png" alt="Average daily specific conductance Surface-Bottom, 2020" width="70%" />
-<p class="caption">
-Figure 14: Average daily specific conductance Surface-Bottom, 2020
+Figure 12: Average daily specific conductance in the Grizzly/Suisun Bays, 2021
 </p>
 </div>
 </div>
 <div id="dissolved-oxygen" class="section level4">
 <h4>Dissolved Oxygen</h4>
-<p>Average daily DO values in the estuary ranged from 5.94 mg/L to 15.1 mg/L. The greatest degree of variability was seen at the Southern Interior Delta stations.</p>
-<p>All compliance monitoring stations recorded daily averages above the standard of 5.0 mg/L that was set by the CVRWQCB in the Basin Plan (CVRWQCB, 1998). The monthly average DO levels at the Stockton station did not fall below the 5.0 mg/L standard that was set by the CVRWQCB (1998). The monthly average DO levels did not drop below the 6.0 mg/L standard (SWRCB, 1995) for the passage of fall-run Chinook salmon through the ship channel for the September through November 2020 control period.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-26"></span>
-<img src="sections/c-wq/figures/2020/Fig4a.png" alt="Average daily dissolved oyxgen in the Northern Interior Delta, 2020" width="70%" />
+<p>Average daily DO values in the estuary ranged from 6.09 mg/L to 15.81 mg/L (Figures 4a to 4e). The most significant variability was observed at the Southern Interior Delta stations.
+All compliance monitoring stations recorded daily averages above the 5.0 mg/L standard set by the CVRWQCB in the Basin Plan (CVRWQCB, 1998). The monthly average DO levels at the Stockton station did not fall below the 5.0 mg/L standard set by the CVRWQCB (1998). In addition, the monthly average DO levels did not drop below the 6.0 mg/L standard (SWRCB, 1995) for the passage of fall-run Chinook salmon through the ship channel for the September through November control period.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-24"></span>
+<img src="sections/c-wq/figures/2021/Fig4a.png" alt="Average daily dissolved oyxgen in the Northern Interior Delta, 2021" width="70%" />
 <p class="caption">
-Figure 15: Average daily dissolved oyxgen in the Northern Interior Delta, 2020
+Figure 13: Average daily dissolved oyxgen in the Northern Interior Delta, 2021
 </p>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-27"></span>
-<img src="sections/c-wq/figures/2020/Fig4b.png" alt="Average daily dissolved oyxgen in the Southern Interior Delta, 2020" width="70%" />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-25"></span>
+<img src="sections/c-wq/figures/2021/Fig4b.png" alt="Average daily dissolved oyxgen in the Southern Interior Delta, 2021" width="70%" />
 <p class="caption">
-Figure 16: Average daily dissolved oyxgen in the Southern Interior Delta, 2020
+Figure 14: Average daily dissolved oyxgen in the Southern Interior Delta, 2021
 </p>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-28"></span>
-<img src="sections/c-wq/figures/2020/Fig4c.png" alt="Average daily dissolved oyxgen in the Central Delta, 2020" width="70%" />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-26"></span>
+<img src="sections/c-wq/figures/2021/Fig4c.png" alt="Average daily dissolved oyxgen in the Central Delta, 2021" width="70%" />
 <p class="caption">
-Figure 17: Average daily dissolved oyxgen in the Central Delta, 2020
+Figure 15: Average daily dissolved oyxgen in the Central Delta, 2021
 </p>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-29"></span>
-<img src="sections/c-wq/figures/2020/Fig4d.png" alt="Average daily dissolved oyxgen in the Confleunce, 2020" width="70%" />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-27"></span>
+<img src="sections/c-wq/figures/2021/Fig4d.png" alt="Average daily dissolved oyxgen in the Confleunce, 2021" width="70%" />
 <p class="caption">
-Figure 18: Average daily dissolved oyxgen in the Confleunce, 2020
+Figure 16: Average daily dissolved oyxgen in the Confleunce, 2021
 </p>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-30"></span>
-<img src="sections/c-wq/figures/2020/Fig4e.png" alt="Average daily dissolved oyxgen in the Grizzly/Suisun Bays, 2020" width="70%" />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-28"></span>
+<img src="sections/c-wq/figures/2021/Fig4e.png" alt="Average daily dissolved oyxgen in the Grizzly/Suisun Bays, 2021" width="70%" />
 <p class="caption">
-Figure 19: Average daily dissolved oyxgen in the Grizzly/Suisun Bays, 2020
+Figure 17: Average daily dissolved oyxgen in the Grizzly/Suisun Bays, 2021
 </p>
 </div>
 </div>
 <div id="ph" class="section level4">
 <h4>pH</h4>
-<p>Daily average pH levels at all stations in the estuary ranged from 7.12 to 9.64. The Southern Interior Delta stations showed a large increase in daily average pH beginning June 2020 to September 2020. The Central Delta station D19A showed an increase in pH values beginning April 2020 until the end of October 2020.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-31"></span>
-<img src="sections/c-wq/figures/2020/Fig5a.png" alt="Average daily pH in the Northern Interior Delta, 2020" width="70%" />
+<p>Average daily pH levels at all stations in the estuary ranged from 7.05 to 10.42 (Figures 5a to 5e). The Southern Interior Delta stations observed significant increases in average daily pH from June 2021 to September 2021 (Figure 5b). In addition, the Central Delta station D19A showed an increase in pH values from June to October (Figure 5c).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-29"></span>
+<img src="sections/c-wq/figures/2021/Fig5a.png" alt="Average daily pH in the Northern Interior Delta, 2021" width="70%" />
 <p class="caption">
-Figure 20: Average daily pH in the Northern Interior Delta, 2020
+Figure 18: Average daily pH in the Northern Interior Delta, 2021
 </p>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-32"></span>
-<img src="sections/c-wq/figures/2020/Fig5b.png" alt="Average daily pH in the Southern Interior Delta, 2020" width="70%" />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-30"></span>
+<img src="sections/c-wq/figures/2021/Fig5b.png" alt="Average daily pH in the Southern Interior Delta, 2021" width="70%" />
 <p class="caption">
-Figure 21: Average daily pH in the Southern Interior Delta, 2020
+Figure 19: Average daily pH in the Southern Interior Delta, 2021
 </p>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-33"></span>
-<img src="sections/c-wq/figures/2020/Fig5c.png" alt="Average daily pH in the Central Delta, 2020" width="70%" />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-31"></span>
+<img src="sections/c-wq/figures/2021/Fig5c.png" alt="Average daily pH in the Central Delta, 2021" width="70%" />
 <p class="caption">
-Figure 22: Average daily pH in the Central Delta, 2020
+Figure 20: Average daily pH in the Central Delta, 2021
 </p>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-34"></span>
-<img src="sections/c-wq/figures/2020/Fig5d.png" alt="Average daily pH in the Confleunce, 2020" width="70%" />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-32"></span>
+<img src="sections/c-wq/figures/2021/Fig5d.png" alt="Average daily pH in the Confleunce, 2021" width="70%" />
 <p class="caption">
-Figure 23: Average daily pH in the Confleunce, 2020
+Figure 21: Average daily pH in the Confleunce, 2021
 </p>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-35"></span>
-<img src="sections/c-wq/figures/2020/Fig5e.png" alt="Average daily pH in the Grizzly/Suisun Bays, 2020" width="70%" />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-33"></span>
+<img src="sections/c-wq/figures/2021/Fig5e.png" alt="Average daily pH in the Grizzly/Suisun Bays, 2021" width="70%" />
 <p class="caption">
-Figure 24: Average daily pH in the Grizzly/Suisun Bays, 2020
+Figure 22: Average daily pH in the Grizzly/Suisun Bays, 2021
 </p>
 </div>
 </div>
 <div id="turbidity" class="section level4">
 <h4>Turbidity</h4>
-<p>DDaily average turbidity levels at all stations in the estuary ranged from 0.28 to 98.8. The Northern Interior Delta stations showed a large increase in turbidity in January and February, peaking at 41.27 FNU. The Southern interior Delta stations all showed a significant spike in turbidity readings in mid-April which gradually decreased through May.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-36"></span>
-<img src="sections/c-wq/figures/2020/Fig6a.png" alt="Average daily turbidity in the Northern Interior Delta, 2020" width="70%" />
+<p>Average daily turbidity levels at all stations in the estuary ranged from 0.11 NTU to 170.2 NTU (Figures 6a to 6e). The Southern Interior Delta stations showed a significant increase in turbidity in January and February, peaking at 86.29 NTU (Figure 6b). In addition, all Northern Interior Delta stations showed a substantial spike in turbidity values in late October and December. (Figure 6a).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-34"></span>
+<img src="sections/c-wq/figures/2021/Fig6a.png" alt="Average daily turbidity in the Northern Interior Delta, 2021" width="70%" />
 <p class="caption">
-Figure 25: Average daily turbidity in the Northern Interior Delta, 2020
+Figure 23: Average daily turbidity in the Northern Interior Delta, 2021
 </p>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-37"></span>
-<img src="sections/c-wq/figures/2020/Fig6b.png" alt="Average daily turbidity in the Southern Interior Delta, 2020" width="70%" />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-35"></span>
+<img src="sections/c-wq/figures/2021/Fig6b.png" alt="Average daily turbidity in the Southern Interior Delta, 2021" width="70%" />
 <p class="caption">
-Figure 26: Average daily turbidity in the Southern Interior Delta, 2020
+Figure 24: Average daily turbidity in the Southern Interior Delta, 2021
 </p>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-38"></span>
-<img src="sections/c-wq/figures/2020/Fig6c.png" alt="Average daily turbidity in the Central Delta, 2020" width="70%" />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-36"></span>
+<img src="sections/c-wq/figures/2021/Fig6c.png" alt="Average daily turbidity in the Central Delta, 2021" width="70%" />
 <p class="caption">
-Figure 27: Average daily turbidity in the Central Delta, 2020
+Figure 25: Average daily turbidity in the Central Delta, 2021
 </p>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-39"></span>
-<img src="sections/c-wq/figures/2020/Fig6d.png" alt="Average daily turbidity in the Confleunce, 2020" width="70%" />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-37"></span>
+<img src="sections/c-wq/figures/2021/Fig6d.png" alt="Average daily turbidity in the Confleunce, 2021" width="70%" />
 <p class="caption">
-Figure 28: Average daily turbidity in the Confleunce, 2020
+Figure 26: Average daily turbidity in the Confleunce, 2021
 </p>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-40"></span>
-<img src="sections/c-wq/figures/2020/Fig6e.png" alt="Average daily turbidity in the Grizzly/Suisun Bays, 2020" width="70%" />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-38"></span>
+<img src="sections/c-wq/figures/2021/Fig6e.png" alt="Average daily turbidity in the Grizzly/Suisun Bays, 2021" width="70%" />
 <p class="caption">
-Figure 29: Average daily turbidity in the Grizzly/Suisun Bays, 2020
+Figure 27: Average daily turbidity in the Grizzly/Suisun Bays, 2021
 </p>
 </div>
 </div>
 <div id="chlorophyll-a-fluorescence" class="section level4">
 <h4>Chlorophyll a Fluorescence</h4>
-<p>Daily average chlorophyll a fluorescence recorded at all the stations ranged from a low of 0.12 (µg/L) in December 2020 for the Northern Interior station D24A to a high of 72.8 (µg/L) in July 2020 for the Southern Interior Delta station C10A.</p>
-<p>For most of the 2020 calendar year, daily fluorescence averages at Southern Interior Delta stations were higher than other regions with sustained higher values, with the exception of P8A.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-41"></span>
-<img src="sections/c-wq/figures/2020/Fig7a.png" alt="Average daily fluorescence in the Northern Interior Delta, 2020" width="70%" />
+<p>Average daily chlorophyll a fluorescence recorded at all stations ranged from 0.25 µg/L to 47.77 µg/L. Daily fluorescence averages at Southern Interior Delta stations exhibited higher values from January to April, except for station P8A (Figure 7b).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-39"></span>
+<img src="sections/c-wq/figures/2021/Fig7a.png" alt="Average daily fluorescence in the Northern Interior Delta, 2021" width="70%" />
 <p class="caption">
-Figure 30: Average daily fluorescence in the Northern Interior Delta, 2020
+Figure 28: Average daily fluorescence in the Northern Interior Delta, 2021
 </p>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-42"></span>
-<img src="sections/c-wq/figures/2020/Fig7b.png" alt="Average daily fluorescence in the Southern Interior Delta, 2020" width="70%" />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-40"></span>
+<img src="sections/c-wq/figures/2021/Fig7b.png" alt="Average daily fluorescence in the Southern Interior Delta, 2021" width="70%" />
 <p class="caption">
-Figure 31: Average daily fluorescence in the Southern Interior Delta, 2020
+Figure 29: Average daily fluorescence in the Southern Interior Delta, 2021
 </p>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-43"></span>
-<img src="sections/c-wq/figures/2020/Fig7c.png" alt="Average daily fluorescence in the Central Delta, 2020" width="70%" />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-41"></span>
+<img src="sections/c-wq/figures/2021/Fig7c.png" alt="Average daily fluorescence in the Central Delta, 2021" width="70%" />
 <p class="caption">
-Figure 32: Average daily fluorescence in the Central Delta, 2020
+Figure 30: Average daily fluorescence in the Central Delta, 2021
 </p>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-44"></span>
-<img src="sections/c-wq/figures/2020/Fig7d.png" alt="Average daily fluorescence in the Confleunce, 2020" width="70%" />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-42"></span>
+<img src="sections/c-wq/figures/2021/Fig7d.png" alt="Average daily fluorescence in the Confleunce, 2021" width="70%" />
 <p class="caption">
-Figure 33: Average daily fluorescence in the Confleunce, 2020
+Figure 31: Average daily fluorescence in the Confleunce, 2021
 </p>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-45"></span>
-<img src="sections/c-wq/figures/2020/Fig7e.png" alt="Average daily fluorescence in the Grizzly/Suisun Bays, 2020" width="70%" />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-43"></span>
+<img src="sections/c-wq/figures/2021/Fig7e.png" alt="Average daily fluorescence in the Grizzly/Suisun Bays, 2021" width="70%" />
 <p class="caption">
-Figure 34: Average daily fluorescence in the Grizzly/Suisun Bays, 2020
+Figure 32: Average daily fluorescence in the Grizzly/Suisun Bays, 2021
 </p>
 </div>
-</div>
-<div id="air-temperature" class="section level4">
-<h4>Air Temperature</h4>
-<p>Daily average air temperatures in the estuary ranged from 3.38 °C in December 2020 at Northern Interior station C3A to 33.27 °C in August 2020 at the Southern Interior Delta station C7A.</p>
 <hr />
 </div>
 </div>
@@ -1383,7 +1263,6 @@ Figure 34: Average daily fluorescence in the Grizzly/Suisun Bays, 2020
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -1413,6 +1292,10 @@ gitbook.start({
 "text": null
 },
 "download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "section",
 "scroll_highlight": true
@@ -1427,7 +1310,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

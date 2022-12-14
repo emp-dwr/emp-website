@@ -1,5 +1,5 @@
 /* slideshow stuff */
-* {box-sizing:border-box}
+.border-box {box-sizing: border-box;}
 
 /* Slideshow container */
 .slideshow-container {
@@ -66,12 +66,13 @@
 .active-ss, .dot:hover {
   background-color: #717171;
 }
- 
 
 /* Fading animation */
 .fade {
   -webkit-animation-name: fade;
+  -moz-animation-name: fade;
   -webkit-animation-duration: 1.5s;
+  -moz-animation-duration: 1.5s;
   animation-name: fade;
   animation-duration: 1.5s;
 }

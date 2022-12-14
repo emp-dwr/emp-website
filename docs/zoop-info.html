@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Zooplankton | Environmental Monitoring Program</title>
   <meta name="description" content="Website for CA DWR’s Environmental Monitoring Program." />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Zooplankton | Environmental Monitoring Program" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="Website for CA DWR’s Environmental Monitoring Program." />
   <meta name="github-repo" content="emp-des/emp-reports" />
@@ -31,8 +30,8 @@
   
 <link rel="prev" href="phyto-report.html"/>
 <link rel="next" href="zoop-report.html"/>
-<script src="libs/header-attrs-2.8/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -48,18 +47,15 @@
 
 
 
-
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 
 
-<link rel="stylesheet" href="html-css/book.css" type="text/css" />
-<link rel="stylesheet" href="html-css/slideshow.css" type="text/css" />
-<link rel="stylesheet" href="https:/use.fontawesome.com/releases/v5.14.0/css/all.css" type="text/css" />
+<link rel="stylesheet" href="../html-css/book.css" type="text/css" />
+<link rel="stylesheet" href="../html-css/slideshow.css" type="text/css" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" type="text/css" />
 </head>
 
 <body>
@@ -87,8 +83,8 @@
 <li class="chapter" data-level="" data-path="cwq-report.html"><a href="cwq-report.html#regions"><i class="fa fa-check"></i>Regions</a>
 <ul>
 <li class="chapter" data-level="" data-path="cwq-report.html"><a href="cwq-report.html#northern-interior-delta"><i class="fa fa-check"></i>Northern Interior Delta</a></li>
-<li class="chapter" data-level="" data-path="cwq-report.html"><a href="cwq-report.html#central-interior-delta"><i class="fa fa-check"></i>Central Interior Delta</a></li>
 <li class="chapter" data-level="" data-path="cwq-report.html"><a href="cwq-report.html#southern-interior-delta"><i class="fa fa-check"></i>Southern Interior Delta</a></li>
+<li class="chapter" data-level="" data-path="cwq-report.html"><a href="cwq-report.html#central-interior-delta"><i class="fa fa-check"></i>Central Interior Delta</a></li>
 <li class="chapter" data-level="" data-path="cwq-report.html"><a href="cwq-report.html#confluence"><i class="fa fa-check"></i>Confluence</a></li>
 <li class="chapter" data-level="" data-path="cwq-report.html"><a href="cwq-report.html#grizzlysuisun-bay"><i class="fa fa-check"></i>Grizzly/Suisun Bay</a></li>
 </ul></li>
@@ -100,7 +96,6 @@
 <li class="chapter" data-level="" data-path="cwq-report.html"><a href="cwq-report.html#ph"><i class="fa fa-check"></i>pH</a></li>
 <li class="chapter" data-level="" data-path="cwq-report.html"><a href="cwq-report.html#turbidity"><i class="fa fa-check"></i>Turbidity</a></li>
 <li class="chapter" data-level="" data-path="cwq-report.html"><a href="cwq-report.html#chlorophyll-a-fluorescence"><i class="fa fa-check"></i>Chlorophyll a Fluorescence</a></li>
-<li class="chapter" data-level="" data-path="cwq-report.html"><a href="cwq-report.html#air-temperature"><i class="fa fa-check"></i>Air Temperature</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="cwq-report.html"><a href="cwq-report.html#references"><i class="fa fa-check"></i>References</a></li>
 </ul></li>
@@ -111,13 +106,14 @@
 <li class="chapter" data-level="" data-path="dwq-report.html"><a href="dwq-report.html"><i class="fa fa-check"></i>Current Report</a>
 <ul>
 <li class="chapter" data-level="" data-path="dwq-report.html"><a href="dwq-report.html#introduction"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="dwq-report.html"><a href="dwq-report.html#specific-conductance-1"><i class="fa fa-check"></i>Specific Conductance</a></li>
 <li class="chapter" data-level="" data-path="dwq-report.html"><a href="dwq-report.html#turbidity-1"><i class="fa fa-check"></i>Turbidity</a></li>
 <li class="chapter" data-level="" data-path="dwq-report.html"><a href="dwq-report.html#dissolved-ammonia"><i class="fa fa-check"></i>Dissolved Ammonia</a></li>
 <li class="chapter" data-level="" data-path="dwq-report.html"><a href="dwq-report.html#chlorophyll-a"><i class="fa fa-check"></i>Chlorophyll a</a></li>
 <li class="chapter" data-level="" data-path="dwq-report.html"><a href="dwq-report.html#dissolved-nitrate-nitrite"><i class="fa fa-check"></i>Dissolved Nitrate + Nitrite</a></li>
 <li class="chapter" data-level="" data-path="dwq-report.html"><a href="dwq-report.html#total-phosphorus"><i class="fa fa-check"></i>Total Phosphorus</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="dwq-report.html"><a href="dwq-report.html#data-and-archived-reports"><i class="fa fa-check"></i>Data and Archived Reports</a></li>
+<li class="chapter" data-level="" data-path="dwq-report.html"><a href="dwq-report.html#data-and-contact-info"><i class="fa fa-check"></i>Data and Contact Info</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="benthic-info.html"><a href="benthic-info.html"><i class="fa fa-check"></i>Benthic Invertebrates</a>
 <ul>
@@ -134,7 +130,7 @@
 <li class="chapter" data-level="" data-path="benthic-report.html"><a href="benthic-report.html#southern-interior-delta-1"><i class="fa fa-check"></i>Southern Interior Delta</a></li>
 <li class="chapter" data-level="" data-path="benthic-report.html"><a href="benthic-report.html#summary"><i class="fa fa-check"></i>Summary</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="benthic-report.html"><a href="benthic-report.html#data-and-archived-reports-1"><i class="fa fa-check"></i>Data and Archived Reports</a></li>
+<li class="chapter" data-level="" data-path="benthic-report.html"><a href="benthic-report.html#data-and-archived-reports"><i class="fa fa-check"></i>Data and Archived Reports</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="phyto-info.html"><a href="phyto-info.html"><i class="fa fa-check"></i>Phytoplankton</a>
 <ul>
@@ -177,31 +173,31 @@
 <li class="chapter" data-level="" data-path="zoop-report.html"><a href="zoop-report.html#conclusion"><i class="fa fa-check"></i>Conclusion</a></li>
 <li class="chapter" data-level="" data-path="zoop-report.html"><a href="zoop-report.html#references-2"><i class="fa fa-check"></i>References</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="zoop-report.html"><a href="zoop-report.html#data-and-contact-info"><i class="fa fa-check"></i>Data and Contact Info</a></li>
+<li class="chapter" data-level="" data-path="zoop-report.html"><a href="zoop-report.html#data-and-contact-info-1"><i class="fa fa-check"></i>Data and Contact Info</a></li>
 </ul></li>
 <li class="part"><span><b>III Special Studies</b></span></li>
-<li class="chapter" data-level="" data-path="index-studies.html"><a href="index-studies.html"><i class="fa fa-check"></i>Coming Soon!</a></li>
+<li class="chapter" data-level="" data-path="veliger.html"><a href="veliger.html"><i class="fa fa-check"></i>Veliger Monitoring Program</a></li>
 <li class="divider"></li>
 <ul class='list-unstyled list-inline text-center'>
-   <li class='after'>
-           <img src="figures/general/usbr-logo.jpg" style="width:50px; height:50px; padding:0px 0; display:block; margin: 0 auto;" alt="USBR logo">
-   </li>
-   <li class='after'>
-           <img src="figures/general/dwr-logo.png" style="width:50px; height:50px; padding:0px 0; display:block; margin: 0 auto;" alt="DWR logo">
-   </li>
-   <li class='after'>
-           <img src="figures/general/iep-logo.jpg" style="width:50px; height:50px; padding:0px 0; display:block; margin: 0 auto;" alt="IEP logo">
-   </li>
-   <li class='after'>
-           <img src="figures/general/cdfw-logo.png" style="width:50px; height:50px; padding:0px 0; display:block; margin: 0 auto;" alt="CDFW logo">
-   </li>
- </ul>
- 
- <address>
-   <div style='text-align:center'>
-     <a href='mailto:theodore.flynn@water.ca.gov'>contact us</a>
-   </div>
- </address>
+  <li class='after'>
+    <img src="sections/general/figures/usbr-logo.jpg" style="width:50px; height:50px; padding:0px 0; display:block; margin: 0 auto;" alt="USBR logo">
+  </li>
+  <li class='after'>
+    <img src="sections/general/figures/dwr-logo.png" style="width:50px; height:50px; padding:0px 0; display:block; margin: 0 auto;" alt="DWR logo">
+  </li>
+  <li class='after'>
+    <img src="sections/general/figures/iep-logo.jpg" style="width:50px; height:50px; padding:0px 0; display:block; margin: 0 auto;" alt="IEP logo">
+  </li>
+  <li class='after'>
+    <img src="sections/general/figures/cdfw-logo.png" style="width:50px; height:50px; padding:0px 0; display:block; margin: 0 auto;" alt="CDFW logo">
+  </li>
+</ul>
+
+<address>
+  <div style='text-align:center'>
+    <a href='mailto:theodore.flynn@water.ca.gov'>contact us</a>
+  </div>
+</address>
 
 </ul>
 
@@ -224,19 +220,64 @@
 <h1>Zooplankton</h1>
 <div id="background-4" class="section level3 unlisted unnumbered">
 <h3>Background</h3>
-<p>Zooplankton are a vital trophic link between aquatic primary producers and higher-level consumers of the San Francisco Estuary (SFE). As primary consumers of phytoplankton, zooplankton facilitate the flow of carbon into a large and complex food web, historically supporting abundant fisheries in the region (Schroeter et al. 2015; Kimmerer et al. 2018). Many fishes, including Striped Bass (Morone saxatilis) and Chinook Salmon (Oncorhynchus tshawytscha) feed on zooplankton while rearing in the estuary as larvae and juveniles (Goertler et al. 2018; Heubach et al. 1963), while others like Tule Perch (Hysterocarpus traski) and Prickly Sculpin (Cottus asper) feed on zooplankton throughout their lifetimes (Kimmerer 2006Feyrer et al. 2003)). Zooplankton in the SFE are also a key food source for several endangered and threatened species, notably the Delta Smelt (Hypomesus transpacificus) and Longfin Smelt (Spirinchus thaleichthys) (Hobbs et al. 2006; Slater and Baxter 2014).</p>
+<p>Zooplankton are a vital trophic link between aquatic primary producers and higher-level consumers of the San Francisco Estuary (SFE). As primary consumers of phytoplankton, zooplankton facilitate the flow of carbon into a large and complex food web, historically supporting abundant fisheries in the region (Schroeter et al. 2015; Kimmerer et al. 2018). Many fishes, including Striped Bass (<i>Morone saxatilis</i>) and Chinook Salmon (<i>Oncorhynchus tshawytscha</i>) feed on zooplankton while rearing in the estuary as larvae and juveniles (Goertler et al. 2018; Heubach et al. 1963), while others like Tule Perch (<i>Hysterocarpus traski</i>) and Prickly Sculpin (<i>Cottus asper</i>) feed on zooplankton throughout their lifetimes (Kimmerer 2006, Feyrer et al. 2003). Zooplankton in the SFE are also a key food source for several endangered and threatened species, notably the Delta Smelt (<i>Hypomesus transpacificus</i>) and Longfin Smelt (<i>Spirinchus thaleichthys</i>) (Hobbs et al. 2006; Slater and Baxter 2014).</p>
 <p>This importance of zooplankton prompted the implementation of the Zooplankton Study in 1972 to assess fish food resources in the upper SFE. Mandated by the State Water Resources Control Board’s Water Right Decision D-1641, the study is conducted jointly by the California Department of Fish and Wildlife and the California Department of Water Resources under the guidance and management of the Interagency Ecological Program. For nearly 5 decades, this study has monitored the zooplankton community in the region, tracking abundance trends and distributional patterns, detecting and monitoring introduced species, and documenting the dramatic shifts in the community’s composition. Changes in zooplankton abundance and composition have since been linked to major declines of the pelagic fishes in the upper estuary (Sommer et al. 2007; Winder and Jassby 2011).</p>
 <hr />
 </div>
 <div id="methods-3" class="section level3 unlisted unnumbered">
 <h3>Methods</h3>
-<p>Zooplankton sampling has been conducted since 1974 at least once a month March-November through 1995, monthly from 1995 on. at 20 fixed stations in the upper SFE (Figure 69). Three gear types are used for each sampling event: a pump with a 43-micron mesh net for micro-zooplankton (rotifers, nauplii, and small cyclopoid copepods); a Clarke-Bumpus (CB) net with a 160-micron mesh for sampling meso-zooplankton (cladocera and most juvenile and adult calanoid copepods); and a mysid net with a 505-micron mesh for sampling mysid shrimp and other macro-zooplankton. Both the mysid and CB nets are attached to a sled and towed obliquely from the bottom through the surface for a 10-minute tow. Volume is measured using a General Oceanics flowmeter placed in the mouth of each net so that: V=(end meter-start meter)k*a; where V is the volume of water sampled, k is a flowmeter correction value, and a is the area of the mouth of the net. The Teel Marine 12V utility pump is also used at each station to sample approximately 19.8 gallons from the entire water column, which is filtered through a 43-micron mesh net to concentrate the pump sample. Samples are preserved in 10% formalin with Rose Bengal dye before being processed in the laboratory for identification and enumeration of organisms using a dissecting microscope. More information about the sampling and processing methods can be found in the metadata at <a href="ftp://ftp.wildlife.ca.gov/IEP_Zooplankton/">here</a> (link currently broken).</p>
-<p>Abundance indices are calculated for each organism based on the gear type most effective at its capture and reported as the mean catch-per-unit-effort (CPUE). CPUE is calculated as the number of each organism collected per cubic meter of water sampled, so that: CPUE=s*V^(-1); where s is the estimated count of the target organism in the sample. Copepod abundance indices reported here only include adults, as juveniles were not always identified to species. Annual and seasonal abundance indices were calculated using 14 fixed stations sampled consistently since 1974 (Figure 69) and 2 non-fixed stations sampled where bottom specific conductance was roughly 2 and 6 millisiemens per centimeter (approximately 1 and 3 psu).</p>
+<p>Zooplankton sampling has been conducted since 1974 at least once a month March-November through 1995, and monthly from 1995 through the present, at 20 fixed stations in the upper SFE (Figure 69). Three gear types are used for each sampling event: a pump with a 43-micron mesh net for micro-zooplankton (rotifers, nauplii, and small cyclopoid copepods); a Clarke-Bumpus (CB) net with a 160-micron mesh for sampling meso-zooplankton (cladocera and most juvenile and adult calanoid copepods); and a mysid net with a 505-micron mesh for sampling mysid shrimp and other macro-zooplankton. Both the mysid and CB nets are attached to a sled and towed obliquely from the bottom through the surface for a 10-minute tow.</p>
+<!-- This section writes out a formula. If the text needs to be modified, let Sarah know. -->
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js">
+  </script>
+</head>
+<body>
+<p>
+Volume is measured using a General Oceanics flowmeter placed in the mouth of each net so that:
+<br>
+<center>
+<span class="math inline">\(V = (end meter - startmeter)k*a\)</span>
+</center>
+<br>
+where <span class="math inline">\(V\)</span> is the volume of water sampled (mL), <span class="math inline">\(k\)</span> is a flow meter collection value, and <span class="math inline">\(a\)</span> is the area of the mouth of the net (mm<span class="math inline">\(^2\)</span>).
+</p>
+</body>
+<!-- back to normal text -->
+<p>The Teel Marine 12V utility pump is also used at each station to sample approximately 19.8 gallons from the entire water column, which is filtered through a 43-micron mesh net to concentrate the pump sample. Samples are preserved in 10% formalin with Rose Bengal dye before being processed in the laboratory for identification and enumeration of organisms using a dissecting microscope. More information about the sampling and processing methods can be found in the metadata at <a href="https://filelib.wildlife.ca.gov/Public/IEP_Zooplankton/">here</a>.</p>
+<p>Abundance indices are calculated for each organism based on the gear type most effective at its capture and reported as the mean catch-per-unit-effort (CPUE). CPUE is calculated as the number of each organism collected per cubic meter of water sampled, so that:</p>
+<!-- This section writes out a formula. If the text needs to be modified, let Sarah know. -->
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js">
+  </script>
+</head>
+<body>
+<p>
+Volume is measured using a General Oceanics flowmeter placed in the mouth of each net so that:
+<br>
+<center>
+<span class="math inline">\(CPUE=s*V^{-1}\)</span>
+</center>
+<br>
+where <span class="math inline">\(s\)</span> is the estimated count of the target organism in the sample.
+</p>
+</body>
+<!-- back to normal text -->
+<p>Copepod abundance indices reported here only include adults, as juveniles were not always identified to species. Annual and seasonal abundance indices were calculated using 14 fixed stations sampled consistently since 1974 (Figure 67) and 2 non-fixed stations sampled where bottom specific conductance was roughly 2 and 6 millisiemens per centimeter (approximately 1 and 3 psu).</p>
 <p>To analyze long-term trends (1974 to present), annual abundance indices were calculated as the mean CPUE for samples collected from March through November, as winter sampling was inconsistent before 1995. Seasonal abundance indices were calculated as the mean CPUE for samples collected during each season: winter (previous December to February), spring (March to May), summer (June to August), and fall (September to November). Long-term seasonal trends for winter are only shown for 1995 to present. Spatial distribution indices for organisms is described as seasonal mean CPUE for by region. Estuary regions were defined as San Pablo Bay (stations D41 and D41A), Suisun Bay (stations D6, 28, 54, and 48), Suisun Marsh (stations 32 and S42), West Delta (stations 60, 64, and 74), Central Delta (stations D16, 86, and D28), and the East Delta (92 and M10).</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-84"></span>
+<p>COVID Note: due to the ongoing COVID-19 epidemic, zooplankton sampling was not conducted from March 2020 - April 2020, and December 2020 - February 2021.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-81"></span>
 <img src="sections/zoop/figures/zoop-map.png" alt="Map of fixed Zooplankton Study stations in the San Francisco Estuary." width="70%" />
 <p class="caption">
-Figure 69: Map of fixed Zooplankton Study stations in the San Francisco Estuary.
+Figure 67: Map of fixed Zooplankton Study stations in the San Francisco Estuary.
 </p>
 </div>
 
@@ -251,7 +292,6 @@ Figure 69: Map of fixed Zooplankton Study stations in the San Francisco Estuary.
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -281,6 +321,10 @@ gitbook.start({
 "text": null
 },
 "download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "section",
 "scroll_highlight": true
@@ -295,7 +339,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

@@ -1,0 +1,41 @@
+---
+book_filename: 'EMP-Reports'
+language:
+  ui:
+    chapter_name: ''
+    part: ''
+delete_merged_file: true
+output_dir: './docs'
+
+rmd_files: [
+  # Config
+  'admin/config-yaml.Rmd',
+  
+  # General Info
+  'sections/general/Rmd-files/index.Rmd',
+  
+  # C-WQ
+  'sections/c-wq/Rmd-files/cwq-info.Rmd',
+  'sections/c-wq/Rmd-files/cwq-report.Rmd',
+
+  # D-WQ
+  'sections/d-wq/Rmd-files/dwq-info.Rmd',
+  'sections/d-wq/Rmd-files/dwq-report.Rmd',
+
+  # Benthic
+  'sections/benthic/Rmd-files/benthic-info.Rmd',
+  'sections/benthic/Rmd-files/benthic-meta.Rmd',
+  'sections/benthic/Rmd-files/benthic-report.Rmd',
+  
+  # Phyto
+  'sections/phyto/Rmd-files/phyto-info.Rmd',
+  'sections/phyto/Rmd-files/phyto-report.Rmd',
+  
+  # Zoop
+  'sections/zoop/Rmd-files/zoop-info.Rmd',
+  'sections/zoop/Rmd-files/zoop-report.Rmd',
+  
+  # Special Studies
+  'sections/special-studies/Rmd-files/veliger.Rmd',
+]
+---
