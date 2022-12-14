@@ -3,7 +3,7 @@
 
 bookdown::render_book(
   input = 'admin/config-yaml.Rmd',
-  output_dir = './website-pages',
+  output_dir = './docs',
   config_file = 'admin/_bookdown.yml',
   output_format = 'bookdown::gitbook'
 )
