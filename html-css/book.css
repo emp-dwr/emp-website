@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Oswald|Arimo');
 
 /* title page */
-.book .book-body .page-wrapper .page-inner section.normal h1.title {
+.book .book-body .page-wrapper .page-inner section.normal .title {
   font-size: 250%;
   font-family: 'Oswald', sans-serif;
   font-style: normal;
@@ -19,7 +19,7 @@
 }
 
 
-.book .book-body .page-wrapper .page-inner section.normal a.uri {
+.book .book-body .page-wrapper .page-inner section.normal .uri {
   display: block;
   margin: 0 0 10px 0;
   font-size:  75%;
@@ -27,7 +27,7 @@
   font-family: 'Arimo';
 }
 
-.book .book-body .page-wrapper .page-inner section.normal h4.date {
+.book .book-body .page-wrapper .page-inner section.normal .date {
   font-style: normal;
   font-size:  100%;
   font-family: 'Open Sans', sans;
@@ -51,7 +51,6 @@
     word-wrap: break-word;
     overflow: hidden;
     line-height: 1.7;
-    text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
     -moz-text-size-adjust: 100%;
@@ -70,7 +69,7 @@
     display: none;
 }
 
-/* link effects */
+/* link effects (eg. color of links)
 a.link {
   color: #DAA520;
 }
@@ -107,15 +106,16 @@ a.link {
 
 .book .book-header {
     overflow: visible;
-    height: 48px;    /* adjust to match title space*/
+    height: 48px;    (adjust to match title space)
     padding: 0 8px;
     z-index: 2;
     font-family: 'Oswald', sans-serif;
     font-size: .85em;
     color: #7e888b;
     background-color: #ffffff;
-    /* background: 0 0; */
+    (background: 0 0;)
 }
+*/
 
 /* top bar bg color */
 .book-body.fixed {

@@ -8,6 +8,9 @@ delete_merged_file: true
 output_dir: './docs'
 
 rmd_files: [
+  # Config
+  'admin/config-yaml.Rmd',
+  
   # General Info
   'sections/general/Rmd-files/index.Rmd',
   
