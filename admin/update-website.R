@@ -1,5 +1,5 @@
 # run to compile html files for website
-# WARNING: after running, once pushed to GitHub, website will be updated
+# WARNING: after running, once pushed to GitHub "gh-pages" branch, website will be updated
 
 bookdown::render_book(
   input = 'admin/config-yaml.Rmd',
