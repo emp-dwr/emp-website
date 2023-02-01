@@ -1,5 +1,9 @@
 # EMP Data Links {#data-links}
 
+[**Continuous Water Quality**](https://portal.edirepository.org/nis/mapbrowse?packageid=edi.1177.2)
+
+Lead: Michelle Nelson (michelle.nelson@water.ca.gov)
+
 [**Discrete Water Quality**](https://portal.edirepository.org/nis/mapbrowse?scope=edi&identifier=458&revision=7)
 
 Lead: Morgan Battey (morgan.battey@water.ca.gov)
@@ -16,9 +20,7 @@ Lead: Tiffany Brown (tiffany.brown@water.ca.gov)
 
 Lead: Arthur Barros (arthur.barros@wildlife.ca.gov)
 
-EMP continuous water quality data is currently unavailable on a public portal. Please contact Scott Waller (scott.waller@water.ca.gov) for data requests.
-
 ### Related Datasets {.unlisted .unnumbered}
 [**Integrated San Francisco Estuary Discrete Water Quality**](https://portal.edirepository.org/nis/mapbrowse?scope=edi&identifier=731)
 
-Lead: Sam Bashevkin (sam.bashevkin@waterboards.ca)
+Lead: Sam Bashevkin (sam.bashevkin@waterboards.ca.gov)
