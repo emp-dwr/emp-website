@@ -1,5 +1,6 @@
 # EMP Data Links {#data-links}
 
+## Complete Datasets {.unlisted .unnumbered}
 [**Continuous Water Quality**](https://portal.edirepository.org/nis/mapbrowse?packageid=edi.1177.2)
 
 Lead: Michelle Nelson (michelle.nelson@water.ca.gov)
@@ -20,7 +21,48 @@ Lead: Tiffany Brown (tiffany.brown@water.ca.gov)
 
 Lead: Arthur Barros (arthur.barros@wildlife.ca.gov)
 
-### Related Datasets {.unlisted .unnumbered}
+## Individual Stations (Continuous Water Quality) {.unlisted .unnumbered}
+:::: {style="display: flex;"}
+
+::: {}
+[**San Joaquin River near Vernalis @ SJR Club**](https://cdec.water.ca.gov/dynamicapp/QueryF?s=SJR)  
+
+[**Sacramento River below Rio Vista Bridge**](https://cdec.water.ca.gov/dynamicapp/QueryF?s=RVB)
+
+[**Suisun Bay – Martinez**](https://cdec.water.ca.gov/dynamicapp/QueryF?s=MRZ)
+
+[**Suisun Bay – Cutoff Near Ryer**](https://cdec.water.ca.gov/dynamicapp/QueryF?s=RYC)
+
+[**Sacramento River @ Mallard Island**](https://cdec.water.ca.gov/dynamicapp/QueryF?s=MAL)
+
+[**San Joaquin River @ Antioch**](https://cdec.water.ca.gov/dynamicapp/QueryF?s=ANH)
+
+[**Franks Tract – Mid Tract	FRK**](https://cdec.water.ca.gov/dynamicapp/QueryF?s=FRK)
+
+[**SJR – Prisoner-Rough & Ready**](https://cdec.water.ca.gov/dynamicapp/QueryF?s=RRI) 
+:::
+
+::: {}
+&emsp;&nbsp;[**Sacramento River @ Hood**](https://cdec.water.ca.gov/dynamicapp/QueryF?s=SRH)
+
+&emsp;&nbsp;[**San Joaquin River @ Mossdale Bridge**](https://cdec.water.ca.gov/dynamicapp/QueryF?s=MSD)
+
+&emsp;&nbsp;[**Grizzly Bay**](https://cdec.water.ca.gov/dynamicapp/QueryF?s=GZL)
+
+&emsp;&nbsp;[**Honker Bay**](https://cdec.water.ca.gov/dynamicapp/QueryF?s=HON)
+
+&emsp;&nbsp;[**Sacramento River near Sherman Island**](https://cdec.water.ca.gov/dynamicapp/QueryF?s=SSI)
+
+&emsp;&nbsp;[**San Joaquin River @ Twitchell Island**](https://cdec.water.ca.gov/dynamicapp/QueryF?s=TWI)
+
+&emsp;&nbsp;[**SJR – Prisoner's Point	PPT**](https://cdec.water.ca.gov/dynamicapp/QueryF?s=PPT)
+:::
+
+::::
+<br>
+Lead: Michelle Nelson (michelle.nelson@water.ca.gov)
+
+## Related Datasets {.unlisted .unnumbered}
 [**Integrated San Francisco Estuary Discrete Water Quality**](https://portal.edirepository.org/nis/mapbrowse?scope=edi&identifier=731)
 
 Lead: Sam Bashevkin (sam.bashevkin@waterboards.ca.gov)
