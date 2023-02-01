@@ -13,6 +13,7 @@ rmd_files: [
   
   # General Info
   'sections/general/Rmd-files/index.Rmd',
+  'sections/general/Rmd-files/data-links.Rmd',
   
   # C-WQ
   'sections/c-wq/Rmd-files/cwq-info.Rmd',
