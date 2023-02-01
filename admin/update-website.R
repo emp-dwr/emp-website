@@ -7,3 +7,4 @@ bookdown::render_book(
   config_file = 'admin/_bookdown.yml',
   output_format = 'bookdown::gitbook'
 )
+ 
