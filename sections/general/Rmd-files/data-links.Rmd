@@ -37,7 +37,7 @@ Lead: Arthur Barros (arthur.barros@wildlife.ca.gov)
 
 [**San Joaquin River @ Antioch**](https://cdec.water.ca.gov/dynamicapp/QueryF?s=ANH)
 
-[**Franks Tract – Mid Tract	FRK**](https://cdec.water.ca.gov/dynamicapp/QueryF?s=FRK)
+[**Franks Tract – Mid Tract**](https://cdec.water.ca.gov/dynamicapp/QueryF?s=FRK)
 
 [**SJR – Prisoner-Rough & Ready**](https://cdec.water.ca.gov/dynamicapp/QueryF?s=RRI) 
 :::
@@ -55,12 +55,12 @@ Lead: Arthur Barros (arthur.barros@wildlife.ca.gov)
 
 &emsp;&nbsp;[**San Joaquin River @ Twitchell Island**](https://cdec.water.ca.gov/dynamicapp/QueryF?s=TWI)
 
-&emsp;&nbsp;[**SJR – Prisoner's Point	PPT**](https://cdec.water.ca.gov/dynamicapp/QueryF?s=PPT)
+&emsp;&nbsp;[**SJR – Prisoner's Point**](https://cdec.water.ca.gov/dynamicapp/QueryF?s=PPT)
 :::
 
 ::::
 <br>
-Lead: Michelle Nelson (michelle.nelson@water.ca.gov)
+Lead: Andrew Tran (andrew.tran@water.ca.gov)
 
 ## Related Datasets {.unlisted .unnumbered}
 [**Integrated San Francisco Estuary Discrete Water Quality**](https://portal.edirepository.org/nis/mapbrowse?scope=edi&identifier=731)
