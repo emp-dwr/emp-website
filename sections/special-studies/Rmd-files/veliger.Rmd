@@ -1,4 +1,4 @@
-# (PART) Special Studies {-}
+# (PART\*) Special Studies {-}
 # Veliger Monitoring Program {#spst}
 
 ## Background {.unlisted}
