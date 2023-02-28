@@ -1,3 +1,11 @@
+---
+title: ""
+output: 
+  html_document:
+    includes:
+       in_header: admin/analytics.html
+---
+
 ## Data and Contact Info
 
 ### Data {.unlisted .unnumbered}

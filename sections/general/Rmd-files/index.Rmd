@@ -1,3 +1,11 @@
+---
+title: ""
+output: 
+  html_document:
+    includes:
+       in_header: admin/analytics.html
+---
+
 # (PART\*) General {-}
 
 # CA Dept of Water Resources - Environmental Monitoring Program {.unlisted .unnumbered}

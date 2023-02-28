@@ -69,6 +69,11 @@
     display: none;
 }
 
+/* remove navigation arrows */
+.book-header {
+  display: none !important;
+}
+
 /* link effects (eg. color of links)
 a.link {
   color: #DAA520;
