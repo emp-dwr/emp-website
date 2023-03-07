@@ -9,10 +9,9 @@ favicon: sections/general/figures/sentinel.ico
 github-repo: emp-des/emp-reports
 
 output:
-  html_document:
+  bookdown::gitbook:
     includes:
       in_header: admin/html-css/analytics.html
-  bookdown::gitbook:
     anchor_sections: false
     auto_ids: false
     css: [admin/html-css/book.css, admin/html-css/slideshow.css, 'https://use.fontawesome.com/releases/v5.14.0/css/all.css']
