@@ -9,6 +9,9 @@ favicon: sections/general/figures/sentinel.ico
 github-repo: emp-des/emp-reports
 
 output:
+  html_document:
+    includes:
+      in_header: admin/html-css/analytics.html
   bookdown::gitbook:
     anchor_sections: false
     auto_ids: false

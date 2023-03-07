@@ -1,11 +1,3 @@
----
-title: ""
-output: 
-  html_document:
-    includes:
-       in_header: admin/analytics.html
----
-
 # Discrete Water Quality {#dwq}
 
 ### Background {.unlisted .unnumbered}
