@@ -53,9 +53,3 @@ Total phosphorus values in 2021 ranged from 0.02 mg/L (C3A in the Northern Inter
 ```{r echo=FALSE, fig.cap='Total phosphorous concentrations in mg/L at six regions in the San Francisco Bay-Delta estuary during 2020-2021. Dashed lines represent the range of possible values for months where the raw value was a non-detect.', fig.align='center', out.width="80%", out.height="80%"}
 knitr::include_graphics(file.path('sections/d-wq/figures/ARGraph_TotPhos.jpg'))
 ```
-***
-## Data and Contact Info
-
-EMP's discrete water quality data sets are available publicly via the Environmental Data Initiative (EDI) [here](https://portal.edirepository.org/nis/mapbrowse?scope=edi&identifier=458&revision=7).
-
-For questions related to EMP's discrete water quality data sets, please contact Morgan Battey at Morgan.Battey@water.ca.gov.

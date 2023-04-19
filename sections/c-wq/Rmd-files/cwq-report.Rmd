@@ -233,8 +233,3 @@ knitr::include_graphics(file.path('sections/c-wq/figures/2021/Fig7e.png'))
 [SWRCB] State Water Resources Control Board. (1995). Water Quality Control Plan for the San Francisco Bay/Sacramento-San Joaquin Estuary [Bay-Delta Plan] (Adopted May 22, 1995, pursuant to Water Right Order 95-1). Sacramento, CA.
 
 [SWRCB] State Water Resources Control Board. (1999). Water Rights Decision 1641 for the Sacramento-San Joaquin Delta and Suisun Marsh (Adopted December 29, 1999, Revised in Accordance with order WR2000-02 March 15, 2000). Sacramento, CA.
-
-***
-## Contact Info
-
-For questions related to EMP's continuous water quality data sets, please contact Scott Waller at scott.waller@water.ca.gov.

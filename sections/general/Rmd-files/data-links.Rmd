@@ -5,15 +5,15 @@
 
 Contact: Michelle Nelson (michelle.nelson@water.ca.gov)
 
-[**Discrete Water Quality**](https://portal.edirepository.org/nis/mapbrowse?scope=edi&identifier=458&revision=7)
+[**Discrete Water Quality**](https://portal.edirepository.org/nis/mapbrowse?scope=edi&identifier=458&revision=8)
 
-Contact: Morgan Battey (morgan.battey@water.ca.gov)
+Contact: Sarah Perry (sarah.perry@water.ca.gov)
 
-[**Benthic Invertebrates**](https://portal.edirepository.org/nis/mapbrowse?packageid=edi.1036.2)
+[**Benthic Invertebrates**](https://portal.edirepository.org/nis/mapbrowse?scope=edi&identifier=1036&revision=3)
 
 Contact: Betsy Wells (elizabeth.wells@water.ca.gov)
 
-[**Phytoplankton**](https://portal.edirepository.org/nis/mapbrowse?packageid=edi.1320.3)
+[**Phytoplankton**](https://portal.edirepository.org/nis/mapbrowse?scope=edi&identifier=1320&revision=4)
 
 Contact: Tiffany Brown (tiffany.brown@water.ca.gov)
 

@@ -271,9 +271,3 @@ Müller-Solger AB, Jassby AD, Müller-Navarra DC. 2002. Nutritional quality of f
 Utermöhl, H. 1958. Zur Vervollkommnung der quantitativen Phytoplankton Methodik. Mitt. Int. Verh. Limnol. 9: 38.
 
 van den Hoek, C., D.G. Mann, and H.M. Jahns. 1995. Algae: an introduction to Phycology. Cambridge University Press, United Kingdom.
-
-------------------------------------------------------------------------
-
-## Contact Info
-
-For questions related to EMP's phytoplankton data sets, please contact Tiffany Brown at [tiffany.brown\@water.ca.gov](mailto:tiffany.brown@water.ca.gov){.email}.

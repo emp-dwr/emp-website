@@ -119,11 +119,3 @@ Slater SB, Baxter R. 2014. Diet, Prey Selection, and Body Condition of Age-0 Del
 Sommer T, Armor C, Baxter R, Breuer R, Brown L, Chotkowski M, Culberson S, Feyerer F, Gingras M, Herbold B, et al. 2007. The collapse of pelagic fishes in the upper San Francisco Estuary. Fisheries. 32(6):270--277.
 
 Winder M, Jassby AD. 2011. Shifts in Zooplankton Community Structure: Implications for Food Web Processes in the Upper San Francisco Estuary. Estuaries and Coasts. 34:675--690.
-
-------------------------------------------------------------------------
-
-## Data and Contact Info
-
-Data available on the [Environmental Data Initiative portal](https://portal.edirepository.org/nis/mapbrowse?scope=edi&identifier=522&revision=11) or the [CDFW FTP site](https://filelib.wildlife.ca.gov/Public/IEP_Zooplankton/).
-
-For questions related to EMP's zooplankton data sets, please contact Arthur Barros at [arthur.barros\@wildlife.ca.gov](mailto:arthur.barros@wildlife.ca.gov){.email}.

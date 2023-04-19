@@ -127,11 +127,3 @@ Fields W, Messer C. 1999. Life on the bottom: Trends in species composition of t
 Carlton, J. T. 2007. The Light and Smith manual: Intertidal Invertebrates from central California to Oregon, 4th edition. Berkeley, CA, University of California Press.
 
 Feyrer, F., B. Herbold, S. A. Matern and P. B. Moyle. 2003. Dietary shifts in a stressed fish assemblage: consequences of a bivalve invasion in the San Francisco Estuary. Environmental Biology of Fishes 67(3): 277-288.
-
-------------------------------------------------------------------------
-
-## Data and Archived Reports
-
-EMP's benthos data set is available publicly via the Environmental Data Initiative (EDI) [here](https://portal.edirepository.org/nis/mapbrowse?scope=edi&identifier=458&revision=7).
-
-For questions related to EMP's benthos data sets, please contact Betsy Wells at [elizabeth.wells\@water.ca.gov](mailto:elizabeth.wells@water.ca.gov){.email}.
