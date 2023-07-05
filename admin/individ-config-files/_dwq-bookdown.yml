@@ -1,0 +1,17 @@
+---
+book_filename: 'EMP-Reports'
+language:
+  ui:
+    chapter_name: ''
+    part: ''
+delete_merged_file: true
+
+rmd_files: [
+  # Config
+  'admin/config-yaml.Rmd',
+
+  # D-WQ
+  'sections/d-wq/Rmd-files/00-dwq-info.Rmd',
+  'sections/d-wq/Rmd-files/00-dwq-report.Rmd'
+]
+---
