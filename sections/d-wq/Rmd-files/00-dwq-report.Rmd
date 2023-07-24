@@ -2,13 +2,13 @@
 
 ### Introduction
 
-Water year `r report_year` was classified as `r func_wy(report_year)` in the Sacramento Valley due to ongoing drought. The previous year was classified as `r func_wy(prev_year)` [(source)](https://cdec.water.ca.gov/reportapp/javareports?name=WSIHIST). Regional facet graphs for `r report_year` were created for each parameter. The minimum and maximum values in `r report_year` were determined for each field parameter or laboratory analyte to show that year's range; instances when a result fell below the reporting limit were excluded from these minimum and maximum calculations. When this occurred, for the corresponding graph, a vertical dashed line capped at the reporting limit was to represent the presence of a non-detect.
+Water year `r report_year` was classified as `r func_wy(report_year)` in the Sacramento Valley due to ongoing drought. The previous year was classified as `r func_wy(prev_year)` [(source)](https://cdec.water.ca.gov/reportapp/javareports?name=WSIHIST). Regional facet graphs for `r report_year` were created for each parameter. The minimum and maximum values in `r report_year` were determined for each field parameter or laboratory analyte to show that year's range; instances when a result fell below the reporting limit were excluded from these minimum and maximum calculations. When this occurred, for the corresponding graph, a vertical dashed line capped at the reporting limit was used to represent the presence of a non-detect.
 
 ------------------------------------------------------------------------
 
 ### Specific Conductance
 
-Surface specific conductance varied greatly in `r report_year` across the sampling regions with the highest levels occurring in the western regions (San Pablo Bay, Suisun & Grizzly Bays, Confluence) due to the strong marine influence from the Pacific Ocean. Surface specific conductance ranged from `r func_range('SpCndSurface')`. Average specific conductance values `r func_comparison('SpCndSurface')`, which was likely due to the on-going drought keeping the San Francisco Estuary drier throughout the year.
+Surface specific conductance varied greatly in `r report_year` across the sampling regions with the highest levels occurring in the western regions (San Pablo Bay, Suisun & Grizzly Bays, Confluence) due to the strong marine influence from the Pacific Ocean. Surface specific conductance ranged from `r func_range('SpCndSurface')`. Average specific conductance values `r func_comparison('SpCndSurface')`.
 
 ```{r echo=FALSE, fig.align='center'}
 knitr::include_graphics(file.path('admin/plots/dwq/ARGraph_SpCndSurface.jpg'))
@@ -28,7 +28,7 @@ knitr::include_graphics(file.path('admin/plots/dwq/ARGraph_TurbiditySurface.jpg'
 
 ### Dissolved Ammonia
 
-Dissolved ammonia levels in `r report_year` ranged from `r func_range('DissAmmonia')`. Dissolved ammonia levels are typically higher at C3A in the Northern Interior Delta due to its location downstream of the effluent discharge from Sacramento Regional Sanitation District. Ammonia levels are typically lower throughout the Delta and Bays, likely due to dilution and nitrification. Average dissolved ammonia values `r func_comparison('DissAmmonia')`.
+Dissolved ammonia levels in `r report_year` ranged from `r func_range('DissAmmonia')`. Ammonia levels are typically lower throughout the Delta and Bays, likely due to dilution and nitrification. Average dissolved ammonia values `r func_comparison('DissAmmonia')`.
 
 ```{r echo=FALSE, fig.align='center'}
 knitr::include_graphics(file.path('admin/plots/dwq/ARGraph_DissAmmonia.jpg'))
@@ -38,7 +38,7 @@ knitr::include_graphics(file.path('admin/plots/dwq/ARGraph_DissAmmonia.jpg'))
 
 ### Chlorophyll *a*
 
-Chlorophyll *a* values in `r report_year` ranged from `r func_range('Chla')`. The highest levels of chlorophyll a were seen in the Southern Interior Delta region during the early spring months in 2021. This was mostly due to elevated levels at station C10A, which is known for being shallow during dry periods of the year, with increased temperatures and lower flows allowing for increased phytoplankton production. These elevated chlorophyll a levels in the early spring at C10A also align with the continuous fluorescence data collected at this station. More information about the phytoplankton genera is described in the phytoplankton section. More information about the phytoplankton genera is described in the phytoplankton section.
+Chlorophyll *a* values in `r report_year` ranged from `r func_range('Chla')`. The highest levels of chlorophyll a were seen in the San Pablo Bay region during August. This was due to a harmful algal bloom of *Heterosigma akashiwo*. More information about the phytoplankton genera is described in the phytoplankton section.
 
 ```{r echo=FALSE, fig.align='center'}
 knitr::include_graphics(file.path('admin/plots/dwq/ARGraph_Chla.jpg'))
