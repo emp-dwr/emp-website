@@ -16,21 +16,21 @@ rmd_files: [
   'sections/general/Rmd-files/data-links.Rmd',
   
   # C-WQ
-  'sections/c-wq/Rmd-files/cwq-info.Rmd',
-  'sections/c-wq/Rmd-files/cwq-report.Rmd',
+  'sections/c-wq/Rmd-files/00_cwq-info.Rmd',
+  'sections/c-wq/Rmd-files/00_cwq-report.Rmd',
 
   # D-WQ
-  'sections/d-wq/Rmd-files/dwq-info.Rmd',
-  'sections/d-wq/Rmd-files/dwq-report.Rmd',
+  'sections/d-wq/Rmd-files/00_dwq-info.Rmd',
+  'sections/d-wq/Rmd-files/00_dwq-report.Rmd',
 
   # Benthic
-  'sections/benthic/Rmd-files/benthic-info.Rmd',
-  'sections/benthic/Rmd-files/benthic-meta.Rmd',
-  'sections/benthic/Rmd-files/benthic-report.Rmd',
+  'sections/benthic/Rmd-files/00_benthic-info.Rmd',
+  'sections/benthic/Rmd-files/00_benthic-meta.Rmd',
+  'sections/benthic/Rmd-files/00_benthic-report.Rmd',
   
   # Phyto
-  'sections/phyto/Rmd-files/phyto-info.Rmd',
-  'sections/phyto/Rmd-files/phyto-report.Rmd',
+  'sections/phyto/Rmd-files/00_phyto-info.Rmd',
+  'sections/phyto/Rmd-files/00_phyto-report.Rmd',
   
   # Zoop
   'sections/zoop/Rmd-files/zoop-info.Rmd',
