@@ -505,4 +505,6 @@ add_sheet(wkbk_export, df_phy_stat_percs, paste(report_year, 'Phylum (Year) (Sta
 add_sheet(wkbk_export, df_ry_stat_phy, paste(report_year,'Phylums (Month) (Stations)'))
 
 # save workbook
-openxlsx::saveWorkbook(wkbk_export, file = abs_path_data(glue::glue('Benthic/AR-output-data/benthic_AR_wkbk_{report_year}.xlsx')), overwrite = TRUE)
+func_benthic_excel <- function(){
+  openxlsx::saveWorkbook(wkbk_export, file = abs_path_data(glue::glue('Benthic/AR-output-data/benthic_AR_wkbk_{report_year}.xlsx')), overwrite = TRUE)
+}
