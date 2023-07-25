@@ -18,7 +18,7 @@ prev_year <- as.character(as.integer(format(Sys.Date(), '%Y'))-2)
 #' @details Assumes access to EMP SharePoint
 #'
 abs_path_data <- function(fp_rel = NULL) {
-  fp_emp <- 'California Department of Water Resources/Environmental Monitoring Program - Documents/Annual Report Docs'
+  fp_emp <- 'California Department of Water Resources/Environmental Monitoring Program - Documents/Annual Report Docs/'
   
   if (is.null(fp_rel)) {
     fp_abs <- normalizePath(file.path(Sys.getenv('USERPROFILE'), fp_emp))
