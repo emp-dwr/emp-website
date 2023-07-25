@@ -204,4 +204,5 @@ dl_cwq_data <- function(){
   # })
   
   readr::write_csv(data_avg_all, 'admin/data/cwq/data_avg_all.csv')
+  return()
 }

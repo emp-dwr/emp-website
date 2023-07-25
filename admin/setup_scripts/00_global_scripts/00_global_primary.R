@@ -1,5 +1,6 @@
 # define pipe expression
 `%>%` <- magrittr::`%>%`
+`%!in%` <- function(x,y)!('%in%'(x,y))
 
 
 # global variables --------------------------------------------------------
