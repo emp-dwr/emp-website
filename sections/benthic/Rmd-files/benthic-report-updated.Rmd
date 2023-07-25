@@ -1,0 +1,129 @@
+## Current Report {#benthic-report}
+
+### Introduction
+
+Benthic monitoring conducted by the California Department of Water Resources (DWR) since 1975 has documented changes in the composition, density, and distribution of the macrobenthic biota inhabiting the upper San Francisco Estuary. This monitoring is performed by the Environmental Monitoring Program (EMP) as part of the Interagency Ecological Program (IEP) and is one component of the biological monitoring mandated by Water Right Decision D-1641. Since benthic species respond to changes in physical factors such as freshwater inflows, salinity, and substrate composition, benthic community data provides an indication of physical changes occurring within the Estuary. Benthic monitoring is an important component of the EMP because operation of the State Water Project can change the Estuary’s flow characteristics, affecting the density and distribution of benthic biota. Benthic monitoring data is also used to detect and document the presence of new, non-native species in the Upper Estuary, such as the 1986 arrival and subsequent wide spread of the overbite clam, *Potamocorbula amurensis*. This article summarizes benthic community characteristics at EMP monitoring sites in 2021 and contextualizes these observations using community data from the preceding decade.
+
+------------------------------------------------------------------------
+
+### Methods
+
+Benthic monitoring was conducted monthly at 10 sampling sites distributed throughout the Estuary, from San Pablo Bay upstream through the Sacramento-San Joaquin Delta (Figure 41). Sampling in January and February 2021 was not conducted due to the COVID-19 pandemic, and samples were not collected in October 2021 due to boat unavailability. EMP staff collected four bottom grab samples at each station using a Ponar dredge with a sampling area of 0.052 m^2^. The four replicate grab samples were analyzed for benthic macrofauna by Hydrozoology, a private laboratory under contract with DWR. All organisms were identified to the lowest taxon possible and enumerated. Field collection methodology and laboratory analysis of benthic macroinvertebrates are described in detail in the benthic metadata found [here](https://emp-des.github.io/emp-reports/benthic-meta.html).
+
+```{r echo=FALSE, out.width='70%', fig.align='center', fig.cap='Map of EMP\'s current benthic field sites.'}
+knitr::include_graphics(file.path('sections/benthic/figures/Benthic_Active_Map.png'))
+```
+
+------------------------------------------------------------------------
+
+### Results
+
+The benthic fauna collected in 2021 comprised nine phyla: Arthropoda (36%), Mollusca (32% of total organisms), and Annelida (30%), with Phoronida, Nematoda, Chordata, Platyhelminthes, Cnidaria, and Nemertea each representing < 1% of total organisms. Of the 198 benthic species collected in 2021, the ten most abundant species represented 80% of all individuals collected throughout the year (Table 1). These include four species of amphipod, two clams, two oligochate worms, one polychate worm, and one cumacean arthropod (also known as a comma shrimp, although it is not actually a shrimp). Only two species in this group (the amphipods *Americorophium spinicorne* and *Hyallela* sp.) are native to this estuary. The rest of the top ten species are non-native or are cosmopolitan species of unknown origin, and *Hyalella* sp., which is likely a species complex, is likely to have been augmented by non-native populations (Carlton et al. 2007). Refer to Fields and Messer (1999) for descriptions of the habitat requirements, physical attributes, and feeding methods of many of these species. 
+
+```{r echo=FALSE, out.width='70%', fig.align='center', fig.cap='List of ten most numerous benthic invertebrate species found at EMP sites in 2020.'}
+knitr::include_graphics(file.path('sections/benthic/figures/Table1_species_list.png'))
+```
+
+In the site descriptions that follow, most species densities are reported as the annual densities of individuals/m^2^, sometimes noting dramatic seasonal peaks. Some species, especially arthropods, display strong seasonal variability with peak monthly densities several times higher than their annual densities. In these cases, we reported the time and magnitude of the peaks as well as the annual densities. Please note, however, that the reported annual densities omit three months of 2021 (January, February, and October) when sampling did not occur, and comparisons to other years’ average annual densities or seasonal patterns should take these omissions into account. Readers who wish to see the full dataset and its associated metadata can access [here](https://portal.edirepository.org/nis/mapbrowse?packageid=edi.1036.2).
+
+------------------------------------------------------------------------
+
+### North Delta (D24) {.unlisted .unnumbered}
+
+Site D24 is located on the Sacramento River, just south of the Rio Vista Bridge (Figure 41). There were 28 species in six phyla at D24. Mollusca was the most abundant phylum for much of the year and made up 78% of all organisms collected at the station (Figure 43). A large majority (76%) of the individual organisms found at D24 in 2021 were the non-native clam *Corbicula fluminea*, with an annual average density of 2,127 individuals/m^2^. *Corbicula fluminea* density in 2021 was a decline from the high densities of the 2018-2020, which peaked with 2020’s annual average of 3,756 individuals/m^2^. The second most abundant organism was the non-native amphipod *Gammarus daiberi* with an annual density of 224 individuals/m^2^, which was a similar decline from a 2020 peak of 1,078 individuals/m^2^. Besides these notable declines from 2020 peaks, the makeup of the community at D24 in 2021 were similar to other years in the last decade.
+
+```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Density of benthic organisms, by month, collected at station D24 in 2021.', fig.align='center'}
+knitr::include_graphics(file.path('sections/benthic/figures/Fig2_D24.png'))
+```
+
+------------------------------------------------------------------------
+
+### Central Delta (D16, D28A)  {.unlisted .unnumbered}
+
+The benthic monitoring program sampled at two stations, in the Central Delta, D16 and D28. Site D16 is on the lower San Joaquin River near Twitchell Island (Figure 41). There were 25 species in five phyla at D16 in 2021, split largely between Mollusca (54% of all organisms collected in 2020), Arthropoda (31%), and Annelida (15%), (Figure 44). The most abundant species at D16 was the clam *Corbicula fluminea* which accounted for 51% of all organisms in 2021, with an average annual density of 170 individuals/m^2^ and a peak in November of 812 individuals/m^2^, driving the large increase in Mollusca seen in towards the end of 2021. The amphipod *Gammarus daiberi* was the second most abundant organism, accounting for 20% of all individuals, with an average annual density of 63 individuals/m^2^ and a peak in December of 385 individuals/m^2^. Much of the rest of the community was a combination of multiple species of amphipods and other annelid worms at lower densities. The total number of organisms at D16 in 2021 was slightly increased from the very low numbers of 2020, but even accounting for lower sampling effort possible in 2020 and 2021, average total organism densities were still lower than in other years in the last decade. D16 usually has ~10% of the total organisms compared with the other nine sites’ average, but that dropped to 2% in 2020 and 4% in 2021. In particular, 2020 and 2021 saw very low numbers of the amphipod *Americorophium spinicorne*, which were seen in very high numbers from 2015-2018.
+ 
+The site on Old River near Rancho Del Rio is known as D28A (Figure 41). In 2020, there were 73 species in seven phyla at D28A. The most abundant phylum was Annelida, followed by Arthropoda and Mollusca (60%, 28%, and 11% of all organisms, respectively) (Figure 45). The most abundant species was the oligochaete worm *Varichaetadrilus angustipenis* with an annual density of 1,710 individuals/m^2^, with higher densities from April through August 2021. Next most abundant was the sabellid worm *Manayunkia speciosa*, with an annual density of 1,205 individuals/m^2^, followed by the small ostracod arthropod *Cyprideis* sp., whose annual density of 885 individuals/m^2^ was driven largely by a warm-season peak from March to July. Site D28A had annual total densities of organisms that were comparable to other years in the past decade, and also similarly high species richness.
+
+```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Density of benthic organisms, by month, collected at station D16 in 2021.', fig.align='center'}
+knitr::include_graphics(file.path('sections/benthic/figures/Fig3_D16.png'))
+```
+
+```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Density of benthic organisms, by month, collected at station D28A in 2021.', fig.align='center'}
+knitr::include_graphics(file.path('sections/benthic/figures/Fig4_D28A.png'))
+```
+
+------------------------------------------------------------------------
+
+### South Delta (P8, C9) {.unlisted .unnumbered}
+
+The benthic monitoring program sampled at two stations in the South Delta. Site P8 is on the San Joaquin River at Buckley Cove (Figure 41). Station P8 had a total of 64 species in six phyla in 2021. Annelida was by far the most abundant phyla at this station in 2021, accounting for 84% of all organisms collected (Figure 46). The dominant species driving most of the Annelida patterns was the non-native sabellid worm *Manayunkia speciosa*, which had an annual density of 3,637 individuals/m^2^ and accounted by itself for 54% of all organisms. *Manayunkia speciosa* experienced a moderate increase from its lowest densities in 2018 and 2020, but nowhere near the high densities seen from 2012 to 2015 which peaked at 11,338 individuals/m^2^ in 2015. The oligochate worm *Limnodrilus hoffmeisteri* was the next most common organism at 1,042 individuals/m^2^ annual density, followed by a long tail of many species represented at low densities. This community pattern has remained unchanged through the last decade, apart from the notable boom and bust of *M. speciosa*.
+
+Site C9 is on Old River at the Clifton Court Forebay intake (Figure 41). There were 87 species in six phyla at C9 in 2021, setting a record high in site species richness over at least the last decade. Annelida was the dominant phylum throughout the year, accounting for 65% of all organisms collected in 2020, followed by 29% Arthropoda. (Figure 47). An oligochaete worm, *Varichaetadrilus angustipenis*, made up 31% of all organisms with an annual density of 2,973 individuals/m^2^. The freshwater amphipod *Hyalella* sp. A ranked second with an annual average of 1,627 individuals/m^2^, most of which were seen in a peak of 10,110 individuals/m^2^ in November, and a secondary peak of 3,043 individuals/m^2^ in June. The oligochaete worms *Limnodrilus hoffmeisteri* and *Ilyodrilus frantzi* complete the list of high-density organisms, at 1,100 and 982 individuals/m^2^. Similar to P8, C9 has a large number of low-density species, including the highest diversity of aquatic insect larvae at any site sampled (23 species in 2021, mostly chironomid midges). The community has been numerically dominated by oligochates for many years and apart from a descent from even higher numbers of *L. hoffmeisteri*, and *V. angustipenis* in 2011 and 2012, 2021 was not very different from the preceding decade.
+
+
+```{r echo=FALSE, out.width = '70%', fig.cap='Density of benthic organisms, by month, collected at station P8 in 2021.', fig.align='center'}
+knitr::include_graphics(file.path('sections/benthic/figures/Fig5_P8.png'))
+```
+
+```{r echo=FALSE, out.width = '70%', fig.cap='Density of benthic organisms, by month, collected at station C9 in 2021.', fig.align='center'}
+knitr::include_graphics(file.path('sections/benthic/figures/Fig6_C9.png'))
+```
+
+------------------------------------------------------------------------
+
+### Confluence (D4) {.unlisted .unnumbered}
+
+Site D4 is located near the confluence of the Sacramento and San Joaquin Rivers, just north of Point Sacramento (Figure 41). There were 58 species in six phyla at D4 in 2021, and this site had the most individual organisms in 2021, as it has for five years in the preceding decade. Arthropoda was the most abundant phylum (54% of all organisms) followed by Annelida (32% of all organisms) (Figure 48). The native amphipod *Americorophium spinicorne* was the most abundant species at this station, and made up slightly over 28% of all individual organisms in 2020 with a seasonal peak of 27,826 individuals/m^2^ in April and 9,659 individuals/m^2^ in May. The cumacean arthropod *Nippoleucon hinumensis* was second, with an annual average density of 2,642 individuals/m^2^, followed by the annelid *Varichaetadrilus angustipenis* at 2,220 individuals/m^2^ and the invasive clam *Potamocorbula amurensis* at 1,615 individuals/m^2^.
+
+Because of its position at the front of saltwater and freshwater mixing in the estuary, we often see a shift from the freshwater clam *Corbicula fluminea* to more brackish-water *Potamocorbula amurensis* in dry years, and indeed the recent high densities of *Corbicula* from 2017 through 2019 began to decline, while *Potamocorbula* increased over the same time period. 2021 was notable for its decrease in *A. spinicorne* in 2021 from the peaks in 2019 and 2020, and its increase in *N. hinumensis*. Like the changes in *P. amurensis*, these may be the result of a drier 2021 water years.
+
+```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Density of benthic organisms, by month, collected at station D4 in 2021.', fig.align='center'}
+knitr::include_graphics(file.path('sections/benthic/figures/Fig7_D4.png'))
+```
+
+------------------------------------------------------------------------
+
+### Suisun Bay (D6 and D7) {.unlisted .unnumbered}
+
+The benthic monitoring program sampled at two stations in the Suisun Bay area, D6 and D7. Site D6 is in Suisun Bay near the I-680 bridge (Figure 41) and had 37 species in five phyla in 2021. Mollusca was the dominant phylum, accounting for 91% of all organisms collected (Figure 49). Most of the organisms collected were the invasive Asian clam *Potamocorbula amurensis*, which had an annual density of 13,661 individuals/m^2^, in a moderate decrease from its 2020 high of 22,708 individuals/m^2^. *Potamocorbula amurensis* was most abundant towards the end of year, with a peak density of 30,661individuals/m^2^ in December. The relatively few other organisms found at this site were predominately from phylum Arthropoda (mostly the cumacean arthropod N. hinumensis in April and May peaks) or a series of annelids represented at low densities. Interestingly, the third most populous organism was the tunicate (sea squirt) *Molgula manhattensis*, which is nominally a fouling organism that settles on hard substrate; the living or dead shells of *P. amurensis* provide enough of a habitat to support substantial numbers in the otherwise soft substrate of this site.
+
+Site D7 is in Grizzly Bay, near the entrance to Suisun Slough (Figure 41). There were 40 species in five phyla in 2020. Mollusca comprised 60% of the total organisms, Arthropoda 28%, and Annelida 12%. The non-native clam *Potamocorbula amurensis* and cumacean arthropod *Nippoleucon hinumensis* were the two most abundant species, comprising 60% and 24% of the total community through the year, respectively (Figure 50). *Potamocorbula amurensis* was most abundant in the warmer months from April through September, with an annual average of 5,767/organisms/m^2^. *Nippoleucon hinumensis* had an annual density of 2,303 organisms/m^2^, but saw a strong seasonal pattern: relatively high densities from March through May and relatively lower densities the rest of the year. While *P. amurensis* has been numerically dominant through the last decade, a major change in 2021 was the rise of *N. hinumensis* (as at sites D4 and D6) and a simultaneous crash of the amphipod *Sinocorophium alienense*, which had been the second-densest species at D7 for at least the last decade. *Sinocorophium alienense* crashed in 2021 to around 300 organisms/m^2^,, less than a tenth of its average for the previous ten years.
+
+```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Density of benthic organisms, by month, collected at station D6 in 2021.', fig.align='center'}
+knitr::include_graphics(file.path('sections/benthic/figures/Fig8_D6.png'))
+```
+
+```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Density of benthic organisms, by month, collected at station D7 in 2021.', fig.align='center'}
+knitr::include_graphics(file.path('sections/benthic/figures/Fig9_D7.png'))
+```
+
+------------------------------------------------------------------------
+
+### San Pablo Bay (D41, D41A) {.unlisted .unnumbered}
+
+The benthic monitoring program sampled at two stations in San Pablo Bay, D41 and D41A. Station D41 is near Point Pinole (Figure 41) and has a benthic community primarily comprised of marine organisms, especially in drier water years. There were 69 species in eight phyla at D41 in 2021. Arthropoda was the most abundant phylum (78% of all organisms) followed by Annelida (11%), Phoronida (7%) and Mollusca (3%) (Figure 51). The dominance of phylum Arthropoda was due almost entirely to the non-native amphipod *Ampelisa abdita*, and this one species comprised 75% of all organisms found at this station in 2021, with an annual average of 8,069 individuals/m^2^. *Ampelisca abdita* was most abundant in from April through August, peaking at 34,235, individuals/m^2^ in June and decreasing for much of the rest of the year. The second most abundant species was *Phoronis harmeri*, a native tube-dwelling filter-feeder, from the small marine lopophorate phylum Phoronida. *Phoronis harmeri* displayed a seasonal pattern inverse to *Ampelisca abdita’s*: *Phoronis harmeri* had an average annual density of 720 individuals/m^2^ with moderate peaks in April and August, with the lowest numbers in June and July when *A. abdita* was highest. Two worms, the tube-dwelling sabellid *Euchone limniocola* and the free-ranging syllid *Megasyllis nipponica*, along with the window shell clam *Theora lubrica*, were the other species found in notable densities. D41 overall community composition in 2021 was similar to the preceding decade, and adds another year of evidence supporting the observation that higher-salinity years such as 2021 see density increases in more marine species such as *Apelisca abdita*, *Phoronis harmeri*, and *Theora lubrica* but lower numbers of the clam *Potamocorbula amurensis*, which prefers slightly lower-salinity water and is mostly only seen at D41 in wetter water years.
+
+Station D41A is in San Pablo Bay near the mouth of the Petaluma River (Figure 41). There were 50 species in six phyla at D41A in 2021. The most abundant phyla was Arthropoda (81% of all organisms), with Annelida second (13%) and Mollusca third (5%) (Figure 52). The dominant species was the amphipod *Ampelisca abdita*, which by itself made up 60% of all organisms. *Ampelisca abdita* had a notable peak in June of 15,543 of individuals/m^2^ and many fewer in any other month. Its annual average of 2,780 individuals/m^2^ was quite a bit down from the 2020’s average of 9,377 individuals/m^2^. The amphipod *Monocorophim acherusicum* was the second-most abundant organism, with a peak of 5,509 individuals/m^2^ in April and almost completely absent the rest of the year. The overall community composition was comparable to the rest of the preceding decade; *Ampelisca abdita* is numerically dominant over the course of the decade but their numbers vary widely from year to year, with a large number of less dense species in all years and almost no *Potamocorbula amurensis* in drier years like 2020.
+
+```{r echo=FALSE, out.width = '70%', fig.cap='Density of benthic organisms, by month, collected at station D41 in 2021.', fig.align='center'}
+knitr::include_graphics(file.path('sections/benthic/figures/Fig10_D41.png'))
+```
+
+```{r echo=FALSE, out.width = '70%', fig.cap='Density of benthic organisms, by month, collected at station D41A in 2021.', fig.align='center'}
+knitr::include_graphics(file.path('sections/benthic/figures/Fig11_D41A.png'))
+```
+
+------------------------------------------------------------------------
+
+### Conclusion {.unlisted .unnumbered}
+
+In summary, 2021 saw the third highest annual density of the non-native clam *Potamocorbula amurensis* recorded at an EMP station (D6) since the beginning of our observational record in 1975. However, average annual density of *Potamocorbula amurensis* across all sites was not particularly high, due to the lack of *P. amurensis* at higher-salinity stations in San Pablo Bay in a drier year. The amphipod *Ampelisca abdita* also appears to be on an upward trend through the last decade, particularly at EMP’s downstream stations, and suggests a useful future exercise comparing this data with amphipod monitoring conducted in the rest of San Francisco Bay. Another interesting increase was in the vsmall cumacean arthropod *Nippoleucon himumensis* in the Grizzly Bay, Suisun Bay, and Confluence stations, while a possibly concerning decrease was the collapse of the amphipod *Sinocorophium alienense* in Grizzly Bay. Since many fish species have switched to amphipod food sources after the collapse of mysid shrimps (Feyrer et al. 2003), the near disappearance of an amphipod species may have food web implications unless it has simply shifted its range out of our sampling area. Our ability to recognize these changes over decadal timescales highlights the importance of continued monitoring of benthic invertebrates to a high taxonomic resolution across the entire estuarine salinity gradient, as the community interacts with both various abiotic conditions as well as key parts of the estuarine food web.
+
+------------------------------------------------------------------------
+
+### References {.unlisted .unnumbered}
+Fields W, Messer C. 1999. Life on the bottom: Trends in species composition of the IEP-DWR Benthic Monitoring Program. IEP Newsletter 12(4): 38-41.
+
+Carlton, J. T. 2007. The Light and Smith manual: Intertidal Invertebrates from central California to Oregon, 4th edition. Berkeley, CA, University of California Press.
+
+Feyrer, F., B. Herbold, S. A. Matern and P. B. Moyle. 2003. Dietary shifts in a stressed fish assemblage: consequences of a bivalve invasion in the San Francisco Estuary. Environmental Biology of Fishes 67(3): 277-288.

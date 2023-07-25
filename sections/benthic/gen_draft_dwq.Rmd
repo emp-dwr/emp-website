@@ -1,4 +1,4 @@
-# Generate Draft DWQ Report
+# Generate Draft Benthic Report
 
 Code to generate draft versions of the D-WQ Annual Report and related website sections.
 
@@ -15,11 +15,11 @@ Right-click and select "view in web browser" to see.
 Edit these variables as you choose.
 
 ```{r message = FALSE, warning = FALSE}
-# Do you want to generate new plots?
-generate_new_plots <- TRUE # TRUE/FALSE
+# Do you want to generate a new Excel sheet?
+generate_new_excel <- TRUE # TRUE/FALSE
 
-# Do you want auto-generated text to be red in the draft report?
-autogen_color <- TRUE # TRUE/FALSE
+# Do you want to generate new plots sheet?
+generate_new_plots <- TRUE # TRUE/FALSE
 ```
 
 ------------------------------------------------------------------------
@@ -27,7 +27,7 @@ autogen_color <- TRUE # TRUE/FALSE
 # Code Starts Here ([**DO NOT TOUCH**]{.underline})
 
 ```{r results = 'hide', message = FALSE, warning = FALSE}
-file_sources <- list.files(path = c('admin/setup_scripts/00_global_scripts','admin/setup_scripts/01_dwq_scripts'), pattern = '.R$', full.names=TRUE, recursive = TRUE)
+file_sources <- list.files(path = c('admin/setup_scripts/00_global_scripts','admin/setup_scripts/01_benthic_scripts'), pattern = '.R$', full.names=TRUE, recursive = TRUE)
 sapply(file_sources, source, .GlobalEnv)
 
 if(generate_new_plots){
