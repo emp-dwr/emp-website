@@ -1,6 +1,6 @@
-# Generate Draft Benthic Report
+# Generate Draft Phyto Report
 
-Code to generate draft versions of the Benthic Annual Report and related website sections.
+Code to generate draft versions of the Phytoplankton Annual Report and related website sections.
 
 Press "run" once you've looked over the "Relevant Variables" section to generate draft report.
 
@@ -17,6 +17,9 @@ Edit these variables as you choose.
 ```{r message = FALSE, warning = FALSE}
 # Do you want to generate a new Excel sheet and/or plots?
 generate_new_excel <- TRUE # TRUE/FALSE
+
+# Do you want auto-generated text to be red in the draft report?
+autogen_color <- TRUE # TRUE/FALSE
 ```
 
 ------------------------------------------------------------------------
@@ -24,17 +27,13 @@ generate_new_excel <- TRUE # TRUE/FALSE
 # Code Starts Here ([**DO NOT TOUCH**]{.underline})
 
 ```{r results = 'hide', message = FALSE, warning = FALSE}
-file_sources <- list.files(path = c('admin/setup_scripts/00_global_scripts','admin/setup_scripts/01_benthic_scripts'), pattern = '.R$', full.names=TRUE, recursive = TRUE)
+file_sources <- list.files(path = c('admin/setup_scripts/00_global_scripts','admin/setup_scripts/01_phyto_scripts'), pattern = '.R$', full.names=TRUE, recursive = TRUE)
 sapply(file_sources, source, .GlobalEnv)
-
-if(generate_new_excel){
-  func_benthic_excel()
-}
 
 bookdown::render_book(
   input = 'admin/config-yaml.Rmd',
-  output_dir = './sections/benthic/draft-website-files',
-  config_file = 'admin/individ-config-files/_benthic-bookdown.yml',
+  output_dir = './sections/phyto/draft-website-files',
+  config_file = 'admin/individ-config-files/_phyto-bookdown.yml',
   output_format = 'bookdown::gitbook'
 )
 ```

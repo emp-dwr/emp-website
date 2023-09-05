@@ -8,7 +8,26 @@
 report_year <- as.character(as.integer(format(Sys.Date(), '%Y'))-1)
 prev_year <- as.character(as.integer(format(Sys.Date(), '%Y'))-2)
 
-# file organization -------------------------------------------------------
+
+# basic functions ---------------------------------------------------------
+
+#' Subset by Year
+#' 
+#' Subset df by given year
+#' 
+#' @param df the relevant df
+#' @param year the relevant year (as string)
+#' 
+subset_year <- function(df, year){
+  date_col <- colnames(df)[stringr::str_detect(colnames(df), 'Date')]
+
+  df <- df %>%
+    dplyr::filter(lubridate::year(get(date_col)) == year)
+  
+  return(df)
+}
+
+# file organization functions -------------------------------------------------------
 
 #' Data export path
 #'

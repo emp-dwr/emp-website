@@ -50,7 +50,10 @@ assign_units <- function(nutrient){
 #'
 #' @details this is a helper function for 'func_stats_report'
 #'
-func_stats <- function(df, nutrient, stat){
+func_stats <- function(df, nutrient, year, stat){
+  # subset report year
+  df <- subset_year(df, year)
+  
   if (stat == 'min'){
     df_output <- df %>% dplyr::filter(!!rlang::sym(nutrient) == min(df[nutrient], na.rm = TRUE))
   } else if (stat == 'max'){
@@ -69,7 +72,10 @@ func_stats <- function(df, nutrient, stat){
 #'
 #' @details this is a helper function for 'func_stats_report'
 #'
-func_output <- function(df, nutrient, output){
+func_output <- function(df, nutrient, year, output){
+  # subset report year
+  df <- subset_year(df, year)
+  
   # needed variables
   col_sign <- paste0(nutrient,'_Sign')  
   

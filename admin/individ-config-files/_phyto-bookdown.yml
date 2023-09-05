@@ -10,8 +10,8 @@ rmd_files: [
   # Config
   'admin/config-yaml.Rmd',
 
-  # D-WQ
-  'sections/d-wq/Rmd-files/00-dwq-info.Rmd'
-  'sections/d-wq/Rmd-files/00-dwq-report.Rmd'
+  # Phyto
+  'sections/phyto/Rmd-files/00-phyto-info.Rmd',
+  'sections/phyto/Rmd-files/00-phyto-report.Rmd'
 ]
 ---

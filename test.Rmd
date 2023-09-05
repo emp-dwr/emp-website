@@ -1,0 +1,10 @@
+```{r echo = FALSE, results = 'hide', message = FALSE, warning = FALSE}
+# file_sources <- list.files(path = c('admin/setup_scripts/00_global_scripts','admin/setup_scripts/01_phyto_scripts'), pattern = '.R$', full.names=TRUE, recursive = TRUE)
+# sapply(file_sources, source, .GlobalEnv)
+```
+
+```{r}
+chlapheo_stats(df_wq_raw, 'Chla', report_year, 'max')
+```
+
+ 
