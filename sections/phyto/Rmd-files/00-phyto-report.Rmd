@@ -20,7 +20,7 @@ kable_tables <- function(data, caption) {
 
 ### Introduction
 
-The Department of Water Resources (DWR) and the US Bureau of Reclamation (USBR) are required by Water Right Decision 1641 (D-1641) to collect phytoplankton and chlorophyll a samples to monitor algal community composition and biomass at select sites in the upper San Francisco Estuary (Estuary). The twenty-four sites range from San Pablo Bay to the inland rivers of the Sacramento-San Joaquin Delta ("the Delta"). These sites represent a variety of aquatic habitats, from narrow, freshwater channels to broad, estuarine bays. This report describes the results of these monitoring efforts for calendar year `r report_year`.
+The Department of Water Resources (DWR) and the US Bureau of Reclamation (USBR) are required by Water Right Decision 1641 (D-1641) to collect phytoplankton and chlorophyll a samples to monitor algal community composition and biomass at select sites in the upper San Francisco Estuary (Estuary). The twenty-four sites range from San Pablo Bay to the inland rivers of the Sacramento-San Joaquin Delta ("the Delta"). These sites represent a variety of aquatic habitats, from narrow, freshwater channels to broad, estuarine bays. This report describes the results of these monitoring efforts for calendar year `r report_year_txt`.
 
 Phytoplankton are small, free-floating organisms that occur as unicellular, colonial, or filamentous forms (Horne and Goldman, 1994). Phytoplankton are a key component of the Estuary's food web, serving as food for zooplankton, invertebrates, and certain fish species. Their metabolic processes also impact water chemistry, and their ability to fix carbon through photosynthesis is one of the key processes influencing water quality in the Estuary. Via this process, phytoplankton can affect the pH, dissolved oxygen, color, taste, and odor of natural waters.
 
@@ -119,138 +119,89 @@ alg_per_txt()
 
 <!-- prints algal group graphs -->
 
-```{r echo = FALSE, fig.show = 'hold', out.width='90%'}
-plot(algal_plts('main')) 
-plot(algal_plts('other'))
+```{r echo = FALSE, fig.show = 'hold', out.width='80%', fig.align='center'}
+algal_plts()
 ```
 
 #### Pigment Concentrations
 
 Some stations showed seasonal patterns in chlorophyll a concentration, while others did not. Most maxima occurred in spring and summer, while minima occurred in fall or winter. Monthly chlorophyll a concentrations throughout much of the estuary were low relative to historic levels. `r chla_txt()`
 
-`r stat_txt('Chla')`
+`r stat_txt('Chla', 'none')`
 
-`r stat_txt('Pheophytin')`
+`r stat_txt('Pheophytin', 'none')`
 
 #### Northern Interior Delta
 
-Chlorophyll a average concentrations were higher in early spring and lower the rest of the year (Figure 3). The highest concentration was recorded at r max_stat in April (r max_value µg/L) and the lowest was recorded at r min_stat in November (r min_value µg/L). The median values was r median_value μg/L, respectively. There were r below_limit samples below the detection limit.
+Chlorophyll a average concentrations were higher in early spring and lower the rest of the year (Figure 3). `r stat_txt('Chla', 'Northern Interior Delta')`
 
-<!-- Pheophytin a average concentrations were low throughout the year (below 1.5 µg/L); values were generally lower than chlorophyll a (Figure 3). The maximum (2.12 µg/L) was recorded at NZ068 in December and the minimum (0.56 µg/L) was recorded at C3A in November. There were seven samples below the detection limit, occurring at both stations in the region throughout the year. The median value was 1.09 µg/L and 0.93. -->
+Pheophytin a average concentrations were low throughout the year (below 1.5 µg/L); values were generally lower than chlorophyll a (Figure 3). `r stat_txt('Pheophytin', 'Northern Interior Delta')`
 
-<!-- Phytoplankton average densities were highest in spring and summer, with cyanobacteria dominating throughout the year (Figure 4; "other" are euglenoids, haptophytes, and synurophytes). There was a peak of cryptophytes in March, with smaller peaks occurring again in July and August. There was a small peak of diatoms in November. -->
+Phytoplankton average densities were highest in spring and summer, with cyanobacteria dominating throughout the year (Figure 4; `r other_taxa('Northern Interior Delta')`). There was a peak of cryptophytes in March, with smaller peaks occurring again in July and August. There was a small peak of diatoms in November.
 
-<!-- ```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average chlorophyll a and pheophytin a concentrations in the Northern Interior Delta',  fig.align='center'} -->
+```{r echo=FALSE, message=FALSE, results='hide', fig.show='hold', out.width='70%', fig.align='center'}
+region_plts('Southern Interior Delta')
+```
 
-<!-- knitr::include_graphics(file.path('sections/phyto/figures/NID_chla_pheo.png')) -->
+#### Southern Interior Delta
 
-<!-- ``` -->
+Chlorophyll a average concentrations were highest in spring and summer (Figure 5). `r stat_txt('Chla', 'Southern Interior Delta')`
 
-<!-- ```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average organism density in the Northern Interior Delta',  fig.align='center'} -->
+Pheophytin a average concentrations were fairly constant throughout the year, with slight spikes in the summer months (Figure 5). `r stat_txt('Chla', 'Southern Interior Delta')`
 
-<!-- knitr::include_graphics(file.path('sections/phyto/figures/NID_phyto.png')) -->
+Phytoplankton average densities were highest in the spring and summer with the highest concentrations occurring in April and August (Figure 6; `r other_taxa('Southern Interior Delta')`. Cyanobacteria dominated throughout the year; there was a peak of diatoms in April, and small peaks of cryptophytes in March and May.
 
-<!-- ``` -->
+```{r echo=FALSE, message=FALSE, results='hide', fig.show='hold', out.width='70%', fig.align='center'}
+region_plts('Southern Interior Delta')
+```
 
-<!-- #### Southern Interior Delta -->
+#### Central Delta
 
-<!-- Chlorophyll a average concentrations were highest in spring and summer (Figure 5). The maximum was recorded at C10A in March (25.51 µg/L), which also was the maximum for the year; the minimum was at MD10A in November (0.68 µg/L). The mean and median were 3.48 µg/L and 1.98 µg/L, respectively. There was one sample below the detection limit at C9 in December. -->
+Chlorophyll a average concentrations were low all year except for a large peak in August, which was the maximum for the year (Figure 7). `r stat_txt('Chla', 'Central Delta')`
 
-<!-- Pheophytin a average concentrations were fairly constant throughout the year, with slight spikes in the summer months (Figure 5). The maximum pheophytin a value was recorded at C9 in July (3.47 µg/L); the minimum occurred at P8 in October and C10A in August (0.57 µg/L). The mean and median values were 1.33 µg/L and 1.15 µg/L, respectively. Two samples in March and June at P8 were below the detection limit. -->
+Pheophytin a average concentrations were similar in pattern to chlorophyll a; values were low all year except in August (Figure 7). `r stat_txt('Pheophytin', 'Central Delta')`
 
-<!-- Phytoplankton average densities were highest in the spring and summer with the highest concentrations occurring in April and August (Figure 6; "other" are euglenoids, synurophytes, and haptophytes). Cyanobacteria dominated throughout the year; there was a peak of diatoms in April, and small peaks of cryptophytes in March and May. -->
+With the exception of cyanobacteria, phytoplankton average densities were low all year except for a peak of diatoms in November (Figure 8; `r other_taxa('Central Delta')`).
 
-<!-- ```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average chlorophyll a and pheophytin a concentrations in the Southern Interior Delta',  fig.align='center'} -->
+```{r echo=FALSE, message=FALSE, results='hide', fig.show='hold', out.width='70%', fig.align='center'}
+region_plts('Southern Interior Delta')
+```
 
-<!-- knitr::include_graphics(file.path('sections/phyto/figures/SID_chla_pheo.png')) -->
+#### Confluence
 
-<!-- ``` -->
+Chlorophyll a average concentrations were highest during early spring and mid-summer (Figure 9). `r stat_txt('Chla', 'Confluence')`
 
-<!-- ```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average organism density in the Southern Interior Delta; other are euglenoids, haptophytes, and synurophytes',  fig.align='center'} -->
+Pheophytin a average concentrations were relatively consistent throughout the year and lower than chlorophyll a concentrations except for the last three months of the year (Figure 9). `r stat_txt('Pheophytin', 'Confluence')`
 
-<!-- knitr::include_graphics(file.path('sections/phyto/figures/SID_phyto.png')) -->
+Phytoplankton average densities were higher in spring; cyanobacteria were the most dominant, and a large peak of cryptophytes occurred in March (Figure x; `r other_taxa('Confluence')`). There were large peaks of diatoms in April and December.
 
-<!-- ``` -->
+```{r echo=FALSE, message=FALSE, results='hide', fig.show='hold', out.width='70%', fig.align='center'}
+region_plts('Southern Interior Delta')
+```
 
-<!-- #### Central Delta -->
+#### Grizzly Bay and Suisun Bay
 
-<!-- Chlorophyll a average concentrations were low all year except for a large peak in August, which was the maximum for the year (Figure 7). The highest chlorophyll a concentration occurred at D28A in August (15.50 µg/L); the minimum occurred at the same station in November (0.72 µg/L). The mean and median values were 3.54 µg/L and 2.21 µg/L, respectively. There were three samples below the detection limit, all occurring in fall or winter, at D16, D26, and D28A. -->
+Chlorophyll a average concentrations in this region were highest in spring and summer, dropping sharply after August (Figure 11). `r stat_txt('Chla', 'Suisun & Grizzly Bays')`
 
-<!-- Pheophytin a average concentrations were similar in pattern to chlorophyll a; values were low all year except in August (Figure 7), when the highest concentration in the region was recorded (4.72 µg/L, station D28A). The minimum occurred at D19 in May (0.52 µg/L). The mean and median values were 1.39 µg/L and 1.18 µg/L, respectively. There was one sample below the detection limit at D16 in May. -->
+Pheophytin a average concentrations were relatively consistent throughout the year except for a peak in April, which was the maximum for the year (Figure 11). `r stat_txt('Pheophytin', 'Suisun & Grizzly Bays')`
 
-<!-- With the exception of cyanobacteria, phytoplankton average densities were low all year except for a peak of diatoms in November (Figure 8; "other" are euglenoids, haptophytes, and synurophytes). -->
+Phytoplankton average densities were highest in spring, with cyanobacteria dominating again (Figure 12; `r other_taxa('Suisun & Grizzly Bays')`). There were peaks of cryptophytes and green algae in March, followed by a diatom peak in April.
 
-<!-- ```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average chlorophyll a and pheophytin a concentrations in the Central Delta',  fig.align='center'} -->
+```{r echo=FALSE, message=FALSE, results='hide', fig.show='hold', out.width='70%', fig.align='center'}
+region_plts('Southern Interior Delta')
+```
 
-<!-- knitr::include_graphics(file.path('sections/phyto/figures/CED_chla_pheo.png')) -->
+#### San Pablo Bay
 
-<!-- ``` -->
+Chlorophyll a average concentrations were highest in spring and summer (Figure 13). `r stat_txt('Chla', 'San Pablo Bay')`
 
-<!-- ```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average organism density in the Central Delta; other are euglenoids, haptophytes, and synurophytes',  fig.align='center'} -->
+Pheophytin a average concentrations were highest in July and December; values were low the rest of the year (Figure 13). `r stat_txt('Pheophytin', 'San Pablo Bay')`
 
-<!-- knitr::include_graphics(file.path('sections/phyto/figures/CED_phyto.png')) -->
+There were peaks of cyanobacteria throughout the year; cryptophyte peaks occurred in March and May, followed by diatom peaks in June and July (Figure 14; `r other_taxa('San Pablo Bay')`).
 
-<!-- ``` -->
-
-<!-- #### Confluence -->
-
-<!-- Chlorophyll a average concentrations were highest during early spring and mid-summer (Figure 9). The highest concentration occurred at D22 in April (12.07 µg/L); the minimum was recorded at D4 in October (0.53 µg/L). The mean and median values were 3.07 µg/L and 2.27 µg/L, respectively. There were no samples below the detection limit. -->
-
-<!-- Pheophytin a average concentrations were relatively consistent throughout the year and lower than chlorophyll a concentrations except for the last three months of the year (Figure 9). The maximum concentration was recorded at D10 in December (3.08 µg/L) and the minimum at D4 in June (0.57 µg/L) (Figure 9). The mean and median for this region were 1.58 µg/L and 1.26 µg/L, respectively. There was one sample below the detection limit at D10 in June. -->
-
-<!-- Phytoplankton average densities were higher in spring; cyanobacteria were the most dominant, and a large peak of cryptophytes occurred in March (Figure 10; "other" are euglenoids, haptophytes, and synurophytes). There were large peaks of diatoms in April and December. -->
-
-<!-- ```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average chlorophyll a and pheophytin a concentrations in the Confluence',  fig.align='center'} -->
-
-<!-- knitr::include_graphics(file.path('sections/phyto/figures/CON_chla_pheo.png')) -->
-
-<!-- ``` -->
-
-<!-- ```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average organism density in the Confluence; other are euglenoids, haptophytes, and synurophytes',  fig.align='center'} -->
-
-<!-- knitr::include_graphics(file.path('sections/phyto/figures/CON_phyto.png')) -->
-
-<!-- ``` -->
-
-<!-- #### Grizzly Bay and Suisun Bay -->
-
-<!-- Chlorophyll a average concentrations in this region were highest in spring and summer, dropping sharply after August (Figure 11). The maximum was recorded at NZS42 in April (16.85 µg/L); the minimum was recorded at D8 in December (0.96 µg/L). The mean and median were 4.08 µg/L and 3.25 µg/L, respectively. There was one sample below the detection limit at NZ032 in December. -->
-
-<!-- Pheophytin a average concentrations were relatively consistent throughout the year except for a peak in April, which was the maximum for the year (Figure 11). The maximum concentration was recorded at NZ032 in April (11.08 µg/L) and the minimum at D8 in March (0.51 µg/L). The mean and median were 1.87 µg/L and 1.32 µg/L, respectively. There were four samples below the detection limit: in March at D7 and NZ032 and in June at D8 and NZ032. -->
-
-<!-- Phytoplankton average densities were highest in spring, with cyanobacteria dominating again (Figure 12; "other" are euglenoids, haptophytes, and synurophytes). There were peaks of cryptophytes and green algae in March, followed by a diatom peak in April. -->
-
-<!-- ```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average chlorophyll a and pheophytin a concentrations in the Grizzly/Suisun Bays',  fig.align='center'} -->
-
-<!-- knitr::include_graphics(file.path('sections/phyto/figures/GSB_chla_pheo.png')) -->
-
-<!-- ``` -->
-
-<!-- ```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average organism density in the Grizzly/Suisun Bays; other are euglenoids, haptophytes, and synurophytes',  fig.align='center'} -->
-
-<!-- knitr::include_graphics(file.path('sections/phyto/figures/GSB_phyto.png')) -->
-
-<!-- ``` -->
-
-<!-- #### San Pablo Bay -->
-
-<!-- Chlorophyll a average concentrations were highest in spring and summer (Figure 13). The maximum was recorded at D41A in June (13.00 µg/L); the minimum concentration was recorded at D41 in December (0.73 µg/L). The mean and median were 3.30 µg/L and 2.97 µg/L, respectively. There was one sample below the detection limit at NZ004 in September. -->
-
-<!-- Pheophytin a average concentrations were highest in July and December; values were low the rest of the year (Figure 13). The maximum was recorded at D41A in July (7.59 µg/L) and the minimum at D41 in September, which was the lowest value for the year and also the detection limit (0.50 µg/L). The mean and median were 1.44 µg/L and 0.98 µg/L, respectively. This region had the most samples below the detection limit at 19 total; all of the March samples were below the detection limit, with the remaining non-detects occurring in multiple months at multiple stations. -->
-
-<!-- There were peaks of cyanobacteria throughout the year; cryptophyte peaks occurred in March and May, followed by diatom peaks in June and July (Figure 14; "other" are euglenoids, haptophytes, and synurophytes). -->
-
-<!-- ```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average chlorophyll a and pheophytin a concentrations in the San Pablo Bay',  fig.align='center'} -->
-
-<!-- knitr::include_graphics(file.path('sections/phyto/figures/SPB_chla_pheo.png')) -->
-
-<!-- ``` -->
-
-<!-- ```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.cap='Average organism density in the San Pablo Bay; other are euglenoids, haptophytes, and synurophytes',  fig.align='center'} -->
-
-<!-- knitr::include_graphics(file.path('sections/phyto/figures/SPB_phyto.png')) -->
-
-<!-- ``` -->
+```{r echo=FALSE, message=FALSE, results='hide', fig.show='hold', out.width='70%', fig.align='center'}
+region_plts('Southern Interior Delta')
+```
 
 ------------------------------------------------------------------------
 

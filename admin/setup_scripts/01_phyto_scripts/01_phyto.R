@@ -6,14 +6,13 @@ df_phyto_raw$AlgalGroup[df_phyto_raw$AlgalGroup == 'Green Alga'] <- 'Green Algae
 df_phyto_raw$AlgalGroup[df_phyto_raw$AlgalGroup == 'Raphidophyte'] <- 'Raphidophytes'
 df_phyto_raw$AlgalGroup[df_phyto_raw$AlgalGroup == 'Cryptophyte'] <- 'Cryptophytes'
 
-df_phyto_year <- subset_year(df_phyto_raw, report_year)
 
 # download data from EDI (assumption is all data will be downloaded for all; not great, but for now)
 # Note: need d-wq data for chla and pheophytin
 df_wq_raw <- get_edi_file(458, glue::glue('EMP_DWQ_1975_{report_year}'))
 df_wq_raw <- df_wq_raw[[1]]
 
-df_wq_year <- subset_year(df_wq_raw, report_year)
+df_wq_raw$Chla[df_wq_raw$Chla > 50] <- NA
 
 
 # clean data functions ----------------------------------------------------
@@ -53,8 +52,10 @@ assign_regions <- function(df){
 # clean data --------------------------------------------------------------
 
 df_phyto <- assign_regions(df_phyto_raw)
-df_wq <- assign_regions(df_wq_raw)
+df_phyto_year <- subset_year(df_phyto, report_year)
 
+df_wq <- assign_regions(df_wq_raw)
+df_wq_year <- subset_year(df_wq, report_year)
 
 # basic info --------------------------------------------------------------
 
@@ -126,31 +127,65 @@ sample_number <- function(df) {
 # Plots ------------------------------------------------------
 #' Create Main Algal Group df
 #' TODO: later
+#' clean this up, omg
 #' 
-alg_dfs <- function(df, type){
+alg_dfs <- function(df, type, region){
+  if (region != 'none'){
+    df <- df %>%
+      dplyr::filter(Region == region) %>%
+      dplyr::mutate(Month = factor(months(SampleDate), levels = month.name, labels = month.abb))
+    
+    group_var <- dplyr::quos(AlgalGroup, Region)
+  } else {
+    group_var <- dplyr::quos(AlgalGroup)
+  }
+  
+  df_defineother <- df %>%
+    dplyr::mutate(AlgalGroup =
+                    dplyr::case_when(grepl('Diatoms', AlgalGroup) ~ 'Diatoms',
+                                     TRUE ~ AlgalGroup)) %>%
+    dplyr::group_by(AlgalGroup) %>%
+    dplyr::summarise(
+      tot = nrow(.),
+      count = dplyr::n(),
+      per = 100 * (dplyr::n() / nrow(.)),
+      Units_per_mL = sum(Units_per_mL),
+    ) %>%
+    dplyr::distinct() %>%
+    dplyr::mutate(OtherAlgalGroup = dplyr::case_when(per < 5 ~ 'Other',
+                                                     TRUE ~ AlgalGroup))
+  
+  taxa_other <- df_defineother$AlgalGroup[df_defineother$OtherAlgalGroup == 'Other']
+  
+  if (region != 'none'){
+    group_var <- dplyr::quos(AlgalGroup, Region, Month)
+  }
+  
   df_comp <- df %>%
     dplyr::mutate(
       AlgalGroup =
         dplyr::case_when(grepl('Diatoms', AlgalGroup) ~ 'Diatoms',
                          TRUE ~ AlgalGroup)
     ) %>%
-    dplyr::group_by(AlgalGroup) %>%
+    dplyr::group_by(!!!group_var) %>%
     dplyr::summarise(tot = nrow(.),
                      count = dplyr::n(),
-                     per = 100*(dplyr::n() / nrow(.))) %>%
+                     per = 100*(dplyr::n() / nrow(.)),
+                     Units_per_mL = sum(Units_per_mL)) %>%
     dplyr::distinct()
   
   if(type == 'raw'){
     df_return <- df_comp
-  
+    
   } else if (type == 'main'){
     df_comp_main <- df_comp %>%
       dplyr::mutate(
-        AlgalGroup = dplyr::case_when(per < 5 ~ 'Other',
+        AlgalGroup = dplyr::case_when(AlgalGroup %in% taxa_other ~ 'Other',
                                       TRUE ~ AlgalGroup)
       ) %>%
-      dplyr::group_by(AlgalGroup) %>%
-      dplyr::summarise(per = sum(per)) %>%
+      dplyr::group_by(!!!group_var) %>%
+      dplyr::summarise(per = sum(per),
+                       Units_per_mL = sum(Units_per_mL)) %>%
       dplyr::distinct()
     
     df_return <- df_comp_main
@@ -160,10 +195,11 @@ alg_dfs <- function(df, type){
     
     df_comp_sub <- df %>%
       dplyr::filter(AlgalGroup %in% few_taxa) %>%
-      dplyr::group_by(AlgalGroup) %>%
+      dplyr::group_by(!!!group_var) %>%
       dplyr::summarise(tot = nrow(.),
                        count = dplyr::n(),
-                       per_other = 100*(dplyr::n() / nrow(.))) %>%
+                       per_other = 100*(dplyr::n() / nrow(.)),
+                       Units_per_mL = sum(Units_per_mL)) %>%
       dplyr::distinct() %>%
       dplyr::left_join(., df_comp, by = c('AlgalGroup','count'))
     
@@ -177,9 +213,9 @@ alg_dfs <- function(df, type){
 #' Create Algal Plots
 #' TODO: fill in later
 #' 
-algal_plts <- function(type){
+algal_tree_plts <- function(type){
   if (type == 'main'){
-    df_comp_main <- alg_dfs(df_phyto_year, 'main')
+    df_comp_main <- alg_dfs(df_phyto_year, 'main', 'none')
     
     p <- ggplot2::ggplot(df_comp_main, ggplot2::aes(area = per, fill = AlgalGroup, label = paste0(AlgalGroup,'\n',round(per,1),'%'), subgroup = AlgalGroup))+
       treemapify::geom_treemap(layout = 'squarified') +
@@ -190,7 +226,7 @@ algal_plts <- function(type){
       ggplot2::theme(legend.position = 'none', plot.title = ggplot2::element_text(face = 'bold', size = 16, hjust = 0.5))
     
   } else if (type == 'other'){
-    df_comp_sub <- alg_dfs(df_phyto_year, 'other')
+    df_comp_sub <- alg_dfs(df_phyto_year, 'other', 'none')
     
     p <- ggplot2::ggplot(df_comp_sub, ggplot2::aes(area = per_other, fill = AlgalGroup, label = paste0(AlgalGroup,'\n',round(per,2),'%'), subgroup = AlgalGroup))+
       treemapify::geom_treemap(layout = 'squarified') +
@@ -204,3 +240,104 @@ algal_plts <- function(type){
 return(p)
 }
 
+#' WQ Avg Plot
+#' TODO: later
+#' 
+
+plt_wq_avg <- function(region){
+  df <- df_wq_year %>%
+    dplyr::filter(Region == region) %>%
+    dplyr::mutate(Month = factor(months(Date), levels = month.name, labels = month.abb)) %>%
+    dplyr::select(c(Month, Station, Region, Chla_Sign, Chla, Pheophytin_Sign, Pheophytin)) %>%
+    dplyr::rename(Chla_Value = Chla,
+                  Pheophytin_Value = Pheophytin)
+  
+  df <- df %>%
+    tidyr::pivot_longer(
+      cols = Chla_Sign:Pheophytin_Value,
+      names_to = c('Analyte','.value'),
+      names_sep = '_'
+    )
+  
+  df <- df %>%
+    dplyr::group_by(Analyte, Region, Month) %>%
+    dplyr::mutate(
+      Sign = dplyr::case_when(Sign == '=' ~ TRUE,
+                              Sign == '<' ~ FALSE))
+  
+  df <- df %>%
+    dplyr::group_by(Analyte, Region, Month) %>%
+    dplyr::summarize(Value = median(Value),
+                     Min_Count = sum(Sign)/dplyr::n() >= 0.5,
+                     .groups = 'drop') %>%
+    dplyr::mutate(
+      Min_Count = dplyr::case_when(Min_Count == TRUE ~ 'yes',
+                                   Min_Count == FALSE ~'no')
+    )
+  
+  p <-
+    ggplot2::ggplot(
+      df,
+      ggplot2::aes(
+        Month,
+        Value,
+        fill = Analyte,
+        alpha = Min_Count,
+        linetype = Min_Count,
+        pattern = Min_Count
+      )
+    ) +
+    ggplot2::scale_fill_manual(values = c('Chla' = '#5ab4ac', 'Pheophytin' = '#d8b365')) +
+    ggpattern::geom_col_pattern(
+      color = '#000000',
+      pattern_fill = '#FFFFFF',
+      pattern_alpha = 0.5,
+      # pattern_spacing = 0.01,
+      position = 'dodge'
+    ) +
+    ggpattern::scale_pattern_manual(values = c('no' = 'crosshatch', 'yes' = 'none')) +
+    ggplot2::scale_linetype_manual(values = c('no' = 'longdash', 'yes' = 'solid')) +
+    ggplot2::scale_alpha_manual(values = c('no' = 0.4, 'yes' = 1)) +
+    ggplot2::theme_bw() +
+    ggplot2::theme(legend.position = 'none')
+  
+  return(p)
+}
+
+#' Org Density Plots
+#' TODO: later
+#' 
+
+plt_org_density <- function(region){
+  # create algal df and assign color palette
+  df <- alg_dfs(df_phyto_year, 'main', region)
+  df <- assign_colors(df, 'AlgalGroup', 'Set2')
+  
+  plts <- list()
+  # create the two plots; cyano is separate b/c it's a different scale
+  if('Cyanobacteria' %in% unique(df$AlgalGroup)){
+    p1 <- ggplot2::ggplot(df[df$AlgalGroup != 'Cyanobacteria',], ggplot2::aes(Month, Units_per_mL, fill = color))+
+      ggplot2::geom_col(position = 'dodge') +
+      ggplot2::theme_bw() +
+      ggplot2::theme(legend.position = 'none') +
+      ggplot2::scale_fill_identity()    
+    
+    plts[[1]] <- p1
+  }
+  p2 <- ggplot2::ggplot(df, ggplot2::aes(Month, Units_per_mL, fill = color))+
+    ggplot2::geom_col(position = 'dodge') +
+    ggplot2::theme_bw() +
+    ggplot2::theme(legend.position = 'none') +
+    ggplot2::scale_fill_identity()
+  
+  # index p2 in list based on if p1 exists
+  if(length(plts) == 1){
+    i <- 2
+  } else {
+    i <- 1
+  }
+  
+  plts[[i]] <- p2
+  
+  return(plts)
+}

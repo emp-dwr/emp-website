@@ -26,7 +26,7 @@ autogen_color <- TRUE # TRUE/FALSE
 
 # Code Starts Here ([**DO NOT TOUCH**]{.underline})
 
-```{r results = 'hide', message = FALSE, warning = FALSE}
+```{r echo=FALSE, results='hide', message=FALSE, warning=FALSE, fig.keep='none'}
 file_sources <- list.files(path = c('admin/setup_scripts/00_global_scripts','admin/setup_scripts/01_phyto_scripts'), pattern = '.R$', full.names=TRUE, recursive = TRUE)
 sapply(file_sources, source, .GlobalEnv)
 

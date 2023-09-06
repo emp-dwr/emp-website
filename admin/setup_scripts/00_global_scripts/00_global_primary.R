@@ -3,10 +3,40 @@
 `%!in%` <- function(x,y)!('%in%'(x,y))
 
 
+#' TODO: later
+#' 
+
+color_func <- function(txt_str){
+  color = ifelse(!!{autogen_color}, 'red', '#585858')
+  kableExtra::text_spec(txt_str, color = color)
+}
+
+#' TODO: later
+#' 
+
+assign_colors <- function(df, col, pal){
+  # create df for colors
+    # grab needed variables
+  uni_vals <- unique(df[[col]])
+  colors <- RColorBrewer::brewer.pal(length(uni_vals), pal)
+  
+    # create data frame
+  df_colors <- data.frame(color = colors)
+  df_colors[[col]] <- with(df_colors, uni_vals)
+  
+  # merge with original df
+  df_out <- dplyr::left_join(df, df_colors)  
+  
+  return(df_out)
+}
+
 # global variables --------------------------------------------------------
 
 report_year <- as.character(as.integer(format(Sys.Date(), '%Y'))-1)
+report_year_txt <- color_func(report_year)
+
 prev_year <- as.character(as.integer(format(Sys.Date(), '%Y'))-2)
+prev_year_txt <- color_func(prev_year)
 
 
 # basic functions ---------------------------------------------------------
@@ -62,35 +92,34 @@ abs_path_data <- function(fp_rel = NULL) {
 #'
 get_edi_file = function(pkg_id, fnames, verbose = TRUE){
   # get revision
-  revision_url = glue::glue("https://pasta.lternet.edu/package/eml/edi/{pkg_id}")
+  revision_url = glue::glue('https://pasta.lternet.edu/package/eml/edi/{pkg_id}')
   all_revisions = readLines(revision_url, warn = FALSE) 
   latest_revision = tail(all_revisions, 1)
   if (verbose) {
-    message("Latest revision: ", latest_revision)
+    message('Latest revision: ', latest_revision)
   }
   # get entities 
-  pkg_url = glue::glue("https://pasta.lternet.edu/package/data/eml/edi/{pkg_id}/{latest_revision}")
+  pkg_url = glue::glue('https://pasta.lternet.edu/package/data/eml/edi/{pkg_id}/{latest_revision}')
   all_entities = readLines(pkg_url, warn = FALSE)
-  name_urls = glue::glue("https://pasta.lternet.edu/package/name/eml/edi/{pkg_id}/{latest_revision}/{all_entities}")
+  name_urls = glue::glue('https://pasta.lternet.edu/package/name/eml/edi/{pkg_id}/{latest_revision}/{all_entities}')
   names(all_entities) = purrr::map_chr(name_urls, readLines, warn = FALSE)
   if (verbose) {
-    message("Package contains files:\n", 
-            stringr::str_c("    ", names(all_entities), sep = "", collapse = "\n"))
+    message('Package contains files:\n', 
+            stringr::str_c('    ', names(all_entities), sep = '', collapse = '\n'))
   }
   # select entities that match fnames
-  fname_regex = stringr::str_c(glue::glue("({fnames})"), collapse = "|")
+  fname_regex = stringr::str_c(glue::glue('({fnames})'), collapse = '|')
   included_entities = all_entities[stringr::str_detect(names(all_entities), fname_regex)]
   if(length(included_entities) != length(fnames)){
-    stop("Not all specified filenames are included in package")
+    stop('Not all specified filenames are included in package')
   }
   # download data
   if (verbose) {
-    message("Downloading files:\n",
-            stringr::str_c("    ", names(included_entities), sep = "", collapse = "\n"))
+    message('Downloading files:\n',
+            stringr::str_c('    ', names(included_entities), sep = '', collapse = '\n'))
   }
-  dfs = purrr::map(glue::glue("https://portal.edirepository.org/nis/dataviewer?packageid=edi.{pkg_id}.{latest_revision}&entityid={included_entities}"),
+  dfs = purrr::map(glue::glue('https://portal.edirepository.org/nis/dataviewer?packageid=edi.{pkg_id}.{latest_revision}&entityid={included_entities}'),
             readr::read_csv, guess_max = 1000000)
   names(dfs) = names(included_entities)
   dfs
 }
-

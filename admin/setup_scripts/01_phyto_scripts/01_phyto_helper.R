@@ -214,33 +214,37 @@ stats_stations <- function(stat){
 #' Chla Stats
 #' TODO: fill out so tired
 
-chlapheo_stats <- function(df, nutr, year, stat){
+chlapheo_stats <- function(df, nutr, year, stat, region){
   # subset year
   df <- subset_year(df, year)
-  
   df$Month <- lubridate::month(df$Date)
   nu_sign <- paste0(nutr,'_Sign')
+
+  if(region != 'none'){
+    df <- df %>% dplyr::filter(Region == region)
+  }
+
   if(stat == 'min'){
     df <- df %>% dplyr::filter(!!rlang::sym(nutr) == min(df[nutr], na.rm = TRUE))
-    } else if(stat == 'max'){
-      df <- df %>% dplyr::filter(!!rlang::sym(nutr) == max(df[nutr], na.rm = TRUE))
-      } else if(stat == 'median all'){
-        df <- df %>% dplyr::summarize(median = median(df[nutr][[1]], na.rm = TRUE))
-        df <- df[[1]]
-        } else if (stat == 'under rl'){
-          df <- df %>% dplyr::filter(!!rlang::sym(nu_sign) == '<')
-          }
+  } else if(stat == 'max'){
+    df <- df %>% dplyr::filter(!!rlang::sym(nutr) == max(df[nutr], na.rm = TRUE))
+  } else if(stat == 'median'){
+    df <- df %>% dplyr::summarize(median = median(df[nutr][[1]], na.rm = TRUE))
+    df <- round(df[[1]],2)
+  } else if (stat == 'under rl'){
+    df <- df %>% dplyr::filter(!!rlang::sym(nu_sign) == '<')
+  }
   
-  if(stat %!in% c('median all','under rl')){
+  if(stat %!in% c('median','under rl')){
     df <- df %>%
-    dplyr::group_by(Month) %>%
-    dplyr::reframe(Station = Station,
-                   cur_sign = !!rlang::sym(nu_sign),
-                   nutr = !!rlang::sym(nutr))
+      dplyr::group_by(Month) %>%
+      dplyr::reframe(Station = Station,
+                     cur_sign = !!rlang::sym(nu_sign),
+                     nutr = !!rlang::sym(nutr))
   }
   return(df)
 }
-
+  
 #' Chlapheo Output
 #' TODO: later
 #'
@@ -278,10 +282,10 @@ chlapheo_output <- function(df, nutr, year, output){
     
     # return string based on # of occurrences
     if (times == 1){
-      vari <- glue::glue('recorded at {station} in {month}.')
+      vari <- glue::glue('recorded at {station} in {month}')
 
     } else if ('<' %in% cur_sign){
-      vari <- glue::glue('(the reporting limit).')
+      vari <- glue::glue('the reporting limit')
 
     } else{
       vari <- NULL
@@ -295,11 +299,9 @@ chlapheo_output <- function(df, nutr, year, output){
 #' TODO: later
 #'
 
-stat_compare <- function(nutr, stat){
-  stat_cur <-
-    chlapheo_stats(df_wq_raw, nutr, report_year, stat)
-  stat_prev <-
-    chlapheo_stats(df_wq_raw, nutr, prev_year, stat)
+stat_compare <- function(df, nutr, stat, region){
+  stat_cur <- chlapheo_stats(df, nutr, report_year, stat, region)
+  stat_prev <- chlapheo_stats(df, nutr, prev_year, stat, region)
 
   if (typeof(stat_cur) == 'list'){
     stat_cur <- stat_cur$nutr[[1]]
@@ -311,7 +313,7 @@ stat_compare <- function(nutr, stat){
   if (stat_cur == stat_prev){
     out <- glue::glue('identical to {prev_year}')
   } else if (close_check) {
-    out <- glue::glue('near identical to {prev_year}')
+    out <- glue::glue('nearly identical to {prev_year}')
   } else if ((stat_cur > stat_prev) & (!close_check)) {
     out <- glue::glue('higher than in {prev_year}')
   } else if ((stat_cur < stat_prev) & (!close_check)) {
