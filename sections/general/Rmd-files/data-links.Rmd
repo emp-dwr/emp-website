@@ -1,23 +1,23 @@
 # Data Links {#data-links}
 
 ## Complete Datasets {.unlisted .unnumbered}
-[**Continuous Water Quality**](https://portal.edirepository.org/nis/mapbrowse?packageid=edi.1177.2)
+[**Continuous Water Quality**](`r get_edi_url(1177)`)
 
 Contact: Michelle Nelson (michelle.nelson@water.ca.gov)
 
-[**Discrete Water Quality**](https://portal.edirepository.org/nis/mapbrowse?scope=edi&identifier=458&revision=8)
+[**Discrete Water Quality**](`r get_edi_url(458)`)
 
 Contact: Sarah Perry (sarah.perry@water.ca.gov)
 
-[**Benthic Invertebrates**](https://portal.edirepository.org/nis/mapbrowse?scope=edi&identifier=1036&revision=3)
+[**Benthic Invertebrates**](`r get_edi_url(1036)`)
 
 Contact: Betsy Wells (elizabeth.wells@water.ca.gov)
 
-[**Phytoplankton**](https://portal.edirepository.org/nis/mapbrowse?scope=edi&identifier=1320&revision=4)
+[**Phytoplankton**](`r get_edi_url(1320)`)
 
 Contact: Tiffany Brown (tiffany.brown@water.ca.gov)
 
-[**Zooplankton**](https://portal.edirepository.org/nis/mapbrowse?scope=edi&identifier=522&revision=11)
+[**Zooplankton**](`r get_edi_url(522)`)
 
 Contact: Arthur Barros (arthur.barros@wildlife.ca.gov)
 
@@ -63,6 +63,6 @@ Contact: Arthur Barros (arthur.barros@wildlife.ca.gov)
 Contact: Andrew Tran (andrew.tran@water.ca.gov)
 
 ## Related Datasets {.unlisted .unnumbered}
-[**Integrated San Francisco Estuary Discrete Water Quality**](https://portal.edirepository.org/nis/mapbrowse?scope=edi&identifier=731)
+[**Integrated San Francisco Estuary Discrete Water Quality**](`r get_edi_url(731)`)
 
 Contact: Sam Bashevkin (sam.bashevkin@waterboards.ca.gov)

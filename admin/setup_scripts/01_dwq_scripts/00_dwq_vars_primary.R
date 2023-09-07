@@ -28,7 +28,7 @@ assign_regions <- function(df){
 #' @details TODO: TURN INTO CSV (so others can edit)
 #' 
 assign_units <- function(nutrient){
-  if (nutrient == 'SpCndBottom'){
+  if (nutrient == 'SpCndSurface'){
     unit <- '\U03BCS/cm'
   } else if (nutrient == 'TurbiditySurface_FNU'){
     unit <- 'FNU'
@@ -55,9 +55,9 @@ func_stats <- function(df, nutrient, year, stat){
   df <- subset_year(df, year)
   
   if (stat == 'min'){
-    df_output <- df %>% dplyr::filter(!!rlang::sym(nutrient) == min(df[nutrient], na.rm = TRUE))
+    df_output <- df %>% dplyr::filter(!!rlang::sym(nutrient) == min(df[[nutrient]], na.rm = TRUE))
   } else if (stat == 'max'){
-    df_output <- df %>% dplyr::filter(!!rlang::sym(nutrient) == max(df[nutrient], na.rm = TRUE))
+    df_output <- df %>% dplyr::filter(!!rlang::sym(nutrient) == max(df[[nutrient]], na.rm = TRUE))
   }
   return(df_output)
 }

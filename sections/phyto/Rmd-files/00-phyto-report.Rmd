@@ -140,7 +140,7 @@ Pheophytin a average concentrations were low throughout the year (below 1.5 µg/
 Phytoplankton average densities were highest in spring and summer, with cyanobacteria dominating throughout the year (Figure 4; `r other_taxa('Northern Interior Delta')`). There was a peak of cryptophytes in March, with smaller peaks occurring again in July and August. There was a small peak of diatoms in November.
 
 ```{r echo=FALSE, message=FALSE, results='hide', fig.show='hold', out.width='70%', fig.align='center'}
-region_plts('Southern Interior Delta')
+region_plts('Northern Interior Delta')
 ```
 
 #### Southern Interior Delta
@@ -164,7 +164,7 @@ Pheophytin a average concentrations were similar in pattern to chlorophyll a; va
 With the exception of cyanobacteria, phytoplankton average densities were low all year except for a peak of diatoms in November (Figure 8; `r other_taxa('Central Delta')`).
 
 ```{r echo=FALSE, message=FALSE, results='hide', fig.show='hold', out.width='70%', fig.align='center'}
-region_plts('Southern Interior Delta')
+region_plts('Central Delta')
 ```
 
 #### Confluence
@@ -176,7 +176,7 @@ Pheophytin a average concentrations were relatively consistent throughout the ye
 Phytoplankton average densities were higher in spring; cyanobacteria were the most dominant, and a large peak of cryptophytes occurred in March (Figure x; `r other_taxa('Confluence')`). There were large peaks of diatoms in April and December.
 
 ```{r echo=FALSE, message=FALSE, results='hide', fig.show='hold', out.width='70%', fig.align='center'}
-region_plts('Southern Interior Delta')
+region_plts('Confluence')
 ```
 
 #### Grizzly Bay and Suisun Bay
@@ -188,7 +188,7 @@ Pheophytin a average concentrations were relatively consistent throughout the ye
 Phytoplankton average densities were highest in spring, with cyanobacteria dominating again (Figure 12; `r other_taxa('Suisun & Grizzly Bays')`). There were peaks of cryptophytes and green algae in March, followed by a diatom peak in April.
 
 ```{r echo=FALSE, message=FALSE, results='hide', fig.show='hold', out.width='70%', fig.align='center'}
-region_plts('Southern Interior Delta')
+region_plts('Suisun & Grizzy Bays')
 ```
 
 #### San Pablo Bay
@@ -200,7 +200,7 @@ Pheophytin a average concentrations were highest in July and December; values we
 There were peaks of cyanobacteria throughout the year; cryptophyte peaks occurred in March and May, followed by diatom peaks in June and July (Figure 14; `r other_taxa('San Pablo Bay')`).
 
 ```{r echo=FALSE, message=FALSE, results='hide', fig.show='hold', out.width='70%', fig.align='center'}
-region_plts('Southern Interior Delta')
+region_plts('San Pablo Bay')
 ```
 
 ------------------------------------------------------------------------

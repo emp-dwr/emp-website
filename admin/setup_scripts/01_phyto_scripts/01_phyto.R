@@ -1,4 +1,4 @@
-# download data from EDI (assumption is all data will be downloaded for all; not great, but for now)
+# download phyto data from EDI (assumption is all data will be downloaded for all; not great, but for now)
 df_phyto_raw <- get_edi_file(1320, glue::glue('EMP_Phyto_Data_2008-{report_year}'))
 df_phyto_raw <- df_phyto_raw[[1]]
 
@@ -7,7 +7,7 @@ df_phyto_raw$AlgalGroup[df_phyto_raw$AlgalGroup == 'Raphidophyte'] <- 'Raphidoph
 df_phyto_raw$AlgalGroup[df_phyto_raw$AlgalGroup == 'Cryptophyte'] <- 'Cryptophytes'
 
 
-# download data from EDI (assumption is all data will be downloaded for all; not great, but for now)
+# download wq data from EDI (assumption is all data will be downloaded for all; not great, but for now)
 # Note: need d-wq data for chla and pheophytin
 df_wq_raw <- get_edi_file(458, glue::glue('EMP_DWQ_1975_{report_year}'))
 df_wq_raw <- df_wq_raw[[1]]

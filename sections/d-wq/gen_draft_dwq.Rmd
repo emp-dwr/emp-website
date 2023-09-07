@@ -16,7 +16,7 @@ Edit these variables as you choose.
 
 ```{r message = FALSE, warning = FALSE}
 # Do you want to generate new plots?
-generate_new_plots <- FALSE # TRUE/FALSE
+generate_new_plots <- TRUE # TRUE/FALSE
 
 # Do you want auto-generated text to be red in the draft report?
 autogen_color <- TRUE # TRUE/FALSE

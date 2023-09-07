@@ -405,34 +405,18 @@ df_ry_stat_phy <- df_report_month_stat %>%
 # remove extra col
 df_ry_stat_phy <- subset(df_ry_stat_phy, select = -c(SumTotal_MonthStat))
 
-# factor month col
+# factor cols
 df_ry_stat_phy$Month = factor(df_ry_stat_phy$Month, levels = month.name)
-
-# add color col
-df_ry_stat_phy <- df_ry_stat_phy %>%
-  dplyr::mutate(
-    Color =
-      dplyr::case_when(
-        Phylum == 'Mollusca' ~ '#8da0cb',
-        Phylum == 'Arthropoda' ~ '#fc8d62',
-        Phylum == 'Annelida' ~ '#66c2a5',
-        Phylum == 'Nematoda' ~ '#e78ac3',
-        Phylum == 'Phoronida' ~ '#a6d854',
-        Phylum == 'Cnidaria' ~ '#ffd92f',
-        Phylum == 'Chordata' ~ '#fb9a99',
-        Phylum == 'Nemertea' ~ '#d9d9d9',
-        Phylum == 'Platyhelminthes' ~ '#d9d9d9',
-        Phylum == 'Echinodermata' ~ '#bc80bd',
-        Phylum == 'Nematomorpha' ~ '#8dd3c7'
-      )
-  )
-
-# df_ry_stat_phy$Color <- as.factor(df_ry_stat_phy$Color)
 df_ry_stat_phy$Phylum <- as.factor(df_ry_stat_phy$Phylum)
 
 # arrange df
 df_ry_stat_phy <- df_ry_stat_phy %>%
   dplyr::arrange(StationCode, Month, desc(Percentage))
+
+# assign colors
+df_ry_stat_phy <- assign_colors(df_ry_stat_phy, 'Phylum')
+col_colors <- unique(df_ry_stat_phy$color)
+names(col_colors) <- unique(df_ry_stat_phy$Phylum)
 
 # create graphs
 i <- 2
@@ -463,10 +447,11 @@ for (station in unique(df_ry_stat_phy$StationCode)){
     dplyr::ungroup()
   
   # graph
-  bar <- ggplot2::ggplot(df_filt, ggplot2::aes(Month, CPUETotal_MonthStat, fill = factor(Color, levels = unique(Color)))) +
-    ggplot2::geom_col(color = 'black') +
-    ggplot2::scale_fill_identity(guide = 'legend', labels = rev(df_filt$Phylum), breaks = rev(df_filt$Color)) +
+  bar <- ggplot2::ggplot(df_filt, ggplot2::aes(Month, CPUETotal_MonthStat, label = Phylum, fill = Phylum)) +
+    ggplot2::geom_col(color = 'black', show.legend = TRUE) +
+    # ggplot2::scale_fill_identity(guide = 'legend', labels = rev(df_filt$Phylum), breaks = rev(df_filt$color)) +
     ggplot2::ylab(expression(bold('Individuals/m'^2))) +
+    ggplot2::scale_fill_manual(values = col_colors) +
     blank_theme() 
   
   ggplot2::ggsave(paste0(dir_ry_bar,'/Fig',i,'_',station,'.png'), plot = bar, width = 6, height = 3.5)
@@ -494,7 +479,7 @@ df_phy_stat_percs <- df_report_year_stat %>%
   dplyr::mutate(Percentage = round(OrgsTotal_YearStat/sum(OrgsTotal_YearStat)*100,2)) %>%
   dplyr::arrange(StationCode, desc(Percentage))
 
-df_ry_stat_phy <- subset(df_ry_stat_phy, select = -c(Color))
+df_ry_stat_phy <- subset(df_ry_stat_phy, select = -c(color))
 
 # Add Sheets and Save Workbook --------------------------------------------
 

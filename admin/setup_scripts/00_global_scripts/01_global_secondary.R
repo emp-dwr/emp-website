@@ -5,7 +5,7 @@
 #'
 #' @param year the year desired
 #'
-func_wy_pre <- function(year){
+func_wy <- function(year){
   wy_text <- 'https://cdec.water.ca.gov/reportapp/javareports?name=WSIHIST' %>%
     rvest::read_html() %>%
     rvest::html_element('pre') %>% rvest::html_text2()
@@ -14,20 +14,17 @@ func_wy_pre <- function(year){
   wy_abb <- stringr::str_match(wy_int, "[a-zA-Z]+")
   
   if(wy_abb == 'C'){
-    water_year <- 'Critical'
+    water_year <- 'critical'
     } else if(wy_abb == 'W'){
-      water_year <- 'Wet'
+      water_year <- 'wet'
       } else if(wy_abb == 'D'){
-        water_year <- 'Dry'
+        water_year <- 'dry'
         } else if(wy_abb == 'AN'){
-          water_year <- 'Above Normal'
+          water_year <- 'above normal'
           } else if (wy_abb == 'BN'){
-            water_year <- 'Below Normal'
+            water_year <- 'below normal'
           }
-  return(water_year)
-}
 
-func_wy <- function(year){
-  color = ifelse(autogen_color, 'red', '#585858')
-  kableExtra::text_spec(func_wy_pre(year), color = color)
+  water_year <- color_func(water_year)
+  return(water_year)
 }
