@@ -40,7 +40,7 @@ gen_list_txt <- function(){
   
   gen_group <- bio_groups(df_genus, 'groups', 'Genus')
   alg_group <- bio_groups(df_genus, 'groups', 'AlgalGroup')
-  comb_group <- paste0(gen_group,' (', alg_group, ')')
+  comb_group <- paste0(gen_group,' (', tolower(alg_group), ')')
   alg_list <- bullet_list(comb_group)
   
   output <- glue::glue('The 10 most common genera collected in {report_year} were, in order:<br />{alg_list}<br />')
@@ -240,15 +240,30 @@ algal_plts <- function(){
 }
 
 
-region_plts <- function(region){
+region_wq_plts <- function(region){
+  # create base graphs
   plt_wq <- plt_wq_avg(region)
-  
-  org_plts <- plt_org_density(region)
-  
-  p1 <- cowplot::plot_grid(plt_wq)
-  p2 <- cowplot::plot_grid(plotlist = org_plts, ncol = 2)
 
-  out_list <- list(p1, p2)
+  ggplot2::ggsave(glue::glue('admin/figures/phyto/{region}-WQ.png'), plot = plt_wq, width = 5, height = 4)
+}
+
+region_phyto_plts <- function(region){
+  # create base graphs
+  org_plts <- plt_org_density(region)
+  plt_leg <- org_plts[[3]]
+  org_plts <- org_plts[-length(org_plts)]
   
-  return(out_list)
+  # spruce up organisms plots
+  p_title <- glue::glue('{region} Monthly Averages (Phyto)')
+  
+  p_bot <- cowplot::plot_grid(plotlist = org_plts, label_y = 1, nrow = 1, ncol = 2)
+  p_bot <- gridExtra::grid.arrange(
+    gridExtra::arrangeGrob(
+      p_bot, plt_leg,
+      nrow = 2,
+      heights = c(1.1, 0.1),
+      top = grid::textGrob(p_title, gp = grid::gpar(fontsize = 14)),
+      left = grid::textGrob('Organisms per mL', rot = 90)))
+  
+  ggplot2::ggsave(glue::glue('admin/figures/phyto/{region}-Phyto.png'), plot = p_bot, width = 8, height = 4)
 }

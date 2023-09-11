@@ -9,7 +9,7 @@
 #' @param output the type of output string desired. choices are: min, max, etc.
 #'
 func_stats_report <- function(df, nutrient, stat, output, year = report_year){
-  df_vari <- func_stats(df, nutrient, year, stat)
+  df_vari <- func_sumstats(df, nutrient, year, stat)
   vari <- func_output(df_vari, nutrient, year, output)
   return(vari)
 }

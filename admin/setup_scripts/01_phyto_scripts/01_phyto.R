@@ -14,7 +14,6 @@ df_wq_raw <- df_wq_raw[[1]]
 
 df_wq_raw$Chla[df_wq_raw$Chla > 50] <- NA
 
-
 # clean data functions ----------------------------------------------------
 
 #' Assign regions to stations
@@ -276,30 +275,20 @@ plt_wq_avg <- function(region){
     )
   
   p <-
-    ggplot2::ggplot(
-      df,
-      ggplot2::aes(
-        Month,
-        Value,
-        fill = Analyte,
-        alpha = Min_Count,
-        linetype = Min_Count,
-        pattern = Min_Count
-      )
-    ) +
-    ggplot2::scale_fill_manual(values = c('Chla' = '#5ab4ac', 'Pheophytin' = '#d8b365')) +
-    ggpattern::geom_col_pattern(
-      color = '#000000',
-      pattern_fill = '#FFFFFF',
-      pattern_alpha = 0.5,
-      # pattern_spacing = 0.01,
-      position = 'dodge'
-    ) +
-    ggpattern::scale_pattern_manual(values = c('no' = 'crosshatch', 'yes' = 'none')) +
-    ggplot2::scale_linetype_manual(values = c('no' = 'longdash', 'yes' = 'solid')) +
-    ggplot2::scale_alpha_manual(values = c('no' = 0.4, 'yes' = 1)) +
+    ggplot2::ggplot(df, ggplot2::aes(Month, Value, fill = Analyte, alpha = Min_Count, linetype = Min_Count, pattern = Min_Count)) +
+    ggplot2::scale_fill_manual(values = c('Chla' = '#5ab4ac', 'Pheophytin' = '#d8b365'), labels = c(Chla = 'Chlorophyll', Pheophytin = 'Pheophytin')) +
+    ggpattern::geom_col_pattern(color = '#000000', pattern_fill = '#FFFFFF', pattern_alpha = 0.5, position = 'dodge') +
+    ggpattern::scale_pattern_manual(values = c('no' = 'crosshatch', 'yes' = 'none'), guide = 'none') +
+    ggplot2::scale_linetype_manual(values = c('no' = 'longdash', 'yes' = 'solid'), guide = 'none') +
+    ggplot2::scale_alpha_manual(values = c('no' = 0.4, 'yes' = 1), guide = 'none') +
     ggplot2::theme_bw() +
-    ggplot2::theme(legend.position = 'none')
+    ggplot2::guides(
+      fill = ggplot2::guide_legend(
+        title = ggplot2::element_blank(),
+        override.aes = list(pattern = c('none', 'none')))
+      ) +
+    ggplot2::labs(title = glue::glue('{region} Monthly Averages (WQ)'), y = '\U03BC/L', x = ggplot2::element_blank()) +
+    ggplot2::theme(legend.position = 'bottom', legend.margin = ggplot2::margin(-1,0,-1,0), plot.title = ggplot2::element_text(hjust = 0.5))
   
   return(p)
 }
@@ -311,24 +300,40 @@ plt_wq_avg <- function(region){
 plt_org_density <- function(region){
   # create algal df and assign color palette
   df <- alg_dfs(df_phyto_year, 'main', region)
+  df$AlgalGroup <- factor(df$AlgalGroup)
   df <- assign_colors(df, 'AlgalGroup', 'Set2')
+  col_colors <- unique(df$color)
+  names(col_colors) <- unique(df$AlgalGroup)
   
   plts <- list()
   # create the two plots; cyano is separate b/c it's a different scale
   if('Cyanobacteria' %in% unique(df$AlgalGroup)){
-    p1 <- ggplot2::ggplot(df[df$AlgalGroup != 'Cyanobacteria',], ggplot2::aes(Month, Units_per_mL, fill = color))+
-      ggplot2::geom_col(position = 'dodge') +
+    lvls <- stringr::str_remove(levels(df$AlgalGroup), 'Cyanobacteria')
+    df$AlgalGroup <- factor(df$AlgalGroup, levels = c(lvls,'Cyanobacteria'))
+    
+    p1 <- ggplot2::ggplot(df[df$AlgalGroup != 'Cyanobacteria',], ggplot2::aes(Month, Units_per_mL, fill = AlgalGroup))+
+      ggplot2::geom_col(position = 'dodge', color = 'black') +
       ggplot2::theme_bw() +
       ggplot2::theme(legend.position = 'none') +
-      ggplot2::scale_fill_identity()    
+      ggplot2::scale_fill_manual(values = col_colors) +
+      ggplot2::labs(x = ggplot2::element_blank(), y = ggplot2::element_blank())
     
     plts[[1]] <- p1
   }
-  p2 <- ggplot2::ggplot(df, ggplot2::aes(Month, Units_per_mL, fill = color))+
-    ggplot2::geom_col(position = 'dodge') +
+  
+  p2 <- ggplot2::ggplot(df, ggplot2::aes(Month, Units_per_mL, fill = AlgalGroup)) +
+    ggplot2::geom_col(position = 'dodge', color = 'black') +
     ggplot2::theme_bw() +
+    ggplot2::scale_fill_manual(values = col_colors) +
     ggplot2::theme(legend.position = 'none') +
-    ggplot2::scale_fill_identity()
+    ggplot2::labs(x = ggplot2::element_blank(), y = ggplot2::element_blank())
+  
+  p_leg <- ggplot2::ggplot(df, ggplot2::aes(Month, Units_per_mL, fill = AlgalGroup)) +
+    ggplot2::geom_col(position = 'dodge', color = 'black') +
+    ggplot2::theme_bw() +
+    ggplot2::scale_fill_manual(values = col_colors) +
+    ggplot2::labs(x = ggplot2::element_blank(), y = ggplot2::element_blank()) +
+    ggplot2::theme(legend.position='bottom', legend.title = ggplot2::element_blank())
   
   # index p2 in list based on if p1 exists
   if(length(plts) == 1){
@@ -338,6 +343,7 @@ plt_org_density <- function(region){
   }
   
   plts[[i]] <- p2
+  plts[[i+1]] <- gtable::gtable_filter(ggtern::ggplot_gtable(ggtern::ggplot_build(p_leg)), 'guide-box')
   
   return(plts)
 }

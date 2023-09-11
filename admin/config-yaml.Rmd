@@ -49,3 +49,40 @@ output:
       download: false # ['pdf']
       sharing: false
 ---
+
+```{r caption-stuff, echo=FALSE}
+# everything here is just to reset captions by section
+
+# define custom knitr class(?) to remove fig #s
+knitr::knit_hooks$set(customcap= function(before, options, envir) {
+  if(!before) {
+    paste('<p class="caption"><center>',options$customcap,'</center></p>',sep='')
+    }
+    })
+
+# define functions for manual fig #s
+  # determine output format
+outputFormat <- knitr::opts_knit$get('rmarkdown.pandoc.to')
+
+  # set caption numbers
+capTabNo = 1; capFigNo = 1;
+
+  # add table number
+capTab = function(x){
+  if(outputFormat == 'html'){
+    if(stringr::str_detect('start',options$fig.label)){
+      capFigNo = 1
+    }
+    x = paste0('Table ',capTabNo,': ',x)
+    capTabNo <<- capTabNo + 1
+  }; x
+}
+
+  # add figure number
+capFig = function(x){
+  if(outputFormat == 'html'){
+    x = paste0('Figure ',capFigNo,': ',x)
+    capFigNo <<- capFigNo + 1
+  }; x
+}
+```

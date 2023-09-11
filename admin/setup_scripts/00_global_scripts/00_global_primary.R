@@ -25,7 +25,6 @@ assign_colors <- function(df, col, pal = 'cbfriendly'){
   uni_vals <- unique(df[[col]])
   
   if (pal != 'custom' & pal != 'cbfriendly'){
-    print('here')
     colors <- RColorBrewer::brewer.pal(length(uni_vals), pal)    
   } else if (pal == 'custom') {
     colors <- pal[1:length(uni_vals)]
@@ -174,4 +173,21 @@ get_edi_url <- function(pkg_id, revision_num = 'current', verbose = FALSE) {
   }
   
   return(edi_url)
+}
+
+#' Assign regions to stations
+#'
+#' @param df the relevant data frame
+#'
+assign_regions <- function(df){
+  df %>% dplyr::mutate(
+    Region = dplyr::case_when(
+      Station == 'D16' | Station == 'D19' | Station == 'D26' | Station == 'D28A' ~ 'Central Delta',
+      Station =='D10' | Station == 'D12' | Station == 'D22' | Station == 'D4' ~ 'Confluence',
+      Station =='C3A' | Station == 'NZ068' ~ 'Northern Interior Delta',
+      Station =='D41' | Station == 'D41A' | Station == 'D6' | Station == 'NZ002' | Station == 'NZ004' | Station == 'NZ325' ~ 'San Pablo Bay',
+      Station == 'C10A' | Station == 'C9' | Station == 'MD10A' | Station == 'P8' ~ 'Southern Interior Delta',
+      Station == 'D7' | Station == 'D8' | Station == 'NZ032' | Station == 'NZS42' ~ 'Suisun & Grizzly Bays'
+    )
+  )
 }

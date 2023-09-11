@@ -11,7 +11,9 @@ rmd_files: [
   'admin/config-yaml.Rmd',
 
   # D-WQ
+  'admin/reset-caps.Rmd',
   'sections/d-wq/Rmd-files/00-dwq-info.Rmd',
+  'admin/reset-caps.Rmd',
   'sections/d-wq/Rmd-files/00-dwq-report.Rmd'
 ]
 ---

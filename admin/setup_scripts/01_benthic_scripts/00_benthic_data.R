@@ -57,7 +57,7 @@ df_benthic$StationCode <- factor(df_benthic$StationCode, levels = station_factor
 classif <- c('Phylum','Class','Order','Family','Genus','Species')
 
 # define plot directories (for saving purposes)
-dir_report <- 'admin/plots/benthic'
+dir_report <- 'admin/figures/benthic'
 dir_ts_years <- abs_path_data('Benthic/plots/years_timeseries')
 dir_ts_ry <- abs_path_data('Benthic/plots/timeseries')
 dir_ry_bar <- abs_path_data('Benthic/plots/bargraphs')

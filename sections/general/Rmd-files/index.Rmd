@@ -1,7 +1,7 @@
 # (PART\*) General {-}
 
 # CA Dept of Water Resources - Environmental Monitoring Program {.unlisted .unnumbered}
-```{r, echo=FALSE, fig.cap='Slideshow of DWR EMP locations.'}
+```{r, echo=FALSE, customcap = capFig('Slideshow of DWR EMP locations.')}
 # add in slideshow
 htmltools::includeHTML('admin/html-css/slideshow.html')
 ```
@@ -16,7 +16,7 @@ EMP was formed in response to water quality objectives set by California’s Sta
 The regulatory basis for what became EMP began in 1971 when the State Water Resources Control Board (SWRCB) established new water quality requirements for the San Francisco Bay-Delta Estuary in Water Right Decision 1379 (D-1379). This decision provided the terms and conditions for a comprehensive monitoring program to evaluate changes in environmental conditions within the estuary. A monitoring program was first implemented in 1971 following the design laid out by the Stanford Research Institute (SWRCB Publication 40). These water quality standards were amended in 1978 (D-1485) and again in 1999 (D-1641). The SWP and CVP are currently operated to comply with the requirements of the latter. The annual reports displayed on this website constitute the annual reports submitted to SWRCB by DWR and USBR in fulfillment of the D-1641 reporting requirement.
   
 
-```{r echo=FALSE, out.width = '400px', fig.align='center', fig.cap='Map of the Sacramento-San Joaquin Delta. Source: DWR'}
+```{r end-index, echo=FALSE, out.width = '400px', fig.align='center', customcap = capFig('Map of the Sacramento-San Joaquin Delta. Source: DWR')}
 # knitr::include_graphics(file.path('sections/general/figures/deltamap.jpg'))
 ```
 

@@ -15,11 +15,11 @@ Right-click and select "view in web browser" to see.
 Edit these variables as you choose.
 
 ```{r message = FALSE, warning = FALSE}
-# Do you want to generate a new Excel sheet and/or plots?
-generate_new_excel <- TRUE # TRUE/FALSE
-
 # Do you want auto-generated text to be red in the draft report?
 autogen_color <- TRUE # TRUE/FALSE
+
+# Do you want to create the graphs?
+create_phyto_graphs <- TRUE # TRUE/FALSE
 ```
 
 ------------------------------------------------------------------------

@@ -10,8 +10,8 @@ Water year `r report_year_txt` was classified as `r func_wy(report_year)` in the
 
 Surface specific conductance varied greatly in `r report_year_txt` across the sampling regions with the highest levels occurring in the western regions (San Pablo Bay, Suisun & Grizzly Bays, Confluence) due to the strong marine influence from the Pacific Ocean. Surface specific conductance ranged from `r func_range('SpCndSurface')`. Average specific conductance values `r func_comparison('SpCndSurface')`.
 
-```{r echo=FALSE, fig.align='center'}
-knitr::include_graphics(file.path('admin/plots/dwq/ARGraph_SpCndSurface.jpg'))
+```{r start-index, echo=FALSE, fig.align='center', customcap = capFig('TEST')}
+knitr::include_graphics(file.path('admin/figures/dwq/ARGraph_SpCndSurface.jpg'))
 ```
 
 ------------------------------------------------------------------------
@@ -20,8 +20,8 @@ knitr::include_graphics(file.path('admin/plots/dwq/ARGraph_SpCndSurface.jpg'))
 
 Surface turbidity values ranged from `r func_range('TurbiditySurface_FNU')`. Average turbidity values `r func_comparison('TurbiditySurface_FNU')`.
 
-```{r echo=FALSE, fig.align='center'}
-knitr::include_graphics(file.path('admin/plots/dwq/ARGraph_TurbiditySurface.jpg'))
+```{r echo=FALSE, fig.align='center', customcap = 'TEST2'}
+knitr::include_graphics(file.path('admin/figures/dwq/ARGraph_TurbiditySurface.jpg'))
 ```
 
 ------------------------------------------------------------------------
@@ -31,7 +31,7 @@ knitr::include_graphics(file.path('admin/plots/dwq/ARGraph_TurbiditySurface.jpg'
 Dissolved ammonia levels in `r report_year_txt` ranged from `r func_range('DissAmmonia')`. Ammonia levels are typically lower throughout the Delta and Bays, likely due to dilution and nitrification. Average dissolved ammonia values `r func_comparison('DissAmmonia')`.
 
 ```{r echo=FALSE, fig.align='center'}
-knitr::include_graphics(file.path('admin/plots/dwq/ARGraph_DissAmmonia.jpg'))
+knitr::include_graphics(file.path('admin/figures/dwq/ARGraph_DissAmmonia.jpg'))
 ```
 
 ------------------------------------------------------------------------
@@ -41,7 +41,7 @@ knitr::include_graphics(file.path('admin/plots/dwq/ARGraph_DissAmmonia.jpg'))
 Chlorophyll *a* values in `r report_year_txt` ranged from `r func_range('Chla')`. The highest levels of chlorophyll a were seen in the San Pablo Bay region during August. This was due to a harmful algal bloom of *Heterosigma akashiwo*. More information about the phytoplankton genera is described in the phytoplankton section.
 
 ```{r echo=FALSE, fig.align='center'}
-knitr::include_graphics(file.path('admin/plots/dwq/ARGraph_Chla.jpg'))
+knitr::include_graphics(file.path('admin/figures/dwq/ARGraph_Chla.jpg'))
 ```
 
 ------------------------------------------------------------------------
@@ -51,7 +51,7 @@ knitr::include_graphics(file.path('admin/plots/dwq/ARGraph_Chla.jpg'))
 Dissolved nitrate + nitrite levels in `r report_year_txt` ranged from `r func_range('DissNitrateNitrite')`. The Southern Interior Delta region had the highest fluctuation of dissolved nitrate + nitrite concentrations and had the highest levels compared to the rest of the estuary, likely due to influence from nearby agricultural land use and wastewater treatment effluent.
 
 ```{r echo=FALSE, fig.align='center'}
-knitr::include_graphics(file.path('admin/plots/dwq/ARGraph_DissNitrateNitrite.jpg'))
+knitr::include_graphics(file.path('admin/figures/dwq/ARGraph_DissNitrateNitrite.jpg'))
 ```
 
 ------------------------------------------------------------------------
@@ -61,5 +61,5 @@ knitr::include_graphics(file.path('admin/plots/dwq/ARGraph_DissNitrateNitrite.jp
 Total phosphorus levels in `r report_year_txt` ranged from `r func_range('DissNitrateNitrite')`. The Southern Interior Delta region had the highest fluctuation of total phosphorus concentrations and had the highest levels compared to the rest of the estuary, likely due to influence from nearby agricultural land use and wastewater treatment effluent.
 
 ```{r echo=FALSE, fig.align='center'}
-knitr::include_graphics(file.path('admin/plots/dwq/ARGraph_TotPhos.jpg'))
+knitr::include_graphics(file.path('admin/figures/dwq/ARGraph_TotPhos.jpg'))
 ```

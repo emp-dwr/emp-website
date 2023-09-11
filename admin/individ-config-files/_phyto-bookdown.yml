@@ -11,7 +11,9 @@ rmd_files: [
   'admin/config-yaml.Rmd',
 
   # Phyto
+  'admin/reset-caps.Rmd',
   'sections/phyto/Rmd-files/00-phyto-info.Rmd',
+  'admin/reset-caps.Rmd',
   'sections/phyto/Rmd-files/00-phyto-report.Rmd'
 ]
 ---

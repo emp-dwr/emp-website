@@ -20,5 +20,5 @@ EMP collects data for six different field parameters and 18 different laboratory
 To analyze discrete water quality trends, the 24 fixed EMP stations are grouped into six regions of the San Francisco Bay-Delta estuary: San Pablo Bay, Suisun and Grizzly Bay, Confluence, Central Delta, Southern Interior Delta, and Northern Interior Delta. Their locations are displayed below. 
 
 ```{r echo=FALSE, fig.align='center', fig.cap='Map of EMP\'s discrete WQ field sites.'}
-knitr::include_graphics(file.path('admin/plots/dwq/d-wq_station_map.jpg'))
+knitr::include_graphics(file.path('admin/figures/dwq/d-wq_station_map.jpg'))
 ```

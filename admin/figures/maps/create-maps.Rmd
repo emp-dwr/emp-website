@@ -1,0 +1,43 @@
+Create maps for each data type
+
+```{r}
+source('admin/setup_scripts/00_global_scripts/00_global_primary.R')
+
+bbox <- list(
+  left = -122.35,
+  bot = 37.3,
+  right = -121.2,
+  top = 38.39)
+
+delta_basemap <- ggmap::get_map(location=with(bbox, c(left, bot, right, top)), zoom=10, crop=FALSE, messaging=FALSE)
+ggmap::ggmap(delta_basemap)
+```
+
+D-WQ/Phyto
+```{r}
+df_wq_stations <- get_edi_file(458, glue::glue('EMP_DWQ_Stations_1975-{report_year}'))[[1]]
+
+df_wq_stations <- df_wq_stations %>%
+  dplyr::filter(Status == 'Active' & !is.na(StationID))
+
+df_wq_stations <- assign_regions(df_wq_stations)
+df_wq_stations$Region <- factor(df_wq_stations$Region, levels = c('San Pablo Bay','Suisun & Grizzly Bays','Confluence','Northern Interior Delta','Central Delta','Southern Interior Delta'))
+
+#TODO: change to shapefile first (geom_sf)
+#   
+# p_wq <- ggmap::ggmap(delta_basemap) +
+#   ggplot2::coord_fixed(ylim=c(37.68,38.39), ratio=1/cos(pi*38.04/180)) + # allows for width scaling
+#   ggplot2::geom_point(data=df_wq_stations, ggplot2::aes(x=Longitude, y=Latitude, fill=Region), color = '#000000', shape = 21, size = 4) +
+#   ggrepel::geom_text_repel(data=df_wq_stations, ggplot2::aes(x=Longitude, y=Latitude, label=Station), size=3) +
+#   ggplot2::scale_fill_brewer(palette = 'Set2') +
+#   ggplot2::labs(x = ggplot2::element_blank(), y = ggplot2::element_blank()) +
+#   ggplot2::theme(legend.position=c(.1, .2),
+#                  panel.border = ggplot2::element_rect(colour = "black", fill=NA),
+#                  legend.box.background = ggplot2::element_rect(color = '#000000')) +
+#   ggplot2::geom_sf() +
+#   ggplot2::scale_x_continuous(breaks=seq(bbox$left, bbox$right, .5))
+#   
+# ggplot2::ggsave(p_wq, filename = 'admin/figures/maps/dwq_phyto_map.png', height = 6, width = 10)
+# plot(p_wq)
+```
+

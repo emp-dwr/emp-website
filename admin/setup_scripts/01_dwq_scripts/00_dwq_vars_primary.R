@@ -4,23 +4,6 @@ df_wq_raw <- df_wq_raw[[1]]
 
 # clean data --------------------------------------------------------------
 
-#' Assign regions to stations
-#'
-#' @param df the relevant data frame
-#'
-assign_regions <- function(df){
-  df %>% dplyr::mutate(
-    Region = dplyr::case_when(
-      Station == 'D16' | Station == 'D19' | Station == 'D26' | Station == 'D28A' ~ 'Central Delta',
-      Station =='D10' | Station == 'D12' | Station == 'D22' | Station == 'D4' ~ 'Confluence',
-      Station =='C3A' | Station == 'NZ068' ~ 'Northern Interior Delta',
-      Station =='D41' | Station == 'D41A' | Station == 'D6' | Station == 'NZ002' | Station == 'NZ004' | Station == 'NZ325' ~ 'San Pablo Bay',
-      Station == 'C10A' | Station == 'C9' | Station == 'MD10A' | Station == 'P8' ~ 'Southern Interior Delta',
-      Station == 'D7' | Station == 'D8' | Station == 'NZ032' | Station == 'NZS42' ~ 'Suisun & Grizzly Bays'
-    )
-  )
-}
-
 #' Assign unit to nutrient
 #'
 #' @param nutrient the relevant nutrient
@@ -50,7 +33,7 @@ assign_units <- function(nutrient){
 #'
 #' @details this is a helper function for 'func_stats_report'
 #'
-func_stats <- function(df, nutrient, year, stat){
+func_sumstats <- function(df, nutrient, year, stat){
   # subset report year
   df <- subset_year(df, year)
   
