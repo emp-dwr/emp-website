@@ -69,8 +69,6 @@ alg_per_txt <- function() {
       'Of the {alg_num} groups identified, {alg_str} constituted the vast majority ({alg_per}%) of the organisms collected.'
     )
   
-  output
-  
   return(output)
 }
 

@@ -54,9 +54,9 @@ output:
 # everything here is just to reset captions by section
 
 # define custom knitr class(?) to remove fig #s
-knitr::knit_hooks$set(customcap= function(before, options, envir) {
+knitr::knit_hooks$set(caption = function(before, options, envir) {
   if(!before) {
-    paste('<p class="caption"><center>',options$customcap,'</center></p>',sep='')
+    paste('<p class="caption"><center>',options$caption,'</center></p>',sep='')
     }
     })
 
@@ -68,21 +68,24 @@ outputFormat <- knitr::opts_knit$get('rmarkdown.pandoc.to')
 capTabNo = 1; capFigNo = 1;
 
   # add table number
-capTab = function(x){
+capTab = function(str){
   if(outputFormat == 'html'){
-    if(stringr::str_detect('start',options$fig.label)){
-      capFigNo = 1
-    }
-    x = paste0('Table ',capTabNo,': ',x)
+    str = paste0('Table ',capTabNo,': ',str)
     capTabNo <<- capTabNo + 1
-  }; x
+  }
+  
+  return(str)
 }
 
   # add figure number
-capFig = function(x){
+capFig = function(str){
   if(outputFormat == 'html'){
-    x = paste0('Figure ',capFigNo,': ',x)
+    str = paste0('Figure ',capFigNo,': ',str)
     capFigNo <<- capFigNo + 1
-  }; x
+  }
+  
+  return(str)
 }
 ```
+
+

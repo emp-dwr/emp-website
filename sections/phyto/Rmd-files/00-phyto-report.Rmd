@@ -6,16 +6,16 @@
 \makeatother
 ```
 ```{r echo = FALSE}
-# import pipe operator
-# `%>%` <- magrittr::`%>%`
+# reset caption numbers; do not edit
+capTabNo = 1; capFigNo = 1
 
 # kable options
-opts <- options(knitr.kable.NA = '') # NA not displayed in tables
-
-kable_tables <- function(data, caption) {
-  knitr::kable(data, caption = caption, align = 'c') %>%
-    kableExtra::kable_styling(c('striped', 'scale_down'), font_size = 14, html_font = 'Arimo', full_width = FALSE)
-}
+# opts <- options(knitr.kable.NA = '') # NA not displayed in tables
+# 
+# kable_tables <- function(data, caption) {
+#   knitr::kable(data, caption = caption, align = 'c') %>%
+#     kableExtra::kable_styling(c('striped', 'scale_down'), font_size = 14, html_font = 'Arimo', full_width = FALSE)
+# }
 ```
 
 ### Introduction
@@ -40,7 +40,7 @@ Primary production by phytoplankton, primarily via carbon fixation through photo
 
 #### Phytoplankton
 
-Phytoplankton samples were collected monthly at 24 monitoring sites throughout the Upper Estuary, which were grouped into regions based on their geographic location (Figure x; Table x). Sampling occurred from March through December; sampling for January and February were cancelled because of the COVID pandemic. Samples were collected 1 meter below the water's surface using a submersible pump and stored in 50 mL amber glass bottles. 200 µL of Lugol's solution was added to each sample as a stain and preservative. All samples were kept at room temperature and away from direct sunlight until they were analyzed.
+Phytoplankton samples were collected monthly at 24 monitoring sites throughout the Upper Estuary, which were grouped into regions based on their geographic location (Figure 1; Table 1). Samples were collected 1 meter below the water's surface using a submersible pump and stored in 50 mL amber glass bottles. 200 µL of Lugol's solution was added to each sample as a stain and preservative. All samples were kept at room temperature and away from direct sunlight until they were analyzed.
 
 Phytoplankton identification and enumeration were performed by BSA Environmental, Inc. according to the Utermöhl microscopic method (Utermöhl, 1958) and modified Standard Methods (APHA, 2012). An aliquot of sample was placed into a counting chamber and allowed to settle for a minimum of 12 hours. The aliquot volume, normally 10-20 mL, was adjusted according to the algal population density and the turbidity of the sample. Phytoplankton taxa were enumerated in randomly chosen transects for each settled aliquot. This process was performed at 800x magnification using a Leica DMIL inverted microscope. For each aliquot, a minimum of 400 total algal units were counted, with the dominant taxon accounting for a minimum of 100 algal units. For filamentous or colonial taxa, the number of cells per filament or colony was recorded.
 
@@ -97,7 +97,7 @@ kable_tables(phyto_stations, caption = 'Stations included within each region of 
 
 #### Chlorophyll a and Pheophytin a
 
-Samples of chlorophyll a and pheophytin a were collected monthly at 24 monitoring sites throughout the upper Estuary using a submersible pump positioned 1 meter below the water's surface. Sampling occurred from March through December; sampling for January and February were cancelled because of the COVID pandemic. Samples were collected by filtering a known volume of water through a glass-fiber filter (1.0 µm pore size) at a pressure of 10 mmHg. For turbid water (\> 20 NTU), 200 mL was filtered while 500mL of water was filtered when turbidity was \< 20 NTU to prevent clogging.
+Samples of chlorophyll a and pheophytin a were collected monthly at 24 monitoring sites throughout the upper Estuary using a submersible pump positioned 1 meter below the water's surface. Samples were collected by filtering a known volume of water through a glass-fiber filter (1.0 µm pore size) at a pressure of 10 mmHg. For turbid water (\> 20 NTU), 200 mL was filtered while 500mL of water was filtered when turbidity was \< 20 NTU to prevent clogging.
 
 Filters were immediately frozen and transported to DWR's Bryte Laboratory for analysis using spectrophotometry in accordance with the Standard Method 10200 H (APHA, 2012). Samples were processed by mechanically grinding the filter and extracting phytopigments using acetone. Pigment absorption spectra were measured before and after acidification to quantify the amount of chlorophyll a and pheophytin a, respectively. Concentrations were calculated according to a formula specified in the methodology (APHA, 2012). Average analyte concentrations were then calculated per month, per region, and were normalized to the number of stations.
 
@@ -109,9 +109,6 @@ Filters were immediately frozen and transported to DWR's Bryte Laboratory for an
 
 <!-- prints out all algal groups and top 10 genus -->
 
-```{=html}
-<span style="color:red">
-```
 ```{r echo = FALSE, results = 'asis'}
 alg_list_txt()
 
@@ -120,9 +117,6 @@ gen_list_txt()
 alg_per_txt()
 ```
 
-```{=html}
-</span>
-```
 <!-- prints algal group graphs -->
 
 ```{r echo = FALSE, fig.show = 'hold', out.width='80%', fig.align='center', customcap=capFig('Phytoplankton composition by algal group')}
@@ -131,7 +125,7 @@ algal_plts()
 
 #### Pigment Concentrations
 
-Some stations showed seasonal patterns in chlorophyll a concentration, while others did not. Most maxima occurred in spring and summer, while minima occurred in fall or winter. Monthly chlorophyll a concentrations throughout much of the estuary were low relative to historic levels. `r chla_txt()`
+`r chla_txt()`
 
 `r stat_txt('Chla', 'none')`
 
@@ -139,11 +133,11 @@ Some stations showed seasonal patterns in chlorophyll a concentration, while oth
 
 #### Northern Interior Delta
 
-Chlorophyll a average concentrations were higher in early spring and lower the rest of the year (Figure 3). `r stat_txt('Chla', 'Northern Interior Delta')`
+Chlorophyll a average concentrations were higher in summer and lower the rest of the year (Figure 3). `r stat_txt('Chla', 'Northern Interior Delta')`
 
-Pheophytin a average concentrations were low throughout the year (below 1.5 µg/L); values were generally lower than chlorophyll a (Figure 3). `r stat_txt('Pheophytin', 'Northern Interior Delta')`
+Pheophytin a average concentrations were low throughout most of the year (below 1.5 µg/L) and lower than chlorophyll a except for January and February (Figure 3). `r stat_txt('Pheophytin', 'Northern Interior Delta')`
 
-Phytoplankton average densities were highest in spring and summer, with cyanobacteria dominating throughout the year (Figure 4; `r other_taxa('Northern Interior Delta')`). There was a peak of cryptophytes in March, with smaller peaks occurring again in July and August. There was a small peak of diatoms in November.
+Phytoplankton average densities were highest in spring and summer, with cyanobacteria dominating throughout the year (Figure 4; `r other_taxa('Northern Interior Delta')`). There was a peak of cryptophytes in October. There was a small peak of diatoms in December.
 
 ```{r echo=FALSE, fig.show='hold', out.width='70%', fig.align='center', customcap=capFig('Average chlorophyll a and pheophytin a concentrations in the Northern Interior Delta. Patchwork columns indicate median was below the reporting limit')}
 knitr::include_graphics(file.path('admin/figures/phyto/Northern Interior Delta-WQ.png'))
@@ -155,11 +149,11 @@ knitr::include_graphics(file.path('admin/figures/phyto/Northern Interior Delta-P
 
 #### Southern Interior Delta
 
-Chlorophyll a average concentrations were highest in spring and summer (Figure 5). `r stat_txt('Chla', 'Southern Interior Delta')`
+Chlorophyll a average concentrations were highest in summer, peaking around July (Figure 5). `r stat_txt('Chla', 'Southern Interior Delta')`
 
-Pheophytin a average concentrations were fairly constant throughout the year, with slight spikes in the summer months (Figure 5). `r stat_txt('Chla', 'Southern Interior Delta')`
+Pheophytin a average concentrations were fairly constant throughout the year, and below chlorophyll a, except for January and February (Figure 5). `r stat_txt('Chla', 'Southern Interior Delta')`
 
-Phytoplankton average densities were highest in the spring and summer with the highest concentrations occurring in April and August (Figure 6; `r other_taxa('Southern Interior Delta')`. Cyanobacteria dominated throughout the year; there was a peak of diatoms in April, and small peaks of cryptophytes in March and May.
+Phytoplankton average densities were highest in the summer (Figure 6; `r other_taxa('Southern Interior Delta')`. Cyanobacteria dominated throughout the year and peaked in August; there was a peak of green algae in July.
 
 ```{r echo=FALSE, fig.show='hold', out.width='70%', fig.align='center', customcap=capFig('Average chlorophyll a and pheophytin a concentrations in the Southern Interior Delta. Patchwork columns indicate median was below the reporting limit')}
 knitr::include_graphics(file.path('admin/figures/phyto/Southern Interior Delta-WQ.png'))
@@ -171,11 +165,11 @@ knitr::include_graphics(file.path('admin/figures/phyto/Southern Interior Delta-P
 
 #### Central Delta
 
-Chlorophyll a average concentrations were low all year except for a large peak in August, which was the maximum for the year (Figure 7). `r stat_txt('Chla', 'Central Delta')`
+Chlorophyll a average concentrations were fairly consistent throughout the year, with the lowest levels in the winter (Figure 7). `r stat_txt('Chla', 'Central Delta')`
 
-Pheophytin a average concentrations were similar in pattern to chlorophyll a; values were low all year except in August (Figure 7). `r stat_txt('Pheophytin', 'Central Delta')`
+Pheophytin a average concentrations were lower than chlorophyll a for all months except January and Feburary (Figure 7). `r stat_txt('Pheophytin', 'Central Delta')`
 
-With the exception of cyanobacteria, phytoplankton average densities were low all year except for a peak of diatoms in November (Figure 8; `r other_taxa('Central Delta')`).
+Phytoplankton densities highly varied throughout the year (Figure 8; `r other_taxa('Central Delta')`).
 
 ```{r echo=FALSE, fig.show='hold', out.width='70%', fig.align='center', customcap=capFig('Average chlorophyll a and pheophytin a concentrations in the Central Delta. Patchwork columns indicate median was below the reporting limit')}
 knitr::include_graphics(file.path('admin/figures/phyto/Central Delta-WQ.png'))
@@ -187,11 +181,11 @@ knitr::include_graphics(file.path('admin/figures/phyto/Central Delta-Phyto.png')
 
 #### Confluence
 
-Chlorophyll a average concentrations were highest during early spring and mid-summer (Figure 9). `r stat_txt('Chla', 'Confluence')`
+Chlorophyll a average concentrations were highest during early spring (Figure 9). `r stat_txt('Chla', 'Confluence')`
 
-Pheophytin a average concentrations were relatively consistent throughout the year and lower than chlorophyll a concentrations except for the last three months of the year (Figure 9). `r stat_txt('Pheophytin', 'Confluence')`
+Pheophytin a average concentrations were higher than chlorophyll a concentrations in January and February. They peaked in April (Figure 9). `r stat_txt('Pheophytin', 'Confluence')`
 
-Phytoplankton average densities were higher in spring; cyanobacteria were the most dominant, and a large peak of cryptophytes occurred in March (Figure x; `r other_taxa('Confluence')`). There were large peaks of diatoms in April and December.
+Phytoplankton average densities were highest in December (Figure 10; `r other_taxa('Confluence')`). There was a large green algae peak in December.
 
 ```{r echo=FALSE, fig.show='hold', out.width='70%', fig.align='center', customcap=capFig('Average chlorophyll a and pheophytin a concentrations in the Confluence. Patchwork columns indicate median was below the reporting limit')}
 knitr::include_graphics(file.path('admin/figures/phyto/Confluence-WQ.png'))
@@ -203,11 +197,11 @@ knitr::include_graphics(file.path('admin/figures/phyto/Confluence-Phyto.png'))
 
 #### Grizzly Bay and Suisun Bay
 
-Chlorophyll a average concentrations in this region were highest in spring and summer, dropping sharply after August (Figure 11). `r stat_txt('Chla', 'Suisun & Grizzly Bays')`
+Chlorophyll a average concentrations in this region had peaks in February, March, and June (Figure 11). `r stat_txt('Chla', 'Suisun & Grizzly Bays')`
 
-Pheophytin a average concentrations were relatively consistent throughout the year except for a peak in April, which was the maximum for the year (Figure 11). `r stat_txt('Pheophytin', 'Suisun & Grizzly Bays')`
+Pheophytin a average concentrations were slightly higher in the late winter and early spring months. It was lower than chlorophyll a with the exception of January (Figure 11). `r stat_txt('Pheophytin', 'Suisun & Grizzly Bays')`
 
-Phytoplankton average densities were highest in spring, with cyanobacteria dominating again (Figure 12; `r other_taxa('Suisun & Grizzly Bays')`). There were peaks of cryptophytes and green algae in March, followed by a diatom peak in April.
+Phytoplankton community compositions varied widely throughout the year; February for this region was the one of only two time/place combinations where other taxa were significantly present (Figure 12; `r other_taxa('Suisun & Grizzly Bays')`). There was a large green algae peak in December.
 
 ```{r echo=FALSE, fig.show='hold', out.width='70%', fig.align='center', customcap=capFig('Average chlorophyll a and pheophytin a concentrations in the Grizzly & Suisun Bays. Patchwork columns indicate median was below the reporting limit')}
 knitr::include_graphics(file.path('admin/figures/phyto/Suisun & Grizzly Bays-WQ.png'))
@@ -223,7 +217,7 @@ Chlorophyll a average concentrations were highest in spring and summer (Figure 1
 
 Pheophytin a average concentrations were highest in July and December; values were low the rest of the year (Figure 13). `r stat_txt('Pheophytin', 'San Pablo Bay')`
 
-There were peaks of cyanobacteria throughout the year; cryptophyte peaks occurred in March and May, followed by diatom peaks in June and July (Figure 14; `r other_taxa('San Pablo Bay')`).
+Phytoplankton community composition varied widely throughout the year; August in the this region was one of only two time/place combinations where other taxa were present, dominating all others except for cyanobacteria (Figure 14; `r other_taxa('San Pablo Bay')`).
 
 ```{r echo=FALSE, fig.show='hold', out.width='70%', fig.align='center', customcap=capFig('Average chlorophyll a and pheophytin a concentrations in the San Pablo Bay. Patchwork columns indicate median was below the reporting limit')}
 knitr::include_graphics(file.path('admin/figures/phyto/San Pablo Bay-WQ.png'))

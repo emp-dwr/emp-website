@@ -1,0 +1,16 @@
+# (PART\*) Annual Reports {-}
+
+# Continuous Water Quality {#cwq}
+
+## Background {.unlisted}
+The Continuous Environmental Monitoring Program (CEMP) provides real-time quarter-hourly water quality from 15 automated sampling stations in the estuary (Figure 1). The stations provide continuous measurements of 6 water quality parameters and up to 4 environmental parameters at select locations. State Water Project (SWP) and the Central Valley Project (CVP) Operations and Maintenance staff use these measurements to assess impacts and to adjust operations as necessary to comply with mandated water quality standards. The CEMP has been in operation since 1983. This report summarizes the results of continuous water quality monitoring at 15 sites for calendar year 2021. The stations are categorized into five regions. (Table 1, Figure 1): Northern Interior Delta, Southern Interior Delta, Central Delta, Confluence, and Grizzly & Suisun Bays.
+
+NOTE: CEMP's Sherman Island station (SSI), which was called D11A in previous reports, has been renamed D22A to better reflect it's location in relation to historical station D22.
+
+```{r echo=FALSE, fig.show = 'hold', out.width = '70%', caption=capFig('Map of EMP Continuous Water Quality Stations.'), fig.align='center'}
+knitr::include_graphics(file.path('admin/figures/maps/cwq_station_map.png'))
+```
+
+```{r echo=FALSE, warning=FALSE, message=FALSE, results='asis', caption=capTab('Regions of Continuous EMP')}
+kable_tables(cwq_stations)
+```

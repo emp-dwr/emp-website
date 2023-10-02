@@ -10,7 +10,11 @@
 #'
 func_stats_report <- function(df, nutrient, stat, output, year = report_year){
   df_vari <- func_sumstats(df, nutrient, year, stat)
-  vari <- func_output(df_vari, nutrient, year, output)
+  if(stat != 'median'){
+    vari <- func_output(df_vari, nutrient, year, output)    
+  } else{
+    vari <- df_vari
+  }
   return(vari)
 }
 
@@ -50,25 +54,25 @@ func_comparison <- function(nutrient){
   df_wq_cur <- subset(df_wq_raw, Date >= glue::glue('{report_year}-01-01'))
   df_wq_prev <- subset(df_wq_raw, Date <= glue::glue('{report_year}-01-01') & Date >= glue::glue('{prev_year}-01-01'))
   
-  max_cur <- func_stats_report(df_wq_cur, nutrient, 'max', 'value', report_year)
-  max_prev <- func_stats_report(df_wq_prev, nutrient, 'max', 'value', prev_year)
+  median_cur <- func_stats_report(df_wq_cur, nutrient, 'median', 'value', report_year)
+  median_prev <- func_stats_report(df_wq_prev, nutrient, 'median', 'value', prev_year)
   
-  if(max_cur > max_prev){
+  if(median_cur > median_prev){
     dif_dir <- 'higher than'
-  } else if (max_cur < max_prev){
+  } else if (median_cur < median_prev){
     dif_dir <- 'lower than'
-  } else if (max_cur == max_prev){
+  } else if (median_cur == median_prev){
     dif_dir <- 'equal to'
   }
   
-  max_cur_txt <- paste(max_cur, assign_units(nutrient))
-  max_prev_txt <- paste(max_prev, assign_units(nutrient))
+  median_cur_txt <- paste(median_cur, assign_units(nutrient))
+  median_prev_txt <- paste(median_prev, assign_units(nutrient))
   
   # slight differences for grammar
   if(dif_dir == 'equal to'){
-    vari <- glue::glue('in {report_year} were {dif_dir} the average from {prev_year} (\U03BC  = {max_cur_txt})')
+    vari <- glue::glue('in {report_year} were {dif_dir} the median from {prev_year} (median  = {median_cur_txt})')
   } else{
-    vari <- glue::glue('in {report_year} (\U03BC  = {max_cur_txt}) were {dif_dir} the {prev_year} average (\U03BC = {max_prev_txt})')
+    vari <- glue::glue('in {report_year} (median  = {median_cur_txt}) were {dif_dir} the {prev_year} median (median = {median_prev_txt})')
   }
   
   vari <- color_func(vari)

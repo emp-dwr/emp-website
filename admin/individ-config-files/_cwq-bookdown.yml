@@ -12,8 +12,7 @@ rmd_files: [
 
   # D-WQ
   'admin/reset-caps.Rmd',
-  'sections/d-wq/Rmd-files/00-dwq-info.Rmd'
-  'admin/reset-caps.Rmd',
-  'sections/d-wq/Rmd-files/00-dwq-report.Rmd'
+  'sections/c-wq/Rmd-files/00-cwq-info.Rmd',
+  'sections/c-wq/Rmd-files/00-cwq-report.Rmd'
 ]
 ---

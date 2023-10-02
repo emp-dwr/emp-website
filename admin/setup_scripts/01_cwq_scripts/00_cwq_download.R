@@ -1,5 +1,5 @@
 # Downloads CWQ Data
-
+# TODO: update w/ new cwq fp
 dl_cwq_data <- function(){
   # Define Variables --------------------------------------------------------
   
@@ -205,4 +205,8 @@ dl_cwq_data <- function(){
   
   readr::write_csv(data_avg_all, 'admin/data/cwq/data_avg_all.csv')
   return()
+}
+
+if (download_data){
+  dl_cwq_data()
 }

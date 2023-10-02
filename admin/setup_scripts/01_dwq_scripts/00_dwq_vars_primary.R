@@ -41,6 +41,9 @@ func_sumstats <- function(df, nutrient, year, stat){
     df_output <- df %>% dplyr::filter(!!rlang::sym(nutrient) == min(df[[nutrient]], na.rm = TRUE))
   } else if (stat == 'max'){
     df_output <- df %>% dplyr::filter(!!rlang::sym(nutrient) == max(df[[nutrient]], na.rm = TRUE))
+  } else if (stat == 'median'){
+    # percent_nd <- df[[nutrient]]/df[[paste0(nutrient,'_Sign')]]
+    df_output <- median(df[[nutrient]], na.rm = TRUE)
   }
   return(df_output)
 }
@@ -56,51 +59,56 @@ func_sumstats <- function(df, nutrient, year, stat){
 #' @details this is a helper function for 'func_stats_report'
 #'
 func_output <- function(df, nutrient, year, output){
-  # subset report year
-  df <- subset_year(df, year)
-  
-  # needed variables
-  col_sign <- paste0(nutrient,'_Sign')  
-  
-  if (col_sign %in% colnames(df)){
-    sign <- unique(dplyr::pull(df, col_sign))
-    if ('<' %in% sign){
-      sign <- '<'
-    }
-  } else {
-    sign <- 'none'
-  }
-  
-  if (output == 'value'){
-    # define nutrient value
-    nutri <- unique(dplyr::pull(df, nutrient))
+  print(typeof(df))
+  if(typeof(df) == 'list'){
+    # subset report year
+    df <- subset_year(df, year)
     
-    # if sign exists (ie. "<"), then append to output
-    if (sign == '<'){
-      vari <- paste(sign, nutri)
+    # needed variables
+    col_sign <- paste0(nutrient,'_Sign')  
+    
+    if (col_sign %in% colnames(df)){
+      sign <- unique(dplyr::pull(df, col_sign))
+      if ('<' %in% sign){
+        sign <- '<'
+      }
     } else {
-      vari <- as.character(nutri)
+      sign <- 'none'
     }
-  }
-  
-  if (output == 'metadata'){
-    # assign regions to df
-    df <- assign_regions(df)
-    
-    # define relevant variables
-    station <- dplyr::pull(df, Station)
-    region <- dplyr::pull(df, Region)
-    month <- months(dplyr::pull(df, Date))
-    
-    # return string based on # of occurrences    
-    if (nrow(df) == 1){
-      vari <- glue::glue('({station} in {region}, {month})')
-    } else if ('<' %in% sign){
-      vari <- glue::glue('(the reporting limit)')
-    } else{
-      vari <- NULL
+    print('here')
+    if (output == 'value'){
+      print('maybe here')
+      # define nutrient value
+      nutri <- unique(dplyr::pull(df, nutrient))
+      
+      # if sign exists (ie. "<"), then append to output
+      if (sign == '<'){
+        vari <- paste(sign, nutri)
+      } else {
+        vari <- as.character(nutri)
+      }
+    } else if (output == 'metadata') {
+      # assign regions to df
+      df <- assign_regions(df)
+      
+      # define relevant variables
+      station <- dplyr::pull(df, Station)
+      region <- dplyr::pull(df, Region)
+      month <- months(dplyr::pull(df, Date))
+      
+      # return string based on # of occurrences
+      if (nrow(df) == 1) {
+        vari <- glue::glue('({station} in {region}, {month})')
+      } else if ('<' %in% sign) {
+        vari <- glue::glue('(the reporting limit)')
+      } else{
+        vari <- NULL
+      }
     }
+  } else{
+    df <- round(df, 2)
+    vari <- as.character(df)
   }
-  
   return(vari)
 }
+

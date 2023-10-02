@@ -1,2 +1,0 @@
-# set caption numbers
-capTabNo = 1; capFigNo = 1

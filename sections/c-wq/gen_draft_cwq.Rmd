@@ -16,10 +16,13 @@ Edit these variables as you choose.
 
 ```{r message = FALSE, warning = FALSE}
 # Do you want to download new data?
-download_data <- TRUE # TRUE/FALSE
+download_data <- FALSE # TRUE/FALSE
+
+# Do you want to create new graphs/tables?
+create_figures <- TRUE # TRUE/FALSE
 
 # Do you want auto-generated text to be red in the draft report?
-autogen_color <- TRUE # TRUE/FALSE
+autogen_color <- FALSE # TRUE/FALSE
 ```
 
 ------------------------------------------------------------------------
@@ -27,17 +30,15 @@ autogen_color <- TRUE # TRUE/FALSE
 # Code Starts Here ([**DO NOT TOUCH**]{.underline})
 
 ```{r results = 'hide', message = FALSE, warning = FALSE}
-file_sources <- list.files(path = c('admin/setup_scripts/00_global_scripts','admin/setup_scripts/01_cwq_scripts'), pattern = '.R$', full.names=TRUE, recursive = TRUE)
+file_sources <- list.files(path = c('admin/setup_scripts/00_global_scripts','admin/setup_scripts/01_cwq_scripts'), pattern = '.R$', full.names = TRUE, recursive = TRUE)
 sapply(file_sources, source, .GlobalEnv)
-
-if(download_data){
-  dl_cwq_data()
-}
 
 bookdown::render_book(
   input = 'admin/config-yaml.Rmd',
-  output_dir = './sections/d-wq/draft-website-files',
-  config_file = 'admin/individ-config-files/_dwq-bookdown.yml',
+  output_dir = './sections/c-wq/draft-website-files',
+  config_file = 'admin/individ-config-files/_cwq-bookdown.yml',
   output_format = 'bookdown::gitbook'
 )
+
+rm(list = ls())
 ```

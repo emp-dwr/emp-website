@@ -16,10 +16,10 @@ Edit these variables as you choose.
 
 ```{r message = FALSE, warning = FALSE}
 # Do you want auto-generated text to be red in the draft report?
-autogen_color <- TRUE # TRUE/FALSE
+autogen_color <- FALSE # TRUE/FALSE
 
 # Do you want to create the graphs?
-create_phyto_graphs <- TRUE # TRUE/FALSE
+create_phyto_graphs <- FALSE # TRUE/FALSE
 ```
 
 ------------------------------------------------------------------------

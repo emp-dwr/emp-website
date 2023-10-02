@@ -191,3 +191,14 @@ assign_regions <- function(df){
     )
   )
 }
+
+
+# Table Options -----------------------------------------------------------
+
+# kable options
+opts <- options(knitr.kable.NA = '') # NA not displayed in tables
+
+kable_tables <- function(data, caption = NULL) {
+  knitr::kable(data, caption = caption, align = 'c') %>% 
+    kableExtra::kable_styling(c('striped', 'scale_down'), font_size = 14, html_font = 'Arimo', full_width = FALSE)
+}

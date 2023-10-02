@@ -1,0 +1,11 @@
+Statistic,"Dissolved Oxygen
+ (Surface)","Fluorescence
+ (Surface)","pH
+ (Surface)","Specific Conductance
+ (Surface)","Turbidity
+ (Surface)","Water Temperature
+ (Surface)"
+NA,mg/L,μ/L,NA,μS/cm,FNU,° C
+MIN,7.37,0.78,7.31,255,0.15,8.14
+MAX,15.39,23.17,10.3,2078,27.58,26.8
+AVERAGE,9.5,2.76,8.03,576,4.98,17.17

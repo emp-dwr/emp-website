@@ -19,7 +19,7 @@ Edit these variables as you choose.
 generate_new_plots <- TRUE # TRUE/FALSE
 
 # Do you want auto-generated text to be red in the draft report?
-autogen_color <- TRUE # TRUE/FALSE
+autogen_color <- FALSE # TRUE/FALSE
 ```
 
 ------------------------------------------------------------------------

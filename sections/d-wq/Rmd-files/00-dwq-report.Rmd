@@ -8,7 +8,7 @@ Water year `r report_year_txt` was classified as `r func_wy(report_year)` in the
 
 ### Specific Conductance
 
-Surface specific conductance varied greatly in `r report_year_txt` across the sampling regions with the highest levels occurring in the western regions (San Pablo Bay, Suisun & Grizzly Bays, Confluence) due to the strong marine influence from the Pacific Ocean. Surface specific conductance ranged from `r func_range('SpCndSurface')`. Average specific conductance values `r func_comparison('SpCndSurface')`.
+Surface specific conductance varied greatly in `r report_year_txt` across the sampling regions with the highest levels occurring in the western regions (San Pablo Bay, Suisun & Grizzly Bays, Confluence) due to the strong marine influence from the Pacific Ocean. Surface specific conductance ranged from `r func_range('SpCndSurface')`. Median specific conductance values `r func_comparison('SpCndSurface')`.
 
 ```{r start-index, echo=FALSE, fig.align='center', customcap = capFig('TEST')}
 knitr::include_graphics(file.path('admin/figures/dwq/ARGraph_SpCndSurface.jpg'))
@@ -18,7 +18,7 @@ knitr::include_graphics(file.path('admin/figures/dwq/ARGraph_SpCndSurface.jpg'))
 
 ### Turbidity
 
-Surface turbidity values ranged from `r func_range('TurbiditySurface_FNU')`. Average turbidity values `r func_comparison('TurbiditySurface_FNU')`.
+Surface turbidity values ranged from `r func_range('TurbiditySurface_FNU')`. Median turbidity values `r func_comparison('TurbiditySurface_FNU')`.
 
 ```{r echo=FALSE, fig.align='center', customcap = 'TEST2'}
 knitr::include_graphics(file.path('admin/figures/dwq/ARGraph_TurbiditySurface.jpg'))
@@ -28,7 +28,7 @@ knitr::include_graphics(file.path('admin/figures/dwq/ARGraph_TurbiditySurface.jp
 
 ### Dissolved Ammonia
 
-Dissolved ammonia levels in `r report_year_txt` ranged from `r func_range('DissAmmonia')`. Ammonia levels are typically lower throughout the Delta and Bays, likely due to dilution and nitrification. Average dissolved ammonia values `r func_comparison('DissAmmonia')`.
+Dissolved ammonia levels in `r report_year_txt` ranged from `r func_range('DissAmmonia')`. Ammonia levels are typically lower throughout the Delta and Bays, likely due to dilution and nitrification. Median dissolved ammonia values `r func_comparison('DissAmmonia')`.
 
 ```{r echo=FALSE, fig.align='center'}
 knitr::include_graphics(file.path('admin/figures/dwq/ARGraph_DissAmmonia.jpg'))
