@@ -35,7 +35,7 @@ blank_theme <- function(){
 fp_benthic <- abs_path_data('Benthic/AR-input-data/benthic_AR_data.csv')
 
 # read in data
-df_benthic <- readr::read_csv(fp_benthic, show_col_types = FALSE)
+df_benthic <- read_quiet_csv(fp_benthic)
 
 # create workbook for new data
 wkbk_export <- openxlsx::createWorkbook()

@@ -1,3 +1,8 @@
+```{r echo = FALSE}
+# reset caption numbers; do not edit
+capTabNo = 1; capFigNo = 1
+```
+
 # Benthic Invertebrates {#benthic}
 
 ### Background {.unlisted .unnumbered}
@@ -18,6 +23,6 @@ Geographic coverage of the sampling sites ranges from San Pablo Bay east through
 
 A 0.052 m^2^ Ponar dredge is used to sample the benthic sediment, and all organisms larger than 0.5 mm are identified and enumerated by taxonomy contractors. To date, 414 species in ten phyla (Cnidaria, Platyhelminthes, Nemertea, Nematoda, Annelida, Arthropoda, Mollusca, Chordata, Phoronida and Echinodermata) have been collected from the study area. Sediment composition data are also collected as part of the benthic monitoring program to document general trends in sediment composition for all sites where benthic samples are collected.
 
-```{r echo=FALSE, out.width = '70%', fig.align='center', customcap = capFig(='Map of EMP\'s benthic field sites \(past and current\).)'}
+```{r echo=FALSE, out.width = '70%', fig.align='center', caption = capFig('Map of EMP\'s benthic field sites (past and current).')}
 knitr::include_graphics(file.path('admin/figures/benthic/Benthic_Historic_Map.png'))
 ```

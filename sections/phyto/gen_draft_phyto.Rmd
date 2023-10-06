@@ -15,11 +15,14 @@ Right-click and select "view in web browser" to see.
 Edit these variables as you choose.
 
 ```{r message = FALSE, warning = FALSE}
+# Do you want download data from EDI?
+download_data <- FALSE # TRUE/FALSE
+
 # Do you want auto-generated text to be red in the draft report?
 autogen_color <- FALSE # TRUE/FALSE
 
 # Do you want to create the graphs?
-create_phyto_graphs <- FALSE # TRUE/FALSE
+create_graphs <- FALSE # TRUE/FALSE
 ```
 
 ------------------------------------------------------------------------
@@ -29,6 +32,15 @@ create_phyto_graphs <- FALSE # TRUE/FALSE
 ```{r echo=FALSE, results='hide', message=FALSE, warning=FALSE, fig.keep='none'}
 file_sources <- list.files(path = c('admin/setup_scripts/00_global_scripts','admin/setup_scripts/01_phyto_scripts'), pattern = '.R$', full.names=TRUE, recursive = TRUE)
 sapply(file_sources, source, .GlobalEnv)
+
+if(download_data){
+  download_phyto_data()
+}
+
+
+if(create_graphs){
+  create_phyto_graphs()
+}
 
 bookdown::render_book(
   input = 'admin/config-yaml.Rmd',

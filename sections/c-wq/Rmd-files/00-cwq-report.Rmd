@@ -1,9 +1,9 @@
-## Current Report {#cwq-report}
-
-```{r echo=FALSE}
+```{r echo = FALSE}
 # reset caption numbers; do not edit
 capTabNo = 1; capFigNo = 1
 ```
+
+## Current Report {#cwq-report}
 
 ### Methods
 
@@ -17,7 +17,7 @@ kable_tables(table_params)
 
 ### QA Status
 
-Quality assurance and control measures were applied according to CEMP's Quality Assurance Project Plan (QAPP) (Appendix A). Only data validated as "Good Data" according to Section 22 of the QAPP were analyzed for this report.
+Quality assurance and control measures were applied according to CEMP's Quality Assurance Project Plan (QAPP) (available upon request). Only data validated as "Good Data" according to Section 22 of the QAPP were analyzed for this report.
 
 ------------------------------------------------------------------------
 
@@ -75,7 +75,7 @@ kable_tables(grizzly)
 
 Average daily water temperatures in the estuary ranged from `r range_txt('WaterTemperature', 'Surface')` (Figure 2), with fairly similar values across all regions. Temperatures were greater in the summer months and lowest in the winter.
 
-```{r echo=FALSE, fig.show = 'hold', out.width = '70%', caption=capFig('Average daily water temperature'),  fig.align='center'}
+```{r echo=FALSE, fig.show = 'hold', out.width = '70%', caption=capFig('Average daily water temperature in the Delta'),  fig.align='center'}
 knitr::include_graphics(file.path('admin/figures/cwq/graph_WaterTemperature.jpg'))
 ```
 
@@ -85,7 +85,7 @@ Average daily surface-specific conductance for the estuary ranged from `r range_
 
 <!-- Bottom-specific conductance measured in `r report_year_txt` at D12A, D10A, and D6A stations exhibited seasonal patterns and ranges similar to the surface-specific conductance values. -->
 
-```{r echo=FALSE, fig.show = 'hold', out.width = '70%', caption=capFig('Average daily specific conductance'), fig.align='center'}
+```{r echo=FALSE, fig.show = 'hold', out.width = '70%', caption=capFig('Average daily specific conductance in the Delta'), fig.align='center'}
 knitr::include_graphics(file.path('admin/figures/cwq/graph_SpC.jpg'))
 ```
 
@@ -101,7 +101,7 @@ knitr::include_graphics(file.path('admin/figures/cwq/graph_DissolvedOxygen.jpg')
 
 Average daily pH levels at all stations in the estuary ranged from `r range_txt('pH', 'Surface')` (Figure 5). The Central Delta station D19A showed an increase in pH values from June to October.
 
-```{r echo=FALSE, fig.show = 'hold', out.width = '70%', caption=capFig('Average daily pH'), fig.align='center'}
+```{r echo=FALSE, fig.show = 'hold', out.width = '70%', caption=capFig('Average daily pH in the Delta'), fig.align='center'}
 knitr::include_graphics(file.path('admin/figures/cwq/graph_pH.jpg'))
 ```
 
@@ -109,7 +109,7 @@ knitr::include_graphics(file.path('admin/figures/cwq/graph_pH.jpg'))
 
 Average daily turbidity levels at all stations in the estuary ranged from `r range_txt('Turbidity', 'Surface')` (Figure 6). The Southern Interior Delta stations showed a significant increase in turbidity in December. In addition, C3A showed a substantial spike in turbidity values in December. D10A in the Confluence experienced a spike in July.
 
-```{r echo=FALSE, fig.show = 'hold', out.width = '70%', caption=capFig('Average daily turbidity'), fig.align='center'}
+```{r echo=FALSE, fig.show = 'hold', out.width = '70%', caption=capFig('Average daily turbidity in the Delta'), fig.align='center'}
 knitr::include_graphics(file.path('admin/figures/cwq/graph_Turbidity.jpg'))
 ```
 
@@ -117,7 +117,7 @@ knitr::include_graphics(file.path('admin/figures/cwq/graph_Turbidity.jpg'))
 
 Average daily chlorophyll a fluorescence recorded at all stations ranged from `r range_txt('Fluorescence', 'Surface')` (Figure 7). Values at D10A in the Confluence showed a significant increase in June. Values at D19A decreased in the summer months. C3A in the Northern Interior Delta spiked in May.
 
-```{r echo=FALSE, fig.show = 'hold', out.width = '70%', caption=capFig('Average daily fluorescence'), fig.align='center'}
+```{r echo=FALSE, fig.show = 'hold', out.width = '70%', caption=capFig('Average daily fluorescence in the Delta'), fig.align='center'}
 knitr::include_graphics(file.path('admin/figures/cwq/graph_Fluorescence.jpg'))
 ```
 
@@ -130,3 +130,9 @@ knitr::include_graphics(file.path('admin/figures/cwq/graph_Fluorescence.jpg'))
 [SWRCB] State Water Resources Control Board. (1995). Water Quality Control Plan for the San Francisco Bay/Sacramento-San Joaquin Estuary [Bay-Delta Plan] (Adopted May 22, 1995, pursuant to Water Right Order 95-1). Sacramento, CA.
 
 [SWRCB] State Water Resources Control Board. (1999). Water Rights Decision 1641 for the Sacramento-San Joaquin Delta and Suisun Marsh (Adopted December 29, 1999, Revised in Accordance with order WR2000-02 March 15, 2000). Sacramento, CA.
+
+------------------------------------------------------------------------
+
+## Archived Reports
+
+Old EMP continuous water quality reports can be found [here](../admin/archive/c-wq).

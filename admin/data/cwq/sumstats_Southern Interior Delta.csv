@@ -5,7 +5,7 @@ Statistic,"Dissolved Oxygen
  (Surface)","Turbidity
  (Surface)","Water Temperature
  (Surface)"
-NA,mg/L,μ/L,NA,μS/cm,FNU,° C
+NA,mg/L,μg/L,NA,μS/cm,FNU,° C
 MIN,5.85,0.34,6.9,73,0.25,7.73
 MAX,11.41,14.39,8.43,832,34.87,28.55
 AVERAGE,8.6,2.72,7.63,465,3.97,18.05

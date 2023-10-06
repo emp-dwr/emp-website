@@ -1,23 +1,22 @@
 # Create CWQ Plots
+create_cwq_figures <- function(){
+  # read in data
+  df_cwq_raw <- read_quiet_csv('admin/data/cwq/data_avg_all.csv')
 
-if (create_figures){
-  # read in data
-  df_wq_raw <- readr::read_csv('admin/data/cwq/data_avg_all.csv', show_col_types = FALSE)
-  
   # DO Plot -----------------------------------------------------------------
-  
+
   # read in data
-  df_rls <- readr::read_csv('admin/data/cwq/DO_RLs.csv', show_col_types = FALSE)
-  
-  df_do <- df_wq_raw %>% dplyr::filter((site == 'RRI') & (par == 'DissolvedOxygen'))
-  
+  df_rls <- read_quiet_csv('admin/data/cwq/DO_RLs.csv')
+
+  df_do <- df_cwq_raw %>% dplyr::filter((site == 'RRI') & (par == 'DissolvedOxygen'))
+
   df_do <- df_do %>%
     dplyr::mutate(month = factor(month.abb[lubridate::month(date)], levels = month.abb))
-  
+
   df_rls <- df_rls %>%
     dplyr::mutate(month = factor(df_rls$month, levels = month.abb),
                   month_num = match(month.name[month], month.name))
-  
+
   plt_do <- ggplot2::ggplot() +
     ggplot2::geom_boxplot(df_do, mapping = ggplot2::aes(month,value)) +
     ggplot2::geom_segment(df_rls,
@@ -35,26 +34,26 @@ if (create_figures){
                    axis.line = ggplot2::element_blank(),
                    axis.title.x = ggplot2::element_blank()) +
     ggplot2::scale_y_continuous(breaks = seq(0, max(df_do$value), by=1), limits=c(0, max(df_do$value)))
-  
+
   ggplot2::ggsave('admin/figures/cwq/graph_rri_do.jpg', plt_do, width = 5.5, height = 4, unit = 'in')
-  
+
   # Section Plots -----------------------------------------------------------
-  
+
   # Assign Variables -------------------------------------------------------------
-  
+
   # remove bottom
-  df_wq <- df_wq_raw %>% dplyr::filter(!grepl('_bottom', site_code))
-  
+  df_cwq <- df_cwq_raw %>% dplyr::filter(!grepl('_bottom', site_code))
+
   # add month-year col
-  df_wq$Monyear <- paste(df_wq$month, lubridate::year(df_wq$date), sep = ' ')
-  df_wq$Monyear <- lubridate::my(df_wq$Monyear)
-  df_wq$unit <- lapply(df_wq$par, assign_units)
-  df_wq$name <- lapply(df_wq$par, assign_names)
-  df_wq$fullname <- ifelse(df_wq$par != 'pH', paste0(df_wq$name,' (',df_wq$unit,')'), df_wq$name)
-  
+  df_cwq$Monyear <- paste(df_cwq$month, lubridate::year(df_cwq$date), sep = ' ')
+  df_cwq$Monyear <- lubridate::my(df_cwq$Monyear)
+  df_cwq$unit <- lapply(df_cwq$par, assign_units_cwq)
+  df_cwq$name <- lapply(df_cwq$par, assign_names_cwq)
+  df_cwq$fullname <- ifelse(df_cwq$par != 'pH', paste0(df_cwq$name,' (',df_cwq$unit,')'), df_cwq$name)
+
   # define unique analytes
-  analytes <- unique(df_wq$par)
-  
+  analytes <- unique(df_cwq$par)
+
   # define plot theme
   blank_theme <- ggplot2::theme_bw() +
     ggplot2::theme(
@@ -72,24 +71,24 @@ if (create_figures){
       legend.text = ggplot2::element_text(size=5),
       legend.key.size = ggplot2::unit(.3, 'lines')
     )
-  
+
   # determine number of sites per region
-  df_sitenum <- df_wq %>%
+  df_sitenum <- df_cwq %>%
     dplyr::group_by(region) %>%
     dplyr::summarize(site_code) %>%
     dplyr::distinct() %>%
     dplyr::count() %>%
     dplyr::ungroup()
-  
+
   site_nums <- split(x = df_sitenum$n, f = df_sitenum$region)
-  
+
   rm(df_sitenum)
-  
+
   # plot template
   plt_temp <- function(m, colors, cur_region, bottom){
     y_ftsize <- 2
     x_ftsize <- 1
-  
+
     if (bottom){
       p <- ggplot2::ggplot() +
         ggborderline::geom_borderline(m, mapping = ggplot2::aes(date, value, group = site_code, color = site_code), size = 1.1, bordercolor = '#000000', borderwidth = .2) +
@@ -112,52 +111,51 @@ if (create_figures){
     }
     return(p)
   }
-  
+
   # Create Plot ---------------------------------------------------------------
-  
+
   for (i in seq(length(analytes))){
-    df_wq_filt <- df_wq %>%
+    df_cwq_filt <- df_cwq %>%
       dplyr::filter(par == analytes[i])
-    
-    plt_name <- unique(df_wq_filt$fullname)
-    
-    out <- by(data = df_wq_filt, INDICES = df_wq_filt$region, FUN = function(m) {
+
+    plt_name <- unique(df_cwq_filt$fullname)
+
+    out <- by(data = df_cwq_filt, INDICES = df_cwq_filt$region, FUN = function(m) {
       m <- droplevels(m)
-      
+
       cur_region <- as.character(unique(m$region[[1]]))
-      
+
       if (cur_region == 'Central Delta'){
         colors <- rev(RColorBrewer::brewer.pal(site_nums['Central Delta'][[1]], 'Blues'))
-  
+
         p <- plt_temp(m = m, colors = colors, cur_region = cur_region, bottom = FALSE)
-        
+
       } else if (cur_region == 'Confluence'){
         colors = rev(RColorBrewer::brewer.pal(site_nums['Confluence'][[1]], 'Oranges'))
-        
+
         p <- plt_temp(m, colors, cur_region, bottom = FALSE)
-        
+
       } else if (cur_region == 'Northern Interior Delta'){
         colors = rev(RColorBrewer::brewer.pal(3, 'Greys'))
-        
+
         p <- plt_temp(m, colors, cur_region, bottom = TRUE)
-        
+
       } else if (cur_region == 'Southern Interior Delta'){
         colors = rev(RColorBrewer::brewer.pal(site_nums['Southern Interior Delta'][[1]], 'Greens'))
-        
+
         p <- plt_temp(m, colors, cur_region, bottom = FALSE)
-        
+
       } else if (cur_region == 'Suisun & Grizzly Bay'){
         colors = rev(RColorBrewer::brewer.pal(site_nums['Suisun & Grizzly Bay'][[1]], 'Purples'))
-        
+
         p <- plt_temp(m, colors, cur_region, bottom = TRUE)
       }
     }
     )
-    
+
     # caption <- glue::glue('{plt_names[i]} at six regions in the San Francisco Bay-Delta estuary in {report_year}.')
     # bottom = grid::textGrob(caption, gp = grid::gpar(fontsize=7))
     graph <- gridExtra::marrangeGrob(grobs = out, ncol=2, nrow=3, top = grid::textGrob(plt_name, gp = grid::gpar(fontsize=9, fontface='bold')))
     ggplot2::ggsave(paste('admin/figures/cwq/graph_',analytes[i],'.jpg', sep=''), graph, width = 4.5, height = 5.3, unit = 'in')
   }
 }
-

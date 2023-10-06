@@ -80,8 +80,8 @@ alg_per_txt <- function() {
 
 low_chla_txt <- function() {
   sample_num <- sample_number(df_phyto_year)
-  percent <- low_chla(df_wq_year, 'percent')
-  count <- low_chla(df_wq_year, 'count')
+  percent <- low_chla(df_phywq_year, 'percent')
+  count <- low_chla(df_phywq_year, 'count')
   output <- glue::glue('Of the {sample_num} samples taken in {report_year}, {percent}% ({count} samples) had chlorophyll a levels below 10 \U03BCg/L.')
 
   return(output)
@@ -89,7 +89,7 @@ low_chla_txt <- function() {
 
 
 high_chla_txt <- function() {
-  count <- low_chla(df_wq_year, 'inverse')
+  count <- low_chla(df_phywq_year, 'inverse')
   high_chla_suffix <- high_chla_stations()
   output <- glue::glue('Of the {count} samples with chlorophyll a concentrations equal to or above 10 \U03BCg/L, {high_chla_suffix}')
 
@@ -134,9 +134,9 @@ chlapheo_stats_report <- function(df, nutrient, year, statistic, region){
 
 chlapheo_sumstats <- function(nutr, stat, region) {
   if (region == 'none'){
-    df <- df_wq_raw
+    df <- df_phywq_raw
   } else {
-    df <- df_wq
+    df <- df_phywq
   }
   
   if (stat == 'below rl') {
@@ -238,11 +238,11 @@ algal_plts <- function(){
 }
 
 
-region_wq_plts <- function(region){
+region_phywq_plts <- function(region){
   # create base graphs
-  plt_wq <- plt_wq_avg(region)
+  plt_phywq <- plt_phywq_avg(region)
 
-  ggplot2::ggsave(glue::glue('admin/figures/phyto/{region}-WQ.png'), plot = plt_wq, width = 5, height = 4)
+  ggplot2::ggsave(glue::glue('admin/figures/phyto/{region}-WQ.png'), plot = plt_phywq, width = 5, height = 4)
 }
 
 region_phyto_plts <- function(region){

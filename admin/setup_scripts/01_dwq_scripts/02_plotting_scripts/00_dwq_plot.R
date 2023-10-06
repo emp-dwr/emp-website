@@ -144,18 +144,18 @@ base_graph <- function(colors, m, rl_exists, df_vert, df_horz, cur_region){
 
 func_dwq_graphs <- function(){
   # clean data for creation of graphs
-  df_wq <- func_clean_graph_dat(df_wq_raw)
+  df_dwq <- func_clean_graph_dat(df_dwq_raw)
 
   # create order
   reg_order_two <- c('Central Delta','Northern Interior Delta','Southern Interior Delta','Confluence','San Pablo Bay','Suisun & Grizzly Bays')
-  df_wq <- df_wq %>%
+  df_dwq <- df_dwq %>%
     dplyr::mutate(Region = factor(Region, levels = reg_order_two)) %>%
     dplyr::arrange(Region)
   
-  analytes <- unique(df_wq$Analyte)
+  analytes <- unique(df_dwq$Analyte)
   
   #create segment subset
-  seg_subset <- subset(df_wq, df_wq$Sign == '<')
+  seg_subset <- subset(df_dwq, df_dwq$Sign == '<')
   
   #create segment df
   df_seg_vert = data.frame(
@@ -194,18 +194,18 @@ func_dwq_graphs <- function(){
   
   
   for (i in seq(length(analytes))){
-    df_wq_filt <-
-      df_wq %>%
+    df_dwq_filt <-
+      df_dwq %>%
       dplyr::filter(Analyte == analytes[i])
     
     if (analytes[i] != 'SpCndSurface') {
-      y_max <- max(df_wq_filt$Val, na.rm = TRUE)
+      y_max <- max(df_dwq_filt$Val, na.rm = TRUE)
     } else {
-      y_max_int <- max(df_wq_filt[df_wq_filt$Region %in% int_delta,]$Val, na.rm = TRUE)
-      y_max_out <- max(df_wq_filt[!df_wq_filt$Region %in% int_delta,]$Val, na.rm = TRUE)
+      y_max_int <- max(df_dwq_filt[df_dwq_filt$Region %in% int_delta,]$Val, na.rm = TRUE)
+      y_max_out <- max(df_dwq_filt[!df_dwq_filt$Region %in% int_delta,]$Val, na.rm = TRUE)
     }
     
-    out <- by(data = df_wq_filt, INDICES = df_wq_filt$Region, FUN = function(m) {
+    out <- by(data = df_dwq_filt, INDICES = df_dwq_filt$Region, FUN = function(m) {
       m <- droplevels(m)
       cur_region = as.character(unique(m$Region[[1]]))
       
@@ -278,9 +278,7 @@ func_dwq_graphs <- function(){
     }
     )
     
-    caption <- glue::glue('{plt_names[i]} at six regions in the San Francisco Bay-Delta estuary in {report_year}.')
-    
-    graph <- gridExtra::marrangeGrob(grobs = out, ncol=2, nrow=3, top = grid::textGrob(plt_names[i],gp = grid::gpar(fontsize=9, fontface='bold')), bottom = grid::textGrob(caption, gp = grid::gpar(fontsize=7)))
+    graph <- gridExtra::marrangeGrob(grobs = out, ncol=2, nrow=3, top = grid::textGrob(plt_names[i],gp = grid::gpar(fontsize=9, fontface='bold')))
     ggplot2::ggsave(paste('admin/plots/dwq/ARGraph_',analytes[i],'.jpg', sep=''), graph, width = 4.5, height = 5.3, unit = 'in')
   }
 }

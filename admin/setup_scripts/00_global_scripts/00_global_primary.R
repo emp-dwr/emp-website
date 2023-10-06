@@ -6,6 +6,15 @@
 #' TODO: later
 #' 
 
+read_quiet_csv <- function(fp){
+  df <- readr::read_csv(fp, show_col_types = FALSE)
+  
+  return(df)
+}
+
+#' TODO: later
+#' 
+
 color_func <- function(txt_str){
   if(exists('autogen_color')){
     color <- ifelse(!!{autogen_color}, 'red', '#585858')

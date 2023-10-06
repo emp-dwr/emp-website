@@ -6,7 +6,7 @@ df_to_table <- function(df, reg){
   # filter by region
   df <- df %>%
     dplyr::filter(region == reg)
-  
+
   # round units (based on analyte)
   df <- round_table_units(df)
 
@@ -28,9 +28,9 @@ df_to_table <- function(df, reg){
 
 # create tables -----------------------------------------------------------
 
-if (create_figures){
+create_cwq_tables <- function(){
   # format and save tables
-  for (region in unique(df_sumstats$region)){
-    df_to_table(df_sumstats, region)
+  for (region in unique(df_cwq_sumstats$region)){
+    df_to_table(df_cwq_sumstats, region)
   }
 }

@@ -26,15 +26,11 @@ func_stats_report <- function(df, nutrient, stat, output, year = report_year){
 #' @param nutrient the nutrient column name (as string) to pull data from
 #'
 func_range <- function(nutrient){
-  # filter date range
-  df_wq_cur <- subset(df_wq_raw, Date >= glue::glue('{report_year}-01-01'))
-  
-  
   # pull relevant values and info
-  min_val <- paste(func_stats_report(df_wq_cur, nutrient, 'min', 'value'), assign_units(nutrient))
-  min_meta <- func_stats_report(df_wq_cur, nutrient,'min','metadata')
-  max_val <- paste(func_stats_report(df_wq_cur, nutrient, 'max', 'value'), assign_units(nutrient))
-  max_meta <- func_stats_report(df_wq_cur, nutrient, 'max','metadata')
+  min_val <- paste(func_stats_report(df_dwq_raw, nutrient, 'min', 'value'), assign_units(nutrient))
+  min_meta <- func_stats_report(df_dwq_raw, nutrient,'min','metadata')
+  max_val <- paste(func_stats_report(df_dwq_raw, nutrient, 'max', 'value'), assign_units(nutrient))
+  max_meta <- func_stats_report(df_dwq_raw, nutrient, 'max','metadata')
   
   # if (min_meta)
   vari <- glue::glue('{min_val} {min_meta} to {max_val} {max_meta} in {report_year}')
@@ -51,11 +47,8 @@ func_range <- function(nutrient){
 #' @param nutrient the nutrient column name (as string) to pull data from
 #'
 func_comparison <- function(nutrient){
-  df_wq_cur <- subset(df_wq_raw, Date >= glue::glue('{report_year}-01-01'))
-  df_wq_prev <- subset(df_wq_raw, Date <= glue::glue('{report_year}-01-01') & Date >= glue::glue('{prev_year}-01-01'))
-  
-  median_cur <- func_stats_report(df_wq_cur, nutrient, 'median', 'value', report_year)
-  median_prev <- func_stats_report(df_wq_prev, nutrient, 'median', 'value', prev_year)
+  median_cur <- func_stats_report(df_dwq_cur, nutrient, 'median', 'value', report_year)
+  median_prev <- func_stats_report(df_dwq_prev, nutrient, 'median', 'value', prev_year)
   
   if(median_cur > median_prev){
     dif_dir <- 'higher than'

@@ -12,45 +12,31 @@ rmd_files: [
   'admin/config-yaml.Rmd',
 
   # General Info
-  'admin/reset-caps.Rmd',
   'sections/general/Rmd-files/index.Rmd',
-  'admin/reset-caps.Rmd',
   'sections/general/Rmd-files/data-links.Rmd',
 
-# # C-WQ
-# 'admin/reset-caps.Rmd',
-# 'sections/c-wq/Rmd-files/00-cwq-info.Rmd',
-# 'admin/reset-caps.Rmd',
-# 'sections/c-wq/Rmd-files/00-cwq-report.Rmd',
+  # C-WQ
+  'sections/c-wq/Rmd-files/00-cwq-info.Rmd',
+  'sections/c-wq/Rmd-files/00-cwq-report.Rmd',
 
   # D-WQ
-  # 'admin/reset-caps.Rmd',
-  # 'sections/d-wq/Rmd-files/00-dwq-info.Rmd',
-  'admin/reset-caps.Rmd',
+  'sections/d-wq/Rmd-files/00-dwq-info.Rmd',
   'sections/d-wq/Rmd-files/00-dwq-report.Rmd',
 
-  # # Benthic
-  # 'admin/reset-caps.Rmd',
-  # 'sections/benthic/Rmd-files/00-benthic-info.Rmd',
-  # 'admin/reset-caps.Rmd',
-  # 'sections/benthic/Rmd-files/00-benthic-meta.Rmd',
-  # 'admin/reset-caps.Rmd',
-  # 'sections/benthic/Rmd-files/00-benthic-report.Rmd',
-  # 
-  # # Phyto
-  # 'admin/reset-caps.Rmd',
-  # 'sections/phyto/Rmd-files/00-phyto-info.Rmd',
-  'admin/reset-caps.Rmd',
-  'sections/phyto/Rmd-files/00-phyto-report.Rmd'
-  # 
-  # # Zoop
-  # 'admin/reset-caps.Rmd',
-  # 'sections/zoop/Rmd-files/zoop-info.Rmd',
-  # 'admin/reset-caps.Rmd',
-  # 'sections/zoop/Rmd-files/zoop-report.Rmd',
-  # 
-  # # Special Studies
-  # 'admin/reset-caps.Rmd',
-  # 'sections/special-studies/Rmd-files/veliger.Rmd'
+  # Benthic
+  'sections/benthic/Rmd-files/00-benthic-info.Rmd',
+  'sections/benthic/Rmd-files/00-benthic-meta.Rmd',
+  'sections/benthic/Rmd-files/00-benthic-report.Rmd',
+
+  # Phyto
+  'sections/phyto/Rmd-files/00-phyto-info.Rmd',
+  'sections/phyto/Rmd-files/00-phyto-report.Rmd',
+
+  # Zoop
+  'sections/zoop/Rmd-files/00-zoop-info.Rmd',
+  'sections/zoop/Rmd-files/00-zoop-report.Rmd',
+
+  # Special Studies
+  'sections/special-studies/Rmd-files/00-veliger.Rmd'
 ]
 ---

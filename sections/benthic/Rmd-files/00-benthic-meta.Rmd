@@ -1,3 +1,8 @@
+```{r echo = FALSE}
+# reset caption numbers; do not edit
+capTabNo = 1; capFigNo = 1
+```
+
 ## Metadata
 
 ### Period of Record {.unlisted .unnumbered}

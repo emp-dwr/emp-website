@@ -1,22 +1,14 @@
-## Current Report {#phyto-report}
+```{r echo = FALSE}
+# reset caption numbers; do not edit
+capTabNo = 1; capFigNo = 1
+```
 
 ```{=tex}
 \makeatletter
 \g@addto@macro\@floatboxreset\centering
 \makeatother
 ```
-```{r echo = FALSE}
-# reset caption numbers; do not edit
-capTabNo = 1; capFigNo = 1
-
-# kable options
-# opts <- options(knitr.kable.NA = '') # NA not displayed in tables
-# 
-# kable_tables <- function(data, caption) {
-#   knitr::kable(data, caption = caption, align = 'c') %>%
-#     kableExtra::kable_styling(c('striped', 'scale_down'), font_size = 14, html_font = 'Arimo', full_width = FALSE)
-# }
-```
+## Current Report {#phyto-report}
 
 ### Introduction
 
@@ -86,11 +78,11 @@ Raw organism counts were normalized to the sample volume using the following for
 
 The 10 most common genera were determined by summing the normalized organism counts across all stations and months for each genus. For the bar graphs, average organism counts were calculated per month, per region, and normalized to the number of stations.
 
-```{r echo=FALSE, fig.show = 'hold', out.width = '70%', fig.align='center', customcap=capFig('Map of phytoplankton stations sampled by the Environmental Monitoring Program')}
+```{r echo=FALSE, out.width = '70%', fig.align='center', caption = capFig('Map of phytoplankton stations sampled by the Environmental Monitoring Program')}
 knitr::include_graphics(file.path('sections/phyto/figures/phyto_map.png'))
 ```
 
-```{r echo=FALSE, warning=FALSE, message=FALSE, results = 'asis'}
+```{r echo=FALSE, warning=FALSE, message=FALSE, results = 'asis', caption = capTab('Stations included within each region of the Delta')}
 phyto_stations <- readr::read_csv('sections/phyto/figures/phyto-stations.csv')
 kable_tables(phyto_stations, caption = 'Stations included within each region of the Delta')
 ```
@@ -119,7 +111,7 @@ alg_per_txt()
 
 <!-- prints algal group graphs -->
 
-```{r echo = FALSE, fig.show = 'hold', out.width='80%', fig.align='center', customcap=capFig('Phytoplankton composition by algal group')}
+```{r echo = FALSE, fig.show = 'hold', out.width='80%', fig.align='center', caption=capFig('Phytoplankton composition by algal group')}
 algal_plts()
 ```
 
@@ -139,11 +131,11 @@ Pheophytin a average concentrations were low throughout most of the year (below 
 
 Phytoplankton average densities were highest in spring and summer, with cyanobacteria dominating throughout the year (Figure 4; `r other_taxa('Northern Interior Delta')`). There was a peak of cryptophytes in October. There was a small peak of diatoms in December.
 
-```{r echo=FALSE, fig.show='hold', out.width='70%', fig.align='center', customcap=capFig('Average chlorophyll a and pheophytin a concentrations in the Northern Interior Delta. Patchwork columns indicate median was below the reporting limit')}
+```{r echo=FALSE, fig.show='hold', out.width='70%', fig.align='center', caption=capFig('Average chlorophyll a and pheophytin a concentrations in the Northern Interior Delta. Patchwork columns indicate median was below the reporting limit')}
 knitr::include_graphics(file.path('admin/figures/phyto/Northern Interior Delta-WQ.png'))
 ```
 
-```{r echo=FALSE, fig.show='hold', fig.align='center', customcap=capFig('Average organism density in the Northern Interior Delta')}
+```{r echo=FALSE, fig.show='hold', fig.align='center', caption=capFig('Average organism density in the Northern Interior Delta')}
 knitr::include_graphics(file.path('admin/figures/phyto/Northern Interior Delta-Phyto.png'))
 ```
 
@@ -155,11 +147,11 @@ Pheophytin a average concentrations were fairly constant throughout the year, an
 
 Phytoplankton average densities were highest in the summer (Figure 6; `r other_taxa('Southern Interior Delta')`. Cyanobacteria dominated throughout the year and peaked in August; there was a peak of green algae in July.
 
-```{r echo=FALSE, fig.show='hold', out.width='70%', fig.align='center', customcap=capFig('Average chlorophyll a and pheophytin a concentrations in the Southern Interior Delta. Patchwork columns indicate median was below the reporting limit')}
+```{r echo=FALSE, fig.show='hold', out.width='70%', fig.align='center', caption=capFig('Average chlorophyll a and pheophytin a concentrations in the Southern Interior Delta. Patchwork columns indicate median was below the reporting limit')}
 knitr::include_graphics(file.path('admin/figures/phyto/Southern Interior Delta-WQ.png'))
 ```
 
-```{r echo=FALSE, fig.show='hold', fig.align='center', customcap=capFig('Average organism density in the Southern Interior Delta')}
+```{r echo=FALSE, fig.show='hold', fig.align='center', caption=capFig('Average organism density in the Southern Interior Delta')}
 knitr::include_graphics(file.path('admin/figures/phyto/Southern Interior Delta-Phyto.png'))
 ```
 
@@ -171,11 +163,11 @@ Pheophytin a average concentrations were lower than chlorophyll a for all months
 
 Phytoplankton densities highly varied throughout the year (Figure 8; `r other_taxa('Central Delta')`).
 
-```{r echo=FALSE, fig.show='hold', out.width='70%', fig.align='center', customcap=capFig('Average chlorophyll a and pheophytin a concentrations in the Central Delta. Patchwork columns indicate median was below the reporting limit')}
+```{r echo=FALSE, fig.show='hold', out.width='70%', fig.align='center', caption=capFig('Average chlorophyll a and pheophytin a concentrations in the Central Delta. Patchwork columns indicate median was below the reporting limit')}
 knitr::include_graphics(file.path('admin/figures/phyto/Central Delta-WQ.png'))
 ```
 
-```{r echo=FALSE, fig.show='hold', fig.align='center', customcap=capFig('Average organism density in the Central Delta')}
+```{r echo=FALSE, fig.show='hold', fig.align='center', caption=capFig('Average organism density in the Central Delta')}
 knitr::include_graphics(file.path('admin/figures/phyto/Central Delta-Phyto.png'))
 ```
 
@@ -187,11 +179,11 @@ Pheophytin a average concentrations were higher than chlorophyll a concentration
 
 Phytoplankton average densities were highest in December (Figure 10; `r other_taxa('Confluence')`). There was a large green algae peak in December.
 
-```{r echo=FALSE, fig.show='hold', out.width='70%', fig.align='center', customcap=capFig('Average chlorophyll a and pheophytin a concentrations in the Confluence. Patchwork columns indicate median was below the reporting limit')}
+```{r echo=FALSE, fig.show='hold', out.width='70%', fig.align='center', caption=capFig('Average chlorophyll a and pheophytin a concentrations in the Confluence. Patchwork columns indicate median was below the reporting limit')}
 knitr::include_graphics(file.path('admin/figures/phyto/Confluence-WQ.png'))
 ```
 
-```{r echo=FALSE, fig.show='hold', fig.align='center', customcap=capFig('Average organism density in the Confluence')}
+```{r echo=FALSE, fig.show='hold', fig.align='center', caption=capFig('Average organism density in the Confluence')}
 knitr::include_graphics(file.path('admin/figures/phyto/Confluence-Phyto.png'))
 ```
 
@@ -203,11 +195,11 @@ Pheophytin a average concentrations were slightly higher in the late winter and 
 
 Phytoplankton community compositions varied widely throughout the year; February for this region was the one of only two time/place combinations where other taxa were significantly present (Figure 12; `r other_taxa('Suisun & Grizzly Bays')`). There was a large green algae peak in December.
 
-```{r echo=FALSE, fig.show='hold', out.width='70%', fig.align='center', customcap=capFig('Average chlorophyll a and pheophytin a concentrations in the Grizzly & Suisun Bays. Patchwork columns indicate median was below the reporting limit')}
+```{r echo=FALSE, fig.show='hold', out.width='70%', fig.align='center', caption=capFig('Average chlorophyll a and pheophytin a concentrations in the Grizzly & Suisun Bays. Patchwork columns indicate median was below the reporting limit')}
 knitr::include_graphics(file.path('admin/figures/phyto/Suisun & Grizzly Bays-WQ.png'))
 ```
 
-```{r echo=FALSE, fig.show='hold', fig.align='center', customcap=capFig('Average organism density in the Grizzly & Suisun Bays.')}
+```{r echo=FALSE, fig.show='hold', fig.align='center', caption=capFig('Average organism density in the Grizzly & Suisun Bays.')}
 knitr::include_graphics(file.path('admin/figures/phyto/Suisun & Grizzly Bays-Phyto.png'))
 ```
 
@@ -219,11 +211,11 @@ Pheophytin a average concentrations were highest in July and December; values we
 
 Phytoplankton community composition varied widely throughout the year; August in the this region was one of only two time/place combinations where other taxa were present, dominating all others except for cyanobacteria (Figure 14; `r other_taxa('San Pablo Bay')`).
 
-```{r echo=FALSE, fig.show='hold', out.width='70%', fig.align='center', customcap=capFig('Average chlorophyll a and pheophytin a concentrations in the San Pablo Bay. Patchwork columns indicate median was below the reporting limit')}
+```{r echo=FALSE, fig.show='hold', out.width='70%', fig.align='center', caption=capFig('Average chlorophyll a and pheophytin a concentrations in the San Pablo Bay. Patchwork columns indicate median was below the reporting limit')}
 knitr::include_graphics(file.path('admin/figures/phyto/San Pablo Bay-WQ.png'))
 ```
 
-```{r echo=FALSE, fig.show='hold', fig.align='center', customcap=capFig('Average organism density in the San Pablo Bay')}
+```{r echo=FALSE, fig.show='hold', fig.align='center', caption=capFig('Average organism density in the San Pablo Bay')}
 knitr::include_graphics(file.path('admin/figures/phyto/San Pablo Bay-Phyto.png'))
 ```
 
@@ -246,3 +238,9 @@ Müller-Solger AB, Jassby AD, Müller-Navarra DC. 2002. Nutritional quality of f
 Utermöhl, H. 1958. Zur Vervollkommnung der quantitativen Phytoplankton Methodik. Mitt. Int. Verh. Limnol. 9: 38.
 
 van den Hoek, C., D.G. Mann, and H.M. Jahns. 1995. Algae: an introduction to Phycology. Cambridge University Press, United Kingdom.
+
+------------------------------------------------------------------------
+
+## Archived Reports
+
+Previous EMP phytoplankton reports can be found [here](../admin/archive/phyto).

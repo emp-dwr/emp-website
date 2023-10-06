@@ -80,7 +80,7 @@ high_chla_helper_txt <- function(i, df){
 #' Create Station/Month List
 #' TODO: fill out later
 high_chla_stations <- function(){
-  df <- df_wq_year %>%
+  df <- df_phywq_year %>%
     dplyr::filter(Chla > 10) %>%
     dplyr::mutate(Month = months(Date)) %>%
     dplyr::group_by(Month) %>%
@@ -102,19 +102,19 @@ high_chla_stations <- function(){
 #' Computes various statistics for reports
 #'
 #' @param df the relevant data frame
-#' @param nutrient the nutrient column name (as string) to pull data from
+#' @param nutrient_phy the nutrient column name (as string) to pull data from
 #' @param stat the function to apply to the data. choices are: min, max, etc.
 #'
 #' @details this is a helper function for 'func_stats_report'
 #'
-func_stats <- function(df, nutrient, year, stat){
+func_phy_stats <- function(df, nutrient_phy, year, stat){
   # subset report year
   df <- subset_year(df, year)
   
   if (stat == 'min'){
-    df_output <- df %>% dplyr::filter(!!rlang::sym(nutrient) == min(df[nutrient], na.rm = TRUE))
+    df_output <- df %>% dplyr::filter(!!rlang::sym(nutrient_phy) == min(df[nutrient_phy], na.rm = TRUE))
   } else if (stat == 'max'){
-    df_output <- df %>% dplyr::filter(!!rlang::sym(nutrient) == max(df[nutrient], na.rm = TRUE))
+    df_output <- df %>% dplyr::filter(!!rlang::sym(nutrient_phy) == max(df[nutrient_phy], na.rm = TRUE))
   }
   return(df_output)
 }
@@ -124,17 +124,17 @@ func_stats <- function(df, nutrient, year, stat){
 #' Creates a string version of statistical outputs to enter in reports
 #'
 #' @param df the relevant dataframe
-#' @param nutrient the nutrient column name (as string) to pull data from
+#' @param nutrient_phy the nutrient column name (as string) to pull data from
 #' @param output the type of output string desired. choices are: min, max, etc.
 #'
 #' @details this is a helper function for 'func_stats_report'
 #'
-func_output <- function(df, nutrient, year, output){
+func_phy_output <- function(df, nutrient_phy, year, output){
   # subset report year
   df <- subset_year(df, year)
   
   # needed variables
-  col_sign <- paste0(nutrient,'_Sign')  
+  col_sign <- paste0(nutrient_phy,'_Sign')  
   
   if (col_sign %in% colnames(df)){
     sign <- unique(dplyr::pull(df, col_sign))
@@ -147,7 +147,7 @@ func_output <- function(df, nutrient, year, output){
   
   if (output == 'value'){
     # define nutrient value
-    nutri <- unique(dplyr::pull(df, nutrient))
+    nutri <- unique(dplyr::pull(df, nutrient_phy))
     
     # if sign exists (ie. "<"), then append to output
     if (sign == '<'){
@@ -188,9 +188,9 @@ func_output <- function(df, nutrient, year, output){
 #' @param stat the function to apply to the data. choices are: min, max, etc.
 #' @param output the type of output string desired. choices are: min, max, etc.
 #'
-func_stats_report <- function(df, nutrient, stat, year, output){
-  df_vari <- func_stats(df, nutrient, year, stat)
-  vari <- func_output(df_vari, nutrient, year, output)
+func_phy_stats_report <- function(df, nutrient_phy, stat, year, output){
+  df_vari <- func_phy_stats(df, nutrient_phy, year, stat)
+  vari <- func_phy_output(df_vari, nutrient_phy, year, output)
   return(vari)
 }
 
@@ -221,7 +221,7 @@ stats_helper_txt <- function(i){
 #' Create Station/Month List
 #' TODO: fill out later
 stats_stations <- function(stat){
-  df <- df_wq_year %>%
+  df <- df_phywq_year %>%
     dplyr::filter(Chla > 10) %>%
     dplyr::mutate(Month = months(Date)) %>%
     dplyr::group_by(Month) %>%

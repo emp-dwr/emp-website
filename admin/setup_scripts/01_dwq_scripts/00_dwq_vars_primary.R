@@ -1,6 +1,16 @@
 # download data from EDI (assumption is all data will be downloaded for all; not great, but for now)
-df_wq_raw <- get_edi_file(458, glue::glue('EMP_DWQ_1975_{report_year}'))
-df_wq_raw <- df_wq_raw[[1]]
+download_dwq_data <- function(){
+  df <- get_edi_file(458, glue::glue('EMP_DWQ_1975_{report_year}'))
+  df <- df[[1]]
+  readr::write_csv(df, 'admin/data/dwq/data_dwq_all.csv')
+  }
+
+# read in raw data
+df_dwq_raw <- read_quiet_csv('admin/data/dwq/data_dwq_all.csv')
+
+# filter date range
+df_dwq_cur <- subset(df_dwq_raw, Date >= glue::glue('{report_year}-01-01'))
+df_dwq_prev <- subset(df_dwq_raw, Date <= glue::glue('{report_year}-01-01') & Date >= glue::glue('{prev_year}-01-01'))
 
 # clean data --------------------------------------------------------------
 
@@ -35,15 +45,14 @@ assign_units <- function(nutrient){
 #'
 func_sumstats <- function(df, nutrient, year, stat){
   # subset report year
-  df <- subset_year(df, year)
-  
+  df_sub <- subset_year(df, year)
   if (stat == 'min'){
-    df_output <- df %>% dplyr::filter(!!rlang::sym(nutrient) == min(df[[nutrient]], na.rm = TRUE))
+    df_output <- df_sub %>% dplyr::filter(!!rlang::sym(nutrient) == min(!!rlang::sym(nutrient), na.rm = TRUE))
   } else if (stat == 'max'){
-    df_output <- df %>% dplyr::filter(!!rlang::sym(nutrient) == max(df[[nutrient]], na.rm = TRUE))
+    df_output <- df_sub %>% dplyr::filter(!!rlang::sym(nutrient) == max(!!rlang::sym(nutrient), na.rm = TRUE))
   } else if (stat == 'median'){
     # percent_nd <- df[[nutrient]]/df[[paste0(nutrient,'_Sign')]]
-    df_output <- median(df[[nutrient]], na.rm = TRUE)
+    df_output <- median(df_sub[[nutrient]], na.rm = TRUE)
   }
   return(df_output)
 }
@@ -59,7 +68,6 @@ func_sumstats <- function(df, nutrient, year, stat){
 #' @details this is a helper function for 'func_stats_report'
 #'
 func_output <- function(df, nutrient, year, output){
-  print(typeof(df))
   if(typeof(df) == 'list'){
     # subset report year
     df <- subset_year(df, year)
@@ -75,9 +83,7 @@ func_output <- function(df, nutrient, year, output){
     } else {
       sign <- 'none'
     }
-    print('here')
     if (output == 'value'){
-      print('maybe here')
       # define nutrient value
       nutri <- unique(dplyr::pull(df, nutrient))
       

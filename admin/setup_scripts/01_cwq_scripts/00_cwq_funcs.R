@@ -1,7 +1,7 @@
 # helper (cleaning) functions ---------------------------------------------------------------
 name <- 'dummy var' # needs to be defined outside function for lapply, for some reason
 
-assign_names <- function(nutrient){
+assign_names_cwq <- function(nutrient){
   if (nutrient == 'SpC'){
     name <- 'Specific Conductance'
   } else if (nutrient == 'DissolvedOxygen'){
@@ -11,11 +11,11 @@ assign_names <- function(nutrient){
   } else {
     name <- nutrient
   }
-  
+
   return(name)
 }
 
-assign_units <- function(nutrient){
+assign_units_cwq <- function(nutrient){
   if(nutrient == 'Statistic' | nutrient == 'pH'){
     name <- NA
   } else if (nutrient == 'SpC'){
@@ -25,18 +25,18 @@ assign_units <- function(nutrient){
   } else if (nutrient == 'DissolvedOxygen'){
     name <- 'mg/L'
   } else if (nutrient == 'Fluorescence'){
-    name <- '\U03BC/L'
+    name <- '\U03BCg/L'
   } else if (nutrient == 'WaterTemperature'){
     name <- '\U00B0 C'
   }
-  
+
   return(name)
 }
 
 add_level <- function(df){
   df <- df %>%
     tidytable:::separate_wider_delim(site_code,'_',names = c('site_code','level')) %>%
-    dplyr::mutate(level = 
+    dplyr::mutate(level =
                     dplyr::case_when(is.na(level) ~ 'Surface',
                                      TRUE ~ stringr::str_to_title(level)))
 }
@@ -64,7 +64,7 @@ round_table_units <- function(df){
 calc_sumstats <- function(df){
   # add surface/bottom level col
   df <- add_level(df)
-  
+
   # calc sum stats
   df <- df %>%
     dplyr::group_by(region, par, level) %>%
@@ -73,17 +73,17 @@ calc_sumstats <- function(df){
       MAX = max(value, na.rm = TRUE),
       AVERAGE = mean(value, na.rm = TRUE),
       .groups = 'drop'
-    )  
-  
+    )
+
   # set order
   df <- with(df, df[order(level, decreasing = TRUE), ])
   df <- with(df, df[order(par), ])
-  
+
   # map names/units
-  df$nutr <- lapply(df$par, assign_names)
-  df$unit <- lapply(df$par, assign_units)
-  df$nutrlvl <- with(df, paste0(nutr, '\n (', level,')-',unit)) 
-  
+  df$nutr <- lapply(df$par, assign_names_cwq)
+  df$unit <- lapply(df$par, assign_units_cwq)
+  df$nutrlvl <- with(df, paste0(nutr, '\n (', level,')-',unit))
+
   return(df)
 }
 
@@ -93,35 +93,35 @@ calc_sumstats <- function(df){
 #' Generate Summary Statistic String
 #' TODO: finish
 #'
-stat_str <- function(analyte, lvl, stat_func, reg = NULL){
+stat_str_cwq <- function(analyte, lvl, stat_func, reg = NULL){
   # add surface/bottom level col
   df <- add_level(df_cwq_raw)
-  
+
   if(!is.null(reg)){
     df <- df %>% dplyr::filter(region == reg)
   }
-  
+
   df <- df %>%
     dplyr::filter(par == analyte,
                   level == lvl)
-  
+
   df <- eval(parse(text = glue::glue('df %>% dplyr::filter(value == {stat_func}(value, na.rm = TRUE))')))
-  
+
   ss_vals <- list(
     'value' = round_units(df)$value,
     'station' = df$site_code,
     'month' = month.name[df$month],
-    'unit' = assign_units(analyte)
-  )  
-  
+    'unit' = assign_units_cwq(analyte)
+  )
+
   ss_vals$unit <- ifelse(is.na(ss_vals$unit), '', ss_vals$unit)
-  
+
   out <- glue::glue('{ss_vals$value} {ss_vals$unit}')
-    
+
   if(!is.null(reg)){
     out <- glue::glue('{out} ({ss_vals$station} in {ss_vals$month})')
   }
-  
+
   return(out)
 }
 
@@ -129,12 +129,12 @@ stat_str <- function(analyte, lvl, stat_func, reg = NULL){
 #' TODO: finish
 #'
 range_txt <- function(analyte, lvl, reg = NULL){
-  min_txt <- stat_str(analyte, lvl, 'min', reg)
-  max_txt <- stat_str(analyte, lvl, 'max', reg)
-  
+  min_txt <- stat_str_cwq(analyte, lvl, 'min', reg)
+  max_txt <- stat_str_cwq(analyte, lvl, 'max', reg)
+
   out <- glue::glue('{min_txt} to {max_txt}')
-  
+
   out <- color_func(out)
-  
+
   return(out)
 }

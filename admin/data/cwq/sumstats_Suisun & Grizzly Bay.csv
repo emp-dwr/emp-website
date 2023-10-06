@@ -7,7 +7,7 @@ Statistic,"Dissolved Oxygen
  (Surface)","Water Temperature
  (Surface)","Water Temperature
  (Bottom)"
-NA,mg/L,μ/L,NA,μS/cm,μS/cm,FNU,° C,° C
+NA,mg/L,μg/L,NA,μS/cm,μS/cm,FNU,° C,° C
 MIN,6.58,0.4,7.66,456,10879,4.6,8.08,9.02
 MAX,10.69,12.9,8.24,31901,34246,142.74,23.4,22.27
 AVERAGE,8.83,3.01,7.92,17299,27585,31.62,16.34,16.21

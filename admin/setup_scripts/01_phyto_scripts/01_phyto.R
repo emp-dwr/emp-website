@@ -1,18 +1,26 @@
 # download phyto data from EDI (assumption is all data will be downloaded for all; not great, but for now)
-df_phyto_raw <- get_edi_file(1320, glue::glue('EMP_Phyto_Data_2008-{report_year}'))
-df_phyto_raw <- df_phyto_raw[[1]]
+download_phyto_data <- function(){
+  df_phyto_raw <- get_edi_file(1320, glue::glue('EMP_Phyto_Data_2008-{report_year}'))
+  df_phyto_raw <- df_phyto_raw[[1]]
+  
+  df_phyto_raw$AlgalGroup[df_phyto_raw$AlgalGroup == 'Green Alga'] <- 'Green Algae'
+  df_phyto_raw$AlgalGroup[df_phyto_raw$AlgalGroup == 'Raphidophyte'] <- 'Raphidophytes'
+  df_phyto_raw$AlgalGroup[df_phyto_raw$AlgalGroup == 'Cryptophyte'] <- 'Cryptophytes'  
+  
+  readr::write_csv(df_phyto_raw, 'admin/data/phyto/data_phyto_all.csv')
+  
+  # download wq data from EDI (assumption is all data will be downloaded for all; not great, but for now)
+  # Note: need d-wq data for chla and pheophytin
+  df_phywq_raw <- get_edi_file(458, glue::glue('EMP_DWQ_1975_{report_year}'))
+  df_phywq_raw <- df_phywq_raw[[1]]
+  
+  df_phywq_raw$Chla[df_phywq_raw$Chla > 50] <- NA
+  
+  readr::write_csv(df_phywq_raw, 'admin/data/dwq/data_dwq-phyto_all.csv')
+}
 
-df_phyto_raw$AlgalGroup[df_phyto_raw$AlgalGroup == 'Green Alga'] <- 'Green Algae'
-df_phyto_raw$AlgalGroup[df_phyto_raw$AlgalGroup == 'Raphidophyte'] <- 'Raphidophytes'
-df_phyto_raw$AlgalGroup[df_phyto_raw$AlgalGroup == 'Cryptophyte'] <- 'Cryptophytes'
-
-
-# download wq data from EDI (assumption is all data will be downloaded for all; not great, but for now)
-# Note: need d-wq data for chla and pheophytin
-df_wq_raw <- get_edi_file(458, glue::glue('EMP_DWQ_1975_{report_year}'))
-df_wq_raw <- df_wq_raw[[1]]
-
-df_wq_raw$Chla[df_wq_raw$Chla > 50] <- NA
+df_phyto_raw <- read_quiet_csv('admin/data/phyto/data_phyto_all.csv')
+df_phywq_raw <- read_quiet_csv('admin/data/dwq/data_dwq-phyto_all.csv')
 
 # clean data functions ----------------------------------------------------
 
@@ -53,8 +61,8 @@ assign_regions <- function(df){
 df_phyto <- assign_regions(df_phyto_raw)
 df_phyto_year <- subset_year(df_phyto, report_year)
 
-df_wq <- assign_regions(df_wq_raw)
-df_wq_year <- subset_year(df_wq, report_year)
+df_phywq <- assign_regions(df_phywq_raw)
+df_phywq_year <- subset_year(df_phywq, report_year)
 
 # basic info --------------------------------------------------------------
 
@@ -243,8 +251,8 @@ return(p)
 #' TODO: later
 #' 
 
-plt_wq_avg <- function(region){
-  df <- df_wq_year %>%
+plt_phywq_avg <- function(region){
+  df <- df_phywq_year %>%
     dplyr::filter(Region == region) %>%
     dplyr::mutate(Month = factor(months(Date), levels = month.name, labels = month.abb)) %>%
     dplyr::select(c(Month, Station, Region, Chla_Sign, Chla, Pheophytin_Sign, Pheophytin)) %>%
