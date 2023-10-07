@@ -1,15 +1,15 @@
-# (PART\*) General {.unnumbered}
-
 ```{r echo = FALSE}
 # reset caption numbers; do not edit
 capTabNo = 1; capFigNo = 1
 ```
 
+# (PART\*) General {.unnumbered}
+
 # CA Dept of Water Resources - Environmental Monitoring Program {.unlisted .unnumbered}
 
 <!-- include slideshow -->
 
-```{r, echo=FALSE, caption = capFig('Slideshow of DWR EMP locations.')}
+```{r, echo=FALSE}
 htmltools::includeHTML('admin/html-css/slideshow.html')
 ```
 
@@ -17,7 +17,7 @@ htmltools::includeHTML('admin/html-css/slideshow.html')
 
 The Environmental Monitoring Program (EMP) is a joint effort by the California Department of Water Resources (DWR) and the United States Bureau of Reclamation (USBR) to characterize the aquatic environment of the Sacramento-San Joaquin Delta, Suisun, and San Pablo Bays. With assistance from the California Department of Water Resources (CDFW), each month EMP scientists visit up to 28 (24 fixed and 4 floating) stations to sample water quality and biological communities (phytoplankton, zooplankton, and benthic invertebrates). EMP also services and maintains a network of 15 continuous water quality stations that provide data in real time through the California Data Exchange Network. Since 1975, these efforts have established an irreplaceable ecological record in the San Francisco estuary that has been used in dozens of peer-review scientific articles and technical reports.
 
-As a public endeavor, EMP embraces the principles of Open Science and makes the data it collects openly and freely available. This website provides yearly status-and-trends reports on water quality, phytoplankton, zooplankton, and benthic invertebrates while also providing links to Environmental Data Initiative portals where quality-checked versions of EMP's various datasets are available for download. For questions and comments about the website, please contact Sarah Perry ([sarah.perry\@water.ca.gov](mailto:sarah.perry@water.ca.gov){.email}) at DWR.
+As a public endeavor, EMP embraces the principles of Open Science and makes the data it collects openly and freely available. This website provides yearly status-and-trends reports on water quality, phytoplankton, zooplankton, and benthic invertebrates while also providing links to Environmental Data Initiative portals where quality-checked versions of EMP's various datasets are available for download.
 
 # Program History {.unlisted .unnumbered}
 

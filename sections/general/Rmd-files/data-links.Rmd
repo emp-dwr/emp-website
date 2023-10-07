@@ -7,7 +7,7 @@ Contact: Michelle Nelson (michelle.nelson@water.ca.gov)
 
 [**Discrete Water Quality**](`r get_edi_url(458)`)
 
-Contact: Sarah Perry (sarah.perry@water.ca.gov)
+Contact: Perry (sarah.perry@water.ca.gov)
 
 [**Benthic Invertebrates**](`r get_edi_url(1036)`)
 
