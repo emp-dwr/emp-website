@@ -73,4 +73,4 @@ knitr::include_graphics(file.path('admin/figures/dwq/ARGraph_TotPhos.jpg'))
 
 ## Archived Reports
 
-Previous EMP discrete water quality reports can be found [here](../admin/archive/d-wq).
+Previous EMP discrete water quality reports can be found [here](admin/archive/d-wq).
