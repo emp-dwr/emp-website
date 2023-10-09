@@ -131,4 +131,4 @@ Winder M, Jassby AD. 2011. Shifts in Zooplankton Community Structure: Implicatio
 
 ## Archived Reports
 
-Previous EMP zooplankton reports can be found [here](../admin/archive/zoop).
+Previous EMP zooplankton reports can be found [here](https://github.com/emp-des/emp-reports/tree/gh-pages/admin/archive/zoop).

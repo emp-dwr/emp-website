@@ -243,4 +243,4 @@ van den Hoek, C., D.G. Mann, and H.M. Jahns. 1995. Algae: an introduction to Phy
 
 ## Archived Reports
 
-Previous EMP phytoplankton reports can be found [here](../admin/archive/phyto).
+Previous EMP phytoplankton reports can be found [here](https://github.com/emp-des/emp-reports/tree/gh-pages/admin/archive/phyto).
