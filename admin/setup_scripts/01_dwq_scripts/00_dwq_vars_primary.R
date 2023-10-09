@@ -32,6 +32,28 @@ assign_units <- function(nutrient){
   }
 }
 
+#' Assign name
+#'
+#' @param nutrient the relevant nutrient
+#'
+#' @details TODO: TURN INTO CSV (so others can edit)
+#' 
+assign_subscript <- function(nutrient){
+  if (nutrient == 'SpCndSurface'){
+    subscr <- 'SpCnd'
+  } else if (nutrient == 'TurbiditySurface_FNU'){
+    subscr <- 'Turb'
+  } else if (nutrient == 'DissAmmonia'){
+    subscr <- 'NH3'
+  } else if (nutrient == 'DissNitrateNitrite'){
+    subscr <- 'DNN'
+  } else if (nutrient == 'TotPhos' | nutrient == 'Chla'){
+    subscr <- nutrient
+  }
+  
+  return(subscr)
+}
+
 # statistics helper functions --------------------------------------------------------------
 #' Compute statistics
 #'

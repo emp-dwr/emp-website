@@ -61,11 +61,13 @@ func_comparison <- function(nutrient){
   median_cur_txt <- paste(median_cur, assign_units(nutrient))
   median_prev_txt <- paste(median_prev, assign_units(nutrient))
   
+  subscript <- assign_subscript(nutrient)
+  
   # slight differences for grammar
   if(dif_dir == 'equal to'){
-    vari <- glue::glue('in {report_year} were {dif_dir} the median from {prev_year} (median  = {median_cur_txt})')
+    vari <- glue::glue('in {report_year} were {dif_dir} the median from {prev_year} (med~{subscript}~ = {median_cur_txt})')
   } else{
-    vari <- glue::glue('in {report_year} (median  = {median_cur_txt}) were {dif_dir} the {prev_year} median (median = {median_prev_txt})')
+    vari <- glue::glue('in {report_year} (med~{subscript}~  = {median_cur_txt}) were {dif_dir} the {prev_year} median (med~{subscript}~ = {median_prev_txt})')
   }
   
   vari <- color_func(vari)
