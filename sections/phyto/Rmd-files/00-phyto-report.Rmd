@@ -145,7 +145,7 @@ Chlorophyll a average concentrations were highest in summer, peaking around July
 
 Pheophytin a average concentrations were fairly constant throughout the year, and below chlorophyll a, except for January and February (Figure 5). `r stat_txt('Chla', 'Southern Interior Delta')`
 
-Phytoplankton average densities were highest in the summer (Figure 6; `r other_taxa('Southern Interior Delta')`. Cyanobacteria dominated throughout the year and peaked in August; there was a peak of green algae in July.
+Phytoplankton average densities were highest in the summer (Figure 6; `r other_taxa('Southern Interior Delta')`). Cyanobacteria dominated throughout the year and peaked in August; there was a peak of green algae in July.
 
 ```{r echo=FALSE, fig.show='hold', out.width='70%', fig.align='center', caption=capFig('Average chlorophyll a and pheophytin a concentrations in the Southern Interior Delta. Patchwork columns indicate median was below the reporting limit')}
 knitr::include_graphics(file.path('admin/figures/phyto/Southern Interior Delta-WQ.png'))

@@ -22,7 +22,7 @@ download_data <- FALSE # TRUE/FALSE
 autogen_color <- FALSE # TRUE/FALSE
 
 # Do you want to create the graphs?
-create_graphs <- FALSE # TRUE/FALSE
+create_graphs <- TRUE # TRUE/FALSE
 ```
 
 ------------------------------------------------------------------------
