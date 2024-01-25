@@ -295,7 +295,7 @@ plt_phywq_avg <- function(region){
         title = ggplot2::element_blank(),
         override.aes = list(pattern = c('none', 'none')))
       ) +
-    ggplot2::labs(title = glue::glue('{region} Monthly Averages (WQ)'), y = '\U03BC/L', x = ggplot2::element_blank()) +
+    ggplot2::labs(title = glue::glue('{region} Monthly Averages (WQ)'), y = 'Pigment Concentration (\U03BCg/L)', x = ggplot2::element_blank()) +
     ggplot2::theme(legend.position = 'bottom', legend.margin = ggplot2::margin(-1,0,-1,0), plot.title = ggplot2::element_text(hjust = 0.5))
   
   return(p)

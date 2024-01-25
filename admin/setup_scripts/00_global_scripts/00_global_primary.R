@@ -53,10 +53,12 @@ assign_colors <- function(df, col, pal = 'cbfriendly'){
 
 # global variables --------------------------------------------------------
 
-report_year <- as.character(as.integer(format(Sys.Date(), '%Y'))-1)
+# TODO: let report year be manual selection with default
+
+report_year <- as.character(as.integer(format(Sys.Date(), '%Y'))-2)
 report_year_txt <- color_func(report_year)
 
-prev_year <- as.character(as.integer(format(Sys.Date(), '%Y'))-2)
+prev_year <- as.character(as.integer(report_year)-1)
 prev_year_txt <- color_func(prev_year)
 
 
@@ -88,7 +90,7 @@ subset_year <- function(df, year = report_year){
 #' @details Assumes access to EMP SharePoint
 #'
 abs_path_data <- function(fp_rel = NULL) {
-  fp_emp <- 'California Department of Water Resources/Environmental Monitoring Program - Documents/Annual Report Docs/'
+  fp_emp <- 'California Department of Water Resources/Environmental Monitoring Program - Documents/Mandated Reporting/Annual Report Docs/'
   
   if (is.null(fp_rel)) {
     fp_abs <- normalizePath(file.path(Sys.getenv('USERPROFILE'), fp_emp))

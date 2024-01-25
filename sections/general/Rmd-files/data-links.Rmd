@@ -7,7 +7,7 @@ Contact: Michelle Nelson (michelle.nelson@water.ca.gov)
 
 [**Discrete Water Quality**](`r get_edi_url(458)`)
 
-Contact: Perry (sarah.perry@water.ca.gov)
+Contact: Julianna Manning (julianna.manning@water.ca.gov)
 
 [**Benthic Invertebrates**](`r get_edi_url(1036)`)
 
@@ -19,7 +19,7 @@ Contact: Tiffany Brown (tiffany.brown@water.ca.gov)
 
 [**Zooplankton**](`r get_edi_url(522)`)
 
-Contact: Arthur Barros (arthur.barros@wildlife.ca.gov)
+Contact:  Tracy Shaw (caroline.shaw@wildlife.ca.gov)
 
 ## Individual Stations (Continuous Water Quality) {.unlisted .unnumbered}
 :::: {style="display: flex;"}

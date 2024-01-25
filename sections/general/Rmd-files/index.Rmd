@@ -10,7 +10,7 @@ capTabNo = 1; capFigNo = 1
 <!-- include slideshow -->
 
 ```{r, echo=FALSE}
-htmltools::includeHTML('admin/html-css/slideshow.html')
+suppressWarnings(htmltools::includeHTML('admin/html-css/slideshow.html'))
 ```
 
 # Program Information

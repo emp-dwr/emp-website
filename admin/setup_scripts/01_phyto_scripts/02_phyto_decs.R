@@ -215,7 +215,8 @@ stat_txt <- function(nutr, region){
 
 other_taxa <- function(region) {
   df_others <- alg_dfs(df_phyto_year, 'other', region)
-  unique_taxa <- unique(df_others$AlgalGroup)
+  unique_taxa <- tolower(unique(df_others$AlgalGroup))
+  unique_taxa <- unique_taxa[!unique_taxa == 'cyanobacteria']
   unique_taxa <- knitr::combine_words(tolower(unique_taxa))
   
   out <- glue::glue('"other" are {unique_taxa}')
