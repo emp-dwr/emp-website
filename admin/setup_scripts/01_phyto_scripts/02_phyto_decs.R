@@ -238,7 +238,6 @@ algal_plts <- function(){
   return(plt)
 }
 
-
 region_phywq_plts <- function(region){
   # create base graphs
   plt_phywq <- plt_phywq_avg(region)

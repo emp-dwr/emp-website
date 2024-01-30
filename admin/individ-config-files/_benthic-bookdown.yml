@@ -11,11 +11,8 @@ rmd_files: [
   'admin/config-yaml.Rmd',
 
   # Benthic
-  'admin/reset-caps.Rmd',
   'sections/benthic/Rmd-files/00-benthic-info.Rmd',
-  'admin/reset-caps.Rmd',
   'sections/benthic/Rmd-files/00-benthic-meta.Rmd',
-  'admin/reset-caps.Rmd',
   'sections/benthic/Rmd-files/00-benthic-report.Rmd'
 ]
 ---

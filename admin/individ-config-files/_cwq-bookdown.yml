@@ -10,8 +10,7 @@ rmd_files: [
   # Config
   'admin/config-yaml.Rmd',
 
-  # D-WQ
-  'admin/reset-caps.Rmd',
+  # C-WQ
   'sections/c-wq/Rmd-files/00-cwq-info.Rmd',
   'sections/c-wq/Rmd-files/00-cwq-report.Rmd'
 ]
