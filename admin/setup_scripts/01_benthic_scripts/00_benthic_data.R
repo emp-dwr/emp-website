@@ -406,7 +406,7 @@ df_ry_stat_phy <- df_report_month_stat %>%
 df_ry_stat_phy <- subset(df_ry_stat_phy, select = -c(SumTotal_MonthStat))
 
 # factor cols
-df_ry_stat_phy$Month = factor(df_ry_stat_phy$Month, levels = month.name)
+df_ry_stat_phy$Month <- factor(df_ry_stat_phy$Month, levels = month.name, labels = month.abb)
 df_ry_stat_phy$Phylum <- as.factor(df_ry_stat_phy$Phylum)
 
 # arrange df
@@ -448,14 +448,24 @@ for (station in unique(df_ry_stat_phy$StationCode)){
   
   # graph
   bar <- ggplot2::ggplot(df_filt, ggplot2::aes(Month, CPUETotal_MonthStat, label = Phylum, fill = Phylum)) +
-    ggplot2::geom_col(color = 'black', show.legend = TRUE) +
+    ggplot2::geom_col(color = 'black') +
     # ggplot2::scale_fill_identity(guide = 'legend', labels = rev(df_filt$Phylum), breaks = rev(df_filt$color)) +
     ggplot2::ylab(expression(bold('Individuals/m'^2))) +
     ggplot2::scale_fill_manual(values = col_colors) +
-    blank_theme() 
+    blank_theme() +
+    ggplot2::theme(legend.position = 'top')
+  
+  bar <- ggplot2::ggplot(df_filt, ggplot2::aes(Month, CPUETotal_MonthStat, label = Phylum, fill = Phylum)) +
+    ggplot2::geom_col(color = 'black') +
+    ggplot2::facet_wrap(~Phylum, scales = 'free_y') + 
+    # ggplot2::scale_fill_identity(guide = 'legend', labels = rev(df_filt$Phylum), breaks = rev(df_filt$color)) +
+    ggplot2::ylab(expression(bold('Individuals/m'^2))) +
+    ggplot2::scale_fill_manual(values = col_colors) +
+    blank_theme() +
+    ggplot2::theme(legend.position = 'top')
   
   ggplot2::ggsave(paste0(dir_ry_bar,'/Fig',i,'_',station,'.png'), plot = bar, width = 6, height = 3.5)
-  ggplot2::ggsave(paste0(dir_report,'/Fig',i,'_',station,'.png'), plot = bar, width = 6, height = 3.5)
+  ggplot2::ggsave(paste0(dir_report,'/Fig',i,'_',station,'.png'), plot = bar, width = 6, height = 4.5) # 6, 3.5
   
   i <- i + 1
 }

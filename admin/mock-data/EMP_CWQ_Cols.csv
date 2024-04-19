@@ -1,0 +1,10 @@
+old,new
+station,Station
+date,Date
+time,Time
+dissolvedoxygen,DissOxygen_Surface
+fluorescence,Fluorescence_Surface
+ph,pH_Surface
+spc,SpCnd_Surface
+turbidity,Turbidity_Surface
+watertemperature,WaterTemp_Surface
