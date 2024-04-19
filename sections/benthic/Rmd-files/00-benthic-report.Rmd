@@ -7,13 +7,15 @@ capTabNo = 1; capFigNo = 1
 
 ### Introduction
 
-Benthic monitoring conducted by the California Department of Water Resources (DWR) since 1975 has documented changes in the composition, density, and distribution of the macrobenthic biota inhabiting the upper San Francisco Estuary. This monitoring is performed by the Environmental Monitoring Program (EMP) as part of the Interagency Ecological Program (IEP) and is one component of the biological monitoring mandated by Water Right Decision D-1641. Since benthic species respond to changes in physical factors such as freshwater inflows, salinity, and substrate composition, benthic community data provides an indication of physical changes occurring within the Estuary. Benthic monitoring is an important component of the EMP because operation of the State Water Project can change the Estuary's flow characteristics, affecting the density and distribution of benthic biota. Benthic monitoring data is also used to detect and document the presence of new, non-native species in the Upper Estuary, such as the 1986 arrival and subsequent wide spread of the overbite clam, *Potamocorbula amurensis*. This article summarizes benthic community characteristics at EMP monitoring sites in 2022 and contextualizes these observations using community data from the preceding decade.
+Benthic monitoring conducted by the California Department of Water Resources (DWR) since 1975 has documented changes in the composition, density, and distribution of the macrobenthic biota inhabiting the upper San Francisco Estuary. This monitoring is performed by the Environmental Monitoring Program (EMP) as part of the Interagency Ecological Program (IEP) and is one component of the biological monitoring mandated by Water Right Decision D-1641. Since benthic species respond to changes in physical factors such as freshwater inflows, salinity, and substrate composition, benthic community data provides an indication of physical changes occurring within the Estuary. Benthic monitoring is an important component of the EMP because operation of the State Water Project can change the Estuary's flow characteristics, affecting the density and distribution of benthic biota. Benthic monitoring data is also used to detect and document the presence of new, non-native species in the Upper Estuary, such as the 1986 arrival and subsequent wide spread of the overbite clam, *Potamocorbula amurensis*. This report summarizes benthic community characteristics at EMP monitoring sites in `r report_year_txt` and contextualizes these observations using community data from the preceding decade.
 
 ------------------------------------------------------------------------
 
 ### Methods
 
-Benthic monitoring was conducted monthly at 10 sampling sites distributed throughout the Estuary, from San Pablo Bay upstream through the Sacramento-San Joaquin Delta (Figure 41). EMP staff collected four bottom grab samples at each station using a Ponar dredge with a sampling area of 0.052 m^2^. The four replicate grab samples were analyzed for benthic macrofauna by Hydrozoology, a private laboratory under contract with DWR. All organisms were identified to the lowest taxon possible and enumerated. Field collection methodology and laboratory analysis of benthic macroinvertebrates are described in detail in the benthic metadata found [here](https://emp-des.github.io/emp-reports/benthic-meta.html).
+Benthic monitoring was conducted monthly at 10 sampling sites distributed throughout the Estuary, from San Pablo Bay upstream through the Sacramento-San Joaquin Delta (Figure 41). EMP staff collected four bottom grab samples at each station using a Ponar dredge with a sampling area of 0.052 m^2^. The four replicate grab samples were analyzed for benthic macrofauna by Hydrozoology, a private laboratory under contract with DWR. All organisms were identified to the lowest taxon possible and enumerated.
+
+For more in-depth methodology, see [here](https://portal.edirepository.org/nis/metadataviewer?packageid=edi.1320.6).
 
 ```{r echo=FALSE, out.width='70%', fig.align='center', caption = capFig('Map of EMP\'s current benthic field sites.')}
 knitr::include_graphics(file.path('admin/figures/benthic/Benthic_Active_Map.png'))
@@ -31,6 +33,20 @@ knitr::include_graphics(file.path('admin/figures/benthic/Table1_species_list.png
 
 In the site descriptions that follow, most species densities are reported as the annual densities of individuals/m^2^, sometimes noting dramatic seasonal peaks. Some species, especially arthropods, display strong seasonal variability with peak monthly densities several times higher than their annual densities. In these cases, we reported the time and magnitude of the peaks as well as the annual densities. Please note that the station P8 was not sampled in December 2022 due to heavy fog, and comparisons to other years' average annual densities or seasonal patterns should take this omission into account. Readers who wish to see the full dataset and its associated metadata can access [here](https://portal.edirepository.org/nis/mapbrowse?packageid=edi.1036.2).
 
+<!-- ------------------------------------------------------------------------ -->
+
+<!-- ### North Delta (D24) {.unlisted .unnumbered} -->
+
+<!-- Site D24 is located on the Sacramento River, just south of the Rio Vista Bridge (Figure 41). There were 19 species in six phyla at D24. Mollusca was the most abundant phylum for much of the year and made up 83% of all organisms collected at the station (Figure 43). A large majority (80%) of the individual organisms found at D24 in 2021 were the non-native clam *Corbicula fluminea*, with an annual average density of 1,595 individuals/m^2^. *Corbicula fluminea* density in 2022 was a decline from the high densities of 2018-2020, which peaked with 2020's annual average of 3,756 individuals/m^2^. The second most abundant organism was the non-native amphipod *Gammarus daiberi* with an annual density of 230 individuals/m^2^, which was a similar decline from a 2020 peak of 1,078 individuals/m^2^. Besides these notable declines from 2020 peaks, the composition of the community at D24 in 2022 was similar to other years in the last decade. -->
+
+<!-- ```{r echo=FALSE, fig.show = 'hold', out.width = '70%', caption = capFig('Density of benthic organisms, by month, collected at station D24 in 2022.'), fig.align='center'} -->
+<!-- knitr::include_graphics(file.path('admin/figures/benthic/Fig2_D24.png')) -->
+<!-- ``` -->
+
+<!-- ```{r echo=FALSE, fig.show = 'hold', out.width = '50%', caption = capFig('Density of benthic organisms, by month, collected at station D24 in 2022.'), fig.align='center'} -->
+<!-- knitr::include_graphics(file.path('admin/figures/benthic/test.png')) -->
+<!-- ``` -->
+
 ------------------------------------------------------------------------
 
 ### North Delta (D24) {.unlisted .unnumbered}
@@ -39,6 +55,10 @@ Site D24 is located on the Sacramento River, just south of the Rio Vista Bridge 
 
 ```{r echo=FALSE, fig.show = 'hold', out.width = '70%', caption = capFig('Density of benthic organisms, by month, collected at station D24 in 2022.'), fig.align='center'}
 knitr::include_graphics(file.path('admin/figures/benthic/Fig2_D24.png'))
+```
+
+```{r echo=FALSE, fig.show = 'hold', out.width = '100%', caption = capFig('Density of benthic organisms, by month, collected at station D24 in 2022.'), fig.align='center'}
+knitr::include_graphics(file.path('admin/figures/benthic/test1.png'))
 ```
 
 ------------------------------------------------------------------------

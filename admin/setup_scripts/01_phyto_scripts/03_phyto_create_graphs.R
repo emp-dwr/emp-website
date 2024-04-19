@@ -5,3 +5,6 @@ create_phyto_graphs <- function(){
     region_phyto_plts(region)
   }
 }
+
+
+create_phyto_graphs()

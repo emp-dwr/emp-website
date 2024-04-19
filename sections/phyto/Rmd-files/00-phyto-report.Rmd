@@ -12,71 +12,13 @@ capTabNo = 1; capFigNo = 1
 
 ### Introduction
 
-The Department of Water Resources (DWR) and the US Bureau of Reclamation (USBR) are required by Water Right Decision 1641 (D-1641) to collect phytoplankton and chlorophyll a samples to monitor algal community composition and biomass at select sites in the upper San Francisco Estuary (Estuary). The twenty-four sites range from San Pablo Bay to the inland rivers of the Sacramento-San Joaquin Delta ("the Delta"). These sites represent a variety of aquatic habitats, from narrow, freshwater channels to broad, estuarine bays. This report describes the results of these monitoring efforts for calendar year `r report_year_txt`.
-
-Phytoplankton are small, free-floating organisms that occur as unicellular, colonial, or filamentous forms (Horne and Goldman, 1994). Phytoplankton are a key component of the Estuary's food web, serving as food for zooplankton, invertebrates, and certain fish species. Their metabolic processes also impact water chemistry, and their ability to fix carbon through photosynthesis is one of the key processes influencing water quality in the Estuary. Via this process, phytoplankton can affect the pH, dissolved oxygen, color, taste, and odor of natural waters.
-
-Under certain conditions, some species of phytoplankton (e.g., Microcystis aeruginosa) can cause harmful algal blooms (HABs), releasing toxin compounds which can be dangerous or even lethal to animals and humans (Carmichael, 1981). In freshwater, the cyanobacteria, or blue-green algae (class Cyanophyceae), are responsible for producing toxic blooms, particularly in waters that are polluted with phosphates (van den Hoek et al., 1995). Phytoplankton are also useful for assessing water quality (Gannon and Stemberger 1978); their short life cycles allow them to respond quickly to environmental changes, meaning their standing crop and species composition are indicative of source water characteristics (APHA 2012). However, because of their transient nature, patchiness, and free movement in a lotic environment, the utility of phytoplankton as water quality indicators is limited and should be interpreted in conjunction with other biological and physiochemical data (APHA 2012).
-
-In addition to collecting phytoplankton samples to assess community composition, we use the measured concentration of chlorophyll a as a proxy to infer phytoplankton biomass. Chlorophyll molecules are complex phytopigments found in most photosynthetic organisms. There are several types of chlorophyll, which are distinguished by slight differences in their molecular structures and constituents. These include chlorophyll a, b, c, and d, with a being the principal photosynthetic pigment in most phytoplankton. This makes the chlorophyll a pigment a reliable proxy measurement for phytoplankton biomass.
-
-In addition, we measured the concentration of a different pigment in our water samples, pheophytin a. Pheophytin a is a primary degradation product of chlorophyll a. Comparing its concentration relative to chlorophyll a is a useful metric for estimating the general physiological state of phytoplankton populations. When phytoplankton are actively growing, the concentrations of pheophytin a are normally expected to be low relative to chlorophyll a. Conversely, when the phytoplankton have died and are decaying, levels of pheophytin a are expected to be high in relation to chlorophyll a.
-
-Phytoplankton biomass and the resulting amount of chlorophyll a in some areas of the Estuary may be influenced by extensive filtration of the water column by the introduced Asian clam, Potamocorbula amurensis (Alpine and Cloern 1992). Well-established benthic populations of P. amurensis in Suisun and San Pablo bays are thought to have contributed to the low chlorophyll a concentrations (and increased water clarity) measured in these westerly bays since the mid-1980s (Alpine and Cloern 1992).
-
-Primary production by phytoplankton, primarily via carbon fixation through photosynthesis, is one of the key processes that influence water quality in the Estuary. Via this process, phytoplankton can affect pH, dissolved oxygen, color, taste, and odor. Under certain conditions, some species (eg. Microcystis aeruginosa) can cause harmful algal blooms (HABs), resulting in animal deaths and human illness (Carmichael, 1981). In freshwater, the cyanobacteria, or blue-green algae (class Cyanophyceae), are responsible for producing toxic blooms, particularly in waters that are polluted with phosphates (van den Hoek et al., 1995). Phytoplankton are also useful for assessing water quality (Gannon and Stemberger 1978); their short life cycles allow them to respond quickly to environmental changes, meaning their standing crop and species composition are indicative of source water characteristics (APHA 2012). However, because of their transient nature, patchiness, and free movement in a lotic environment, the utility of phytoplankton as water quality indicators is limited and should be interpreted in conjunction with other biological and physio-chemical data (APHA 2012).
+The Department of Water Resources (DWR) and the US Bureau of Reclamation (USBR) are required by Water Right Decision 1641 (D-1641) to collect phytoplankton and chlorophyll *a* samples to monitor algal community composition and biomass at select sites in the upper San Francisco Estuary (Estuary). This report describes the results of these monitoring efforts for water year `r report_year_txt`, which was classified as a `r func_wy(report_year)` year in the Sacramento Valley [(source)](https://cdec.water.ca.gov/reportapp/javareports?name=WSIHIST).
 
 ------------------------------------------------------------------------
 
 ### Methods
 
-#### Phytoplankton
-
-Phytoplankton samples were collected monthly at 24 monitoring sites throughout the Upper Estuary, which were grouped into regions based on their geographic location (Figure 1; Table 1). Samples were collected 1 meter below the water's surface using a submersible pump and stored in 50 mL amber glass bottles. 200 µL of Lugol's solution was added to each sample as a stain and preservative. All samples were kept at room temperature and away from direct sunlight until they were analyzed.
-
-Phytoplankton identification and enumeration were performed by BSA Environmental, Inc. according to the Utermöhl microscopic method (Utermöhl, 1958) and modified Standard Methods (APHA, 2012). An aliquot of sample was placed into a counting chamber and allowed to settle for a minimum of 12 hours. The aliquot volume, normally 10-20 mL, was adjusted according to the algal population density and the turbidity of the sample. Phytoplankton taxa were enumerated in randomly chosen transects for each settled aliquot. This process was performed at 800x magnification using a Leica DMIL inverted microscope. For each aliquot, a minimum of 400 total algal units were counted, with the dominant taxon accounting for a minimum of 100 algal units. For filamentous or colonial taxa, the number of cells per filament or colony was recorded.
-
-<!-- This section writes out the formula to convert raw organism counts. If the text needs to be modified, let Perry know. -->
-
-<!-- The text is: Raw organism counts were normalized to the sample volume using the following formula: organisms/mL=C/(VA_f F) where C is the organism count, A_c is the area of the cell bottom (mm2), A_f is the area of each grid field (mm2), F is the number of fields examined, and V is the settled volume (mL). This simplifies to: organisms/mL=C/cV where cV=A_c/VA_f F and is equal to the counted volume. -->
-
-<head>
-
-<meta charset="utf-8">
-
-<meta name="viewport" content="width=device-width">
-
-```{=html}
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-```
-```{=html}
-<script id="MathJax-script" async
-          src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js">
-  </script>
-```
-</head>
-
-<body>
-
-<p>
-
-Raw organism counts were normalized to the sample volume using the following formula: <br>
-
-<center>$organisms/mL = {CA_c \frac V{A_f}F}$</center>
-
-<br> where $C$ is the organism count, $A_c$ is the area of the cell bottom (mm$^2$), $A_f$ is the area of each grid field (mm$^2$), $F$ is the number of fields examined, and $V$ is the settled volume (mL). This simplifies to: <br>
-
-<center>$organisms/mL = {\frac C{cV}}$</center>
-
-<br> where $cV = {A_c \frac V{A_f}F}$ and is equal to the counted volume.
-
-</p>
-
-</body>
-
-<!-- back to normal text -->
-
-The 10 most common genera were determined by summing the normalized organism counts across all stations and months for each genus. For the bar graphs, average organism counts were calculated per month, per region, and normalized to the number of stations.
+Samples were collected monthly at 24 monitoring sites throughout the Upper Estuary and were grouped into regions based on their geographic location (Figure 1; Table 1). These sites represent a variety of aquatic habitats, from narrow, freshwater channels to broad, estuarine bays.
 
 ```{r echo=FALSE, out.width = '70%', fig.align='center', caption = capFig('Map of phytoplankton stations sampled by the Environmental Monitoring Program')}
 knitr::include_graphics(file.path('sections/phyto/figures/phyto_map.png'))
@@ -84,18 +26,24 @@ knitr::include_graphics(file.path('sections/phyto/figures/phyto_map.png'))
 
 ```{r echo=FALSE, warning=FALSE, message=FALSE, results = 'asis', caption = capTab('Stations included within each region of the Delta')}
 phyto_stations <- readr::read_csv('sections/phyto/figures/phyto-stations.csv')
-kable_tables(phyto_stations, caption = 'Stations included within each region of the Delta')
+kable_tables(phyto_stations)
 ```
+
+#### Phytoplankton
+
+The 10 most common genera were determined by summing the normalized organism counts across all stations and months for each genus. For the bar graphs, average organism counts were calculated per month, per region, and normalized to the number of stations. Average summary statistics are reported as the mean (μ) ± the standard deviation.
+
+For more in-depth methodology, see [here](https://portal.edirepository.org/nis/metadataviewer?packageid=edi.1320.6).
 
 #### Chlorophyll a and Pheophytin a
 
-Samples of chlorophyll a and pheophytin a were collected monthly at 24 monitoring sites throughout the upper Estuary using a submersible pump positioned 1 meter below the water's surface. Samples were collected by filtering a known volume of water through a glass-fiber filter (1.0 µm pore size) at a pressure of 10 mmHg. For turbid water (\> 20 NTU), 200 mL was filtered while 500mL of water was filtered when turbidity was \< 20 NTU to prevent clogging.
+Samples of chlorophyll a and pheophytin a were collected monthly at 24 monitoring sites throughout the upper Estuary using a submersible pump positioned 1 meter below the water's surface. Average analyte concentrations were then calculated per month, per region, and were normalized to the number of stations. Average summary statistics are reported as the median (M) ± the median absolute deviation.
 
-Filters were immediately frozen and transported to DWR's Bryte Laboratory for analysis using spectrophotometry in accordance with the Standard Method 10200 H (APHA, 2012). Samples were processed by mechanically grinding the filter and extracting phytopigments using acetone. Pigment absorption spectra were measured before and after acidification to quantify the amount of chlorophyll a and pheophytin a, respectively. Concentrations were calculated according to a formula specified in the methodology (APHA, 2012). Average analyte concentrations were then calculated per month, per region, and were normalized to the number of stations.
+For more in-depth methodology, see [here](https://portal.edirepository.org/nis/metadataviewer?packageid=edi.1320.6).
 
 ------------------------------------------------------------------------
 
-### Results
+### Overall Results
 
 #### Phytoplankton Identification
 
@@ -117,107 +65,139 @@ algal_plts()
 
 #### Pigment Concentrations
 
-`r chla_txt()`
+97.9% of samples had chlorophyll a levels below 10 μg/L. Chlorophyll a levels below 10 μg/L are considered limiting for zooplankton growth (Müller-Solger et al., 2002). Of the 7 samples with chlorophyll a concentrations equal to or above 10 μg/L, one occurred at NZ325 in April; three occurred in August (NZ002, NZ004, and NZ325); one occurred at NZ325 in February; one occurred at D10 in March; and one occurred at D41A in May.
 
-`r stat_txt('Chla', 'none')`
+The average chlorophyll a concentration was 2.08 ± x μg/L; this is lower than the `r func_wy(report_year)` year average (M = 2.37 ± x μg/L). Values ranged from \< 0.5 μg/L (the reporting limit) to 49.8 μg/L (NZ325 in August). 8 samples were below the reporting limit.
 
-`r stat_txt('Pheophytin', 'none')`
+The average pheophytin concentration was 2.08 ± x μg/L; this is lower than the `r func_wy(report_year)` year average (M = 2.37 ± x μg/L). Values ranged from \< 0.5 μg/L (the reporting limit) to 49.8 μg/L (NZ325 in August). 8 samples were below the reporting limit.
+
+### Regional Results
 
 #### Northern Interior Delta
 
-Chlorophyll a average concentrations were higher in summer and lower the rest of the year (Figure 3). `r stat_txt('Chla', 'Northern Interior Delta')`
+##### Water Quality
 
-Pheophytin a average concentrations were low throughout most of the year (below 1.5 µg/L) and lower than chlorophyll a except for January and February (Figure 3). `r stat_txt('Pheophytin', 'Northern Interior Delta')`
+The average chlorophyll a concentration was 2.08 ± x μg/L; this is lower than the `r func_wy(report_year)` year average (M = 2.37 ± x μg/L). Values ranged from \< 0.5 μg/L (the reporting limit) to 49.8 μg/L (NZ325 in August). 8 samples were below the reporting limit.
 
-Phytoplankton average densities were highest in spring and summer, with cyanobacteria dominating throughout the year (Figure 4; `r other_taxa('Northern Interior Delta')`). There was a peak of cryptophytes in October. There was a small peak of diatoms in December.
+The average pheophytin concentration was 2.08 ± x μg/L; this is lower than the `r func_wy(report_year)` year average (M = 2.37 ± x μg/L). Values ranged from \< 0.5 μg/L (the reporting limit) to 49.8 μg/L (NZ325 in August). 8 samples were below the reporting limit.
 
-```{r echo=FALSE, fig.show='hold', out.width='70%', fig.align='center', caption=capFig('Average chlorophyll a and pheophytin a concentrations in the Northern Interior Delta. Patchwork columns indicate median was below the reporting limit')}
+```{r echo=FALSE, fig.show='hold', out.width='80%', fig.align='center', caption=capFig('Average chlorophyll a and pheophytin a concentrations in the Northern Interior Delta. Patchwork columns indicate median was below the reporting limit')}
 knitr::include_graphics(file.path('admin/figures/phyto/Northern Interior Delta-WQ.png'))
 ```
 
-```{r echo=FALSE, fig.show='hold', fig.align='center', caption=capFig('Average organism density in the Northern Interior Delta')}
+##### Phytoplankton
+
+Average algal group density (based on x number of stations) was x ± y organisms/mL. The most abundant algal groups were cyanobacteria (80% of organisms, μ = 1,595 ± x organisms/mL), diatoms (10% of organisms, μ = x ± y organisms/mL), and green algae (5% of organisms, μ = x ± y organisms/mL). The remaining 5% of organisms were comprised of chrysophytes, cryptophytes, dinoflagellates, euglenoids, haptophytes, and raphidophytes (“Other”, Figure x).
+
+```{r echo=FALSE, fig.show = 'hold', out.width = '70%', caption = capFig('Density of benthic organisms, by month, collected at station D24 in 2022.'), fig.align='center'}
 knitr::include_graphics(file.path('admin/figures/phyto/Northern Interior Delta-Phyto.png'))
 ```
 
 #### Southern Interior Delta
 
-Chlorophyll a average concentrations were highest in summer, peaking around July (Figure 5). `r stat_txt('Chla', 'Southern Interior Delta')`
+##### Water Quality
 
-Pheophytin a average concentrations were fairly constant throughout the year, and below chlorophyll a, except for January and February (Figure 5). `r stat_txt('Chla', 'Southern Interior Delta')`
+The average chlorophyll a concentration was 2.08 ± x μg/L; this is lower than the `r func_wy(report_year)` year average (M = 2.37 ± x μg/L). Values ranged from \< 0.5 μg/L (the reporting limit) to 49.8 μg/L (NZ325 in August). 8 samples were below the reporting limit.
 
-Phytoplankton average densities were highest in the summer (Figure 6; `r other_taxa('Southern Interior Delta')`). Cyanobacteria dominated throughout the year and peaked in August; there was a peak of green algae in July.
+The average pheophytin concentration was 2.08 ± x μg/L; this is lower than the `r func_wy(report_year)` year average (M = 2.37 ± x μg/L). Values ranged from \< 0.5 μg/L (the reporting limit) to 49.8 μg/L (NZ325 in August). 8 samples were below the reporting limit.
 
-```{r echo=FALSE, fig.show='hold', out.width='70%', fig.align='center', caption=capFig('Average chlorophyll a and pheophytin a concentrations in the Southern Interior Delta. Patchwork columns indicate median was below the reporting limit')}
+```{r echo=FALSE, fig.show='hold', out.width='80%', fig.align='center', caption=capFig('Average chlorophyll a and pheophytin a concentrations in the Northern Interior Delta. Patchwork columns indicate median was below the reporting limit')}
 knitr::include_graphics(file.path('admin/figures/phyto/Southern Interior Delta-WQ.png'))
 ```
 
-```{r echo=FALSE, fig.show='hold', fig.align='center', caption=capFig('Average organism density in the Southern Interior Delta')}
+##### Phytoplankton
+
+Average algal group density (based on x number of stations) was x ± y organisms/mL. The most abundant algal groups were cyanobacteria (80% of organisms, μ = 1,595 ± x organisms/mL), diatoms (10% of organisms, μ = x ± y organisms/mL), and green algae (5% of organisms, μ = x ± y organisms/mL). The remaining 5% of organisms were comprised of chrysophytes, cryptophytes, dinoflagellates, euglenoids, haptophytes, and raphidophytes (“Other”, Figure x).
+
+```{r echo=FALSE, fig.show = 'hold', out.width = '70%', caption = capFig('Density of benthic organisms, by month, collected at station D24 in 2022.'), fig.align='center'}
 knitr::include_graphics(file.path('admin/figures/phyto/Southern Interior Delta-Phyto.png'))
 ```
 
 #### Central Delta
 
-Chlorophyll a average concentrations were fairly consistent throughout the year, with the lowest levels in the winter (Figure 7). `r stat_txt('Chla', 'Central Delta')`
+##### Water Quality
 
-Pheophytin a average concentrations were lower than chlorophyll a for all months except January and Feburary (Figure 7). `r stat_txt('Pheophytin', 'Central Delta')`
+The average chlorophyll a concentration was 2.08 ± x μg/L; this is lower than the `r func_wy(report_year)` year average (M = 2.37 ± x μg/L). Values ranged from \< 0.5 μg/L (the reporting limit) to 49.8 μg/L (NZ325 in August). 8 samples were below the reporting limit.
 
-Phytoplankton densities highly varied throughout the year (Figure 8; `r other_taxa('Central Delta')`).
+The average pheophytin concentration was 2.08 ± x μg/L; this is lower than the `r func_wy(report_year)` year average (M = 2.37 ± x μg/L). Values ranged from \< 0.5 μg/L (the reporting limit) to 49.8 μg/L (NZ325 in August). 8 samples were below the reporting limit.
 
-```{r echo=FALSE, fig.show='hold', out.width='70%', fig.align='center', caption=capFig('Average chlorophyll a and pheophytin a concentrations in the Central Delta. Patchwork columns indicate median was below the reporting limit')}
+```{r echo=FALSE, fig.show='hold', out.width='80%', fig.align='center', caption=capFig('Average chlorophyll a and pheophytin a concentrations in the Northern Interior Delta. Patchwork columns indicate median was below the reporting limit')}
 knitr::include_graphics(file.path('admin/figures/phyto/Central Delta-WQ.png'))
 ```
 
-```{r echo=FALSE, fig.show='hold', fig.align='center', caption=capFig('Average organism density in the Central Delta')}
+##### Phytoplankton
+
+Average algal group density (based on x number of stations) was x ± y organisms/mL. The most abundant algal groups were cyanobacteria (80% of organisms, μ = 1,595 ± x organisms/mL), diatoms (10% of organisms, μ = x ± y organisms/mL), and green algae (5% of organisms, μ = x ± y organisms/mL). The remaining 5% of organisms were comprised of chrysophytes, cryptophytes, dinoflagellates, euglenoids, haptophytes, and raphidophytes (“Other”, Figure x).
+
+```{r echo=FALSE, fig.show = 'hold', out.width = '70%', caption = capFig('Density of benthic organisms, by month, collected at station D24 in 2022.'), fig.align='center'}
 knitr::include_graphics(file.path('admin/figures/phyto/Central Delta-Phyto.png'))
 ```
 
 #### Confluence
 
-Chlorophyll a average concentrations were highest during early spring (Figure 9). `r stat_txt('Chla', 'Confluence')`
+##### Water Quality
 
-Pheophytin a average concentrations were higher than chlorophyll a concentrations in January and February. They peaked in April (Figure 9). `r stat_txt('Pheophytin', 'Confluence')`
+The average chlorophyll a concentration was 2.08 ± x μg/L; this is lower than the `r func_wy(report_year)` year average (M = 2.37 ± x μg/L). Values ranged from \< 0.5 μg/L (the reporting limit) to 49.8 μg/L (NZ325 in August). 8 samples were below the reporting limit.
 
-Phytoplankton average densities were highest in December (Figure 10; `r other_taxa('Confluence')`). There was a large green algae peak in December.
+The average pheophytin concentration was 2.08 ± x μg/L; this is lower than the `r func_wy(report_year)` year average (M = 2.37 ± x μg/L). Values ranged from \< 0.5 μg/L (the reporting limit) to 49.8 μg/L (NZ325 in August). 8 samples were below the reporting limit.
 
-```{r echo=FALSE, fig.show='hold', out.width='70%', fig.align='center', caption=capFig('Average chlorophyll a and pheophytin a concentrations in the Confluence. Patchwork columns indicate median was below the reporting limit')}
+```{r echo=FALSE, fig.show='hold', out.width='80%', fig.align='center', caption=capFig('Average chlorophyll a and pheophytin a concentrations in the Northern Interior Delta. Patchwork columns indicate median was below the reporting limit')}
 knitr::include_graphics(file.path('admin/figures/phyto/Confluence-WQ.png'))
 ```
 
-```{r echo=FALSE, fig.show='hold', fig.align='center', caption=capFig('Average organism density in the Confluence')}
+##### Phytoplankton
+
+Average algal group density (based on x number of stations) was x ± y organisms/mL. The most abundant algal groups were cyanobacteria (80% of organisms, μ = 1,595 ± x organisms/mL), diatoms (10% of organisms, μ = x ± y organisms/mL), and green algae (5% of organisms, μ = x ± y organisms/mL). The remaining 5% of organisms were comprised of chrysophytes, cryptophytes, dinoflagellates, euglenoids, haptophytes, and raphidophytes (“Other”, Figure x).
+
+```{r echo=FALSE, fig.show = 'hold', out.width = '70%', caption = capFig('Density of benthic organisms, by month, collected at station D24 in 2022.'), fig.align='center'}
 knitr::include_graphics(file.path('admin/figures/phyto/Confluence-Phyto.png'))
 ```
 
 #### Grizzly Bay and Suisun Bay
 
-Chlorophyll a average concentrations in this region had peaks in February, March, and June (Figure 11). `r stat_txt('Chla', 'Suisun & Grizzly Bays')`
+##### Water Quality
 
-Pheophytin a average concentrations were slightly higher in the late winter and early spring months. It was lower than chlorophyll a with the exception of January (Figure 11). `r stat_txt('Pheophytin', 'Suisun & Grizzly Bays')`
+The average chlorophyll a concentration was 2.08 ± x μg/L; this is lower than the `r func_wy(report_year)` year average (M = 2.37 ± x μg/L). Values ranged from \< 0.5 μg/L (the reporting limit) to 49.8 μg/L (NZ325 in August). 8 samples were below the reporting limit.
 
-Phytoplankton community compositions varied widely throughout the year; February for this region was the one of only two time/place combinations where other taxa were significantly present (Figure 12; `r other_taxa('Suisun & Grizzly Bays')`). There was a large green algae peak in December.
+The average pheophytin concentration was 2.08 ± x μg/L; this is lower than the `r func_wy(report_year)` year average (M = 2.37 ± x μg/L). Values ranged from \< 0.5 μg/L (the reporting limit) to 49.8 μg/L (NZ325 in August). 8 samples were below the reporting limit.
 
-```{r echo=FALSE, fig.show='hold', out.width='70%', fig.align='center', caption=capFig('Average chlorophyll a and pheophytin a concentrations in the Grizzly & Suisun Bays. Patchwork columns indicate median was below the reporting limit')}
+```{r echo=FALSE, fig.show='hold', out.width='80%', fig.align='center', caption=capFig('Average chlorophyll a and pheophytin a concentrations in the Northern Interior Delta. Patchwork columns indicate median was below the reporting limit')}
 knitr::include_graphics(file.path('admin/figures/phyto/Suisun & Grizzly Bays-WQ.png'))
 ```
 
-```{r echo=FALSE, fig.show='hold', fig.align='center', caption=capFig('Average organism density in the Grizzly & Suisun Bays.')}
+##### Phytoplankton
+
+Average algal group density (based on x number of stations) was x ± y organisms/mL. The most abundant algal groups were cyanobacteria (80% of organisms, μ = 1,595 ± x organisms/mL), diatoms (10% of organisms, μ = x ± y organisms/mL), and green algae (5% of organisms, μ = x ± y organisms/mL). The remaining 5% of organisms were comprised of chrysophytes, cryptophytes, dinoflagellates, euglenoids, haptophytes, and raphidophytes (“Other”, Figure x).
+
+```{r echo=FALSE, fig.show = 'hold', out.width = '70%', caption = capFig('Density of benthic organisms, by month, collected at station D24 in 2022.'), fig.align='center'}
 knitr::include_graphics(file.path('admin/figures/phyto/Suisun & Grizzly Bays-Phyto.png'))
 ```
 
 #### San Pablo Bay
 
-Chlorophyll a average concentrations were highest in spring and summer (Figure 13). `r stat_txt('Chla', 'San Pablo Bay')`
+##### Water Quality
 
-Pheophytin a average concentrations were highest in July and December; values were low the rest of the year (Figure 13). `r stat_txt('Pheophytin', 'San Pablo Bay')`
+The average chlorophyll a concentration was 2.08 ± x μg/L; this is lower than the `r func_wy(report_year)` year average (M = 2.37 ± x μg/L). Values ranged from \< 0.5 μg/L (the reporting limit) to 49.8 μg/L (NZ325 in August). 8 samples were below the reporting limit.
 
-Phytoplankton community composition varied widely throughout the year; August in the this region was one of only two time/place combinations where other taxa were present, dominating all others except for cyanobacteria (Figure 14; `r other_taxa('San Pablo Bay')`).
+The average pheophytin concentration was 2.08 ± x μg/L; this is lower than the `r func_wy(report_year)` year average (M = 2.37 ± x μg/L). Values ranged from \< 0.5 μg/L (the reporting limit) to 49.8 μg/L (NZ325 in August). 8 samples were below the reporting limit.
 
-```{r echo=FALSE, fig.show='hold', out.width='70%', fig.align='center', caption=capFig('Average chlorophyll a and pheophytin a concentrations in the San Pablo Bay. Patchwork columns indicate median was below the reporting limit')}
+```{r echo=FALSE, fig.show='hold', out.width='80%', fig.align='center', caption=capFig('Average chlorophyll a and pheophytin a concentrations in the Northern Interior Delta. Patchwork columns indicate median was below the reporting limit')}
 knitr::include_graphics(file.path('admin/figures/phyto/San Pablo Bay-WQ.png'))
 ```
 
-```{r echo=FALSE, fig.show='hold', fig.align='center', caption=capFig('Average organism density in the San Pablo Bay')}
+##### Phytoplankton
+
+Average algal group density (based on x number of stations) was x ± y organisms/mL. The most abundant algal groups were cyanobacteria (80% of organisms, μ = 1,595 ± x organisms/mL), diatoms (10% of organisms, μ = x ± y organisms/mL), and green algae (5% of organisms, μ = x ± y organisms/mL). The remaining 5% of organisms were comprised of chrysophytes, cryptophytes, dinoflagellates, euglenoids, haptophytes, and raphidophytes (“Other”, Figure x).
+
+```{r echo=FALSE, fig.show = 'hold', out.width = '70%', caption = capFig('Density of benthic organisms, by month, collected at station D24 in 2022.'), fig.align='center'}
 knitr::include_graphics(file.path('admin/figures/phyto/San Pablo Bay-Phyto.png'))
 ```
+
+------------------------------------------------------------------------
+
+### Interpretations
+
+insert text here
 
 ------------------------------------------------------------------------
 

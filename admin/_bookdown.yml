@@ -25,7 +25,6 @@ rmd_files: [
 
   # Benthic
   'sections/benthic/Rmd-files/00-benthic-info.Rmd',
-  'sections/benthic/Rmd-files/00-benthic-meta.Rmd',
   'sections/benthic/Rmd-files/00-benthic-report.Rmd',
 
   # Phyto

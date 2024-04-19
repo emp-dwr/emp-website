@@ -225,8 +225,6 @@ other_taxa <- function(region) {
   return(out)
 }
 
-
-
 # Variables ---------------------------------------------------------------
 algal_plts <- function(){
   plt_main <- algal_tree_plts('main')
@@ -254,7 +252,7 @@ region_phyto_plts <- function(region){
   # spruce up organisms plots
   p_title <- glue::glue('{region} Monthly Averages (Phyto)')
   
-  p_bot <- cowplot::plot_grid(plotlist = org_plts, label_y = 1, nrow = 1, ncol = 2)
+  p_bot <- cowplot::plot_grid(plotlist = org_plts, label_y = 1, nrow = 2, ncol = 1)
   p_bot <- gridExtra::grid.arrange(
     gridExtra::arrangeGrob(
       p_bot, plt_leg,
@@ -263,5 +261,5 @@ region_phyto_plts <- function(region){
       top = grid::textGrob(p_title, gp = grid::gpar(fontsize = 14)),
       left = grid::textGrob('Organisms per mL', rot = 90)))
   
-  ggplot2::ggsave(glue::glue('admin/figures/phyto/{region}-Phyto.png'), plot = p_bot, width = 8, height = 4)
+  ggplot2::ggsave(glue::glue('admin/figures/phyto/{region}-Phyto.png'), plot = p_bot, width = 12, height = 8)
 }
