@@ -1,6 +1,6 @@
 # download phyto data from EDI (assumption is all data will be downloaded for all; not great, but for now)
 download_phyto_data <- function(){
-  df_phyto_raw <- get_edi_file(1320, glue::glue('EMP_Phyto_Data_2008-{report_year}'))
+  df_phyto_raw <- get_edi_file(1320, "^EMP_Phyto_Data_2008")
   df_phyto_raw <- df_phyto_raw[[1]]
   
   df_phyto_raw$AlgalGroup[df_phyto_raw$AlgalGroup == 'Green Alga'] <- 'Green Algae'
