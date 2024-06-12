@@ -22,40 +22,6 @@ download_phyto_data <- function(){
 df_phyto_raw <- read_quiet_csv('admin/data/phyto/data_phyto_all.csv')
 df_phywq_raw <- read_quiet_csv('admin/data/dwq/data_dwq-phyto_all.csv')
 
-# clean data functions ----------------------------------------------------
-
-#' Assign regions to stations
-#'
-#' @param df the relevant data frame
-#'
-assign_regions <- function(df){
-  if ('Station' %in% colnames(df)){
-    df <- df %>% dplyr::mutate(
-      Region = dplyr::case_when(
-        Station == 'D16' | Station == 'D19' | Station == 'D26' | Station == 'D28A' ~ 'Central Delta',
-        Station =='D10' | Station == 'D12' | Station == 'D22' | Station == 'D4' ~ 'Confluence',
-        Station =='C3A' | Station == 'NZ068' ~ 'Northern Interior Delta',
-        Station =='D41' | Station == 'D41A' | Station == 'D6' | Station == 'NZ002' | Station == 'NZ004' | Station == 'NZ325' ~ 'San Pablo Bay',
-        Station == 'C10A' | Station == 'C9' | Station == 'MD10A' | Station == 'P8' ~ 'Southern Interior Delta',
-        Station == 'D7' | Station == 'D8' | Station == 'NZ032' | Station == 'NZS42' ~ 'Suisun & Grizzly Bays'
-      )
-    )    
-  } else{
-    df <- df %>% dplyr::mutate(
-      Region = dplyr::case_when(
-        StationCode == 'D16' | StationCode == 'D19' | StationCode == 'D26' | StationCode == 'D28A' ~ 'Central Delta',
-        StationCode =='D10' | StationCode == 'D12' | StationCode == 'D22' | StationCode == 'D4' ~ 'Confluence',
-        StationCode =='C3A' | StationCode == 'NZ068' ~ 'Northern Interior Delta',
-        StationCode =='D41' | StationCode == 'D41A' | StationCode == 'D6' | StationCode == 'NZ002' | StationCode == 'NZ004' | StationCode == 'NZ325' ~ 'San Pablo Bay',
-        StationCode == 'C10A' | StationCode == 'C9' | StationCode == 'MD10A' | StationCode == 'P8' ~ 'Southern Interior Delta',
-        StationCode == 'D7' | StationCode == 'D8' | StationCode == 'NZ032' | StationCode == 'NZS42' ~ 'Suisun & Grizzly Bays'
-      )
-      )
-  }
-    
-  return(df)
-}
-
 # clean data --------------------------------------------------------------
 
 df_phyto <- assign_regions(df_phyto_raw)
@@ -140,7 +106,7 @@ alg_dfs <- function(df, type, region){
   if (region != 'none'){
     df <- df %>%
       dplyr::filter(Region == region) %>%
-      dplyr::mutate(Month = factor(months(SampleDate), levels = month.name, labels = month.abb))
+      dplyr::mutate(Month = factor(months(Date), levels = month.name, labels = month.abb))
     
     group_var <- dplyr::quos(AlgalGroup, Region)
   } else {
