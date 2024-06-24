@@ -179,7 +179,7 @@ sample_number <- function(df) {
   df <- subset_year(df, report_year)
   
   df <- df %>%
-    dplyr::group_by(SampleDate, StationCode) %>%
+    dplyr::group_by(Date, Station) %>%
     dplyr::summarize() %>%
     dplyr::distinct()
   
@@ -209,8 +209,8 @@ high_chla_helper_txt <- function(i, df){
 
 #' Create Station/Month List
 #' TODO: fill out later
-high_chla_stations <- function(){
-  df <- df_phywq_year %>%
+high_chla_stations <- function(df) {
+  df <- df %>%
     dplyr::filter(Chla > 10) %>%
     dplyr::mutate(Month = months(Date)) %>%
     dplyr::group_by(Month) %>%
@@ -374,27 +374,27 @@ chlapheo_sumstats <- function(nutr, stat, region) {
 # Chlorophyll text --------------------------------------------------------
 
 # Low chla text
-low_chla_txt <- function() {
-  sample_num <- sample_number(df_phyto_year)
-  percent <- low_chla(df_phywq_year, 'percent')
-  count <- low_chla(df_phywq_year, 'count')
+low_chla_txt <- function(df) {
+  sample_num <- sample_number(df)
+  percent <- low_chla(df, 'percent')
+  count <- low_chla(df, 'count')
   output <- glue::glue('Of the {sample_num} samples taken in {report_year}, {percent}% ({count} samples) had chlorophyll a levels below 10 \U03BCg/L.')
   
   return(output)
 }
 
-high_chla_txt <- function() {
-  count <- low_chla(df_phywq_year, 'inverse')
-  high_chla_suffix <- high_chla_stations()
+high_chla_txt <- function(df) {
+  count <- low_chla(df, 'inverse')
+  high_chla_suffix <- high_chla_stations(df)
   output <- glue::glue('Of the {count} samples with chlorophyll a concentrations equal to or above 10 \U03BCg/L, {high_chla_suffix}')
   
   return(output)
 }
 
 # Probably don't need this one
-chla_txt <- function(){
-  low_txt <- low_chla_txt()
-  high_txt <- high_chla_txt()
+chla_txt <- function(df) {
+  low_txt <- low_chla_txt(df)
+  high_txt <- high_chla_txt(df)
   output <- glue::glue('{low_txt} Chlorophyll a levels below 10 \U03BCg/L are considered limiting for zooplankton growth (M\U00FCller-Solger et al., 2002). {high_txt}')
   
   output <- color_func(output)
