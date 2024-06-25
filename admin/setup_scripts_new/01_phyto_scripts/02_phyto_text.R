@@ -3,24 +3,14 @@
 
 #' Determine all Algal Groups
 #' 
-#' Determine all algal groups and return either their names or the # of elements
+#' Determine all algal groups and return their names
 #' 
 #' @param df the relevant data frame
 #'
-#' @param type output type
-#' 
-#' @col the column that contains the groupings
+#' @param col the column that contains the groupings
 #'
-bio_groups <- function(df, type, col){
-  groups <- unique(df[col] %>% dplyr::pull())
-  
-  if (type == 'groups'){
-    output <- groups
-  } else if (type == 'num'){
-    output <- length(groups)
-  }
-  
-  return(output)
+bio_groups <- function(df, col){
+  df %>% dplyr::distinct({{col}}) %>% dplyr::pull({{col}})
 }
 
 #' Determine all 10 most common genera
@@ -85,7 +75,7 @@ bullet_list <- function(vec){
 # Algal Group List
 # Create the bullet point 'top algal groups' list
 alg_list_txt <- function(df) {
-  alg_group <- bio_groups(df, 'groups', 'AlgalGroup')
+  alg_group <- bio_groups(df, AlgalGroup)
   
   # concatenate diatoms
   if (('Pennate Diatoms' %in% alg_group) & ('Centric Diatoms' %in% alg_group)){
@@ -112,8 +102,8 @@ alg_list_txt <- function(df) {
 gen_list_txt <- function(){
   df_genus <- top_genus(df_phyto_year)
   
-  gen_group <- bio_groups(df_genus, 'groups', 'Genus')
-  alg_group <- bio_groups(df_genus, 'groups', 'AlgalGroup')
+  gen_group <- bio_groups(df_genus, Genus)
+  alg_group <- bio_groups(df_genus, AlgalGroup)
   comb_group <- paste0(gen_group,' (', tolower(alg_group), ')')
   alg_list <- bullet_list(comb_group)
   
@@ -129,7 +119,7 @@ alg_per_txt <- function(df, threshold = 5) {
   df_c <- comb_diatoms(df)
   
   # Count total number of AlgalGroups
-  alg_num <- bio_groups(df_c, "num", "AlgalGroup")
+  alg_num <- nrow(dplyr::distinct(df_c, AlgalGroup))
   
   # Determine AlgalGroups in "main" category (>= to the threshold)
   taxa_main <- sort(def_alg_cat(df_c, threshold)$main)
