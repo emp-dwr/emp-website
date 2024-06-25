@@ -84,15 +84,17 @@ bullet_list <- function(vec){
 
 # Algal Group List
 # Create the bullet point 'top algal groups' list
-alg_list_txt <- function(){
-  alg_num <- bio_groups(df_phyto_year, 'num', 'AlgalGroup')
-  alg_group <- bio_groups(df_phyto_year, 'groups', 'AlgalGroup')
+alg_list_txt <- function(df) {
+  alg_group <- bio_groups(df, 'groups', 'AlgalGroup')
   
   # concatenate diatoms
   if (('Pennate Diatoms' %in% alg_group) & ('Centric Diatoms' %in% alg_group)){
     alg_group <- alg_group[!alg_group %in% c('Pennate Diatoms','Centric Diatoms')]
     alg_group <- c('Diatoms (Pennate and Centric)', alg_group)
   }
+  
+  # count number of algal groups after combining diatoms
+  alg_num <- length(alg_group)
   
   # sort list
   alg_group <- sort(alg_group)
