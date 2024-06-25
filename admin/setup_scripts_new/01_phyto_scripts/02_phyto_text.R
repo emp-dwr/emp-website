@@ -99,8 +99,8 @@ alg_list_txt <- function(df) {
 }
 
 # Top Genus List
-gen_list_txt <- function(){
-  df_genus <- top_genus(df_phyto_year)
+gen_list_txt <- function(df) {
+  df_genus <- top_genus(df)
   
   gen_group <- bio_groups(df_genus, Genus)
   alg_group <- bio_groups(df_genus, AlgalGroup)
