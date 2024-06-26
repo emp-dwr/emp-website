@@ -10,34 +10,7 @@
 #' @param col the column that contains the groupings
 #'
 bio_groups <- function(df, col){
-  df %>% dplyr::distinct({{col}}) %>% dplyr::pull({{col}})
-}
-
-#' Determine all 10 most common genera
-#' 
-#' @param df the relevant data frame
-#'
-# >>> Only used in gen_list_txt, may just incorporate into this function
-top_genus <- function(df){
-  df <- subset_year(df, report_year)
-  
-  # add and arrange by count data
-  df <- df %>%
-    dplyr::group_by(Genus) %>%
-    dplyr::add_count() %>%
-    dplyr::rename(Count = n) %>%
-    dplyr::distinct(Genus, AlgalGroup, Count) %>%
-    dplyr::relocate(Genus, AlgalGroup, Count) %>%
-    dplyr::arrange(desc(Count)) %>%
-    dplyr::ungroup()
-  
-  # remove unknown from list
-  df <- df %>% dplyr::filter(!grepl('Unknown', Genus))
-  
-  # cut off at top 10
-  df <- df[1:10,]
-  
-  return(df)
+  df %>% dplyr::distinct({{ col }}) %>% dplyr::pull({{ col }})
 }
 
 #' Create Bullet List Item
@@ -100,7 +73,12 @@ alg_list_txt <- function(df) {
 
 # Top Genus List
 gen_list_txt <- function(df) {
-  df_genus <- top_genus(df)
+  # Determine 10 most common genera
+  df_genus <- df %>% 
+    dplyr::count(Genus, AlgalGroup, name = "Count") %>%
+    # remove unknown from list
+    dplyr::filter(!stringr::str_detect(Genus, "Unknown")) %>% 
+    dplyr::slice_max(Count, n = 10)
   
   gen_group <- bio_groups(df_genus, Genus)
   alg_group <- bio_groups(df_genus, AlgalGroup)
