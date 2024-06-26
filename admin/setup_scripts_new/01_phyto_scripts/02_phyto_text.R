@@ -13,27 +13,16 @@ bio_groups <- function(df, col){
   df %>% dplyr::distinct({{ col }}) %>% dplyr::pull({{ col }})
 }
 
-#' Create Bullet List Item
-#'
-#' Creates an item that can be rendered in a bullet point list for knitted (HTML) Rmd files
-#' @param ele the object to add to the list
-#'
-# >>> Only used in bullet_list, may just incorporate into this function
-list_item <- function(ele){
-  item <- glue::glue('&#x2022; {ele}<br />')
-  return(item)
-}
-
 #' Create Bullet List
 #'
 #' Creates a bullet point list for knitted (HTML) Rmd files from a vector of elements
 #' @param vec the relevant data frame
 #'
-bullet_list <- function(vec){
+bullet_list <- function(vec) {
   final_list <- c()
   
   for (i in 1:length(vec)){
-    new_ele <- list_item(vec[i])
+    new_ele <- glue::glue('&#x2022; {vec[i]}<br />')
     final_list <- c(final_list, new_ele)
   }
   
