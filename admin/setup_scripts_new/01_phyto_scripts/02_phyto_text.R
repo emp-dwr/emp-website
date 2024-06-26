@@ -129,22 +129,6 @@ other_taxa <- function(df, region, threshold = 5) {
 
 # Text helper functions - Chlorophyll -------------------------------------
 
-#' Determine number of samples
-#'
-#' @param df the relevant data frame
-#'
-# >>> Only used in low_chla_txt, may just incorporate into this function
-sample_number <- function(df) {
-  df <- subset_year(df, report_year)
-  
-  df <- df %>%
-    dplyr::group_by(Date, Station) %>%
-    dplyr::summarize() %>%
-    dplyr::distinct()
-  
-  return(nrow(df))
-}
-
 high_chla_helper_txt <- function(i, df){
   month <- unique(df$Month)[i]
   df_month <- df %>% dplyr::filter(Month == month)
@@ -334,7 +318,9 @@ chlapheo_sumstats <- function(nutr, stat, region) {
 
 # Low chla text
 low_chla_txt <- function(df) {
-  sample_num <- sample_number(df)
+  # Remove missing Chlorophyll values and any duplicate rows before calculating
+    # sample counts
+  sample_num <- nrow(df %>% tidyr::drop_na(Chla) %>% dplyr::distinct(Date, Station))
   percent <- low_chla(df, 'percent')
   count <- low_chla(df, 'count')
   output <- glue::glue('Of the {sample_num} samples taken in {report_year}, {percent}% ({count} samples) had chlorophyll a levels below 10 \U03BCg/L.')
