@@ -7,15 +7,19 @@ capTabNo = 1; capFigNo = 1
 
 ### Background {.unlisted .unnumbered}
 
-Zooplankton are a vital trophic link between aquatic primary producers and higher-level consumers of the San Francisco Estuary (SFE). As primary consumers of phytoplankton, zooplankton facilitate the flow of carbon into a large and complex food web, historically supporting abundant fisheries in the region (Schroeter et al. 2015; Kimmerer et al. 2018). Many fishes, including Striped Bass (*Morone saxatilis*) and Chinook Salmon (*Oncorhynchus tshawytscha*) feed on zooplankton while rearing in the estuary as larvae and juveniles (Goertler et al. 2018; Heubach et al. 1963), while others like Tule Perch (*Hysterocarpus traski*) and Prickly Sculpin (*Cottus asper*) feed on zooplankton throughout their lifetimes (Kimmerer 2006, Feyrer et al. 2003). Zooplankton in the SFE are also a key food source for several endangered and threatened species, notably the Delta Smelt (*Hypomesus transpacificus*) and Longfin Smelt (*Spirinchus thaleichthys*) (Hobbs et al. 2006; Slater and Baxter 2014).
+Zooplankton in the San Francisco Estuary (SFE) serve as a vital trophic link between aquatic primary producers and higher trophic level consumers. As primary consumers of phytoplankton, zooplankton facilitate the flow of carbon through a large and complex food web that historically supported abundant fisheries (Schroeter et al. 2015; Kimmerer et al. 2018). Zooplankton in the SFE are a key food source for endangered and threatened fish species, notably the Delta Smelt (Hypomesus transpacificus) and Longfin Smelt (Spirinchus thaleichthys) (Hobbs et al. 2006; Slater and Baxter 2014) .Many species of fish, including Striped Bass (Morone saxatilis) and Chinook Salmon (Oncorhynchus tshawytscha) feed on zooplankton in the estuary as larvae and juveniles (Goertler et al. 2018; Heubach et al. 1963), while others like Tule Perch (Hysterocarpus traskii) and Prickly Sculpin (Cottus asper) include zooplankton in their diets throughout their lifetimes (Kimmerer 2006, Feyrer et al. 2003). 
 
-This importance of zooplankton prompted the implementation of the Zooplankton Study in 1972 to assess fish food resources in the upper SFE. Mandated by the State Water Resources Control Board's Water Right Decision D-1641, the study is conducted jointly by the California Department of Fish and Wildlife and the California Department of Water Resources under the guidance and management of the Interagency Ecological Program. For nearly 5 decades, this study has monitored the zooplankton community in the region, tracking abundance trends and distributional patterns, detecting and monitoring introduced species, and documenting the dramatic shifts in the community's composition. Changes in zooplankton abundance and composition have since been linked to major declines of the pelagic fishes in the upper estuary (Sommer et al. 2007; Winder and Jassby 2011).
+The importance of zooplankton in the estuarine food web prompted the implementation of the Zooplankton Study in 1972 to assess the prey resources available to fish in the upper SFE. Mandated by the State Water Resources Control Board’s Water Right Decision 1641, the study is conducted jointly by the California Department of Fish and Wildlife and the California Department of Water Resources under the guidance and management of the Interagency Ecological Program. For over five decades this study has monitored the zooplankton community in the region, tracking abundance trends and distribution patterns, detecting and monitoring introduced species, and documenting dramatic shifts in community composition. Changes in zooplankton abundance and composition have been linked to major declines in pelagic fishes in the upper estuary (Sommer et al. 2007; Winder and Jassby 2011).
+
 
 ------------------------------------------------------------------------
 
 ### Methods {.unlisted .unnumbered}
 
-Zooplankton sampling has been conducted since 1974 at least once a month March-November through 1995, and monthly from 1995 through the present, at 20 fixed stations in the upper SFE (Figure 69). Three gear types are used for each sampling event: a pump with a 43-micron mesh net for micro-zooplankton (rotifers, nauplii, and small cyclopoid copepods); a Clarke-Bumpus (CB) net with a 160-micron mesh for sampling meso-zooplankton (cladocera and most juvenile and adult calanoid copepods); and a mysid net with a 505-micron mesh for sampling mysid shrimp and other macro-zooplankton. Both the mysid and CB nets are attached to a sled and towed obliquely from the bottom through the surface for a 10-minute tow.
+Zooplankton have been sampled since 1972, once or twice per month from March to November through 1994, and monthly from 1995 to the present, except during the COVID-19 pandemic, which precluded sampling in March and April 2020 and from December 2020 to February 2021.  Samples are collected at 20 fixed stations in the upper SFE (Figure 1) using three gear types that target different size ranges of zooplankton: Teel Marine 12V utility pump samples filtered through a 43-micron mesh net for micro-zooplankton (rotifers, copepod nauplii, and small cyclopoid copepods); Clarke-Bumpus (CB) net with 160-micron mesh to sample meso-zooplankton (cladocerans and most juvenile and adult calanoid copepods); and mysid net with 505-micron mesh targeting mysid shrimp and other macro-zooplankton. The mysid and CB nets are mounted on the same tow sled and samples are collected in a 10-minute stepped oblique tow over the depth range of each station.  
+The volume of water filtered during a net tow is used to calculate catch per unit effort (CPUE).  Volume filtered during mysid and CB tows is determined by mounting a General Oceanics flowmeter in the mouth of each net.  Volume filtered is calculated as:
+
+<br>
 
 <!-- This section writes out a formula. If the text needs to be modified, let Sarah know. -->
 
@@ -39,7 +43,11 @@ Zooplankton sampling has been conducted since 1974 at least once a month March-N
 
 <p>
 
-Volume is measured using a General Oceanics flowmeter placed in the mouth of each net so that: <br>
+where V is the volume of water sampled (mL), k is a flow meter constant, and a is the area of the mouth of the net (m2).
+
+The Teel Marine pump samples 19.8 gallons over the upper 30’ of the water column, filtered through a 43-micron mesh net. All zooplankton samples are preserved immediately after collection in 10% formalin with rose bengal dye. Target organisms in each sample are identified and enumerated in the laboratory using dissecting microscopes. More information about the sampling and processing methods can be found in the metadata here.
+Abundance indices are calculated for each organism from its target gear type (noted above).  Abundance is reported as mean CPUE, calculated as the number of each organism collected per cubic meter of water sampled:
+<br>
 
 <center>$V = (end meter - startmeter)k*a$</center>
 
@@ -51,9 +59,8 @@ Volume is measured using a General Oceanics flowmeter placed in the mouth of eac
 
 <!-- back to normal text -->
 
-The Teel Marine 12V utility pump is also used at each station to sample approximately 19.8 gallons from the entire water column, which is filtered through a 43-micron mesh net to concentrate the pump sample. Samples are preserved in 10% formalin with Rose Bengal dye before being processed in the laboratory for identification and enumeration of organisms using a dissecting microscope. More information about the sampling and processing methods can be found in the metadata at [here](https://filelib.wildlife.ca.gov/Public/IEP_Zooplankton/).
-
-Abundance indices are calculated for each organism based on the gear type most effective at its capture and reported as the mean catch-per-unit-effort (CPUE). CPUE is calculated as the number of each organism collected per cubic meter of water sampled, so that:
+The Teel Marine pump samples 19.8 gallons over the upper 30’ of the water column, filtered through a 43-micron mesh net. All zooplankton samples are preserved immediately after collection in 10% formalin with rose bengal dye. Target organisms in each sample are identified and enumerated in the laboratory using dissecting microscopes. More information about the sampling and processing methods can be found in the metadata here.
+Abundance indices are calculated for each organism from its target gear type (noted above).  Abundance is reported as mean CPUE, calculated as the number of each organism collected per cubic meter of water sampled:
 
 <!-- This section writes out a formula. If the text needs to be modified, let Sarah know. -->
 
@@ -77,7 +84,7 @@ Abundance indices are calculated for each organism based on the gear type most e
 
 <p>
 
-Volume is measured using a General Oceanics flowmeter placed in the mouth of each net so that: <br>
+<br>
 
 <center>$CPUE=s*V^{-1}$</center>
 
@@ -89,12 +96,9 @@ Volume is measured using a General Oceanics flowmeter placed in the mouth of eac
 
 <!-- back to normal text -->
 
-Copepod abundance indices reported here only include adults, as juveniles were not always identified to species. Annual and seasonal abundance indices were calculated using 14 fixed stations sampled consistently since 1974 (Figure 67) and 2 non-fixed stations sampled where bottom specific conductance was roughly 2 and 6 millisiemens per centimeter (approximately 1 and 3 psu).
-
-To analyze long-term trends (1974 to present), annual abundance indices were calculated as the mean CPUE for samples collected from March through November, as winter sampling was inconsistent before 1995. Seasonal abundance indices were calculated as the mean CPUE for samples collected during each season: winter (previous December to February), spring (March to May), summer (June to August), and fall (September to November). Long-term seasonal trends for winter are only shown for 1995 to present. Spatial distribution indices for organisms is described as seasonal mean CPUE for by region. Estuary regions were defined as San Pablo Bay (stations D41 and D41A), Suisun Bay (stations D6, 28, 54, and 48), Suisun Marsh (stations 32 and S42), West Delta (stations 60, 64, and 74), Central Delta (stations D16, 86, and D28), and the East Delta (92 and M10).
-
-COVID Note: due to the ongoing COVID-19 epidemic, zooplankton sampling was not conducted from March 2020 - April 2020, and December 2020 - February 2021.
+Calanoid and cyclopoid copepod abundance indices reported here comprise adults only, as juveniles cannot always be identified to species. Annual and monthly abundance indices were calculated using 16 fixed stations sampled consistently since 1974 (Figure 1) and 2 to 4 non-fixed entrapment zone (EZ) stations, located where bottom specific conductance was 2 and 6 millisiemens per centimeter (approximately 1 and 3 psu).
+To analyze long-term trends (1974 to present), annual abundance indices were calculated as the mean CPUE for samples collected from March through November, as winter sampling was inconsistent before 1995. Monthly abundances from 2022 are also shown by regions, as detailed in each section below. Estuary regions are designated as San Pablo Bay (stations D41, D41A), Suisun & Grizzly Bays (stations D6, 28, 48), Suisun Marsh (stations 32, S42), Confluence (stations 54, 60, 64, 74), Central Delta (stations D16, D19, 86, D28, M10), North Delta (68), South Delta (92) (Figure 1).  In 2022 the non-fixed (EZ) stations were most often in the Confluence region with a few in the Central Delta and North Delta, mostly during fall and early winter months.  During most months in 2022, two EZ stations were also sampled in the San Joaquin River in addition to the two EZ stations in the Sacramento River.  Annual indices include data from the 16 core stations and the two Sacramento River EZ stations. Monthly CPUE by region for 2022 includes data from all fixed and EZ stations.
 
 ```{r echo=FALSE, fig.show = 'hold', out.width = '70%', caption='Map of fixed Zooplankton Study stations in the San Francisco Estuary.', fig.align='center'}
-knitr::include_graphics(file.path('sections/zoop/figures/zoop-map.png'))
+knitr::include_graphics(file.path('admin/figures/zoop/zoop-map.jpg'))
 ```
