@@ -25,7 +25,7 @@ Contact: Tiffany Brown ([Tiffany.Brown\@water.ca.gov](mailto:Tiffany.Brown@water
 
 [**Zooplankton**](`r get_edi_url(522)`)
 
-Contact:  Tracy Shaw (caroline.shaw@wildlife.ca.gov)
+Contact: Tracy Shaw ([Caroline.Shaw\@wildlife.ca.gov](mailto:Caroline.Shaw@wildlife.ca.gov){.email})
 
 ## Individual Stations (Continuous Water Quality) 
 :::: {style="display: flex;"}
