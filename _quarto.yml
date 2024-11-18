@@ -22,7 +22,7 @@ website:
     collapse-below: lg
     left:
       - text: "Home"
-        href: sections/general/qmd-files/index.qmd
+        href: sections/00_index/qmd-files/index.qmd
       - text: "Data Links"
         href: sections/general/qmd-files/data-links.qmd
       - text: "Annual Reports"
