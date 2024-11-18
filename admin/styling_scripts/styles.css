@@ -166,7 +166,7 @@ table.kable-table th, table.kable-table td {
 
 /* remove figure ref in text */
 
-a[href^="#fig"], a[href^="#tbl"] {
+a[href^='#fig'], a[href^='#tbl'] {
   pointer-events: none;
   color: inherit;
   text-decoration: none;

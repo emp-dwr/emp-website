@@ -47,7 +47,7 @@ website:
 format:
   html:
     theme: cosmo
-    css: [admin/styling_scripts/styles.css, admin/styling_scripts/slideshow.css]
+    css: admin/styling_scripts/styles.css
     # grid:
     #   sidebar-width: 300px
     toc: true
