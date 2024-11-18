@@ -13,4 +13,3 @@ bookdown::render_book(
 )
 
 rm(list = ls())
-
