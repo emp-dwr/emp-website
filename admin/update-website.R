@@ -4,13 +4,10 @@
 file_sources <- list.files(path = 'admin/setup_scripts', pattern = '.R$', full.names = TRUE, recursive = TRUE)
 sapply(file_sources, source, .GlobalEnv)
 
-
-bookdown::render_book(
-  input = 'admin/config-yaml.Rmd',
-  output_dir = './docs',
-  config_file = 'admin/_bookdown.yml',
-  output_format = 'bookdown::gitbook'
+quarto::quarto_render(
+  input = ".",
+  execute = TRUE
 )
 
-rm(list = ls())
-
+# TODO:
+# fix the footnote extending the column length
