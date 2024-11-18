@@ -1,6 +1,7 @@
 ---
 title: "Data Links"
 ---
+
 ```{r echo = FALSE}
 # read in functions; do not edit
 source(here::here('admin/import_scripts.R'))
@@ -25,7 +26,7 @@ Contact: Tiffany Brown ([Tiffany.Brown\@water.ca.gov](mailto:Tiffany.Brown@water
 
 [**Zooplankton**](`r get_edi_url(522)`)
 
-Contact: Tracy Shaw ([Caroline.Shaw\@wildlife.ca.gov](mailto:Caroline.Shaw@wildlife.ca.gov){.email})
+Contact:  Tracy Shaw ([Caroline.Shaw\@wildlife.ca.gov](mailto:Caroline.Shaw@wildlife.ca.gov){.email})
 
 ## Individual Stations (Continuous Water Quality) 
 :::: {style="display: flex;"}
@@ -71,4 +72,4 @@ Contact: Andrew Tran ([Andrew.Tran\@water.ca.gov](mailto:Andrew.Tran@water.ca.go
 ## Related Datasets 
 [**Integrated San Francisco Estuary Discrete Water Quality**](`r get_edi_url(731)`)
 
-Contact: Sam Bashevkin ([Sam.Bashevkin\@waterboards.ca.gov](mailto:Sam.Bashevkin@waterboards.ca.gov){.email})
+Contact: Sam Bashevkin ([Sam.Bashevkin\@waterboards.ca.gov](mailto:Sam.Bashevkin@water.ca.gov){.email})

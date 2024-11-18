@@ -1,5 +1,5 @@
 ---
-title: "Zooplankton Report"
+title: "Zoop Report"
 ---
 
 ```{r echo = FALSE}
@@ -7,4 +7,4 @@ title: "Zooplankton Report"
 source(here::here('admin/import_scripts.R'))
 ```
 
-**<span style="font-variant: small-caps;">2023 report coming soon</span>**
+2023 zooplankton report coming soon.

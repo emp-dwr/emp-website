@@ -11,7 +11,7 @@ BaseClass <- R6Class(
   
   public = list(
     df_raw = NULL,
-
+    
     initialize = function(df_raw, df_units, df_regions) {
       
       # add in a detect column if none exists (for coding purposes)
@@ -135,8 +135,8 @@ StylingClass <- R6Class(
     
     # # Generate skip color palette based off base color
     gen_gradient = function(center_hex, num_colors,
-                                      skip_amt = 3,
-                                      lighten_amt = 0.4, darken_amt = 0.4) {
+                            skip_amt = 3,
+                            lighten_amt = 0.4, darken_amt = 0.4) {
       dark_color <- darken(center_hex, amount = darken_amt)
       light_color <- lighten(center_hex, amount = lighten_amt)
       
@@ -150,7 +150,7 @@ StylingClass <- R6Class(
     # # Create scale_color_manual layer based off region and palette
     wq_plt_colors = function(region, plt_type = c('dwq', 'cwq')) {
       plt_type <- rlang::arg_match(plt_type, values = c('dwq', 'cwq'))
-
+      
       center_hex <- self$df_regionhex %>%
         filter(Region == region) %>%
         pull(HexColor)
@@ -234,22 +234,22 @@ get_water_year <- function(given_year = report_year) {
   
   sac_abb <- wy_parts[1]
   sj_abb <- wy_parts[2]
-
+  
   sac_abb <- switch(sac_abb,
-                       'C' = 'critically dry',
-                       'W' = 'wet',
-                       'D' = 'dry',
-                       'AN' = 'above normal',
-                       'BN' = 'below normal',
-                       'Unknown')
+                    'C' = 'critically dry',
+                    'W' = 'wet',
+                    'D' = 'dry',
+                    'AN' = 'above normal',
+                    'BN' = 'below normal',
+                    'Unknown')
   
   sj_abb <- switch(sj_abb,
-                       'C' = 'critically dry',
-                       'W' = 'wet',
-                       'D' = 'dry',
-                       'AN' = 'above normal',
-                       'BN' = 'below normal',
-                       'Unknown')
+                   'C' = 'critically dry',
+                   'W' = 'wet',
+                   'D' = 'dry',
+                   'AN' = 'above normal',
+                   'BN' = 'below normal',
+                   'Unknown')
   
   
   wy_abb <- list(sac = sac_abb, sj = sj_abb)
@@ -305,7 +305,7 @@ get_edi_url <- function(pkg_id, revision_num = 'current') {
   revision_url = glue::glue('https://pasta.lternet.edu/package/eml/edi/{pkg_id}')
   all_revisions = readLines(revision_url, warn = FALSE)
   latest_revision = tail(all_revisions, 1)
-
+  
   all_revisions = readLines(revision_url, warn = FALSE)
   latest_revision = tail(all_revisions, 1)
   

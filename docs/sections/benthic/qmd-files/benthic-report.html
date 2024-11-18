@@ -64,6 +64,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../../site_libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="../../../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="../../../admin/styling_scripts/styles.css">
 <link rel="stylesheet" href="../../../admin/styling_scripts/slideshow.css">
@@ -161,7 +163,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#central-delta-d16-d28a" id="toc-central-delta-d16-d28a" class="nav-link" data-scroll-target="#central-delta-d16-d28a">Central Delta (D16, D28A)</a></li>
   <li><a href="#confluence-d4" id="toc-confluence-d4" class="nav-link" data-scroll-target="#confluence-d4">Confluence (D4)</a></li>
   <li><a href="#san-pablo-bay-d41-d41a" id="toc-san-pablo-bay-d41-d41a" class="nav-link" data-scroll-target="#san-pablo-bay-d41-d41a">San Pablo Bay (D41, D41A)</a></li>
-  <li><a href="#south-delta-c9-p8" id="toc-south-delta-c9-p8" class="nav-link" data-scroll-target="#south-delta-c9-p8">South Delta (C9, P8)</a></li>
+  <li><a href="#south-delta-p8-c9" id="toc-south-delta-p8-c9" class="nav-link" data-scroll-target="#south-delta-p8-c9">South Delta (P8, C9)</a></li>
   <li><a href="#suisun-grizzly-bays-d6-d7" id="toc-suisun-grizzly-bays-d6-d7" class="nav-link" data-scroll-target="#suisun-grizzly-bays-d6-d7">Suisun &amp; Grizzly Bays (D6, D7)</a></li>
   </ul></li>
   <li><a href="#interpretations" id="toc-interpretations" class="nav-link" data-scroll-target="#interpretations">Interpretations</a></li>
@@ -192,16 +194,16 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>Benthic monitoring conducted by the California Department of Water Resources (DWR) since 1975 has documented changes in the composition, density, and distribution of the macrobenthic biota inhabiting the upper San Francisco Estuary. This monitoring is performed by the Environmental Monitoring Program (EMP) as part of the Interagency Ecological Program (IEP) and is one component of the biological monitoring mandated by Water Right Decision D-1641. Since benthic species respond to changes in physical factors such as freshwater inflows, salinity, and substrate composition, benthic community data provides an indication of physical changes occurring within the Estuary. Benthic monitoring is an important component of the EMP because operation of the State Water Project can change the Estuary’s flow characteristics, affecting the density and distribution of benthic biota. Benthic monitoring data is also used to detect and document the presence of new, non-native species in the Upper Estuary, such as the 1986 arrival and subsequent wide spread of the overbite clam, <em>Potamocorbula amurensis</em>. This report describes the results of these monitoring efforts for water year 2023 (October 1st 2022 through September 30th 2023) which was classified as a wet year in the Sacramento and San Joaquin Valleys <a href="https://cdec.water.ca.gov/reportapp/javareports?name=WSIHIST">(source)</a>.</p>
+<p>Benthic monitoring conducted by the California Department of Water Resources (DWR) since 1975 has documented changes in the composition, density, and distribution of the macrobenthic biota inhabiting the upper San Francisco Estuary. This monitoring is performed by the Environmental Monitoring Program (EMP) as part of the Interagency Ecological Program (IEP) and is one component of the biological monitoring mandated by Water Right Decision D-1641. Since benthic species respond to changes in physical factors such as freshwater inflows, salinity, and substrate composition, benthic community data provides an indication of physical changes occurring within the Estuary. Benthic monitoring is an important component of the EMP because operation of the State Water Project can change the Estuary’s flow characteristics, affecting the density and distribution of benthic biota. Benthic monitoring data is also used to detect and document the presence of new, non-native species in the Upper Estuary, such as the 1986 arrival and subsequent wide spread of the overbite clam, Potamocorbula amurensis. This report describes the results of these monitoring efforts for water year 2023 (October 1st 2022 through September 30th 2023) which was classified as a wet year in the Sacramento and San Joaquin Valleys <a href="https://cdec.water.ca.gov/reportapp/javareports?name=WSIHIST">(source)</a>.</p>
 </section>
 <section id="methods" class="level2">
 <h2 class="anchored" data-anchor-id="methods">Methods</h2>
-<p>Benthic monitoring was conducted monthly at 10 sampling sites distributed throughout the Estuary, from San Pablo Bay upstream through the Sacramento-San Joaquin Delta (<a href="#fig-stations">Figure&nbsp;1</a>; <a href="#tbl-stations">Table&nbsp;1</a>). EMP staff collected four bottom grab samples at each station using a Ponar dredge with a sampling area of 0.052 m<sup>2</sup>. The four replicate grab samples were analyzed for benthic macrofauna by Hydrozoology, a private laboratory under contract with DWR. All organisms were identified to the lowest taxon possible and enumerated.</p>
+<p>Benthic monitoring was conducted monthly at 10 sampling sites distributed throughout the Estuary, from San Pablo Bay upstream through the Sacramento-San Joaquin Delta (<a href="#fig-stations">Figure&nbsp;1</a>; <a href="#tbl-stations">Table&nbsp;1</a>). EMP staff collected four bottom grab samples at each station using a Ponar dredge with a sampling area of 0.052 <span class="math inline">\(m^2\)</span>. The four replicate grab samples were analyzed for benthic macrofauna by Hydrozoology, a private laboratory under contract with DWR. All organisms were identified to the lowest taxon possible and enumerated.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-stations" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="../figures/benthic_station_map.png" class="img-fluid figure-img" style="width:70.0%"></p>
+<p><img src="../figures/benthic_station_map.png" class="img-fluid figure-img" style="width:90.0%"></p>
 <figcaption class="figure-caption">Figure&nbsp;1: Map of EMP’s benthic field sites.</figcaption>
 </figure>
 </div>
@@ -221,29 +223,44 @@ ul.task-list li input[type="checkbox"] {
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: center; width: 33.3333333333333%;">Central Delta</td>
-<td style="text-align: center; width: 33.3333333333333%;">San Joaquin</td>
-<td style="text-align: center; width: 33.3333333333333%;">D16, D28A</td>
+<td style="text-align: center; width: 33.3333333333333%;">Carquinez</td>
+<td style="text-align: center; width: 33.3333333333333%;">Sacramento</td>
+<td style="text-align: center; width: 33.3333333333333%;">NZ002, NZ004</td>
 </tr>
 <tr class="even">
+<td style="text-align: center; width: 33.3333333333333%;">Central Delta</td>
+<td style="text-align: center; width: 33.3333333333333%;">San Joaquin</td>
+<td style="text-align: center; width: 33.3333333333333%;">D16, D19, D26, D28A</td>
+</tr>
+<tr class="odd">
 <td style="text-align: center; width: 33.3333333333333%;">Confluence</td>
 <td style="text-align: center; width: 33.3333333333333%;">Sacramento</td>
-<td style="text-align: center; width: 33.3333333333333%;">D4</td>
+<td style="text-align: center; width: 33.3333333333333%;">D4, D10, D12, D22</td>
+</tr>
+<tr class="even">
+<td style="text-align: center; width: 33.3333333333333%;">North Delta</td>
+<td style="text-align: center; width: 33.3333333333333%;">Sacramento</td>
+<td style="text-align: center; width: 33.3333333333333%;">C3A, NZ068</td>
 </tr>
 <tr class="odd">
 <td style="text-align: center; width: 33.3333333333333%;">San Pablo Bay</td>
 <td style="text-align: center; width: 33.3333333333333%;">Sacramento</td>
-<td style="text-align: center; width: 33.3333333333333%;">D41, D41A</td>
+<td style="text-align: center; width: 33.3333333333333%;">D41, D41A, NZ325</td>
 </tr>
 <tr class="even">
 <td style="text-align: center; width: 33.3333333333333%;">South Delta</td>
 <td style="text-align: center; width: 33.3333333333333%;">San Joaquin</td>
-<td style="text-align: center; width: 33.3333333333333%;">C9, P8</td>
+<td style="text-align: center; width: 33.3333333333333%;">C9, C10A, MD10A, P8</td>
 </tr>
 <tr class="odd">
 <td style="text-align: center; width: 33.3333333333333%;">Suisun &amp; Grizzly Bays</td>
 <td style="text-align: center; width: 33.3333333333333%;">Sacramento</td>
-<td style="text-align: center; width: 33.3333333333333%;">D6, D7</td>
+<td style="text-align: center; width: 33.3333333333333%;">D6, D7, D8</td>
+</tr>
+<tr class="even">
+<td style="text-align: center; width: 33.3333333333333%;">Suisun Marsh</td>
+<td style="text-align: center; width: 33.3333333333333%;">Sacramento</td>
+<td style="text-align: center; width: 33.3333333333333%;">NZ032, NZS42</td>
 </tr>
 </tbody>
 </table>
@@ -252,18 +269,18 @@ ul.task-list li input[type="checkbox"] {
 
 </div>
 </div>
-<p>The 10 most common genera were determined by summing the normalized organism counts across all stations and months for each genus. For the bar graphs, the data is reported as the average organism catch per unit effort (CPUE). This was calculated as the organism count per replicate grab, converted to organisms per m<sup>2</sup> (each grab is 0.052 m<sup>2</sup>), averaged across replicates for each station in each month and aggregated by phylum.</p>
+<p>The 10 most common genera were determined by summing the normalized organism counts across all stations and months for each genus. For the bar graphs, the data is reported as the average&nbsp; organism catch per unit effort (CPUE).&nbsp; This was calculated as the organism count per replicate grab, converted to organisms per m<sup>2</sup> (each grab is 0.052m<sup>2</sup>), averaged across replicates for each station in each month and aggregated by phylum.</p>
 <p>For more in-depth methodology, see <a href="https://portal.edirepository.org/nis/metadataviewer?packageid=edi.1320.6">here</a>.</p>
 </section>
 <section id="overall-results" class="level2">
 <h2 class="anchored" data-anchor-id="overall-results">Overall Results</h2>
-<p>The benthic fauna collected in FY2023 comprised nine phyla: Annelida (37% of total organisms), Arthropoda (31%) and Mollusca (31%), with Phoronida, Nematoda, Chordata, Platyhelminthes, Cnidaria, and Nemertea each representing 1% or less of total organisms. Of the 185 benthic species collected in WY 2023, the ten most abundant species represented 80% of all individuals collected throughout the year (Table 2). These include three species of amphipod, two clams, three oligochate worms, one polychate worm, and one cumacean arthropod (also known as a comma shrimp, although it is not actually a shrimp). Only three species in this group (the amphipods&nbsp;<em>Americorophium spinicorne</em> and <em>Hyalella</em> sp., and the oligochaete worm <em>Ilyodrilus franzti</em>) are native to this estuary. The rest of the top ten species are non-native or are cosmopolitan species of unknown origin. Refer to Fields and Messer (1999) for descriptions of the habitat requirements, physical attributes, and feeding methods of many of these species.</p>
+<p>The benthic fauna collected in FY2023 comprised nine phyla: Annelida (37% of total organisms), Arthropoda (31%) and Mollusca (31%), with Phoronida, Nematoda, Chordata, Platyhelminthes, Cnidaria, and Nemertea each representing 1% or less of total organisms. Of the 185 benthic species collected in WY 2023, the ten most abundant species represented 80% of all individuals collected throughout the year (<a href="#fig-abund">Figure&nbsp;2</a>). These include three species of amphipod, two clams, three oligochate worms, one polychate worm, and one cumacean arthropod (also known as a comma shrimp, although it is not actually a shrimp). Only three species in this group (the amphipods&nbsp;<em>Americorophium spinicorne</em> and <em>Hyalella sp.</em>, and the oligochaete worm <em>Ilyodrilus franzti</em>) are native to this estuary. The rest of the top ten species are non-native or are cosmopolitan species of unknown origin. Refer to Fields and Messer (1999) for descriptions of the habitat requirements, physical attributes, and feeding methods of many of these species.</p>
 <p>In the site descriptions that follow, most species densities are reported as the annual densities of individuals/m<sup>2</sup>, sometimes noting dramatic seasonal peaks. Some species, especially arthropods, display strong seasonal variability with peak monthly densities several times higher than their annual densities. In these cases, we reported the time and magnitude of the peaks as well as the annual densities. Please note that the station P8 was not sampled in December 2022 due to heavy fog, and comparisons to other years’ average annual densities or seasonal patterns should take this omission into account.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-abund" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="../figures/species_list.png" class="img-fluid figure-img" width="332"></p>
+<p><img src="../figures/species_list.png" class="img-fluid figure-img" style="width:90.0%"></p>
 <figcaption class="figure-caption">Figure&nbsp;2: List of ten most numerous benthic invertebrate species found at EMP sites.</figcaption>
 </figure>
 </div>
@@ -337,9 +354,9 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </section>
-<section id="south-delta-c9-p8" class="level3">
-<h3 class="anchored" data-anchor-id="south-delta-c9-p8">South Delta (C9, P8)</h3>
-<p>The benthic monitoring program sampled at two stations in the South Delta. Site P8 is on the San Joaquin River at Buckley Cove (<a href="#fig-stations">Figure&nbsp;1</a>). Sampling did not occur in December 2022 due to very foggy conditions.&nbsp; Station P8 had a total of 54 species in five phyla in WY 2023. Annelida was by far the most abundant phyla at this station in 2023, accounting for 90% of all organisms collected (<a href="#fig-benthic_p8">Figure&nbsp;9</a>). The dominant species driving most of the Annelida patterns was the non-native sabellid worm&nbsp;<em>Manayunkia speciosa</em>, which had an annual density of 5,501 individuals/m<sup>2</sup>&nbsp;and accounted by itself for 59% of all organisms.&nbsp;<em>Manayunkia speciosa</em>&nbsp;in 2023 increased slightly from its lower densities from 2017 through 2022, but not close to the high densities seen from 2012 to 2016, which peaked at 11,705 individuals/m<sup>2</sup>&nbsp;in WY 2016. The oligochate worms&nbsp;<em>Limnodrilus hoffmeisteri</em>&nbsp;and&nbsp;<em>Varichaetadrilus angustipenis</em>&nbsp;were the next most common organisms at 1,271 and 537individuals/m<sup>2</sup>&nbsp;annual density, followed by a long tail of many species represented at low densities. This community composition has remained largely unchanged through the last decade, apart from the dramatic changes in of&nbsp;<em>M. speciosa</em>.</p>
+<section id="south-delta-p8-c9" class="level3">
+<h3 class="anchored" data-anchor-id="south-delta-p8-c9">South Delta (P8, C9)</h3>
+<p>The benthic monitoring program sampled at two stations in the South Delta. Site P8 is on the San Joaquin River at Buckley Cove (<a href="#fig-stations">Figure&nbsp;1</a>). Sampling did not occur in December 2022 due to very foggy conditions.&nbsp; Station P8 had a total of 54 species in five phyla in WY 2023. Annelida was by far the most abundant phyla at this station in 2023, accounting for 90% of all organisms collected (<strong>?@fig-p8</strong>). The dominant species driving most of the Annelida patterns was the non-native sabellid worm&nbsp;<em>Manayunkia speciosa</em>, which had an annual density of 5,501 individuals/m<sup>2</sup>&nbsp;and accounted by itself for 59% of all organisms.&nbsp;<em>Manayunkia speciosa</em>&nbsp;in 2023 increased slightly from its lower densities from 2017 through 2022, but not close to the high densities seen from 2012 to 2016, which peaked at 11,705 individuals/m<sup>2</sup>&nbsp;in WY 2016. The oligochate worms&nbsp;<em>Limnodrilus hoffmeisteri</em>&nbsp;and&nbsp;<em>Varichaetadrilus angustipenis</em>&nbsp;were the next most common organisms at 1,271 and 537individuals/m<sup>2</sup>&nbsp;annual density, followed by a long tail of many species represented at low densities. This community composition has remained largely unchanged through the last decade, apart from the dramatic changes in of&nbsp;<em>M. speciosa</em>.</p>
 <p>Site C9 is on Old River at the Clifton Court Forebay intake (<a href="#fig-stations">Figure&nbsp;1</a>). There were 85 species in seven phyla at C9 in WY 2023. Annelida was the dominant phylum throughout the year, accounting for 79% of all organisms collected in WY 2023, followed by 15% Arthropoda. (<a href="#fig-benthic_c9">Figure&nbsp;8</a>). An oligochaete worm,&nbsp;<em>Limnodrilus hoffmeisteri,</em> made up 28% of all organisms with an annual density of 1,804 individuals/m<sup>2</sup>, which is roughly a quarter of its decade high value in WY 2012 of 5,454 individuals/m<sup>2</sup>. The oligochaete worms&nbsp;<em>Varichaetadrilus angustipenis</em> and <em>Ilyodrilus frantzi</em>&nbsp;were the next most numeous, with average densities of 1,755 and 1,670 individuals/m<sup>2</sup>. <em>Limnodrilus</em> <em>hoffmeisteri</em> and <em>Ilyodrilus frantzi</em> had their highest densities from May through September 2023.&nbsp; The freshwater amphipod&nbsp;<em>Hyalella</em>&nbsp;sp. A was also notable with an annual average of 737 individuals/m<sup>2</sup> through WY 2023, with two peaks in November 2022 and June 2023. Similar to P8, C9 has a large number of low-density species, including the highest diversity of aquatic insect larvae at any site sampled (23 species in WY 2023, mostly chironomid midges). The community was dominated by oligochaetes and had the same overall composition as it has for many years.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
