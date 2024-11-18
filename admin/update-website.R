@@ -8,6 +8,3 @@ quarto::quarto_render(
   input = ".",
   execute = TRUE
 )
-
-# TODO:
-# fix the footnote extending the column length
