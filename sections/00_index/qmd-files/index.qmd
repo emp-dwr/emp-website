@@ -5,6 +5,9 @@ listing:
   id: landing
   template: ../../../admin/styling_scripts/landing-links.ejs
   contents: ../../../admin/styling_scripts/landing.yml
+  
+format:
+  html: default
 ---
 
 ```{r echo = FALSE}
