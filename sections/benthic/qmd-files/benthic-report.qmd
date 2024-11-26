@@ -119,18 +119,9 @@ knitr::include_graphics(here::here(file.path('sections/benthic/figures/benthic_b
 
 ### South Delta (P8, C9)
 
-The benthic monitoring program sampled at two stations in the South Delta. Site P8 is on the San Joaquin River at Buckley Cove (@fig-stations). Sampling did not occur in December 2022 due to very foggy conditions.  Station P8 had a total of 54 species in five phyla in WY 2023. Annelida was by far the most abundant phyla at this station in 2023, accounting for 90% of all organisms collected (@fig-p8). The dominant species driving most of the Annelida patterns was the non-native sabellid worm *Manayunkia speciosa*, which had an annual density of 5,501 individuals/m^2^ and accounted by itself for 59% of all organisms. *Manayunkia speciosa* in 2023 increased slightly from its lower densities from 2017 through 2022, but not close to the high densities seen from 2012 to 2016, which peaked at 11,705 individuals/m^2^ in WY 2016. The oligochate worms *Limnodrilus hoffmeisteri* and *Varichaetadrilus angustipenis* were the next most common organisms at 1,271 and 537individuals/m^2^ annual density, followed by a long tail of many species represented at low densities. This community composition has remained largely unchanged through the last decade, apart from the dramatic changes in of *M. speciosa*.
+The benthic monitoring program sampled at two stations in the South Delta. Site P8 is on the San Joaquin River at Buckley Cove (@fig-stations). Sampling did not occur in December 2022 due to very foggy conditions.  Station P8 had a total of 54 species in five phyla in WY 2023. Annelida was by far the most abundant phyla at this station in 2023, accounting for 90% of all organisms collected (@fig-benthic_p8). The dominant species driving most of the Annelida patterns was the non-native sabellid worm *Manayunkia speciosa*, which had an annual density of 5,501 individuals/m^2^ and accounted by itself for 59% of all organisms. *Manayunkia speciosa* in 2023 increased slightly from its lower densities from 2017 through 2022, but not close to the high densities seen from 2012 to 2016, which peaked at 11,705 individuals/m^2^ in WY 2016. The oligochate worms *Limnodrilus hoffmeisteri* and *Varichaetadrilus angustipenis* were the next most common organisms at 1,271 and 537individuals/m^2^ annual density, followed by a long tail of many species represented at low densities. This community composition has remained largely unchanged through the last decade, apart from the dramatic changes in of *M. speciosa*.
 
 Site C9 is on Old River at the Clifton Court Forebay intake (@fig-stations). There were 85 species in seven phyla at C9 in WY 2023. Annelida was the dominant phylum throughout the year, accounting for 79% of all organisms collected in WY 2023, followed by 15% Arthropoda. (@fig-benthic_c9). An oligochaete worm, *Limnodrilus hoffmeisteri,* made up 28% of all organisms with an annual density of 1,804 individuals/m^2^, which is roughly a quarter of its decade high value in WY 2012 of 5,454 individuals/m^2^. The oligochaete worms *Varichaetadrilus angustipenis* and *Ilyodrilus frantzi* were the next most numeous, with average densities of 1,755 and 1,670 individuals/m^2^. *Limnodrilus* *hoffmeisteri* and *Ilyodrilus frantzi* had their highest densities from May through September 2023.  The freshwater amphipod *Hyalella* sp. A was also notable with an annual average of 737 individuals/m^2^ through WY 2023, with two peaks in November 2022 and June 2023. Similar to P8, C9 has a large number of low-density species, including the highest diversity of aquatic insect larvae at any site sampled (23 species in WY 2023, mostly chironomid midges). The community was dominated by oligochaetes and had the same overall composition as it has for many years.
-
-```{r}
-#| label: fig-benthic_c9
-#| echo: false
-#| fig-align: 'center'
-#| fig-cap: 'Density of benthic organisms, by month, collected at station C9.'
-
-knitr::include_graphics(here::here(file.path('sections/benthic/figures/benthic_bar_c9.jpg')))
-```
 
 ```{r}
 #| label: fig-benthic_p8
@@ -139,6 +130,15 @@ knitr::include_graphics(here::here(file.path('sections/benthic/figures/benthic_b
 #| fig-cap: 'Density of benthic organisms, by month, collected at station P8.'
 
 knitr::include_graphics(here::here(file.path('sections/benthic/figures/benthic_bar_p8.jpg')))
+```
+
+```{r}
+#| label: fig-benthic_c9
+#| echo: false
+#| fig-align: 'center'
+#| fig-cap: 'Density of benthic organisms, by month, collected at station C9.'
+
+knitr::include_graphics(here::here(file.path('sections/benthic/figures/benthic_bar_c9.jpg')))
 ```
 
 ### Suisun & Grizzly Bays (D6, D7)
