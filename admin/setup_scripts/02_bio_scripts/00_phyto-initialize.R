@@ -5,9 +5,9 @@ df_raw <- read_quiet_csv(here::here('admin/test-data/EMP_Phyto_Data_2008-2023.cs
 
 df_wqraw <- read_quiet_csv(here::here('admin/test-data/EMP_DWQ_1975_2023-long.csv'))
 
-df_analytes <- read_quiet_csv(here::here('admin/figures-tables/analyte_table.csv'), locale = readr::locale(encoding = 'UTF-8'))
+df_analytes <- read_quiet_csv(here::here('admin/figures-tables/admin/analyte_table.csv'), locale = readr::locale(encoding = 'UTF-8'))
 
-df_regions <- read_quiet_csv(here::here('admin/figures-tables/station_table.csv'))
+df_regions <- read_quiet_csv(here::here('admin/figures-tables/admin/station_table.csv'))
 
 
 # Create Base Phyto Object ------------------------------------------------
@@ -67,9 +67,9 @@ fig_phyto <- PhytoFigureClass$new(obj_phyto_cur$df_raw)
 #  fp_name <- gsub(' ', '', tolower(region))
 #  fp_name <- gsub('&','', fp_name)
 # 
-#  ggsave(here::here(paste0('sections/phyto/figures/phyto_wq_', fp_name, '.jpg')),
+#  ggsave(here::here(paste0('admin/figures-tables/phyto/phyto_wq_', fp_name, '.png')),
 #         plt_wq, width = 6*.8, height = 3.5*.8, unit = 'in')
 # 
-#  ggsave(here::here(paste0('sections/phyto/figures/phyto_ts_', fp_name, '.jpg')),
+#  ggsave(here::here(paste0('admin/figures-tables/phyto/phyto_bar_', fp_name, '.png')),
 #         plt_phyto, width = 10, height = 8, unit = 'in')
 # }
