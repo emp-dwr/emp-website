@@ -140,9 +140,18 @@ PhytoStringClass <- R6Class(
       
       main_txt <-
         purrr::map2_chr(main_groups$AlgalGroup, 1:nrow(main_groups), function(group, idx) {
-          glue::glue(
-            '{tolower(group)} ({main_groups$per[idx]}% of organisms, μ = {main_groups$mean[idx]} ± {main_groups$sd[idx]} organisms/mL)'
-          )
+          # website
+          if (knitr::is_html_output()) {
+            glue::glue(
+              '{tolower(group)} ({main_groups$per[idx]}% of organisms, µ = {main_groups$mean[idx]} ± {main_groups$sd[idx]} organisms/mL)'
+            )
+          
+          # pdf
+          } else if (knitr::is_latex_output()) {
+            glue::glue(
+              '{tolower(group)} ({main_groups$per[idx]}% of organisms, $\\mu$ = {main_groups$mean[idx]} ± {main_groups$sd[idx]} organisms/mL)'
+            )
+          }
         })
       
       main_txt_combined <- knitr::combine_words(main_txt)

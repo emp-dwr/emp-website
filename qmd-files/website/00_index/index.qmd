@@ -1,6 +1,6 @@
 ---
 title: "Environmental Monitoring Program"
-subtitle: "CA Deptartment of Water Resources"
+subtitle: "CA Department of Water Resources"
 listing:
   id: landing
   template: ../../../admin/styling_scripts/landing-links.ejs

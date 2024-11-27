@@ -92,16 +92,14 @@ StylingClass <- R6Class(
     # # style all tables
     
     style_kable = function(df) {
-      output_format <- knitr::opts_knit$get('rmarkdown.pandoc.to')
-
       # website      
-      if (output_format == 'html') {
+      if (knitr::is_html_output()) {
         table <- kable(df, align = 'c', digits = 2, escape = FALSE) %>%
           kable_styling(c('striped', 'scale_down'), font_size = 14, html_font = 'Arimo', full_width = TRUE) %>%
           kableExtra::column_spec(1:ncol(df), width = paste0(100 / ncol(df), '%'))
       
       # pdf
-      } else if (output_format == 'latex') {
+      } else if (knitr::is_latex_output()) {
         num_columns <- ncol(df)
         table_width <- 35
         column_width <- paste0(table_width / num_columns, 'em')
@@ -192,10 +190,17 @@ StylingClass <- R6Class(
     
     # # create list item for bullet lists
     list_item = function(ele){
-      item <- glue('&#x2022; {ele}<br />')
+      # website
+      if (knitr::is_html_output()) {
+        item <- glue('&#x2022; {ele}<br />')
+      
+      # pdf
+      } else if (knitr::is_latex_output()) {
+        item <- glue('\\item {ele}')
+      }
       return(item)
     },
-    
+
     # LISTS
     # # style bullet lists
     bullet_list = function(vec){
@@ -206,7 +211,15 @@ StylingClass <- R6Class(
         final_list <- c(final_list, new_ele)
       }
       
-      final_list <- paste0(final_list, collapse = '')
+      # website
+      if (knitr::is_html_output()) {
+        final_list <- paste0(final_list, collapse = '')
+        
+      # pdf
+      } else if (knitr::is_latex_output()) {
+        final_list <- c('\\begin{itemize}', final_list, '\\end{itemize}')
+        final_list <- paste0(final_list, collapse = '\n')
+      }
       
       return(final_list)
     }

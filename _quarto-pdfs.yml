@@ -1,6 +1,6 @@
 project:
   type: default
-  output-dir: pdfs
+  output-dir: output/pdfs
   execute-dir: file
   render: 
     - 'qmd-files/pdfs'
@@ -14,3 +14,4 @@ format:
     header-includes:
       - \usepackage{float}
       - \floatplacement{figure}{H}
+      - \usepackage{lmodern}
