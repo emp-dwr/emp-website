@@ -85,15 +85,31 @@ StylingClass <- R6Class(
     df_regionhex = NULL,
     
     initialize = function(df_regionhex) {
-      self$df_regionhex <- read_csv(here::here('admin/figures-tables/region_table.csv'), show_col_types = FALSE)
+      self$df_regionhex <- read_csv(here::here('admin/figures-tables/admin/region_table.csv'), show_col_types = FALSE)
     },
     
     # TABLES
     # # style all tables
+    
     style_kable = function(df) {
-      table <- kable(df, align = 'c', digits = 2, escape = FALSE) %>%
-        kable_styling(c('striped', 'scale_down'), font_size = 14, html_font = 'Arimo', full_width = TRUE) %>%
-        kableExtra::column_spec(1:ncol(df), width = paste0(100 / ncol(df), '%'))
+      output_format <- knitr::opts_knit$get('rmarkdown.pandoc.to')
+
+      # website      
+      if (output_format == 'html') {
+        table <- kable(df, align = 'c', digits = 2, escape = FALSE) %>%
+          kable_styling(c('striped', 'scale_down'), font_size = 14, html_font = 'Arimo', full_width = TRUE) %>%
+          kableExtra::column_spec(1:ncol(df), width = paste0(100 / ncol(df), '%'))
+      
+      # pdf
+      } else if (output_format == 'latex') {
+        num_columns <- ncol(df)
+        table_width <- 35
+        column_width <- paste0(table_width / num_columns, 'em')
+        
+        table <- kable(df, align = 'c', digits = 2, format = 'latex', booktabs = TRUE, escape = FALSE) %>%
+          kable_styling(latex_options = c('hold_position', 'scale_down'), position = 'center') %>%
+          kableExtra::column_spec(1:ncol(df), width = column_width)
+      }
       
       return(table)
     },
@@ -283,7 +299,7 @@ str_water_year <- function(given_year = report_year, period = c('cur','prev')){
 
 # format numbers for display based on analyte
 format_vals <- function(value, vari) {
-  df_analytes <- readr::read_csv(here::here('admin/figures-tables/analyte_table.csv'),
+  df_analytes <- readr::read_csv(here::here('admin/figures-tables/admin/analyte_table.csv'),
                                  locale = readr::locale(encoding = 'UTF-8'),
                                  show_col_types = FALSE)
   

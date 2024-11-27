@@ -3,9 +3,9 @@
 
 df_raw <- read_quiet_csv(here::here('admin/test-data/EMP_Benthic.csv'))
 
-df_units <- read_quiet_csv(here::here('admin/figures-tables/analyte_table.csv'), locale = readr::locale(encoding = 'UTF-8'))
+df_units <- read_quiet_csv(here::here('admin/figures-tables/admin/analyte_table.csv'), locale = readr::locale(encoding = 'UTF-8'))
 
-df_regions <- read_quiet_csv(here::here('admin/figures-tables/station_table.csv'))
+df_regions <- read_quiet_csv(here::here('admin/figures-tables/admin/station_table.csv'))
 
 # Create Base Benthic Object ----------------------------------------------
 
@@ -83,20 +83,20 @@ wkbk_ben$export_wkbk(abs_path_data(glue::glue('Admin/Annual Report Docs/Benthic/
 # 
 #   plt_benthic_ts_all <- obj_ben_all$plt_phy_timeseries_all_TEST(station)
 # 
-#   ggsave(here::here(paste0(emp_path, '/timeseries_all/benthic_tsall_', fp_name, '.jpg')),
+#   ggsave(here::here(paste0(emp_path, '/timeseries_all/benthic_tsall_', fp_name, '.png')),
 #          plt_benthic_ts_all, width = 25, height = exp_height, unit = 'cm')
 # 
 #   if (station %in% unique(obj_ben_cur$df_raw$Station)){
 #     plt_benthic <- obj_ben_cur$plt_phy_density_TEST(station, 'Phylum')
 #     plt_benthic_ts <- obj_ben_cur$plt_phy_timeseries_TEST(station)
 # 
-#     ggsave(here::here(paste0('sections/benthic/figures/benthic_bar_', fp_name, '.jpg')),
+#     ggsave(here::here(paste0('admin/figures-tables/benthic/benthic_bar_', fp_name, '.png')),
 #            plt_benthic, width = 25, height = exp_height, unit = 'cm')
 # 
-#     ggsave(here::here(paste0(emp_path, '/bargraphs/benthic_bar_', fp_name, '.jpg')),
+#     ggsave(here::here(paste0(emp_path, '/bargraphs/benthic_bar_', fp_name, '.png')),
 #            plt_benthic, width = 25, height = exp_height, unit = 'cm')
 # 
-# ggsave(here::here(paste0(emp_path, '/timeseries/benthic_ts_', fp_name, '.jpg')),
+# ggsave(here::here(paste0(emp_path, '/timeseries/benthic_ts_', fp_name, '.png')),
 #        plt_benthic_ts, width = 25, height = exp_height, unit = 'cm')
 # 
 #     }

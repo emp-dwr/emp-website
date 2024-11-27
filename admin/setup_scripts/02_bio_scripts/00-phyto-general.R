@@ -1,4 +1,4 @@
-                      # Calculate General Phyto Stats -------------------------------------------
+# Calculate General Phyto Stats -------------------------------------------
 
 PhytoStatsClass <- R6Class(
   'PhytoStatsClass',
@@ -274,7 +274,7 @@ PhytoFigureClass <- R6Class(
           theme = ggplot2::theme(plot.title = ggplot2::element_text(hjust = 0.5))
         )
       
-      return(final_plot)
+      return(plt_final)
     }
   )
 )
