@@ -9,7 +9,7 @@ source(here::here('admin/import_scripts.R'))
 
 ## Introduction 
 
-This report presents zooplankton annual and monthly abundances and distribution trends from 1974 through 2023 for the most common copepods (calanoid and cyclopoid), cladocerans, rotifers, and mysids of the upper estuary.
+This report presents zooplankton annual and monthly abundances and distribution trends from 1974 through 2023 for the most common copepods (calanoid and cyclopoid), cladocerans, rotifers, and mysids of the upper estuary. 
 
 ## Methods
 
