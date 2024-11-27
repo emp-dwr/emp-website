@@ -353,6 +353,22 @@ get_edi_url <- function(pkg_id, revision_num = 'current') {
   return(edi_url)
 }
 
+# generate figures
+create_figs <- function(group = c('cwq','dwq','phyto','benthic')){
+  if('cwq' %in% group){
+    create_figs_cwq()  
+  }
+  if('dwq' %in% group){
+    create_figs_dwq()  
+  }
+  if('phyto' %in% group){
+    create_figs_phyto()  
+  }
+  if('benthic' %in% group){
+    create_figs_benthic()  
+  }
+}
+
 # Global Variables --------------------------------------------------------
 
 # define default year (change manually if needed)
@@ -364,3 +380,8 @@ month_order <- c('October','November','December','January','February','March','A
 label_order <- c(glue('Oct-{prev_year%%100}'),glue('Nov-{prev_year%%100}'),glue('Dec-{prev_year%%100}'),glue('Jan-{report_year%%100}'),glue('Feb-{report_year%%100}'),glue('Mar-{report_year%%100}'),glue('Apr-{report_year%%100}'),glue('May-{report_year%%100}'),glue('Jun-{report_year%%100}'),glue('Jul-{report_year%%100}'),glue('Aug-{report_year%%100}'),glue('Sep-{report_year%%100}'))
 
 styler <- StylingClass$new()
+
+# read in relevant dataframes
+df_analytes <- read_quiet_csv(here::here('admin/figures-tables/admin/analyte_table.csv'), locale = readr::locale(encoding = 'UTF-8'))
+
+df_regions <- read_quiet_csv(here::here('admin/figures-tables/admin/station_table.csv'))
