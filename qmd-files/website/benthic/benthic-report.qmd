@@ -1,5 +1,6 @@
 ---
 title: "Benthic Invertebrates Report"
+author: "Betsy Wells"
 ---
 
 ```{r echo = FALSE}

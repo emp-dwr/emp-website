@@ -1,5 +1,6 @@
 ---
 title: "Zooplankton Report"
+author: "Tracy Shaw and Kathy Hieb"
 ---
 
 ```{r echo = FALSE}

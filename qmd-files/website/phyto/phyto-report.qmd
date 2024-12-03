@@ -1,5 +1,6 @@
 ---
 title: "Phytoplankton Report"
+author: "Tiffany Brown"
 ---
 
 ```{r echo = FALSE}

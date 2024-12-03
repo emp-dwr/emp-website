@@ -1,5 +1,6 @@
 ---
 title: "Continuous Water Quality Report"
+author: "Michelle Nelson and Andrew Tran"
 ---
 
 ```{r echo = FALSE}

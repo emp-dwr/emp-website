@@ -1,5 +1,6 @@
 ---
 title: "Discrete Water Quality Report"
+author: "Julianna Manning"
 ---
 
 ```{r echo = FALSE}

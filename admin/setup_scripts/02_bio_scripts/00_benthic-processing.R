@@ -16,9 +16,6 @@ BenBaseClass <- R6Class(
     
     # subset columns
     subset_cols = function() {
-      # TODO: remove
-      month_order <- c('October','November','December','January','February','March','April','May','June','July','August','September')
-      
       self$df_raw <- self$df_raw %>% select(Year, Month, Station, Region, MeanCPUE, TotalGrabs,
                                             !!!rlang::syms(self$ben_classif)) %>%
         mutate(MeanOrgs = round(MeanCPUE * TotalGrabs * 0.052, 0),
