@@ -17,15 +17,20 @@ PhytoStatsClass <- R6Class(
       if (!is.null(region)){
         df_summ <- df_summ %>% filter(Region == region)
       }
-
+      
       summ_units <- sum(df_summ$Units_per_mL, na.rm = TRUE)
+
+      num_stations <- df_summ %>%
+        distinct(Station, Month) %>%
+        nrow()
       
       df_summ <- df_summ %>%
         group_by(!!rlang::sym(grouping)) %>%
         summarize(
           per = round(100 * sum(Units_per_mL, na.rm = TRUE) / summ_units, 2),
-          mean = round(mean(Units_per_mL, na.rm = TRUE), 0),
-          sd = round(sd(Units_per_mL, na.rm = TRUE), 0)) %>%
+          avg = round(sum(Units_per_mL, na.rm = TRUE) / num_stations, 0),
+          sd = round(sqrt(sum((Units_per_mL - avg)^2, na.rm = TRUE) / (num_stations - 1)), 0)
+        ) %>%
         arrange(desc(per))
       
       return(df_summ)
@@ -143,13 +148,13 @@ PhytoStringClass <- R6Class(
           # website
           if (knitr::is_html_output()) {
             glue::glue(
-              '{tolower(group)} ({main_groups$per[idx]}% of organisms, µ = {main_groups$mean[idx]} ± {main_groups$sd[idx]} organisms/mL)'
+              '{tolower(group)} ({main_groups$per[idx]}% of organisms, µ = {main_groups$avg[idx]} ± {main_groups$sd[idx]} organisms/mL)'
             )
           
           # pdf
           } else if (knitr::is_latex_output()) {
             glue::glue(
-              '{tolower(group)} ({main_groups$per[idx]}% of organisms, $\\mu$ = {main_groups$mean[idx]} ± {main_groups$sd[idx]} organisms/mL)'
+              '{tolower(group)} ({main_groups$per[idx]}% of organisms, $\\mu$ = {main_groups$avg[idx]} ± {main_groups$sd[idx]} organisms/mL)'
             )
           }
         })
