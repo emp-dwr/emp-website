@@ -17,7 +17,7 @@ BenBaseClass <- R6Class(
     # subset columns
     subset_cols = function() {
       self$df_raw <- self$df_raw %>% select(Year, Month, Station, Region, MeanCPUE, TotalGrabs,
-                                            !!!rlang::syms(self$ben_classif)) %>%
+                                            !!!syms(self$ben_classif)) %>%
         mutate(MeanOrgs = round(MeanCPUE * TotalGrabs * 0.052, 0)) %>%
         mutate(WaterYear = ifelse(Month %in% c('October', 'November', 'December'), Year + 1, Year)) %>%
         relocate(WaterYear, .before = everything())
@@ -442,7 +442,7 @@ BenWkbkClass <- R6Class(
       }
       
       result <- self$df_raw %>%
-        group_by(WaterYear, !!!rlang::syms(cols)) %>%
+        group_by(WaterYear, !!!syms(cols)) %>%
         summarize(
           TotalGrabs = unique(TotalGrabs_YearAll),
           MeanOrgs = sum(MeanOrgs),
@@ -472,7 +472,7 @@ BenWkbkClass <- R6Class(
       }
       
       result <- self$df_raw %>%
-        group_by(WaterYear, Month, !!!rlang::syms(cols)) %>%
+        group_by(WaterYear, Month, !!!syms(cols)) %>%
         summarize(
           TotalGrabs = unique(TotalGrabs_MonthAll),
           MeanOrgs = sum(MeanOrgs),
@@ -502,7 +502,7 @@ BenWkbkClass <- R6Class(
       }
       
       result <- self$df_raw %>%
-        group_by(WaterYear, Station, Region, !!!rlang::syms(cols)) %>%
+        group_by(WaterYear, Station, Region, !!!syms(cols)) %>%
         summarize(
           TotalGrabs = unique(TotalGrabs_YearStation),
           MeanOrgs = sum(MeanOrgs),
@@ -534,7 +534,7 @@ BenWkbkClass <- R6Class(
       }
       
       result <- self$df_raw %>%
-        group_by(WaterYear, Station, Region, Month, !!!rlang::syms(cols)) %>%
+        group_by(WaterYear, Station, Region, Month, !!!syms(cols)) %>%
         summarize(
           TotalGrabs = unique(TotalGrabs_MonthStation),
           MeanOrgs = sum(MeanOrgs),
@@ -557,19 +557,17 @@ BenWkbkClass <- R6Class(
     
     # export workbook
     export_wkbk = function(path_export){
-      suppressWarnings(
-        suppressMessages(
-          openxlsx::saveWorkbook(self$wkbk, file = path_export, overwrite = TRUE)
-          )
-        )
-      }
-    ),
-  
+      suppressMessages(
+        saveWorkbook(self$wkbk, file = path_export, overwrite = TRUE)
+      )
+    }
+  ),
+
   private = list(
     # add sheet to workbook
     add_sheet = function(df_sheet, sheet_name) {
-      openxlsx::addWorksheet(self$wkbk, sheet_name)
-      openxlsx::writeData(self$wkbk, sheet_name, df_sheet, startRow = 1, startCol = 1)
+      addWorksheet(self$wkbk, sheet_name)
+      writeData(self$wkbk, sheet_name, df_sheet, startRow = 1, startCol = 1)
     }
   )
 )
