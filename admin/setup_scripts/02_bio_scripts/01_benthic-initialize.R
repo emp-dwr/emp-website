@@ -20,7 +20,7 @@ obj_ben$assign_regions('Benthic')
 # Create Current Year Object ----------------------------------------------
 
 obj_ben_cur <- obj_ben$clone(deep=TRUE)
-obj_ben_cur$filter_years(report_year, range = 'current')
+obj_ben_cur$filter_years(report_year, range = 'single')
 
 obj_ben_cur <- BenBaseClass$new(obj_ben_cur$df_raw)
 

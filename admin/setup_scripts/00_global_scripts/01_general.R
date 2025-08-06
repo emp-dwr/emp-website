@@ -58,11 +58,11 @@ BaseClass <- R6Class(
     },
     
     # filter by water year
-    filter_years = function(given_year, range = c('current', 'all')) {
+    filter_years = function(given_year, range = c('single', 'all')) {
       range <- match.arg(range)
       end_date <- as.Date(paste0(given_year, '-09-30'))
       
-      if (range == 'current') {
+      if (range == 'single') {
         start_date <- as.Date(paste0(given_year - 1, '-10-01'))
         
       } else if (range == 'all') {
