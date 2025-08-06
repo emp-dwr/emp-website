@@ -21,7 +21,6 @@ BenBaseClass <- R6Class(
         mutate(MeanOrgs = round(MeanCPUE * TotalGrabs * 0.052, 0),
                Month = factor(Month, levels = month_order)) %>%
         mutate(WaterYear = ifelse(Month %in% c('October', 'November', 'December'), Year + 1, Year)) %>%
-        filter(WaterYear >= min(Year) & WaterYear <= max(Year)) %>%
         relocate(WaterYear, .before = everything())
       return(invisible(self))
     },
@@ -559,11 +558,13 @@ BenWkbkClass <- R6Class(
     
     # export workbook
     export_wkbk = function(path_export){
-      suppressMessages(
-        openxlsx::saveWorkbook(self$wkbk, file = path_export, overwrite = TRUE)
-      )
-    }
-  ),
+      suppressWarnings(
+        suppressMessages(
+          openxlsx::saveWorkbook(self$wkbk, file = path_export, overwrite = TRUE)
+          )
+        )
+      }
+    ),
   
   private = list(
     # add sheet to workbook

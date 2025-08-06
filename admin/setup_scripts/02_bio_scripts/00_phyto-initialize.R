@@ -22,7 +22,7 @@ obj_phyto$
 # Create Current Year Object ----------------------------------------------
 
 obj_phyto_cur <- obj_phyto$clone(deep=TRUE)
-obj_phyto_cur$filter_years(report_year)
+obj_phyto_cur$filter_years(report_year, range = 'current')
 
 # Create Current Year Stats -----------------------------------------------
 

@@ -58,9 +58,22 @@ BaseClass <- R6Class(
     },
     
     # filter by water year
-    filter_years = function(given_year) {
-      start_date <- as.Date(paste0(given_year - 1, '-10-01'))
+    filter_years = function(given_year, range = c('current', 'all')) {
+      range <- match.arg(range)
       end_date <- as.Date(paste0(given_year, '-09-30'))
+      
+      if (range == 'current') {
+        start_date <- as.Date(paste0(given_year - 1, '-10-01'))
+        
+      } else if (range == 'all') {
+        oldest_year <- self$df_raw %>%
+          filter(Year <= given_year - 1,   
+                 Month == 'October') %>%   
+          pull(Year) %>%
+          min(na.rm = TRUE)
+        
+        start_date <- as.Date(paste0(oldest_year, '-10-01'))
+      }
       
       self$df_raw <- self$df_raw %>%
         filter(Date >= start_date & Date <= end_date)
@@ -372,7 +385,7 @@ create_figs <- function(group = c('cwq','dwq','phyto','benthic')){
 # Global Variables --------------------------------------------------------
 
 # define default year (change manually if needed)
-report_year <- as.integer(format(Sys.Date(), '%Y')) - 1 
+report_year <- 2023 # as.integer(format(Sys.Date(), '%Y')) - 1 
 
 prev_year <- report_year - 1
 

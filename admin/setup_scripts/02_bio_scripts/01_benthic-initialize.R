@@ -20,7 +20,7 @@ obj_ben$assign_regions('Benthic')
 # Create Current Year Object ----------------------------------------------
 
 obj_ben_cur <- obj_ben$clone(deep=TRUE)
-obj_ben_cur$filter_years(report_year)
+obj_ben_cur$filter_years(report_year, range = 'current')
 
 obj_ben_cur <- BenBaseClass$new(obj_ben_cur$df_raw)
 
@@ -31,11 +31,11 @@ obj_ben_cur$merge_grab_cols()
 # Create All Years Object -------------------------------------------------
 
 obj_ben_all <- obj_ben$clone(deep=TRUE)
+obj_ben_all$filter_years(report_year, range = 'all')
 
 obj_ben_all <- BenBaseClass$new(obj_ben_all$df_raw)
 
 obj_ben_all$subset_cols()
-
 
 obj_ben_all$merge_grab_cols()
 
@@ -59,7 +59,7 @@ wkbk_ben$calc_station_year('species', 'wkbk')
 
 wkbk_ben$calc_station_month('species', 'wkbk')
 
-wkbk_ben$export_wkbk(abs_path_data(glue::glue('Admin/Annual Report Docs/Benthic/annual_report_{report_year}.xlsx')))
+wkbk_ben$export_wkbk(abs_path_data(glue::glue('Admin/Annual Report Docs/Benthic/annual1_report_{report_year}.xlsx')))
 
 # Create/Export Figures ---------------------------------------------------
 
