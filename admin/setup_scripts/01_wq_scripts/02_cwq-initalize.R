@@ -18,10 +18,10 @@ obj_cwq$assign_regions('CEMP')
 # Create Current/Previous Year Objects ------------------------------------
 
 obj_cwq_cur <- obj_cwq$clone(deep=TRUE)
-obj_cwq_cur$filter_years(report_year)
+obj_cwq_cur$filter_years(report_year, range = 'single')
 
 obj_cwq_prev <- obj_cwq$clone(deep=TRUE)
-obj_cwq_prev$filter_years(prev_year)
+obj_cwq_prev$filter_years(prev_year, range = 'single')
 
 # Create Current/Previous Year Stats --------------------------------------
 

@@ -20,10 +20,10 @@ obj_dwq$
 # Create Current/Previous Year Objects ------------------------------------
 
 obj_dwq_cur <- obj_dwq$clone(deep=TRUE)
-obj_dwq_cur$filter_years(report_year)
+obj_dwq_cur$filter_years(report_year, range = 'single')
 
 obj_dwq_prev <- obj_dwq$clone(deep=TRUE)
-obj_dwq_prev$filter_years(prev_year)
+obj_dwq_prev$filter_years(prev_year, range = 'single')
 
 # Create Current/Previous Year Stats --------------------------------------
 
