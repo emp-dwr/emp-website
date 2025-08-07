@@ -203,6 +203,7 @@ StylingClass <- R6Class(
     
     # # create list item for bullet lists
     list_item = function(ele){
+      print(ele)
       # website
       if (knitr::is_html_output()) {
         item <- glue('&#x2022; {ele}<br />')
@@ -210,6 +211,10 @@ StylingClass <- R6Class(
       # pdf
       } else if (knitr::is_latex_output()) {
         item <- glue('\\item {ele}')
+    
+      # other (eg. running on own)
+      } else {
+        item <- glue('&#x2022; {ele}<br />')
       }
       return(item)
     },
@@ -232,6 +237,10 @@ StylingClass <- R6Class(
       } else if (knitr::is_latex_output()) {
         final_list <- c('\\begin{itemize}', final_list, '\\end{itemize}')
         final_list <- paste0(final_list, collapse = '\n')
+      
+      # other (eg. running on own)
+      } else {
+        final_list <- paste0(final_list, collapse = '')
       }
       
       return(final_list)
@@ -341,23 +350,9 @@ format_vals <- function(value, vari) {
   return(final_val)
 }
 
-# get EDI url
+# Get EDI URL
 get_edi_url <- function(pkg_id, revision_num = 'current') {
-  # get revision
-  revision_url = glue::glue('https://pasta.lternet.edu/package/eml/edi/{pkg_id}')
-  all_revisions = readLines(revision_url, warn = FALSE)
-  latest_revision = tail(all_revisions, 1)
-  
-  all_revisions = readLines(revision_url, warn = FALSE)
-  latest_revision = tail(all_revisions, 1)
-  
-  if (revision_num != 'current') {
-    revision <- revision_num
-  } else {
-    revision <- latest_revision
-  }
-  
-  if (latest_revision == 0) {
+  if (revision_num == 'current') {
     edi_url <- glue::glue('https://portal.edirepository.org/nis/mapbrowse?scope=edi&identifier={pkg_id}')
   }  else {
     edi_url <- glue::glue('https://portal.edirepository.org/nis/mapbrowse?scope=edi&identifier={pkg_id}&revision={revision}')
@@ -365,6 +360,38 @@ get_edi_url <- function(pkg_id, revision_num = 'current') {
   
   return(edi_url)
 }
+
+# Read in EDI file
+get_edi_file <- function(pkg_id, fname) {
+  # get latest revision
+  revisions <- EDIutils::list_data_package_revisions(scope = 'edi', identifier = pkg_id)
+  latest_revision <- max(as.numeric(revisions))
+  package_id_str <- glue::glue('{scope}.{pkg_id}.{latest_revision}')
+  
+  # get entity IDs
+  entities <- EDIutils::list_data_entities(packageId = package_id_str)
+  
+  # slow wrapper (avoid rate limit)
+  slow_read <- purrr::slowly(EDIutils::read_data_entity_name, purrr::rate_delay(pause = 1))
+  
+  # find the matching entity
+  matched <- purrr::keep(entities, function(entity_id) {
+    entity_name <- slow_read(packageId = package_id_str, entityId = entity_id)
+    identical(entity_name, fname)
+  })
+  
+  if (length(matched) == 0) {
+    stop(glue::glue("File '{fname}' not found in package edi.{pkg_id}.{latest_revision}"))
+  }
+  
+  # construct download URL and read csv
+  entity_id <- matched[[1]]
+  file_url <- glue::glue('https://pasta.lternet.edu/package/data/eml/{scope}/{pkg_id}/{latest_revision}/{entity_id}')
+  df <- readr::read_csv(file_url, guess_max = 1000000, show_col_types = FALSE)
+  
+  return(df)
+}
+
 
 # generate figures
 create_figs <- function(group = c('cwq','dwq','phyto','benthic')){

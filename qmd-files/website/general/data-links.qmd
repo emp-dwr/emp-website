@@ -9,23 +9,23 @@ source(here::here('admin/import_scripts.R'))
 
 ## Complete Datasets
 
-[**Continuous Water Quality**](%60r%20get_edi_url(1177)%60)
+[**Continuous Water Quality**](https://portal.edirepository.org/nis/mapbrowse?scope=edi&identifier=1177)
 
 Contact: Michelle Nelson ([Michelle.Nelson\@water.ca.gov](mailto:Michelle.Nelson@water.ca.gov){.email})
 
-[**Discrete Water Quality**](%60r%20get_edi_url(458)%60)
+[**Discrete Water Quality**](https://portal.edirepository.org/nis/mapbrowse?scope=edi&identifier=458)
 
-Contact: Julianna Manning ([Julianna.Manning\@water.ca.gov](mailto:Michelle.Nelson@water.ca.gov){.email})
+Contact: Julianna Manning ([Julianna.Manning\@water.ca.gov](mailto:Julianna.Manning@water.ca.gov){.email})
 
-[**Benthic Invertebrates**](%60r%20get_edi_url(1036)%60)
+[**Benthic Invertebrates**](https://portal.edirepository.org/nis/mapbrowse?scope=edi&identifier=1036)
 
 Contact: Betsy Wells ([Elizabeth.Wells\@water.ca.gov](mailto:Elizabeth.Wells@water.ca.gov){.email})
 
-[**Phytoplankton**](%60r%20get_edi_url(1320)%60)
+[**Phytoplankton**](https://portal.edirepository.org/nis/mapbrowse?scope=edi&identifier=1320)
 
 Contact: Tiffany Brown ([Tiffany.Brown\@water.ca.gov](mailto:Tiffany.Brown@water.ca.gov){.email})
 
-[**Zooplankton**](%60r%20get_edi_url(522)%60)
+[**Zooplankton**](https://portal.edirepository.org/nis/mapbrowse?scope=edi&identifier=522)
 
 Contact: Tracy Shaw ([Caroline.Shaw\@wildlife.ca.gov](mailto:Caroline.Shaw@wildlife.ca.gov){.email})
 
@@ -75,6 +75,6 @@ Contact: Tracy Shaw ([Caroline.Shaw\@wildlife.ca.gov](mailto:Caroline.Shaw@wildl
 
 ## Related Datasets
 
-[**Integrated San Francisco Estuary Discrete Water Quality**](%60r%20get_edi_url(731)%60)
+[**Integrated San Francisco Estuary Discrete Water Quality**](https://portal.edirepository.org/nis/mapbrowse?scope=edi&identifier=731)
 
 Contact: Sam Bashevkin ([Sam.Bashevkin\@waterboards.ca.gov](mailto:Sam.Bashevkin@water.ca.gov){.email})

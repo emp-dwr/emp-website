@@ -13,6 +13,11 @@ PhytoStatsClass <- R6Class(
     # summary statistics for a specific region (incl. none)/grouping
     summarize_region = function(region = NULL, grouping) {
       df_summ <- self$df_raw
+      
+      df_summ <- df_summ %>%
+        dplyr::mutate(Month = lubridate::month(Date, label = TRUE, abbr = FALSE),
+                      Month = factor(Month, levels = month_order),
+                      Month_num = as.numeric(Month))
 
       if (!is.null(region)){
         df_summ <- df_summ %>% filter(Region == region)

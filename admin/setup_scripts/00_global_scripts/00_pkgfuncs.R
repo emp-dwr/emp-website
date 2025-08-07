@@ -49,6 +49,7 @@ n <- dplyr::n
 relocate <- dplyr::relocate
 desc <- dplyr::desc
 slice <- dplyr::slice
+distinct <- dplyr::distinct
 
 ggplot <- ggplot2::ggplot
 aes <- ggplot2::aes
