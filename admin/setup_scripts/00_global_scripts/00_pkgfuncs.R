@@ -28,6 +28,7 @@ area <- patchwork::area
 
 `%m+%` <- lubridate::`%m+%`
 `%m-%` <- lubridate::`%m-%`
+`%within%` <- lubridate::`%within%`
 
 sym <- rlang::sym
 syms <- rlang::syms
@@ -42,8 +43,11 @@ glue <- glue::glue
 fct_rev <- forcats::fct_rev
 fct_shift <- forcats::fct_shift
 
+ymd <- lubridate::ymd
 year <- lubridate::year
 month <- lubridate::month
+interval <- lubridate::interval
+parse_date_time <- lubridate::parse_date_time
 
 left_join <- dplyr::left_join
 filter <- dplyr::filter
@@ -65,6 +69,7 @@ row_number <- dplyr::row_number
 across <- dplyr::across
 pick <- dplyr::pick
 reframe <- dplyr::reframe
+if_else <- dplyr::if_else
 
 ggplot <- ggplot2::ggplot
 aes <- ggplot2::aes

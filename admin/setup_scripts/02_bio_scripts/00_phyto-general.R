@@ -74,11 +74,10 @@ PhytoStringClass <- R6Class(
     df_raw = NULL,
     styling = NULL,
   
-    initialize = function(df_raw) {
-      super$initialize(df_raw)
-
-      self$styling <- StylingClass$new()
-    },
+  initialize = function(df_raw) {
+    self$df_raw <- df_raw
+    self$styling <- StylingClass$new()
+  },
     
     # Create bullet list of algal groups
     alg_list_txt = function() {

@@ -172,9 +172,9 @@ table.kable-table th, table.kable-table td {
 /* remove figure ref in text */
 
 a[href^='#fig'], a[href^='#tbl'] {
-  pointer-events: none;
-  color: inherit;
-  text-decoration: none;
+  pointer-events: none !important;
+  color: inherit !important;
+  text-decoration: none !important;
 }
 
 /* center captions */

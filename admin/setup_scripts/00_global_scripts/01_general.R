@@ -214,7 +214,6 @@ StylingClass <- R6Class(
     
     # # create list item for bullet lists
     list_item = function(ele){
-      print(ele)
       # website
       if (is_html_output()) {
         item <- glue('&#x2022; {ele}<br />')
@@ -407,15 +406,19 @@ get_edi_file <- function(pkg_id, fname) {
 # generate figures
 create_figs <- function(group = c('cwq','dwq','phyto','benthic')){
   if('cwq' %in% group){
+    cat('generating CWQ graphs\n')
     create_figs_cwq()  
   }
   if('dwq' %in% group){
+    cat('generating DWQ graphs\n')
     create_figs_dwq()  
   }
   if('phyto' %in% group){
+    cat('generating phyto graphs\n')
     create_figs_phyto()  
   }
   if('benthic' %in% group){
+    cat('generating benthic graphs')
     create_figs_benthic()  
   }
 }

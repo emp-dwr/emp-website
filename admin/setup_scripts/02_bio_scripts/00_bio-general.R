@@ -1,4 +1,3 @@
-
 # Create Global Biological (Phyto and Benthic) Figures --------------------
 
 BioFigureClass <- R6Class(
@@ -8,12 +7,52 @@ BioFigureClass <- R6Class(
   
   public = list(
     df_raw = NULL,
+    global_alg_levels = NULL,
+    global_alg_colors = NULL,
+    global_phylum_levels = NULL,
+    global_phylum_colors = NULL,
     
     initialize = function(df_raw) {
       self$df_raw <- df_raw
+      
+      # Only define AlgalGroup categories if AlgalGroup column exists (phyto data)
+      if ("AlgalGroup" %in% colnames(self$df_raw)) {
+        # Get all AlgalGroups
+        alg_cat_all <- private$def_alg_cat(self$df_raw, threshold = 1)
+        
+        self$global_alg_levels <- c(
+          sort(alg_cat_all$main),
+          sort(alg_cat_all$other)    
+        )
+        
+        all_colors <- c(
+          brewer.pal(8, 'Set2'),
+          brewer.pal(8, 'Set1'),
+          brewer.pal(9, 'Dark1')
+        )
+        
+        # Assign colors
+        self$global_alg_colors <- setNames(
+          all_colors[1:(length(self$global_alg_levels) + 1)],
+          c(sort(alg_cat_all$main), "Other", sort(alg_cat_all$other))
+        )
+      }
+
+      if ("Phylum" %in% colnames(self$df_raw)) {
+        self$global_phylum_levels <- self$df_raw %>%
+          filter(!is.na(Phylum)) %>%
+          pull(Phylum) %>%
+          unique() %>%
+          sort()
+        
+        self$global_phylum_colors <- setNames(
+          c(brewer.pal(8, 'Set2'), brewer.pal(8, 'Dark2'), brewer.pal(8, 'Paired'))[1:length(self$global_phylum_levels)],
+          self$global_phylum_levels
+        )
+      }
     }, 
     
-    # Organism density bar plots for both Phyto and Benthic
+    # Organism density plots
     plt_org_density = function(filt_val, program = c("Phyto", "Benthic")) {
       program <- match.arg(program)
       
@@ -21,7 +60,7 @@ BioFigureClass <- R6Class(
         # Data preparation unique to Phytoplankton
         # Define AlgalGroup categories for filt_val (Region) -
         # 'Other' category are AlgalGroups in less than 1% of samples
-        alg_cat <- self$df_raw %>% private$def_alg_cat(filt_val, threshold = 1)
+        alg_cat <- private$def_alg_cat(self$df_raw, filt_val, threshold = 1)
         
         df_summ <- self$df_raw %>% 
           # Combine 'Other' AlgalGroup categories into one
@@ -31,12 +70,16 @@ BioFigureClass <- R6Class(
         # Define unique group variable for data set
         group_var <- sym("AlgalGroup")
         
+        # Use global colors for AlgalGroup
+        col_colors_all <- self$global_alg_colors
+        
         # Define unique values for plot labels
         y_axis_lab <- "Organisms per mL"
         plt_title <- glue("{filt_val} Phytoplankton Densities")
         
       } else if (program == "Benthic") {
         # Data preparation unique to Benthic
+        
         # Filter to station
         df_filt <- self$df_raw %>% filter(Station == filt_val)
         
@@ -46,7 +89,7 @@ BioFigureClass <- R6Class(
           count(Month, name = "num_se")
         
         # Calculate monthly total densities for each Phylum and normalize them by
-          # the total number of sampling events during each month
+        # the total number of sampling events during each month
         df_summ <- df_filt %>%
           summarize(total_val = sum(MeanCPUE, na.rm = TRUE), .by = c(Month, Phylum)) %>% 
           left_join(num_se_month, by = "Month") %>% 
@@ -55,25 +98,29 @@ BioFigureClass <- R6Class(
         # Define unique group variable for data set
         group_var <- sym("Phylum")
         
+        # Use global colors for Phylum
+        col_colors_all <- self$global_phylum_colors
+        
         # Define unique values for plot labels
         y_axis_lab <- "CPUE"
         plt_title <- glue("{filt_val} Benthic Organism Densities")
       }
       
-      # Calculate overall averages of group_var for reordering the group_var
+      # Determine only those used in current plot
       group_var_levels <- df_summ %>%
-        summarize(avg_val = mean(avg, na.rm = TRUE), .by = !!group_var) %>% 
-        arrange(avg_val) %>% 
+        summarize(avg_val = mean(avg, na.rm = TRUE), .by = !!group_var) %>%
+        arrange(avg_val) %>%
         pull(!!group_var)
       
-      # Assign coloring
-      col_colors <- setNames(
-        c(brewer.pal(8, 'Set2'), brewer.pal(8, 'Dark2'))[1:length(group_var_levels)], 
-        rev(group_var_levels)
-      )
+      # Subset to the group_var_levels that actually exist in the data
+      col_colors <- col_colors_all[group_var_levels]
+      
       # Reorder the levels of group_var based on the averages
-      df_summ_c <- df_summ %>% 
-        mutate("{{group_var}}" := factor(!!group_var, levels = group_var_levels))
+      df_summ_c <- df_summ %>%
+        mutate(
+          !!group_var := factor(!!group_var, levels = group_var_levels),
+          ColColor = col_colors[as.character(!!group_var)]
+        )
       
       # Create stacked barplot of monthly densities
       plt_stacked <- df_summ_c %>% 
@@ -102,11 +149,12 @@ BioFigureClass <- R6Class(
         # Determine relative height factor
         height_factor <- df_summ_c %>% distinct(!!group_var) %>% nrow()
         exp_height <- (.5 * ceiling(height_factor / 3)) * 1.2
-        plt_combined + plot_layout(heights = c(1, exp_height))
-      } else if (program == "Phyto") {
+        return(plt_combined + plot_layout(heights = c(1, exp_height)))
+      } else {
         return(plt_combined)
       }
     },
+    
     
     # Algal Tree Plots
     plt_algal_tree = function(threshold = 1) {
@@ -137,14 +185,20 @@ BioFigureClass <- R6Class(
           per_area = sum_units / sum_all * 100
         )
       
-      # Assign coloring
+      # Use global AlgalGroup colors, but handle "Other" grouping
       uni_groups <- c(df_main$AlgalGroup, df_other$AlgalGroup)
-      area_colors <- setNames(
-        c(brewer.pal(8, 'Set2'), brewer.pal(8, 'Dark2'))[1:length(uni_groups)], 
-        uni_groups
-      )
       
-      # Define plot formatting to be used globally
+      area_colors <- self$global_alg_colors[uni_groups]
+      
+      if ("Other" %in% uni_groups && is.na(area_colors["Other"])) {
+        # Use a neutral color for the combined "Other" category
+        area_colors["Other"] <- "gray70"
+      }
+      
+      other_group_colors <- self$global_alg_colors[df_other$AlgalGroup]
+      area_colors[names(other_group_colors)] <- other_group_colors
+      
+      # Define plot formatting
       ls_plt_format <- list(
         geom_treemap(),
         geom_treemap_text(
@@ -162,7 +216,7 @@ BioFigureClass <- R6Class(
         )
       )
       
-      # Generate tree plots for main AlgalGroups
+      # Plot
       # With Cyanobacteria
       plt_main <- df_main %>% 
         ggplot(
@@ -205,7 +259,7 @@ BioFigureClass <- R6Class(
       # Combine tree plots - Main tree plots first
       plt_main_c <- plt_main + plt_main_no_cyano + plot_layout(widths = c(2.5, 1))
       
-      # Add Other tree plot to Main tree plots and set formatting
+      # Add Other tree plot to Main tree plots
       plt_comb <- plt_main_c / plt_other + 
         plot_annotation(
           title = "Main Algal Groups",
@@ -255,7 +309,8 @@ BioFigureClass <- R6Class(
         slice(1:16) %>%
         pull(FullTaxa)
       
-      # Assign coloring
+      # Create consistent colors for FullTaxa (this could be improved by creating
+      # a global FullTaxa palette in initialize if needed across multiple plots)
       col_colors <- setNames(
         c(brewer.pal(8, 'Set2'), brewer.pal(8, 'Dark2'))[1:length(top_groups)], 
         top_groups
@@ -334,4 +389,3 @@ BioFigureClass <- R6Class(
     }
   )
 )
-
