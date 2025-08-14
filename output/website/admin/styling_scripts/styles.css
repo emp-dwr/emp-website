@@ -179,7 +179,7 @@ a[href^='#fig'], a[href^='#tbl'] {
 
 /* center captions */
 
-figure .figure-caption {
+.figure-caption, figcaption {
   text-align: center;
 }
 

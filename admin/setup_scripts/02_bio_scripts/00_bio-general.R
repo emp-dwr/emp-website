@@ -21,21 +21,32 @@ BioFigureClass <- R6Class(
         alg_cat_all <- private$def_alg_cat(self$df_raw, threshold = 1)
         
         self$global_alg_levels <- c(
-          sort(alg_cat_all$main),
+          'Cyanobacteria',
+          sort(alg_cat_all$main[alg_cat_all$main != 'Cyanobacteria']),
           sort(alg_cat_all$other)    
         )
         
         all_colors <- c(
-          brewer.pal(8, 'Set2'),
-          brewer.pal(8, 'Set1'),
-          brewer.pal(9, 'Dark1')
+          brewer.pal(8,'Set2'),
+          brewer.pal(8,'Dark2'),
+          brewer.pal(8,'Set1')
         )
         
-        # Assign colors
-        self$global_alg_colors <- setNames(
-          all_colors[1:(length(self$global_alg_levels) + 1)],
-          c(sort(alg_cat_all$main), "Other", sort(alg_cat_all$other))
-        )
+        # Assign colors - match the same ordering as levels
+          color_names <- c('Cyanobacteria', 
+                           sort(alg_cat_all$main[alg_cat_all$main != 'Cyanobacteria']), 
+                           'Other', 
+                           sort(alg_cat_all$other))
+          
+          main_count <- length(alg_cat_all$main)
+          other_count <- length(alg_cat_all$other)
+          
+          color_values <- c(all_colors[1:main_count],  
+                            'gray80',         
+                            all_colors[(main_count + 1):(main_count + other_count)]) 
+          
+          # Assign colors
+          self$global_alg_colors <- setNames(color_values, color_names)
       }
 
       if ("Phylum" %in% colnames(self$df_raw)) {
@@ -46,7 +57,7 @@ BioFigureClass <- R6Class(
           sort()
         
         self$global_phylum_colors <- setNames(
-          c(brewer.pal(8, 'Set2'), brewer.pal(8, 'Dark2'), brewer.pal(8, 'Paired'))[1:length(self$global_phylum_levels)],
+          c(brewer.pal(8,'Set2'), brewer.pal(8,'Dark2'), brewer.pal(8,'Set1'))[1:length(self$global_phylum_levels)],
           self$global_phylum_levels
         )
       }
@@ -312,7 +323,7 @@ BioFigureClass <- R6Class(
       # Create consistent colors for FullTaxa (this could be improved by creating
       # a global FullTaxa palette in initialize if needed across multiple plots)
       col_colors <- setNames(
-        c(brewer.pal(8, 'Set2'), brewer.pal(8, 'Dark2'))[1:length(top_groups)], 
+        c(brewer.pal(8,'Set2'), brewer.pal(8,'Dark2'), brewer.pal(9,'Set1'))[1:length(top_groups)], 
         top_groups
       )
       

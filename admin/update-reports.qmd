@@ -22,6 +22,7 @@ quarto::quarto_render(
 
 ```{r}
 quarto::quarto_render(
-  profile = 'website'
+  profile = 'website',
+  as_job = TRUE
 )
 ```
