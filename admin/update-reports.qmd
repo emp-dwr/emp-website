@@ -5,7 +5,7 @@
 ```{r}
 source(here::here('admin/import_scripts.R'))
 
-create_figs()
+create_figs(group = c('benthic'))
 ```
 
 ## create pdfs

@@ -426,7 +426,7 @@ create_figs <- function(group = c('cwq','dwq','phyto','benthic')){
 # Global Variables --------------------------------------------------------
 
 # define default year (change manually if needed)
-report_year <- 2023 # as.integer(format(Sys.Date(), '%Y')) - 1 
+report_year <- as.integer(format(Sys.Date(), '%Y')) - 1 
 
 prev_year <- report_year - 1
 

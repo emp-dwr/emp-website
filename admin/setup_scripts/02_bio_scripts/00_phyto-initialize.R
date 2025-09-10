@@ -1,7 +1,7 @@
 
 # Read in Data ------------------------------------------------------------
 
-df_raw_phyto <- read_quiet_csv(here('admin/test-data/EMP_Phyto_Data_2008-2023.csv'))
+df_raw_phyto <- read_quiet_csv(here('admin/test-data/EMP_Phyto_Data_2024.csv'))
 
 df_wqraw <- read_quiet_csv(here('admin/test-data/EMP_DWQ_1975_2023-long.csv'))
 

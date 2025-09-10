@@ -83,21 +83,21 @@ create_figs_benthic <- function() {
   
     exp_height <- (10*(ceiling(height_factor/3)*0.5))+10
     
-    # determine filepaths
+    # determine file paths
     fp_name <- gsub('2 ', '', tolower(station))
     fp_name <- gsub('&','', fp_name)
     emp_path <- abs_path_data('Admin/Annual Report Docs/Benthic/figures')
     
     # save time series for all stations
-    plt_benthic_ts_all <- fig_ben_all$plt_ben_ts(station, scope = "historical")
+    plt_benthic_ts_all <- fig_ben_all$plt_ben_ts(station, scope = 'historical')
   
     ggsave(here(paste0(emp_path, '/timeseries_all/benthic_tsall_', fp_name, '.png')),
            plt_benthic_ts_all, width = 25, height = exp_height, unit = 'cm')
     
     # save time series by station
     if (station %in% unique(obj_ben_cur$df_raw$Station)) {
-      plt_benthic <- fig_ben_cur$plt_org_density(station, program = "Benthic")
-      plt_benthic_ts <- fig_ben_cur$plt_ben_ts(station, scope = "current")
+      plt_benthic <- fig_ben_cur$plt_org_density(station, program = 'Benthic')
+      plt_benthic_ts <- fig_ben_cur$plt_ben_ts(station, scope = 'current')
   
       ggsave(here(paste0('admin/figures-tables/benthic/benthic_bar_', fp_name, '.png')),
               plt_benthic, width = 25, height = exp_height, unit = 'cm')
