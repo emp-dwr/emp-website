@@ -1,7 +1,9 @@
 
 # Read in Data ------------------------------------------------------------
 
-df_raw_dwq <- read_quiet_csv(here('admin/test-data/EMP_DWQ_1975_2023-long.csv'))
+df_raw_dwq <- read_quiet_csv(here('admin/test-data/EMP_DWQ_2024_report.csv'),
+                             col_types = cols(`Lab: Quality Flag` = col_character(),
+                                              `Validation Warnings` = col_character()))
 
 df_analytes <- read_quiet_csv(here('admin/figures-tables/admin/analyte_table.csv'), locale = locale(encoding = 'UTF-8'))
 
@@ -12,9 +14,10 @@ df_regions <- read_quiet_csv(here('admin/figures-tables/admin/station_table.csv'
 obj_dwq <- BaseClass$new(df_raw_dwq, df_analytes, df_regions)
 
 obj_dwq$
+  format_aquarius()$
   remove_EZ()$
   assign_analyte_meta()$
-  assign_regions('DEMP')$
+  assign_regions('DWQ')$
   add_month()$
   replace_nondetect()
 
@@ -55,7 +58,7 @@ create_figs_dwq <- function(){
 
   for (param in dwq_analytes){
     plt <- fig_dwq$wq_return_plt(param, 'dwq')
-  
+
     height_factor <- fig_dwq$df_raw %>%
       pull(Region) %>%
       unique() %>%

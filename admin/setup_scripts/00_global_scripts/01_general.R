@@ -1,6 +1,8 @@
 
 # Create Base Data Frame -------------------------------------------------------
 
+library(colorspace)
+
 BaseClass <- R6Class(
   'BaseClass',
   
@@ -15,7 +17,7 @@ BaseClass <- R6Class(
     initialize = function(df_raw, df_units, df_regions) {
       
       # add in a detect column if none exists (for coding purposes)
-      if (!'DetectStatus' %in% colnames(df_raw)) {
+      if (!any(c('DetectStatus','Lab: Detection Condition') %in% colnames(df_raw))) {
         df_raw$DetectStatus <- 'Detect'
       }
       self$df_raw <- df_raw
@@ -24,9 +26,10 @@ BaseClass <- R6Class(
       private$df_regions <- df_regions
     },
     
-    # remove EZ stations
+    # remove EZ stations and blanks
     remove_EZ = function() {
-      self$df_raw <- filter(self$df_raw, !(Station %in% c('EZ2','EZ6','EZ2-SJR', 'EZ6-SJR')))
+      self$df_raw <- filter(self$df_raw, !(Station %in% c('EZ2','EZ6','EZ2-SJR', 'EZ6-SJR','LSZ2','LSZ6','LSZ2-SJR','LSZ6-SJR',
+                                                          'Equipment Blank')))
       return(invisible(self))
     },
     
@@ -36,7 +39,7 @@ BaseClass <- R6Class(
       return(invisible(self))
     },
     
-    # simply station names (benthic)
+    # simplify station names (benthic)
     simplify_stations = function() {
       self$df_raw$Station <- str_remove(self$df_raw$Station, '-.*')
       return(invisible(self))
@@ -45,6 +48,35 @@ BaseClass <- R6Class(
     # remove '_bottom' stations (cwq)
     remove_bottom = function() {
       self$df_raw <- filter(self$df_raw, !grepl('_bottom', Station))
+      return(invisible(self))
+    },
+    
+    # format Aquarius data (dwq)
+    format_aquarius = function() {
+      self$df_raw <- self$df_raw %>%
+        rename(Value = `Result Value`,
+               Analyte = `Observed Property ID`,
+               DetectStatus = `Lab: Detection Condition`,
+               ReportingLimit = `Lab: MRL`,
+               Date = `Observed DateTime`,
+               Station = `Location ID`)
+      
+      self$df_raw <- self$df_raw %>%
+        filter(!(Analyte %in% c('Sky Conditions', 'Rain'))) %>% # bc character
+        mutate(
+          DetectStatus = case_when(DetectStatus == 'NOT_DETECTED' ~ 'Nondetect',
+                                   TRUE ~ 'Detect'),
+          Analyte = case_when(Analyte == 'Specific Conductance' ~ 'SpCndSurface',
+                              Analyte == 'Turbidity' ~ 'TurbiditySurface',
+                              Analyte == 'Dissolved Ammonia' ~ 'DissAmmonia',
+                              Analyte == 'Dissolved Nitrate + Nitrite' ~ 'DissNitrateNitrite',
+                              Analyte == 'Total Phosphorus' ~ 'TotPhos',
+                              Analyte == 'Chlorophyll a' ~ 'Chla',
+                              Analyte == 'Pheophytin a' ~ 'Pheoa',
+                              TRUE ~ Analyte)
+          ) %>%
+        mutate(Value = as.numeric(Value))
+      
       return(invisible(self))
     },
     
@@ -81,13 +113,21 @@ BaseClass <- R6Class(
       return(invisible(self))
     },
     
-    # Add Month variable and refactor for water year definition
+    # add Month variable and refactor for water year definition
     add_month = function() {
       self$df_raw <- self$df_raw %>% 
         mutate(
           Month = month(Date, label = TRUE, abbr = FALSE),
           Month = fct_shift(Month, -3L)
         )
+      
+      return(invisible(self))
+    },
+    
+    # remove NA data (CWQ)
+    remove_NAs = function() {
+      self$df_raw <- self$df_raw %>%
+        filter(!is.na(Value))
       
       return(invisible(self))
     },
@@ -172,20 +212,52 @@ StylingClass <- R6Class(
     },
     
     # # Generate skip color palette based off base color
+    # gen_gradient = function(center_hex, num_colors,
+    #                         skip_amt = 5,
+    #                         lighten_amt = 0.8, darken_amt = 0.8) {
+    #   dark_color <- darken(center_hex, amount = darken_amt)
+    #   light_color <- lighten(center_hex, amount = lighten_amt)
+    #   
+    #   palette_base <- colorRampPalette(c(dark_color,light_color))(num_colors * skip_amt)
+    #   
+    #   palette_skip <- palette_base[seq(1, length(palette_base), by = skip_amt)]
+    #   
+    #   return(palette_skip)
+    # },
+    
     gen_gradient = function(center_hex, num_colors,
-                            skip_amt = 3,
-                            lighten_amt = 0.4, darken_amt = 0.4) {
-      dark_color <- darken(center_hex, amount = darken_amt)
-      light_color <- lighten(center_hex, amount = lighten_amt)
+                             spread_L   = 40,
+                             L_min      = 40,   # nudge up to avoid near-black
+                             L_max      = 85,   # nudge down to avoid near-white
+                             C_abs_min  = 30,   # absolute chroma floor (raise to 30–35 if still gray)
+                             hue_wiggle = 15) {
       
-      palette_base <- colorRampPalette(c(dark_color,light_color))(num_colors * skip_amt)
+      hcl <- as(hex2RGB(center_hex), "polarLUV")
+      H0 <- hcl@coords[,"H"]; C0 <- hcl@coords[,"C"]; L0 <- hcl@coords[,"L"]
       
-      palette_skip <- palette_base[seq(1, length(palette_base), by = skip_amt)]
+      # lightness sequence
+      Lmin <- max(L_min, L0 - spread_L)
+      Lmax <- min(L_max, L0 + spread_L)
+      Lseq <- seq(Lmin, Lmax, length.out = num_colors)
       
-      return(palette_skip)
+      # hue sequence (small wobble)
+      Hseq <- if (num_colors > 1 && hue_wiggle > 0)
+        ((seq(H0 - hue_wiggle, H0 + hue_wiggle, length.out = num_colors) %% 360) + 360) %% 360
+      else rep(H0, num_colors)
+      
+      # chroma: peak near mid L, but never below absolute floor; cap by gamut
+      x        <- (Lseq - mean(c(Lmin, Lmax))) / ((Lmax - Lmin) / 2)  # -1..1
+      C_peak   <- max(C0, C_abs_min + 10)                              # ensure a decent mid saturation
+      C_target <- (1 - pmin(1, abs(x))) * C_peak                       # “tent” peaking at mid L
+      
+      C_max    <- pmax(0, max_chroma(h = Hseq, l = Lseq))              # displayable max chroma
+      Cseq     <- pmin(pmax(C_target, C_abs_min), C_max)               # clamp to [floor, gamut]
+      
+      # fix=TRUE keeps colors inside sRGB instead of silently clipping to grayish
+      hex(polarLUV(Lseq, Cseq, Hseq), fix = TRUE)
     },
     
-    # # Create scale_color_manual layer based off region and palette
+    # Create scale_color_manual layer based off region and palette
     wq_plt_colors = function(region, plt_type = c('dwq', 'cwq')) {
       plt_type <- match.arg(plt_type)
       
@@ -325,9 +397,9 @@ str_water_year <- function(given_year = report_year, period = c('cur','prev')){
   
   if(period == 'cur'){
     if (wy_abb$sac == wy_abb$sj){
-      result_string <- glue('which was classified as a {wy_abb$sac} year in the Sacramento and San Joaquin Valleys')
+      result_string <- glue('which was classified as {wy_abb$sac} in the Sacramento and San Joaquin Valleys')
     } else{
-      result_string <- glue('which was classified as a {wy_abb$sac} year in the Sacramento Valley and {wy_abb$sj} in the San Joaquin Valley')
+      result_string <- glue('which was classified as {wy_abb$sac} in the Sacramento Valley and {wy_abb$sj} in the San Joaquin Valley')
     }
   }
   
@@ -405,6 +477,7 @@ get_edi_file <- function(pkg_id, fname) {
 
 # generate figures
 create_figs <- function(group = c('cwq','dwq','phyto','benthic')){
+
   if('cwq' %in% group){
     cat('generating CWQ graphs\n')
     create_figs_cwq()  
@@ -422,6 +495,37 @@ create_figs <- function(group = c('cwq','dwq','phyto','benthic')){
     create_figs_benthic()  
   }
 }
+
+# render individual reports
+render_report <- function(programs, report_type) {
+  programs    <- match.arg(programs, c('benthic', 'cwq', 'dwq', 'phyto', 'zoop'), several.ok = TRUE)
+  report_type <- match.arg(report_type, c('pdf', 'website'))
+  
+  for (prog in programs) {
+    base_dir <- if (report_type == 'pdf') {
+      'qmd-files/pdfs'
+    } else {
+      file.path('qmd-files/website/', prog)
+    }
+    
+    profile   <- report_type
+    file_path <- file.path(base_dir, paste0(prog, '-report.qmd'))
+    
+    if (!file.exists(file_path)) stop('File not found: ', file_path)
+    
+    message('Rendering ', prog, '-report.qmd...')
+    quarto::quarto_render(input = file_path, profile = profile)
+  }
+  
+  message('Done!')
+}
+
+render_reports <- function(..., report_type) {
+  programs    <- c(...)
+  report_type <- match.arg(report_type, c('pdf', 'website'))
+  render_report(programs, report_type)
+}
+
 
 # Global Variables --------------------------------------------------------
 

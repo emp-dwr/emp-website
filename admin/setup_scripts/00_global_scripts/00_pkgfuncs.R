@@ -5,6 +5,8 @@
 
 read_csv <- readr::read_csv
 locale <- readr::locale
+cols <- readr::cols
+col_character <- readr::col_character
 
 read_html <- rvest::read_html
 html_element <- rvest::html_element
@@ -70,6 +72,7 @@ across <- dplyr::across
 pick <- dplyr::pick
 reframe <- dplyr::reframe
 if_else <- dplyr::if_else
+case_when <- dplyr::case_when
 
 ggplot <- ggplot2::ggplot
 aes <- ggplot2::aes

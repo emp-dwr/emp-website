@@ -1,7 +1,7 @@
 
 # Read in Data ------------------------------------------------------------
 
-df_raw_cwq <- read_quiet_csv(here('admin/test-data/EMP_CWQ_data-long.csv'))
+df_raw_cwq <- read_quiet_csv(here('admin/test-data/CWQ_Data_2024.csv'))
 
 # Create Base CWQ Object --------------------------------------------------
 
@@ -13,7 +13,9 @@ obj_cwq$remove_bottom()
 
 obj_cwq$assign_analyte_meta()
 
-obj_cwq$assign_regions('CEMP')
+obj_cwq$assign_regions('CWQ')
+
+obj_cwq$remove_NAs()
 
 obj_cwq$add_month()
 
@@ -65,7 +67,7 @@ create_figs_cwq <- function() {
       unique() %>%
       length()
     
-    exp_height <- ceiling(height_factor/2)*2
+    exp_height <- ceiling(height_factor)*2
     
     ggsave(here(paste0('admin/figures-tables/cwq/cwq_ts_', tolower(param), '.png')),
            plt, width = 6*.8, height = exp_height*.8, unit = 'in')
@@ -74,5 +76,4 @@ create_figs_cwq <- function() {
   # # RRI fig
   obj_rri$create_rri_plt()
 }
-  
 

@@ -39,14 +39,13 @@ Reporting Period: October 1, `r prev_year` – September 30, `r report_year`
 
 \newpage
 
-
 ## Introduction
 
 The Department of Water Resources (DWR) and the US Bureau of Reclamation (USBR) are required by Water Right Decision 1641 (D-1641) to collect phytoplankton and chlorophyll *a* samples to monitor algal community composition and biomass at select sites in the upper San Francisco Estuary (Estuary). This report describes the results of these monitoring efforts for water year `r report_year` (October 1st `r prev_year` through September 30th `r report_year`) `r str_water_year(report_year, 'cur')` [(source)](https://cdec.water.ca.gov/reportapp/javareports?name=WSIHIST).
 
 ## Methods
 
-Phytoplankton samples were collected monthly at 24 monitoring sites throughout the Upper Estuary and were grouped into regions based on their geographic location (@fig-stations; @tbl-stations). These sites represent a variety of aquatic habitats, from narrow, freshwater channels to broad, estuarine bays.
+Phytoplankton samples were collected monthly at 24 monitoring sites throughout the Upper Estuary and were grouped into regions based on their geographic location (@fig-stations; @tbl-stations). These sites represent a variety of aquatic habitats, from narrow, freshwater channels to broad, estuarine bays
 
 ### Phytoplankton
 
@@ -160,7 +159,7 @@ strings_phyto_cur$alg_tree_txt()
 
 ## Interpretations
 
-Overall, chlorophyll-*a*, pheophytin-*a*, and phytoplankton abundance followed a seasonal pattern with the highest values of pigments and abundances in the spring and summer months and lower values and abundances in winter months. One exception was a large cyanobacterial bloom in January 2023 which occurred across all regions. However, this bloom was not associated with larger chlorophyll-*a* values, suggesting that, while the cyanobacteria were abundant, they were not producing large amounts of biomass as chlorophyll-*a*. Though cyanobacteria were dominant in the abundance counts, all phytoplankton fell into 12 distinct taxonomic groups distributed across all the regions of the San Francisco Estuary. Chlorophyll-*a* values were low throughout the year across all regions, with the majority of values below 10 µg/L, which is considered food limiting for zooplankton.
+Water year 2024 was above average in precipitation for both the Sacramento and San Joaquin Rivers and their watersheds. Chlorophyll a and pheophytin a values were low overall, with many samples being below the detection limit. Higher outflows that can occur during wet or above normal water years often reduce the residence time of the water, leading to less opportunities for large algal blooms. The phytoplankton community in all regions was dominated by small, but numerically abundant, cyanobacteria. Phytoplankton fell into 12 distinct categories, similar to previous years, with nearly all groups being found in all regions. However, the top ten taxa fell into just 5 categories, showing that while the overall community is diverse, phytoplankton tend to be numerically dominated by a small number of algal groups.
 
 ## References
 

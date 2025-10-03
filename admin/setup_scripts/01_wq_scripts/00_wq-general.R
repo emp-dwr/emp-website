@@ -184,15 +184,14 @@ WQStringClass <- R6Class(
     },
     
     # paragraph statement for WQ
-    disp_paragraph = function(analyte, statistic, strings_dwq_prev) {
+    disp_paragraph = function(analyte, statistic, strings_dwq_prev, include_prev = TRUE) {
       
       current_val_range <- self$disp_val_range(analyte, statistic)
-      prev_val_range <- strings_dwq_prev$disp_val_range(analyte, statistic)
       extreme_range <- self$disp_extreme_range(analyte)
       nondetect_perc <- self$disp_nondetect_perc(analyte)
       label_val <- unique(self$df_raw %>% 
-                           filter(Analyte == analyte) %>% 
-                           pull(Label))
+                            filter(Analyte == analyte) %>% 
+                            pull(Label))
       
       if (label_val != 'pH'){
         label_val <- tolower(label_val)
@@ -201,11 +200,19 @@ WQStringClass <- R6Class(
       fig_ref <- glue('@fig-{tolower(analyte)}')
       tbl_ref <- glue('@tbl-{tolower(analyte)}')
       
+      # optional fragment for previous year comparison
+      prev_fragment <- if (include_prev) {
+        prev_val_range <- strings_dwq_prev$disp_val_range(analyte, statistic)
+        glue('; for comparison, the previous year average was {prev_val_range}. ')
+      } else {
+        '. '
+      }
+      
       paragraph <- glue(
-        'The average {label_val} value was {current_val_range}; ',
-        'for comparison, the previous year average was {prev_val_range}. ',
+        'The average {label_val} value was {current_val_range}',
+        '{prev_fragment}',
         'Values ranged from {extreme_range}. ',
-        '{ifelse(!is.null(nondetect_perc), paste0(nondetect_perc, \' \'), \'\')}', 
+        '{ifelse(!is.null(nondetect_perc), paste0(nondetect_perc, " "), "")}',
         'Per region average, minimum, and maximum values are shown in {tbl_ref}; ',
         'time series plots are shown in {fig_ref}.'
       )
@@ -366,8 +373,67 @@ WQFigureClass <- R6Class(
       super$initialize(df_regionhex)
       self$df_raw <- df_raw
     },
+    
+    # Combine regional plots into one plot for each analyte (gaps)
+    wq_return_plt_gaps = function(param, plt_type = c('dwq', 'cwq'), ret_region = NULL) {
+      df_filt <- self$df_raw %>% 
+        filter(Analyte == param) %>% 
+        mutate(Date = as.Date(Date))
+      
+      # create per-station gaps
+      df_filt_completed <- df_filt %>%
+        group_by(Analyte, Region, Station) %>%
+        tidyr::complete(
+          Date = seq(min(Date, na.rm = TRUE), max(Date, na.rm = TRUE), by = '1 day')
+        ) %>%
+        tidyr::fill(Label, Unit, .direction = 'downup') %>%  # carry metadata
+        ungroup()
 
-    # Combine regional plots into one plot for each analyte
+      if (param == 'pH') {
+        comb_plt_title <- unique(df_filt$Label)
+      } else if (param == 'Chla') {
+        comb_plt_title <- expression(Chlorophyll~italic(a)~'(\u03bc'*g*'/'*L*')')
+      } else {
+        comb_plt_title <- paste0(unique(df_filt$Label), ' (', unique(df_filt$Unit), ')')
+      }
+      
+      # nest by Region
+      ndf_filt <- df_filt_completed %>%
+        tidyr::nest(.by = c(Analyte, Region), .key = 'df_data') %>%
+        arrange(Analyte, Region) %>%
+        mutate(
+          num_station = row_number(),
+          x_label = if_else(
+            Region %in% tail(unique(Region), 2) | !is.null(ret_region),
+            TRUE, FALSE
+          ),
+          .by = Analyte
+        ) %>%
+        mutate(
+          plt_single = pmap(
+            list(df_data, Region, x_label),
+            \(x, y, z) private$wq_region_plt(x, y, z, plt_type = plt_type)
+          )
+        )
+      
+      ls_plts <- pull(ndf_filt, plt_single)
+      
+      if (!is.null(ret_region)) {
+        sing_plt <- ndf_filt %>% filter(Region == ret_region) %>% pull(plt_single)
+        return(sing_plt[[1]])
+      }
+      
+      comb_plts <- wrap_plots(ls_plts, ncol = 2)
+      
+      blanklabelplot <- ggplot() + labs(y = comb_plt_title) + theme_void() +
+        guides(x = 'none', y = 'none') +
+        theme(axis.title.y = element_text(size = 7, hjust = 0.5, angle = 90))
+      
+      final_plt <- blanklabelplot + comb_plts + plot_layout(widths = c(1, 1000))
+      return(final_plt)
+    },
+
+    # Combine regional plots into one plot for each analyte (no gaps)
     wq_return_plt = function(param, plt_type = c('dwq', 'cwq'), ret_region = NULL) {
       # Filter to single Analyte (param)
       df_filt <- self$df_raw %>% filter(Analyte == param)
@@ -411,13 +477,18 @@ WQFigureClass <- R6Class(
         return(sing_plt[[1]])
       }
       
-      comb_plts <- wrap_plots(ls_plts, ncol = 2)
+      if (plt_type == 'dwq'){
+        comb_plts <- wrap_plots(ls_plts, ncol = 2)
+      } else if (plt_type == 'cwq'){
+        comb_plts <- wrap_plots(ls_plts, ncol = 1)
+      }
+
       
       blanklabelplot <- ggplot()+labs(y=comb_plt_title)+theme_void()+ 
         guides(x = 'none', y = 'none') +
         theme(axis.title.y = element_text(size = 7, hjust = 0.5, angle = 90))
       
-      final_plt <- blanklabelplot+comb_plts+ plot_layout(widths=c(1,1000))
+      final_plt <- blanklabelplot+comb_plts+plot_layout(widths=c(1,1000))
       
       return(final_plt)
     },
@@ -539,11 +610,13 @@ WQFigureClass <- R6Class(
         plt <- df %>% 
           ggplot(aes(Date, Value, color = Station)) +
           geom_borderline(
-            linewidth = 0.8,
+            linewidth = 0.6,
             bordercolor = 'black',
-            borderwidth = 0.2
+            borderwidth = 0.1
           ) +
-          scale_x_date(date_breaks = '1 month', date_labels = '%b-%y')
+          scale_x_date(date_breaks = '1 month', date_labels = '%b-%y') +
+          guides(color = guide_legend(nrow = 1)) +
+          theme(legend.box = 'full')
           
       }
       

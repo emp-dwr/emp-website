@@ -29,16 +29,16 @@ website:
         href: qmd-files/website/general/data-links.qmd
       - text: "Annual Reports"
         menu:
-          - text: "Continuous Water Quality"
-            href: qmd-files/website/cwq/cwq-report.qmd
+          # - text: "Continuous Water Quality"
+          #   href: qmd-files/website/cwq/cwq-report.qmd
           - text: "Discrete Water Quality"
             href: qmd-files/website/dwq/dwq-report.qmd
-          - text: "Benthic Invertebrates"
-            href: qmd-files/website/benthic/benthic-report.qmd
-          - text: "Phytoplankton"
-            href: qmd-files/website/phyto/phyto-report.qmd
-          - text: "Zooplankton"
-            href: qmd-files/website/zoop/zoop-report.qmd
+          # - text: "Benthic Invertebrates"
+          #   href: qmd-files/website/benthic/benthic-report.qmd
+          # - text: "Phytoplankton"
+          #   href: qmd-files/website/phyto/phyto-report.qmd
+          # - text: "Zooplankton"
+          #   href: qmd-files/website/zoop/zoop-report.qmd
       - text: Special Studies
         menu:
           - text: "Veliger Monitoring Program"

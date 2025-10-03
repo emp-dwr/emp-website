@@ -113,7 +113,7 @@ BioFigureClass <- R6Class(
         col_colors_all <- self$global_phylum_colors
         
         # Define unique values for plot labels
-        y_axis_lab <- "CPUE"
+        y_axis_lab <- expression(CPUE~(organisms/m^2))
         plt_title <- glue("{filt_val} Benthic Organism Densities")
       }
       

@@ -1,5 +1,51 @@
 ---
 title: "Continuous Water Quality Background"
+editor: 
+  markdown: 
+    wrap: 72
 ---
 
-The Continuous Environmental Monitoring Program (CEMP) provides real-time quarter-hourly water quality from 15 automated sampling stations in the estuary (Figure 1). The stations provide continuous measurements of 6 water quality parameters and up to 4 environmental parameters at select locations. State Water Project (SWP) and the Central Valley Project (CVP) Operations and Maintenance staff use these measurements to assess impacts and to adjust operations as necessary to comply with mandated water quality standards. The CEMP has been in operation since 1983.
+## Program Information
+
+### Continuous Environmental Monitoring Program
+
+The Continuous Environmental Monitoring Program (CEMP) provides
+real-time quarter-hourly water quality from 15 automated sampling
+stations in the estuary. The stations provide continuous measurements of
+6 water quality parameters and up to 4 environmental parameters at
+select locations. State Water Project (SWP) and the Central Valley
+Project (CVP) Operations and Maintenance staff use these measurements to
+assess impacts and to adjust operations as necessary to comply with
+mandated water quality standards. The CEMP has been in operation since
+1983.
+
+### Suisun Marsh Water Quality Program
+
+The Suisun Marsh Water Quality Program (SMWQP) provides real-time
+quarter-hourly water quality data from 12 automated sampling locations
+in Suisun Marsh. The stations measure up to 6 water quality parameters.
+Additionally, quarter-hour river stage measurements are recorded at 12
+locations throughout Suisun Marsh—10 in parallel with the water quality
+measurements, and 2 at stage-only stations.
+
+For D-1641, SMWQP data are used to assess the impacts of water exports
+on the ecosystem and determine compliance with water quality standards.
+Apart from D-1641-mandated monitoring, SMWQP monitoring fulfills a
+variety of mandates, including the Suisun Marsh Preservation Agreement,
+the summer operations of the Suisun Marsh Salinity Control Gates as
+required by the 2024 US Fish and Wildlife Biological Opinion for the
+Central Valley Project and the CDFW Incidental Take Permit for the State
+Water Project, and to meet the SWRCB TMDL requirements for Dissolved
+Oxygen. The Suisun Marsh Water Quality Program has been in operation
+since 1983.
+
+### Bureau of Reclamation Delta Water Quality Monitoring 
+
+The Bureau of Reclamation (Reclamation) provides real-time
+quarter-hourly water quality from six automated sampling stations in the
+estuary. The stations provide continuous measurements of two water
+quality parameters at select locations. State Water Project (SWP) and
+the Central Valley Project (CVP) Operations and Maintenance staff use
+these measurements to assess impacts and to adjust operations as
+necessary to comply with mandated water quality standards. Data are
+available starting 1999.

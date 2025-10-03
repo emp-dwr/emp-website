@@ -194,13 +194,7 @@ include_graphics(here::here(file.path('admin/figures-tables/dwq/dwq_ts_totphos.p
 
 ## Interpretations
 
-Water year 2023 in the Sacramento and San Joaquin Valleys was classified as wet after three years of drought. Many atmospheric river storms brought considerable amounts of rain starting in late December and colder average temperatures contributed to record snowpack.
-
-Specific conductance had a notable drop in all regions in January due to the influx of freshwater. Most regions continued to have low values throughout the rest of the water year due to snowpack runoff. The San Pablo, Suisun, and Grizzly Bay regions typically have higher values due to the strong marine influence from the Pacific Ocean, and they started to increase again in July. The average specific conductance in water year 2023 was much lower than the previous year. Turbidity had a notable spike in all regions in January due to sediment re-suspension caused by the high flows after a long dry period. Every region (except the Central Delta) had maximum values above 100 FNU. The average turbidity in water year 2023 was higher than the previous year.
-
-Dissolved ammonia, dissolved nitrate + nitrite, and total phosphorus had a notable spike in all regions in January due to increased runoff of organic matter and pollutants. The Southern Interior Delta region had the highest values of all three nutrients likely due to nearby agricultural land use. The average of each nutrient in water year 2023 was similar to the previous year.
-
-Chlorophyll a followed seasonal trends in most regions with higher values in the warmer summer months. The San Pablo Bay region had a small harmful algal bloom of *Heterosigma akashiwo* in July. C10A in the Southern Interior Delta had a spike in August, which is typically shallow during dry periods of the year. The average chlorophyll a in water year 2023 was a little higher than the previous year. More information about the phytoplankton genera is described in the phytoplankton section.
+<Write interpretations here>
 
 ## Archived Reports
 
