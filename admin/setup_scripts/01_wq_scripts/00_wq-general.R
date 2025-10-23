@@ -373,7 +373,12 @@ WQFigureClass <- R6Class(
       super$initialize()
       self$df_raw <- df_raw
       self$generate_station_colors(df_raw)
-      self$df_devicetype <- read_csv(here("admin/figures-tables/cwq/cwq_devicetype.csv"), show_col_types = FALSE)
+      self$df_devicetype <- read_csv(here("admin/figures-tables/cwq/cwq_devicetype.csv"), show_col_types = FALSE) %>%
+        mutate(Shape = case_when(
+          grepl("EXO1", DeviceType) ~ 22,
+          grepl("EXO2", DeviceType) ~ 21,
+          TRUE ~ 24
+        ))
     },
 
     # Combine regional plots into one plot for each analyte (gaps)
@@ -412,10 +417,17 @@ WQFigureClass <- R6Class(
         arrange(Analyte, Region) %>%
         mutate(
           num_station = row_number(),
-          x_label = if_else(
-            Region %in% tail(unique(Region), 2) | !is.null(ret_region),
-            TRUE, FALSE
-          ),
+          x_label = if (plt_type == 'dwq') {
+            if_else(
+              Region %in% tail(unique(Region), 2) | !is.null(ret_region),
+              TRUE, FALSE
+            )
+          } else {
+            if_else(
+              Region %in% tail(unique(Region), 1) | !is.null(ret_region),
+              TRUE, FALSE
+            )
+          },
           .by = Analyte
         ) %>%
         mutate(
@@ -582,11 +594,19 @@ WQFigureClass <- R6Class(
             )
       } else {
         # Create continuous WQ plot
+        df <- df %>% 
+          left_join(self$df_devicetype, by = "Station")
+        
+        legend_df <- df %>%
+          distinct(Station, Shape) %>%
+          arrange(factor(Station, levels = names(self$station_colors)))
+        
         plt <- df %>%
           ggplot(aes(Date, Value)) +
           # invisible points to control legend appearance
           geom_point(aes(shape = Station, fill = Station),
                      size = 0.001,
+                     color = 'white',
                      show.legend = TRUE) +
           scale_shape_manual(values = rep(1, length(unique(df$Station)))) +
           scale_x_date(
@@ -604,7 +624,7 @@ WQFigureClass <- R6Class(
           guides(
             fill = guide_legend(
               nrow = 1,
-              override.aes = list(shape = 21, size = 2, stroke = 0.25)
+              override.aes = list(shape = legend_df$Shape, size = 2, stroke = 0.25, color = 'black')
             ),
             shape = "none"
           ) +
