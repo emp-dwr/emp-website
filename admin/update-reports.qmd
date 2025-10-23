@@ -9,7 +9,7 @@ source(here::here('admin/import_scripts.R'))
 ## generate figures
 
 ```{r}
-create_figs(group = c('cwq'))
+create_figs(group = c('dwq'))
 ```
 
 ## create pdfs

@@ -1,4 +1,3 @@
-
 # Import Relevant Functions -----------------------------------------------
 
 `%>%` <- magrittr::`%>%`
@@ -74,6 +73,8 @@ reframe <- dplyr::reframe
 if_else <- dplyr::if_else
 case_when <- dplyr::case_when
 
+tibble <- tibble::tibble
+
 ggplot <- ggplot2::ggplot
 aes <- ggplot2::aes
 geom_line <- ggplot2::geom_line
@@ -91,6 +92,8 @@ scale_x_discrete <- ggplot2::scale_x_discrete
 scale_y_continuous <- ggplot2::scale_y_continuous
 scale_x_date <- ggplot2::scale_x_date
 scale_fill_manual <- ggplot2::scale_fill_manual
+scale_shape_discrete <- ggplot2::scale_shape_discrete
+scale_shape_manual <- ggplot2::scale_shape_manual
 ggsave <- ggplot2::ggsave
 element_blank <- ggplot2::element_blank
 element_text <- ggplot2::element_text

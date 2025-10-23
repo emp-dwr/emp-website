@@ -1,7 +1,6 @@
-
 # Read in Data ------------------------------------------------------------
 
-df_raw_cwq <- read_quiet_csv(here('admin/test-data/CWQ_Data_2024.csv'))
+df_raw_cwq <- read_quiet_csv(here("admin/test-data/CWQ_Data_2024.csv"))
 
 # Create Base CWQ Object --------------------------------------------------
 
@@ -13,7 +12,7 @@ obj_cwq$remove_bottom()
 
 obj_cwq$assign_analyte_meta()
 
-obj_cwq$assign_regions('CWQ')
+obj_cwq$assign_regions("CWQ")
 
 obj_cwq$remove_NAs()
 
@@ -21,11 +20,11 @@ obj_cwq$add_month()
 
 # Create Current/Previous Year Objects ------------------------------------
 
-obj_cwq_cur <- obj_cwq$clone(deep=TRUE)
-obj_cwq_cur$filter_years(report_year, range = 'single')
+obj_cwq_cur <- obj_cwq$clone(deep = TRUE)
+obj_cwq_cur$filter_years(report_year, range = "single")
 
-obj_cwq_prev <- obj_cwq$clone(deep=TRUE)
-obj_cwq_prev$filter_years(prev_year, range = 'single')
+obj_cwq_prev <- obj_cwq$clone(deep = TRUE)
+obj_cwq_prev$filter_years(prev_year, range = "single")
 
 # Create Current/Previous Year Stats --------------------------------------
 
@@ -56,24 +55,25 @@ obj_rri <- WQRRIClass$new(obj_cwq_cur$df_raw)
 create_figs_cwq <- function() {
   # main figures
   cwq_analytes <- df_analytes %>%
-    filter(str_detect(Program, '\\bCEMP\\b')) %>%
+    filter(str_detect(Program, "\\bCEMP\\b")) %>%
     pull(Analyte)
-  
-  for (param in cwq_analytes){
-    plt <- fig_cwq$wq_return_plt(param, 'cwq')
-    
+
+  for (param in cwq_analytes) {
+    plt <- fig_cwq$wq_return_plt_gaps(param, "cwq")
+
     height_factor <- fig_cwq$df_raw %>%
       pull(Region) %>%
       unique() %>%
       length()
-    
-    exp_height <- ceiling(height_factor)*2
-    
-    ggsave(here(paste0('admin/figures-tables/cwq/cwq_ts_', tolower(param), '.png')),
-           plt, width = 6*.8, height = exp_height*.8, unit = 'in')
+
+    exp_height <- ceiling(height_factor) * 2
+
+    ggsave(here(paste0("admin/figures-tables/cwq/cwq_ts_", tolower(param), ".png")),
+      plt,
+      width = 6 * .8, height = exp_height * .8, unit = "in"
+    )
   }
-  
+
   # # RRI fig
   obj_rri$create_rri_plt()
 }
-
