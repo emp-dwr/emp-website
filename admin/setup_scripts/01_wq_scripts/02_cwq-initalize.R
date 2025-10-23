@@ -70,7 +70,7 @@ create_figs_cwq <- function() {
 
     ggsave(here(paste0("admin/figures-tables/cwq/cwq_ts_", tolower(param), ".png")),
       plt,
-      width = 6 * .8, height = exp_height * .8, unit = "in"
+      width = 7 * .8, height = exp_height * .8, unit = "in"
     )
   }
 

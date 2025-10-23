@@ -12,7 +12,7 @@ source(here::here('admin/import_scripts.R'))
 
 The Department of Water Resources (DWR) and the US Bureau of Reclamation (USBR) are required by Water Right Decision 1641 (D-1641) to collect continuous water chemistry data to monitor the water quality at select sites in the upper San Francisco Estuary (Estuary). This report describes the results of these monitoring efforts for water year `r report_year` (October 1st `r prev_year` through September 30th `r report_year`) `r str_water_year(report_year, 'cur')` [(source)](https://cdec.water.ca.gov/reportapp/javareports?name=WSIHIST).
 
-This report includes mandated stations collected by DWR's Continuous Environmental Monitoring Program (CEMP) and Suisun Marsh Water Quality Program (SMWQP) as well as USBR's Delta Water Quality Monitoring Program (USBR). Stations monitoring by other groups were not included in this report. Additional information about these programs can be found [here](https://emp-dwr.github.io/emp-website/qmd-files/website/cwq/cwq-info.html).
+This report includes mandated stations collected by DWR's Continuous Environmental Monitoring Program (CEMP) and Suisun Marsh Water Quality Program (SMWQP) as well as USBR's Delta Water Quality Monitoring Program (USBR). Stations monitored by other programs were not included in this report. Additional information about these programs can be found [here](https://emp-dwr.github.io/emp-website/qmd-files/website/cwq/cwq-info.html).
 
 ## Methods
 
@@ -39,6 +39,17 @@ include_graphics(here::here(file.path('admin/figures-tables/cwq/cwq_station_map.
 cwq_stations <- readr::read_csv(here::here('admin/figures-tables/cwq/cwq_stations.csv'))
 
 styler$style_kable(cwq_stations)
+```
+
+Additionally, different stations were monitored by different programs (@tbl-programs):
+
+```{r echo=FALSE, warning=FALSE, message=FALSE, results = 'asis'}
+#| label: tbl-programs
+#| tbl-cap: 'List of continuous WQ stations monitored by each program'
+
+cwq_programs <- readr::read_csv(here::here('admin/figures-tables/cwq/cwq_station-programs.csv'))
+
+styler$style_kable(cwq_programs)
 ```
 
 Data were collected for six water quality parameters. For CEMP and SMWQP, all water samples were collected 1-meter below the water surface using a float-mounted YSI EXO2 multi-parameter water quality sonde. These parameters are:
@@ -69,7 +80,7 @@ For more in-depth methodology, see [here](https://portal.edirepository.org/nis/m
 #| label: tbl-watertemperature
 #| echo: false
 #| fig-align: 'center'
-#| tbl-cap: 'Summary statistics for water temperature by region in the San Francisco Bay-Delta estuary.'
+#| tbl-cap: 'Summary statistics for water temperature by region in the San Francisco Bay-Delta estuary. Legend shape refers to sampling device type: circle = YSI-EXO 2 sonde, square = YSI-EXO 1 sonde.'
 
 summary_spc <- table_cwq$clone(deep=TRUE)
 summary_spc$create_summary_df('WaterTemperature', 'mean')
@@ -80,7 +91,7 @@ summary_spc$create_kable()
 #| label: fig-watertemperature
 #| echo: false
 #| fig-align: 'center'
-#| fig-cap: 'Water temperature by region in the San Francisco Bay-Delta estuary.'
+#| fig-cap: 'Water temperature by region in the San Francisco Bay-Delta estuary. Legend shape refers to sampling device type: circle = YSI-EXO 2 sonde, square = YSI-EXO 1 sonde.'
 
 include_graphics(here::here(file.path('admin/figures-tables/cwq/cwq_ts_watertemperature.png')))
 ```
@@ -104,7 +115,7 @@ summary_spc$create_kable()
 #| label: fig-spc
 #| echo: false
 #| fig-align: 'center'
-#| fig-cap: 'Specific conductance by region in the San Francisco Bay-Delta estuary.'
+#| fig-cap: 'Specific conductance by region in the San Francisco Bay-Delta estuary. Legend shape refers to sampling device type: circle = YSI-EXO 2 sonde, square = YSI-EXO 1 sonde.'
 
 include_graphics(here::here(file.path('admin/figures-tables/cwq/cwq_ts_spc.png')))
 ```
@@ -128,7 +139,7 @@ summary_spc$create_kable()
 #| label: fig-dissolvedoxygen
 #| echo: false
 #| fig-align: 'center'
-#| fig-cap: 'Dissolved oxygen by region in the San Francisco Bay-Delta estuary.'
+#| fig-cap: 'Dissolved oxygen by region in the San Francisco Bay-Delta estuary. Legend shape refers to sampling device type: circle = YSI-EXO 2 sonde, square = YSI-EXO 1 sonde.'
 
 include_graphics(here::here(file.path('admin/figures-tables/cwq/cwq_ts_dissolvedoxygen.png')))
 ```
@@ -166,7 +177,7 @@ summary_spc$create_kable()
 #| label: fig-ph
 #| echo: false
 #| fig-align: 'center'
-#| fig-cap: 'pH by region in the San Francisco Bay-Delta estuary.'
+#| fig-cap: 'pH by region in the San Francisco Bay-Delta estuary. Legend shape refers to sampling device type: circle = YSI-EXO 2 sonde, square = YSI-EXO 1 sonde.'
 
 include_graphics(here::here(file.path('admin/figures-tables/cwq/cwq_ts_ph.png')))
 ```
@@ -190,7 +201,7 @@ summary_spc$create_kable()
 #| label: fig-turbidity
 #| echo: false
 #| fig-align: 'center'
-#| fig-cap: 'Turbidity by region in the San Francisco Bay-Delta estuary.'
+#| fig-cap: 'Turbidity by region in the San Francisco Bay-Delta estuary. Legend shape refers to sampling device type: circle = YSI-EXO 2 sonde, square = YSI-EXO 1 sonde.'
 
 include_graphics(here::here(file.path('admin/figures-tables/cwq/cwq_ts_turbidity.png')))
 ```
@@ -214,14 +225,14 @@ summary_spc$create_kable()
 #| label: fig-fluorescence
 #| echo: false
 #| fig-align: 'center'
-#| fig-cap: 'Chlorophyll a fluorescence by region in the San Francisco Bay-Delta estuary.'
+#| fig-cap: 'Chlorophyll a fluorescence by region in the San Francisco Bay-Delta estuary. Legend shape refers to sampling device type: circle = YSI-EXO 2 sonde, square = YSI-EXO 1 sonde.'
 
 include_graphics(here::here(file.path('admin/figures-tables/cwq/cwq_ts_fluorescence.png')))
 ```
 
 ## Interpretations
 
-*Write interpretations here*
+Water Year 2024 started off dry, but a series of storms in February and March brought the water year to be classified as Above Normal. Patterns in water quality generally followed expected seasonal and regional trends. Specific conductivity varied greatly across the stations and throughout the water year, depending on precipitation and Delta outflow. North and South Delta stations remained fresh throughout the year, whereas most Confluence, Suisun Marsh, and Suisun and Grizzly Bay stations had low specific conductivity values from February through early June. The specific conductivity at D6A, the westernmost station, started increasing in mid-March, far earlier than the rest of the stations. Decreases in dissolved oxygen and increases in turbidity were observed between February and March, likely associated with increased discharge from storm events. Shallow bays and Suisun Marsh exhibited more persistently high and variable turbidity compared with other stations. Elevated fluorescence, dissolved oxygen, and pH were measured in the South Delta during late June and July associated with a bloom event.
 
 ## References
 

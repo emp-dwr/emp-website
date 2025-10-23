@@ -445,20 +445,51 @@ WQFigureClass <- R6Class(
           pull(plt_single)
         return(sing_plt[[1]])
       }
-
-      if (plt_type == "dwq") {
-        comb_plts <- wrap_plots(ls_plts, ncol = 2)
-      } else if (plt_type == "cwq") {
-        comb_plts <- wrap_plots(ls_plts, ncol = 1)
-      }
-
+      
       blanklabelplot <- ggplot() +
         labs(y = comb_plt_title) +
         theme_void() +
         guides(x = "none", y = "none") +
         theme(axis.title.y = element_text(size = 7, hjust = 0.5, angle = 90))
 
-      final_plt <- blanklabelplot + comb_plts + plot_layout(widths = c(1, 1000))
+      if (plt_type == "dwq") {
+        comb_plts <- wrap_plots(ls_plts, ncol = 2)
+        
+        final_plt <- blanklabelplot + comb_plts + plot_layout(widths = c(1, 1000))
+        
+      } else if (plt_type == "cwq") {
+        comb_plts <- wrap_plots(ls_plts, ncol = 1)
+        
+        legend_plot <- ggplot(self$df_devicetype, aes(x = 1, y = 1, shape = DeviceType)) +
+          geom_point(size = 2.5, fill = "gray90", color = "black", stroke = 0.25, show.legend = TRUE) +
+          scale_shape_manual(
+            values = setNames(self$df_devicetype$Shape, self$df_devicetype$DeviceType)
+          ) + 
+          labs(shape = "Device Type") +
+          guides(color = "none",
+                 fill = "none", 
+                 shape = guide_legend(
+                   nrow = 1,
+                  byrow = TRUE)) +
+          theme_void() +
+          theme(
+            legend.position = "right",
+            legend.title = element_text(size = 7, hjust = 0.5, face = 'bold'),
+            legend.text  = element_text(size = 5),
+            legend.key.size = unit(0.35, "lines"))
+        
+        legend <- cowplot::get_legend(legend_plot)
+        legend <- patchwork::wrap_elements(legend)
+
+        plots_with_legend <- patchwork::wrap_plots(
+          comb_plts,
+          legend,
+          ncol = 1,
+          heights = c(1000, 30) 
+        )
+
+        final_plt <- blanklabelplot + plots_with_legend + patchwork::plot_layout(widths = c(1, 1000))
+      }
 
       return(final_plt)
     },
@@ -580,7 +611,7 @@ WQFigureClass <- R6Class(
               show.legend = FALSE
             ) +
             geom_point(
-              size = 2.5,
+              size = 2,
               shape = 21,          
               stroke = 0.25,        
               color = "black",     
@@ -616,10 +647,10 @@ WQFigureClass <- R6Class(
           ) +
           # main data: lines with borders
           geom_borderline(aes(color = Station),
-            linewidth = 0.6,
+            linewidth = 0.7,
             bordercolor = "black",
             borderwidth = 0.1,
-            show.legend = FALSE   # hide line legend entries
+            show.legend = FALSE 
           ) +
           guides(
             fill = guide_legend(

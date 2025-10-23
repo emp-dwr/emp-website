@@ -12,7 +12,7 @@ source(here::here('admin/import_scripts.R'))
 create_figs(group = c('cwq'))
 ```
 
-##  create pdfs
+## create pdfs
 
 ### all reports (run as-is)
 
@@ -25,8 +25,8 @@ quarto::quarto_render(
 ### specific reports (type name in between `c()`)
 
 ```{r}
-render_reports(programs = c('phyto'),
-               report_type = 'pdf')
+render_reports(programs = c('cwq'),
+               report_type = 'website')
 ```
 
 ## update website

@@ -248,11 +248,11 @@ StylingClass <- R6Class(
     },
 
     gen_gradient = function(center_hex, num_colors,
-                            spread_L = 90,
-                            L_min = 35, # nudge up to avoid near-black
+                            spread_L = 40,
+                            L_min = 37, # nudge up to avoid near-black
                             L_max = 85, # nudge down to avoid near-white
-                            C_abs_min = 50, # absolute chroma floor
-                            hue_wiggle = 10) {
+                            C_abs_min = 60, # absolute chroma floor
+                            hue_wiggle = 15) {
       hcl <- as(hex2RGB(center_hex), "polarLUV")
       H0 <- hcl@coords[, "H"]
       C0 <- hcl@coords[, "C"]

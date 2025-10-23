@@ -194,7 +194,15 @@ include_graphics(here::here(file.path('admin/figures-tables/dwq/dwq_ts_totphos.p
 
 ## Interpretations
 
-<Write interpretations here>
+Water year 2024 in the Sacramento and San Joaquin Valleys was classified as above normal. Northern California experienced more atmospheric rivers than the previous year, but they were weaker storms. The majority of those atmospheric rivers made landfall January through March. Then near-record summer air temperatures dried out a lot of California toward the end of the water year.
+
+The average specific conductance in water year 2024 was a little higher than the previous year. All regions had a notable drop after January due to the influx of freshwater. Most regions then had an increase during the summer months due to the high air temperatures. The Carquinez, San Pablo Bay, and Suisun and Grizzly Bay regions typically have higher values due to the strong marine influence from the Pacific Ocean.
+
+The average turbidity in water year 2024 was a little lower than the previous year. Most regions had a spike in February due to sediment re-suspension caused by the high flows after storms. All regions downstream of the Confluence had another spike in May/June after a storm in that area. The Suisun Marsh had the highest values overall.
+
+The average chlorophyll *a* in water year 2024 was a little lower than the previous year. The average and minimum values were similar in all regions. C10A in the South Delta had a large spike in July, due to aquatic vegetation that accumulated around the station. It is typically shallow during dry parts of the year.
+
+The average dissolved ammonia, dissolved nitrate + nitrite, and total phosphorus in water year 2024 was similar to the previous year. All three nutrients had a slightly higher percentage of samples below the reporting limit than the previous year. Most regions had a spike in January due to increased runoff of organic matter and pollutants after storms. The South Delta region had some of the highest values of all three nutrients, due to nearby agricultural land use.
 
 ## Archived Reports
 
