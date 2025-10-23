@@ -368,9 +368,12 @@ WQFigureClass <- R6Class(
   inherit = StylingClass,
   public = list(
     df_raw = NULL,
-    initialize = function(df_raw) {
-      super$initialize(df_regionhex)
+    df_devicetype = NULL,
+    initialize = function(df_raw, df_devicetype) {
+      super$initialize()
       self$df_raw <- df_raw
+      self$generate_station_colors(df_raw)
+      self$df_devicetype <- read_csv(here("admin/figures-tables/cwq/cwq_devicetype.csv"), show_col_types = FALSE)
     },
 
     # Combine regional plots into one plot for each analyte (gaps)
@@ -402,6 +405,9 @@ WQFigureClass <- R6Class(
 
       # nest by Region
       ndf_filt <- df_filt_completed %>%
+        mutate(
+          Region = factor(Region, levels = self$df_regionhex$Region)
+        ) %>%
         tidyr::nest(.by = c(Analyte, Region), .key = "df_data") %>%
         arrange(Analyte, Region) %>%
         mutate(
@@ -433,83 +439,6 @@ WQFigureClass <- R6Class(
       } else if (plt_type == "cwq") {
         comb_plts <- wrap_plots(ls_plts, ncol = 1)
       }
-
-      blanklabelplot <- ggplot() +
-        labs(y = comb_plt_title) +
-        theme_void() +
-        guides(x = "none", y = "none") +
-        theme(axis.title.y = element_text(size = 7, hjust = 0.5, angle = 90))
-
-      final_plt <- blanklabelplot + comb_plts + plot_layout(widths = c(1, 1000))
-
-      return(final_plt)
-    },
-
-    # Combine regional plots into one plot for each analyte (no gaps)
-    wq_return_plt = function(param, plt_type = c("dwq", "cwq"), ret_region = NULL) {
-      # Filter to single Analyte (param)
-      df_filt <- self$df_raw %>% filter(Analyte == param)
-      
-      # create per-station gaps
-      df_filt <- df_filt %>%
-        group_by(Analyte, Region, Station) %>%
-        tidyr::complete(
-          Date = seq(
-            min(self$df_raw$Date, na.rm = TRUE), # global start
-            max(self$df_raw$Date, na.rm = TRUE), # global end
-            by = "1 day"
-          )
-        ) %>%
-        tidyr::fill(Label, Unit, .direction = "downup") %>% # carry metadata
-        ungroup()
-
-      # Define main label for combined plots
-      if (param == "pH") {
-        # pH doesn't have units
-        comb_plt_title <- unique(df_filt$Label)
-      } else if (param == "Chla") {
-        # Chlorophyll needs special formatting (italicized a)
-        comb_plt_title <- expression(Chlorophyll ~ italic(a) ~ "(\u03bc" * g * "/" * L * ")")
-      } else {
-        comb_plt_title <- paste0(unique(df_filt$Label), " (", unique(df_filt$Unit), ")")
-      }
-
-      # Convert to nested df and create single plots
-      ndf_filt <- df_filt %>%
-        nest(.by = c(Analyte, Region), .key = "df_data") %>%
-        arrange(Analyte, Region) %>%
-        mutate(
-          num_station = row_number(),
-          x_label = if_else(
-            Region %in% tail(unique(Region), 2) | !is.null(ret_region),
-            TRUE,
-            FALSE
-          ),
-          .by = Analyte
-        ) %>%
-        mutate(
-          plt_single = pmap(
-            list(df_data, Region, x_label),
-            \(x, y, z) private$wq_region_plt(x, y, z, plt_type = plt_type)
-          )
-        )
-
-      # Un-nest single plots into a list
-      ls_plts <- pull(ndf_filt, plt_single)
-
-      if (!is.null(ret_region)) {
-        sing_plt <- ndf_filt %>%
-          filter(Region == ret_region) %>%
-          pull(plt_single)
-        return(sing_plt[[1]])
-      }
-
-      if (plt_type == "dwq") {
-        comb_plts <- wrap_plots(ls_plts, ncol = 2)
-      } else if (plt_type == "cwq") {
-        comb_plts <- wrap_plots(ls_plts, ncol = 1)
-      }
-
 
       blanklabelplot <- ggplot() +
         labs(y = comb_plt_title) +
@@ -583,31 +512,32 @@ WQFigureClass <- R6Class(
         mutate(Month_num = as.numeric(Month))
 
       list(
-        # Vertical segment geom
+        # Vertical segment with black outline
         geom_segment(
           data = df_segment,
-          mapping = aes(
-            x = Month_num,
-            xend = Month_num,
-            y = 0,
-            yend = Value,
-            color = !!sym(color_by)
-          ),
-          linewidth = 0.6,
-          lty = 5
+          aes(x = Month_num, xend = Month_num, y = 0, yend = Value),
+          linewidth = 1, color = "black", lty = 1,
+          show.legend = FALSE
         ),
-        # Horizontal segment geom
         geom_segment(
           data = df_segment,
-          mapping = aes(
-            x = Month_num - 0.2,
-            xend = Month_num + 0.2,
-            y = Value,
-            yend = Value,
-            color = !!sym(color_by)
-          ),
-          linewidth = 0.6,
-          lineend = "square"
+          aes(x = Month_num, xend = Month_num, y = 0, yend = Value, color = !!sym(color_by)),
+          linewidth = 0.7, lty = 1,
+          show.legend = FALSE
+        ),
+        
+        # Horizontal segment with black outline
+        geom_segment(
+          data = df_segment,
+          aes(x = Month_num - 0.25, xend = Month_num + 0.25, y = Value, yend = Value),
+          linewidth = 1, color = "black", lineend = 'square',
+          show.legend = FALSE
+        ),
+        geom_segment(
+          data = df_segment,
+          aes(x = Month_num - 0.25, xend = Month_num + 0.25, y = Value, yend = Value, color = !!sym(color_by)),
+          linewidth = 0.7, lineend = "square",
+          show.legend = FALSE
         )
       )
     },
@@ -624,28 +554,60 @@ WQFigureClass <- R6Class(
             Value = if_else(DetectStatus == "Nondetect", NA_real_, Value),
             Month_num = as.numeric(Month)
           ) %>%
-          ggplot(aes(x = Month_num, y = Value, color = !!sym(color_by))) +
-          geom_line(linewidth = 0.6, na.rm = TRUE) +
-          geom_point(size = 2, na.rm = TRUE) +
-          scale_x_continuous(breaks = 1:12, labels = label_order, limits = c(1, 12))
-
-        # Add geoms for < RL values if necessary
-        if (any(df$DetectStatus == "Nondetect", na.rm = TRUE)) plt <- plt + private$blw_rl_geom(df, color_by)
+          ggplot(aes(x = Month_num, y = Value, color = !!sym(color_by)))
+        
+          # Add geoms for < RL values if necessary
+          if (any(df$DetectStatus == "Nondetect", na.rm = TRUE)) plt <- plt + private$blw_rl_geom(df, color_by)
+          
+          plt <- plt +
+            geom_borderline(
+              linewidth = 0.6,
+              bordercolor = "black",
+              borderwidth = 0.2,
+              na.rm = TRUE,
+              show.legend = FALSE
+            ) +
+            geom_point(
+              size = 2.5,
+              shape = 21,          
+              stroke = 0.25,        
+              color = "black",     
+              aes(fill = !!sym(color_by))  
+            ) +
+            scale_fill_manual(values = self$station_colors) +
+            scale_x_continuous(
+              breaks = 1:12,
+              labels = label_order,
+              lim = c(0.75, 12.25)
+            )
       } else {
         # Create continuous WQ plot
         plt <- df %>%
-          ggplot(aes(Date, Value, color = Station)) +
-          geom_borderline(
-            linewidth = 0.6,
-            bordercolor = "black",
-            borderwidth = 0.1
-          ) +
+          ggplot(aes(Date, Value)) +
+          # invisible points to control legend appearance
+          geom_point(aes(shape = Station, fill = Station),
+                     size = 0.001,
+                     show.legend = TRUE) +
+          scale_shape_manual(values = rep(1, length(unique(df$Station)))) +
           scale_x_date(
             date_breaks = "1 month",
             date_labels = "%b-%y",
             limits = range(self$df_raw$Date, na.rm = TRUE)
           ) +
-          guides(color = guide_legend(nrow = 1, override.aes = list(shape = 21))) +
+          # main data: lines with borders
+          geom_borderline(aes(color = Station),
+            linewidth = 0.6,
+            bordercolor = "black",
+            borderwidth = 0.1,
+            show.legend = FALSE   # hide line legend entries
+          ) +
+          guides(
+            fill = guide_legend(
+              nrow = 1,
+              override.aes = list(shape = 21, size = 2, stroke = 0.25)
+            ),
+            shape = "none"
+          ) +
           theme(legend.box = "full")
       }
 
@@ -657,8 +619,11 @@ WQFigureClass <- R6Class(
 
       if (color_by == "Analyte") {
         plt <- plt + scale_color_manual(values = c("#5ab4ac", "#d8b365"))
-      } else {
-        plt <- plt + self$wq_plt_colors(region, plt_type)
+      } else if (plt_type == 'cwq') {
+        plt <- plt + scale_fill_manual(values = self$station_colors) +
+          scale_color_manual(values = self$station_colors)
+      } else if (plt_type == 'dwq') {
+        plt <- plt + scale_color_manual(values = self$station_colors)
       }
 
       return(plt)

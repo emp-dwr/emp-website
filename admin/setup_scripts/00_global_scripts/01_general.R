@@ -62,7 +62,7 @@ BaseClass <- R6Class(
 
       self$df_raw <- self$df_raw %>%
         filter(!(Analyte %in% c("Sky Conditions", "Rain"))) %>% # remove character-type analytes
-        filter("QC: Type" != "REPLICATE") %>% # remove replicates
+        filter(is.na(`QC: Type`)) %>% # remove replicates
         mutate(
           DetectStatus = case_when(
             DetectStatus == "NOT_DETECTED" ~ "Nondetect",
@@ -151,8 +151,40 @@ StylingClass <- R6Class(
   "StylingClass",
   public = list(
     df_regionhex = NULL,
+    station_colors = NULL,
     initialize = function(df_regionhex) {
       self$df_regionhex <- read_csv(here("admin/figures-tables/admin/region_table.csv"), show_col_types = FALSE)
+    },
+    
+    generate_station_colors = function(df_raw) {
+      df_stn <- df_raw %>%
+        distinct(Region, Station) %>%
+        filter(!is.na(Region), !is.na(Station))
+      
+      region_hexes <- self$df_regionhex %>%
+        select(Region, HexColor)
+      
+      df_stn <- df_stn %>%
+        left_join(region_hexes, by = "Region") %>%
+        group_by(Region) %>%
+        arrange(Station, .by_group = TRUE)  # optional ordering
+      
+      region_station_colors <- df_stn %>%
+        group_by(Region) %>%
+        group_map(\(df, key) {
+          n_stn <- nrow(df)
+          center_hex <- df$HexColor[1]
+          grad_cols <- self$gen_gradient(center_hex, num_colors = n_stn)
+          tibble(Station = df$Station, Color = grad_cols)
+        }) %>%
+        bind_rows()
+      
+      self$station_colors <- setNames(
+        region_station_colors$Color,
+        region_station_colors$Station
+      )
+      
+      invisible(self)
     },
 
     # TABLES
@@ -196,6 +228,7 @@ StylingClass <- R6Class(
         legend.box.margin = margin(-10, -10, -10, -10),
         legend.text = element_text(size = 5),
         legend.key.size = unit(0.3, "lines")
+        # panel.border = element_blank()
       )
     ),
 
@@ -214,25 +247,11 @@ StylingClass <- R6Class(
       }
     },
 
-    # # Generate skip color palette based off base color
-    # gen_gradient = function(center_hex, num_colors,
-    #                         skip_amt = 5,
-    #                         lighten_amt = 0.8, darken_amt = 0.8) {
-    #   dark_color <- darken(center_hex, amount = darken_amt)
-    #   light_color <- lighten(center_hex, amount = lighten_amt)
-    #
-    #   palette_base <- colorRampPalette(c(dark_color,light_color))(num_colors * skip_amt)
-    #
-    #   palette_skip <- palette_base[seq(1, length(palette_base), by = skip_amt)]
-    #
-    #   return(palette_skip)
-    # },
-
     gen_gradient = function(center_hex, num_colors,
-                            spread_L = 40,
-                            L_min = 37, # nudge up to avoid near-black
-                            L_max = 77, # nudge down to avoid near-white
-                            C_abs_min = 30, # absolute chroma floor (raise to 30–35 if still gray)
+                            spread_L = 60,
+                            L_min = 45, # nudge up to avoid near-black
+                            L_max = 80, # nudge down to avoid near-white
+                            C_abs_min = 55, # absolute chroma floor
                             hue_wiggle = 15) {
       hcl <- as(hex2RGB(center_hex), "polarLUV")
       H0 <- hcl@coords[, "H"]
@@ -254,7 +273,7 @@ StylingClass <- R6Class(
       # chroma: peak near mid L, but never below absolute floor; cap by gamut
       x <- (Lseq - mean(c(Lmin, Lmax))) / ((Lmax - Lmin) / 2) # -1..1
       C_peak <- max(C0, C_abs_min + 10) # ensure a decent mid saturation
-      C_target <- (1 - pmin(1, abs(x) * 0.5)) * C_peak # “tent” peaking at mid L
+      C_target <- (1 - pmin(1, abs(x) * 0.9)) * C_peak # “tent” peaking at mid L
 
       C_max <- pmax(0, max_chroma(h = Hseq, l = Lseq)) # displayable max chroma
       # Cseq <- rep(pmin(C0, C_max), length(Lseq)) # clamp colors

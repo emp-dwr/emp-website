@@ -51,6 +51,8 @@ interval <- lubridate::interval
 parse_date_time <- lubridate::parse_date_time
 
 left_join <- dplyr::left_join
+bind_rows <- dplyr::bind_rows
+group_map <- dplyr::group_map
 filter <- dplyr::filter
 pull <- dplyr::pull
 mutate <- dplyr::mutate
@@ -81,6 +83,7 @@ geom_line <- ggplot2::geom_line
 geom_point <- ggplot2::geom_point
 geom_boxplot <- ggplot2::geom_boxplot
 geom_segment <- ggplot2::geom_segment
+expansion <- ggplot2::expansion
 annotate <- ggplot2::annotate
 theme_bw <- ggplot2::theme_bw
 ggtitle <- ggplot2::ggtitle

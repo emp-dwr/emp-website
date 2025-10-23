@@ -1,10 +1,10 @@
 ﻿Region,HexColor
-South Delta,#e16a86
-North Delta,#c7821c
-Confluence,#909800
-Central Delta,#00a846
-San Pablo Bay,#00ad9a
-Suisun & Grizzly Bays,#00a2d3
-Suisun and Grizzly Bays,#00a2d3
-Suisun Marsh,#9183e6
-Carquinez,#d766c9
+North Delta,#F8766D
+Central Delta,#7CAE00
+South Delta,#00A9FF
+Confluence,#CD9600
+Suisun and Grizzly Bays,#00BE67
+Suisun & Grizzly Bays,#00BE67
+Suisun Marsh,#FF61CC
+Carquinez,#C77CFF
+San Pablo Bay,#00BFC4
