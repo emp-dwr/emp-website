@@ -11,7 +11,7 @@ source(here::here('admin/import_scripts.R'))
 ```
 
 \begin{center}
-Authors: Michelle Nelson, Andrew Tran, and Scott Waller$^*$ \\
+Authors: Andrew Tran, Vivan Klotz, Catarina Pien, and Morgan Battey$^*$ \\
 Division of Integrated Science \& Engineering \\
 California Department of Water Resources \\
 West Sacramento, CA
@@ -30,7 +30,7 @@ Reporting Period: October 1, `r prev_year` – September 30, `r report_year`
 
 \vspace*{5mm}
 
- $^*$\footnotesize{Address correspondence to scott.waller@water.ca.gov}
+ $^*$\footnotesize{Address correspondence to morgan.battey@water.ca.gov}
 
 \vspace*{5mm}
 
