@@ -183,14 +183,6 @@ a[href^='#fig'], a[href^='#tbl'] {
   text-align: center;
 }
 
-.figure-caption,
-figcaption,
-.table-caption,
-.quarto-float-caption {
-  text-align: center;
-  color: #4f5252 !important;
-}
-
 /* Misc */
 
 /* remove anchor icon */

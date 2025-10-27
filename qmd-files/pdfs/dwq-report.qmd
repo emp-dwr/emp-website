@@ -88,13 +88,15 @@ For more in-depth methodology, see [here](https://portal.edirepository.org/nis/m
 
 ## Interpretations
 
-Water year 2023 in the Sacramento and San Joaquin Valleys was classified as wet after three years of drought. Many atmospheric river storms brought considerable amounts of rain starting in late December and colder average temperatures contributed to record snowpack.
+Water year 2024 in the Sacramento and San Joaquin Valleys was classified as above normal. Northern California experienced more atmospheric rivers than the previous year, but they were weaker storms. The majority of those atmospheric rivers made landfall January through March. Then near-record summer air temperatures dried out a lot of California toward the end of the water year.
 
-Specific conductance had a notable drop in all regions in January due to the influx of freshwater. Most regions continued to have low values throughout the rest of the water year due to snowpack runoff. The San Pablo, Suisun, and Grizzly Bay regions typically have higher values due to the strong marine influence from the Pacific Ocean, and they started to increase again in July. The average specific conductance in water year 2023 was much lower than the previous year. Turbidity had a notable spike in all regions in January due to sediment re-suspension caused by the high flows after a long dry period. Every region (except the Central Delta) had maximum values above 100 FNU. The average turbidity in water year 2023 was higher than the previous year.
+The average specific conductance in water year 2024 was a little higher than the previous year. All regions had a notable drop after January due to the influx of freshwater. Most regions then had an increase during the summer months due to the high air temperatures. The Carquinez, San Pablo Bay, and Suisun and Grizzly Bay regions typically have higher values due to the strong marine influence from the Pacific Ocean.
 
-Dissolved ammonia, dissolved nitrate + nitrite, and total phosphorus had a notable spike in all regions in January due to increased runoff of organic matter and pollutants. The Southern Interior Delta region had the highest values of all three nutrients likely due to nearby agricultural land use. The average of each nutrient in water year 2023 was similar to the previous year.
+The average turbidity in water year 2024 was a little lower than the previous year. Most regions had a spike in February due to sediment re-suspension caused by the high flows after storms. All regions downstream of the Confluence had another spike in May/June after a storm in that area. The Suisun Marsh had the highest values overall.
 
-Chlorophyll a followed seasonal trends in most regions with higher values in the warmer summer months. The San Pablo Bay region had a small harmful algal bloom of *Heterosigma akashiwo* in July. C10A in the Southern Interior Delta had a spike in August, which is typically shallow during dry periods of the year. The average chlorophyll a in water year 2023 was a little higher than the previous year. More information about the phytoplankton genera is described in the phytoplankton section.
+The average chlorophyll *a* in water year 2024 was a little lower than the previous year. The average and minimum values were similar in all regions. C10A in the South Delta had a large spike in July, due to aquatic vegetation that accumulated around the station. It is typically shallow during dry parts of the year.
+
+The average dissolved ammonia, dissolved nitrate + nitrite, and total phosphorus in water year 2024 was similar to the previous year. All three nutrients had a slightly higher percentage of samples below the reporting limit than the previous year. Most regions had a spike in January due to increased runoff of organic matter and pollutants after storms. The South Delta region had some of the highest values of all three nutrients, due to nearby agricultural land use.
 
 ## Archived Reports
 

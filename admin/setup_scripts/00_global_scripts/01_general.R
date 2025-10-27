@@ -528,10 +528,10 @@ create_figs <- function(group = c("cwq", "dwq", "phyto", "benthic")) {
 # render individual reports
 render_report <- function(programs, report_type) {
   programs <- match.arg(programs, c("benthic", "cwq", "dwq", "phyto", "zoop"), several.ok = TRUE)
-  report_type <- match.arg(report_type, c("pdf", "website"))
+  report_type <- match.arg(report_type, c("pdfs", "website"))
 
   for (prog in programs) {
-    base_dir <- if (report_type == "pdf") {
+    base_dir <- if (report_type == "pdfs") {
       "qmd-files/pdfs"
     } else {
       file.path("qmd-files/website/", prog)
@@ -551,7 +551,7 @@ render_report <- function(programs, report_type) {
 
 render_reports <- function(..., report_type) {
   programs <- c(...)
-  report_type <- match.arg(report_type, c("pdf", "website"))
+  report_type <- match.arg(report_type, c("pdfs", "website"))
   render_report(programs, report_type)
 }
 

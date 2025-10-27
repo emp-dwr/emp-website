@@ -453,44 +453,56 @@ WQFigureClass <- R6Class(
         theme(axis.title.y = element_text(size = 7, hjust = 0.5, angle = 90))
 
       if (plt_type == "dwq") {
-        comb_plts <- wrap_plots(ls_plts, ncol = 2)
+        comb_plts <- wrap_plots(ls_plts, ncol = 2) # two columns
         
         final_plt <- blanklabelplot + comb_plts + plot_layout(widths = c(1, 1000))
         
       } else if (plt_type == "cwq") {
-        comb_plts <- wrap_plots(ls_plts, ncol = 1)
+        comb_plts <- wrap_plots(ls_plts, ncol = 1) # one column
         
-        legend_plot <- ggplot(self$df_devicetype, aes(x = 1, y = 1, shape = DeviceType)) +
+        used_devices <- self$df_raw %>%
+          left_join(self$df_devicetype, by = 'Station') %>%
+          filter(Analyte == param) %>%
+          distinct(DeviceType) %>%
+          pull(DeviceType)
+        
+        df_used_devices <- self$df_devicetype %>%
+          filter(DeviceType %in% used_devices) %>%
+          distinct(DeviceType, Shape)
+        
+        legend_plot <- ggplot(df_used_devices, aes(x = 1, y = 1, shape = DeviceType)) +
           geom_point(size = 2.5, fill = "gray90", color = "black", stroke = 0.25, show.legend = TRUE) +
           scale_shape_manual(
-            values = setNames(self$df_devicetype$Shape, self$df_devicetype$DeviceType)
-          ) + 
+            values = setNames(df_used_devices$Shape, df_used_devices$DeviceType),
+            drop = FALSE
+          ) +
           labs(shape = "Device Type") +
-          guides(color = "none",
-                 fill = "none", 
-                 shape = guide_legend(
-                   nrow = 1,
-                  byrow = TRUE)) +
+          guides(
+            color = "none",
+            fill = "none",
+            shape = guide_legend(nrow = 1, byrow = TRUE)
+          ) +
           theme_void() +
           theme(
             legend.position = "right",
-            legend.title = element_text(size = 7, hjust = 0.5, face = 'bold'),
-            legend.text  = element_text(size = 5),
-            legend.key.size = unit(0.35, "lines"))
+            legend.title = element_text(size = 7, hjust = 0.5, face = "bold"),
+            legend.text = element_text(size = 5),
+            legend.key.size = unit(0.3, "lines") 
+          )
         
-        legend <- cowplot::get_legend(legend_plot)
+        legend <- suppressWarnings(cowplot::get_legend(legend_plot))
         legend <- patchwork::wrap_elements(legend)
-
+        
         plots_with_legend <- patchwork::wrap_plots(
           comb_plts,
           legend,
           ncol = 1,
           heights = c(1000, 30) 
         )
-
+        
         final_plt <- blanklabelplot + plots_with_legend + patchwork::plot_layout(widths = c(1, 1000))
       }
-
+      
       return(final_plt)
     },
 

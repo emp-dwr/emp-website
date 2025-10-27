@@ -25,8 +25,8 @@ quarto::quarto_render(
 ### specific reports (type name in between `c()`)
 
 ```{r}
-render_reports(programs = c('cwq'),
-               report_type = 'website')
+render_reports(programs = c('zoop'),
+               report_type = 'pdfs')
 ```
 
 ## update website

@@ -41,18 +41,7 @@ cwq_stations <- readr::read_csv(here::here('admin/figures-tables/cwq/cwq_station
 styler$style_kable(cwq_stations)
 ```
 
-Additionally, different stations were monitored by different programs (@tbl-programs):
-
-```{r echo=FALSE, warning=FALSE, message=FALSE, results = 'asis'}
-#| label: tbl-programs
-#| tbl-cap: 'List of continuous WQ stations monitored by each program'
-
-cwq_programs <- readr::read_csv(here::here('admin/figures-tables/cwq/cwq_station-programs.csv'))
-
-styler$style_kable(cwq_programs)
-```
-
-Data were collected for six water quality parameters. For CEMP and SMWQP, all water samples were collected 1-meter below the water surface using a float-mounted YSI EXO2 multi-parameter water quality sonde. These parameters are:
+Data were collected for six water quality parameters and collection devices differed between stations (@tbl-programs). For CEMP and SMWQP, all water samples were collected 1-meter below the water surface using a float-mounted YSI EXO2 multi-parameter water quality sonde. These parameters are:
 
 -   Water Temperature (°C)
 -   Specific Conductance (μS/cm 25°C)
@@ -61,10 +50,19 @@ Data were collected for six water quality parameters. For CEMP and SMWQP, all wa
 -   Turbidity (FNU)
 -   Fluorescence (μg/L)
 
-For Reclamation, water samples were collected 1-meter below the water surface using float-mounted YSI 6-series and EXO-1 multi-parameter water quality sondes, as well as Hydrolab MS5 and HL4 water quality sondes. Parameters collected include:
+For Reclamation, water samples were collected 1-meter below the water surface using float-mounted YSI 6-series and EXO-1 multi-parameter water quality sondes as well as Hydrolab MS5 and HL4 water quality sondes. Parameters collected include:
 
 -   Water Temperature (°C)
 -   Specific Conductance (μS/cm 25°C)
+
+```{r echo=FALSE, warning=FALSE, message=FALSE, results = 'asis'}
+#| label: tbl-programs
+#| tbl-cap: 'List of device types used at continuous WQ stations per program'
+
+cwq_programs <- readr::read_csv(here::here('admin/figures-tables/cwq/cwq_station-programs.csv'))
+
+styler$style_kable(cwq_programs)
+```
 
 Regional facet graphs were created for each parameter. The average, minimum, and maximum values were determined for parameter, both overall and per region. Average summary statistics are reported as the mean (μ) ± the standard deviation.
 
@@ -80,7 +78,7 @@ For more in-depth methodology, see [here](https://portal.edirepository.org/nis/m
 #| label: tbl-watertemperature
 #| echo: false
 #| fig-align: 'center'
-#| tbl-cap: 'Summary statistics for water temperature by region in the San Francisco Bay-Delta estuary. Legend shape refers to sampling device type: circle = YSI-EXO 2 sonde, square = YSI-EXO 1 sonde.'
+#| tbl-cap: 'Summary statistics for water temperature by region in the San Francisco Bay-Delta estuary.'
 
 summary_spc <- table_cwq$clone(deep=TRUE)
 summary_spc$create_summary_df('WaterTemperature', 'mean')
@@ -91,7 +89,7 @@ summary_spc$create_kable()
 #| label: fig-watertemperature
 #| echo: false
 #| fig-align: 'center'
-#| fig-cap: 'Water temperature by region in the San Francisco Bay-Delta estuary. Legend shape refers to sampling device type: circle = YSI-EXO 2 sonde, square = YSI-EXO 1 sonde.'
+#| fig-cap: 'Water temperature by region in the San Francisco Bay-Delta estuary.'
 
 include_graphics(here::here(file.path('admin/figures-tables/cwq/cwq_ts_watertemperature.png')))
 ```
@@ -115,7 +113,7 @@ summary_spc$create_kable()
 #| label: fig-spc
 #| echo: false
 #| fig-align: 'center'
-#| fig-cap: 'Specific conductance by region in the San Francisco Bay-Delta estuary. Legend shape refers to sampling device type: circle = YSI-EXO 2 sonde, square = YSI-EXO 1 sonde.'
+#| fig-cap: 'Specific conductance by region in the San Francisco Bay-Delta estuary.'
 
 include_graphics(here::here(file.path('admin/figures-tables/cwq/cwq_ts_spc.png')))
 ```
@@ -139,7 +137,7 @@ summary_spc$create_kable()
 #| label: fig-dissolvedoxygen
 #| echo: false
 #| fig-align: 'center'
-#| fig-cap: 'Dissolved oxygen by region in the San Francisco Bay-Delta estuary. Legend shape refers to sampling device type: circle = YSI-EXO 2 sonde, square = YSI-EXO 1 sonde.'
+#| fig-cap: 'Dissolved oxygen by region in the San Francisco Bay-Delta estuary.'
 
 include_graphics(here::here(file.path('admin/figures-tables/cwq/cwq_ts_dissolvedoxygen.png')))
 ```
@@ -177,7 +175,7 @@ summary_spc$create_kable()
 #| label: fig-ph
 #| echo: false
 #| fig-align: 'center'
-#| fig-cap: 'pH by region in the San Francisco Bay-Delta estuary. Legend shape refers to sampling device type: circle = YSI-EXO 2 sonde, square = YSI-EXO 1 sonde.'
+#| fig-cap: 'pH by region in the San Francisco Bay-Delta estuary.'
 
 include_graphics(here::here(file.path('admin/figures-tables/cwq/cwq_ts_ph.png')))
 ```
@@ -201,7 +199,7 @@ summary_spc$create_kable()
 #| label: fig-turbidity
 #| echo: false
 #| fig-align: 'center'
-#| fig-cap: 'Turbidity by region in the San Francisco Bay-Delta estuary. Legend shape refers to sampling device type: circle = YSI-EXO 2 sonde, square = YSI-EXO 1 sonde.'
+#| fig-cap: 'Turbidity by region in the San Francisco Bay-Delta estuary.'
 
 include_graphics(here::here(file.path('admin/figures-tables/cwq/cwq_ts_turbidity.png')))
 ```
@@ -225,7 +223,7 @@ summary_spc$create_kable()
 #| label: fig-fluorescence
 #| echo: false
 #| fig-align: 'center'
-#| fig-cap: 'Chlorophyll a fluorescence by region in the San Francisco Bay-Delta estuary. Legend shape refers to sampling device type: circle = YSI-EXO 2 sonde, square = YSI-EXO 1 sonde.'
+#| fig-cap: 'Chlorophyll a fluorescence by region in the San Francisco Bay-Delta estuary.'
 
 include_graphics(here::here(file.path('admin/figures-tables/cwq/cwq_ts_fluorescence.png')))
 ```
