@@ -383,40 +383,59 @@ abs_path_data <- function(fp_rel = NULL) {
 }
 
 # determine water year
-get_water_year <- function(given_year = report_year) {
-  wy_text <- "https://cdec.water.ca.gov/reportapp/javareports?name=WSIHIST" %>%
-    read_html() %>%
-    html_element("pre") %>%
-    html_text2()
+get_water_year <- function(given_year = report_year,
+                           cache_path = "data/WSIHIST.html") {
+  url <- "https://cdec.water.ca.gov/reportapp/javareports?name=WSIHIST"
   
-  wy_int <- str_match(wy_text, paste0("(?<=", given_year, ")(.*?[a-zA-Z]+)(?=\\r)"))[[1]][1]
-  wy_parts <- str_extract_all(wy_int, "[a-zA-Z]+")[[1]]
+  wy_html <- tryCatch({
+    message("Fetching current WSIHIST data from CDEC...")
+    xml2::read_html(url)
+  }, error = function(e) {
+    warning(paste("Could not connect to CDEC (", conditionMessage(e),
+                  "). Using cached data instead.", sep = ""))
+    if (file.exists(cache_path)) {
+      message("Reading cached WSIHIST.html from: ", cache_path)
+      xml2::read_html(cache_path)
+    } else {
+      stop("No cached WSIHIST.html found at ", cache_path,
+           " and CDEC could not be reached.")
+    }
+  })
   
-  sac_abb <- wy_parts[1]
-  sj_abb <- wy_parts[2]
+  # cache data
+  if (!inherits(wy_html, "error")) {
+    dir.create(dirname(cache_path), showWarnings = FALSE, recursive = TRUE)
+    xml2::write_html(wy_html, cache_path)
+  }
   
-  sac_abb <- switch(sac_abb,
-                    "C" = "critically dry",
-                    "W" = "wet",
-                    "D" = "dry",
-                    "AN" = "above normal",
-                    "BN" = "below normal",
-                    "Unknown"
-  )
+  # extract the text
+  wy_text <- wy_html %>%
+    rvest::html_element("pre") %>%
+    rvest::html_text2()
   
-  sj_abb <- switch(sj_abb,
-                   "C" = "critically dry",
-                   "W" = "wet",
-                   "D" = "dry",
-                   "AN" = "above normal",
-                   "BN" = "below normal",
-                   "Unknown"
-  )
+  wy_int <- stringr::str_match(
+    wy_text,
+    paste0("(?<=", given_year, ")(.*?[a-zA-Z]+)(?=\\r)")
+  )[, 1]
   
+  wy_parts <- stringr::str_extract_all(wy_int, "[a-zA-Z]+")[[1]]
   
-  wy_abb <- list(sac = sac_abb, sj = sj_abb)
-  return(wy_abb)
+  decode <- function(x) {
+    switch(x,
+           "C"  = "critically dry",
+           "W"  = "wet",
+           "D"  = "dry",
+           "AN" = "above normal",
+           "BN" = "below normal",
+           x)
+  }
+  
+  sac_abb <- decode(wy_parts[1])
+  sj_abb  <- decode(wy_parts[2])
+  
+  list(sac = sac_abb, sj = sj_abb)
 }
+
 
 # text string for water year
 str_water_year <- function(given_year = report_year, period = c("cur", "prev")) {

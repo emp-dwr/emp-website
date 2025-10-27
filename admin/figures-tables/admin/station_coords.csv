@@ -1,0 +1,88 @@
+﻿Element,Survey,Station,Latitude,Longitude,Region,Active
+CWQ,CEMP,C10A,37.67929,-121.26511,South Delta,Active
+CWQ,USBR,C14,38.056788,-121.999971,Suisun and Grizzly Bays,Active
+CWQ,USBR,C2,38.073981,-121.850123,Confluence,Active
+CWQ,CEMP,C3A,38.103301,-121.591315,North Delta,Active
+CWQ,USBR,C4,37.99495,-121.702809,Central Delta,Active
+CWQ,USBR,C5,37.865,-121.3231,Central Delta,Active
+CWQ,CEMP,C7A,37.786,-121.306,South Delta,Active
+CWQ,USBR,C8,37.822101,-121.37499,South Delta,Active
+CWQ,CEMP,D10A,38.042805,-121.92009,Confluence,Active
+CWQ,CEMP,D11A,38.074097,-121.761736,Confluence,Active
+CWQ,CEMP,D12A,38.01783,-121.802963,Confluence,Active
+CWQ,CEMP,D16A,38.0969,-121.6691,Central Delta,Active
+CWQ,CEMP,D19A,38.046417,-121.5981,Central Delta,Active
+CWQ,USBR,D22,38.084272,-121.738924,Confluence,Active
+CWQ,CEMP,D24A,38.159737,-121.686355,North Delta,Active
+CWQ,CEMP,D29,38.066,-121.562,Central Delta,Active
+CWQ,CEMP,D6A,38.027637,-122.140488,Suisun and Grizzly Bays,Active
+CWQ,CEMP,D7A,38.12425,-122.038117,Suisun and Grizzly Bays,Active
+CWQ,CEMP,D8A,38.083971,-121.995878,Suisun and Grizzly Bays,Active
+CWQ,CEMP,D9A,38.0724,-121.9392,Confluence,Active
+CWQ,USBR,DMC1,37.781567,-121.590239,South Delta,Active
+CWQ,CEMP,P8A,37.963,-121.365,South Delta,Active
+CWQ,SMWQP,S21,38.184378,-122.083202,Suisun Marsh,Active
+CWQ,SMWQP,S33,38.1527,-122.0908,Suisun Marsh,Active
+CWQ,SMWQP,S35,38.119175,-122.095812,Suisun Marsh,Active
+CWQ,SMWQP,S42,38.180287,-122.046849,Suisun Marsh,Active
+CWQ,SMWQP,S49,38.186697,-121.970582,Suisun Marsh,Active
+CWQ,SMWQP,S64,38.122006,-121.888179,Suisun Marsh,Active
+CWQ,SMWQP,S71,38.093288,-121.887196,Suisun Marsh,Active
+DWQ,DEMP,C10A,37.679343,-121.264857,South Delta,Active
+DWQ,DEMP,C3A,38.367655,-121.520475,North Delta,Active
+DWQ,DEMP,C9,37.830917,-121.554004,South Delta,Active
+DWQ,DEMP,D10,38.048364,-121.918587,Confluence,Active
+DWQ,DEMP,D12,38.021427,-121.806965,Confluence,Active
+DWQ,DEMP,D16,38.087988,-121.681134,Central Delta,Active
+DWQ,DEMP,D19,38.047662,-121.622335,Central Delta,Active
+DWQ,DEMP,D22,38.08709,-121.747399,Confluence,Active
+DWQ,DEMP,D26,38.083861,-121.573184,Central Delta,Active
+DWQ,DEMP,D28A,37.969697,-121.573145,Central Delta,Active
+DWQ,DEMP,D4,38.065164,-121.83486,Confluence,Active
+DWQ,DEMP,D41,38.030135,-122.372771,San Pablo Bay,Active
+DWQ,DEMP,D41A,38.083333,-122.396333,San Pablo Bay,Active
+DWQ,DEMP,D6,38.046308,-122.121838,Suisun and Grizzly Bays,Active
+DWQ,DEMP,D7,38.116854,-122.039512,Suisun and Grizzly Bays,Active
+DWQ,DEMP,D8,38.059971,-121.992062,Suisun and Grizzly Bays,Active
+DWQ,DEMP,MD10A,38.04208,-121.422196,South Delta,Active
+DWQ,DEMP,NZ002,38.06529,-122.2152,Carquinez,Active
+DWQ,DEMP,NZ004,38.03576,-122.1616,Carquinez,Active
+DWQ,DEMP,NZ032,38.171063,-122.020467,Suisun Marsh,Active
+DWQ,DEMP,NZ068,38.142716,-121.68948,North Delta,Active
+DWQ,DEMP,NZ325,38.057409,-122.289997,San Pablo Bay,Active
+DWQ,DEMP,NZS42,38.1808,-122.049008,Suisun Marsh,Active
+DWQ,DEMP,P8,37.978248,-121.38232,South Delta,Active
+Phyto,DEMP,C10A,37.679343,-121.264857,South Delta,Active
+Phyto,DEMP,C3A,38.367655,-121.520475,North Delta,Active
+Phyto,DEMP,C9,37.830917,-121.554004,South Delta,Active
+Phyto,DEMP,D10,38.048364,-121.918587,Confluence,Active
+Phyto,DEMP,D12,38.021427,-121.806965,Confluence,Active
+Phyto,DEMP,D16,38.087988,-121.681134,Central Delta,Active
+Phyto,DEMP,D19,38.047662,-121.622335,Central Delta,Active
+Phyto,DEMP,D22,38.08709,-121.747399,Confluence,Active
+Phyto,DEMP,D26,38.083861,-121.573184,Central Delta,Active
+Phyto,DEMP,D28A,37.969697,-121.573145,Central Delta,Active
+Phyto,DEMP,D4,38.065164,-121.83486,Confluence,Active
+Phyto,DEMP,D41,38.030135,-122.372771,San Pablo Bay,Active
+Phyto,DEMP,D41A,38.083333,-122.396333,San Pablo Bay,Active
+Phyto,DEMP,D6,38.046308,-122.121838,Suisun and Grizzly Bays,Active
+Phyto,DEMP,D7,38.116854,-122.039512,Suisun and Grizzly Bays,Active
+Phyto,DEMP,D8,38.059971,-121.992062,Suisun and Grizzly Bays,Active
+Phyto,DEMP,MD10A,38.04208,-121.422196,South Delta,Active
+Phyto,DEMP,NZ002,38.06529,-122.2152,Carquinez,Active
+Phyto,DEMP,NZ004,38.03576,-122.1616,Carquinez,Active
+Phyto,DEMP,NZ032,38.171063,-122.020467,Suisun Marsh,Active
+Phyto,DEMP,NZ068,38.142716,-121.68948,North Delta,Active
+Phyto,DEMP,NZ325,38.057409,-122.289997,San Pablo Bay,Active
+Phyto,DEMP,NZS42,38.1808,-122.049008,Suisun Marsh,Active
+Phyto,DEMP,P8,37.978248,-121.38232,South Delta,Active
+Benthic,DEMP,C9,37.827172,-121.55229,South Delta,Active
+Benthic,DEMP,D16,38.093031,-121.669744,Central Delta,Active
+Benthic,DEMP,D24,38.154719,-121.68145,North Delta,Active
+Benthic,DEMP,D28A,37.970165,-121.574119,Central Delta,Active
+Benthic,DEMP,D4,38.060844,-121.82408,Confluence,Active
+Benthic,DEMP,D41,38.016055,-122.364717,San Pablo Bay,Active
+Benthic,DEMP,D41A,38.084717,-122.390667,San Pablo Bay,Active
+Benthic,DEMP,D6,38.057703,-122.114959,Suisun and Grizzly Bays,Active
+Benthic,DEMP,D7,38.116854,-122.039512,Suisun and Grizzly Bays,Active
+Benthic,DEMP,P8,37.977852,-121.379993,South Delta,Active

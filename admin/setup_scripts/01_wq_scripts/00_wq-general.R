@@ -682,7 +682,8 @@ WQFigureClass <- R6Class(
         ggtitle(region)
       
       if (color_by == "Analyte") {
-        plt <- plt + scale_color_manual(values = c("#5ab4ac", "#d8b365"))
+        plt <- plt + scale_color_manual(values = c("#5ab4ac", "#d8b365")) +
+          scale_fill_manual(values = c("#5ab4ac", "#d8b365"))
       } else if (plt_type == 'cwq') {
         plt <- plt + scale_fill_manual(values = self$station_colors) +
           scale_color_manual(values = self$station_colors)
