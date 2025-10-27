@@ -383,58 +383,64 @@ abs_path_data <- function(fp_rel = NULL) {
 }
 
 # determine water year
-get_water_year <- function(given_year = report_year,
-                           cache_path = "data/WSIHIST.html") {
-  url <- "https://cdec.water.ca.gov/reportapp/javareports?name=WSIHIST"
+get_water_year <- function(given_year = report_year) {
   
+  cache_path <- here::here('admin/data/cache/WSIHIST.html')
+  url <- 'https://cdec.water.ca.gov/reportapp/javareports?name=WSIHIST'
+  
+  # try to read from the website
   wy_html <- tryCatch({
-    message("Fetching current WSIHIST data from CDEC...")
+    message('Fetching current WSIHIST data from CDEC...')
     xml2::read_html(url)
   }, error = function(e) {
-    warning(paste("Could not connect to CDEC (", conditionMessage(e),
-                  "). Using cached data instead.", sep = ""))
+    warning(paste0('Could not connect to CDEC (', conditionMessage(e),
+                   '). Using cached data instead.'))
     if (file.exists(cache_path)) {
-      message("Reading cached WSIHIST.html from: ", cache_path)
+      message('Reading cached WSIHIST.html from: ', cache_path)
       xml2::read_html(cache_path)
     } else {
-      stop("No cached WSIHIST.html found at ", cache_path,
-           " and CDEC could not be reached.")
+      stop('No cached WSIHIST.html found at ', cache_path,
+           ' and CDEC could not be reached.')
     }
   })
   
-  # cache data
-  if (!inherits(wy_html, "error")) {
-    dir.create(dirname(cache_path), showWarnings = FALSE, recursive = TRUE)
-    xml2::write_html(wy_html, cache_path)
-  }
+  # cache result if successfully fetched
+  dir.create(dirname(cache_path), showWarnings = FALSE, recursive = TRUE)
+  xml2::write_html(wy_html, cache_path)
   
-  # extract the text
+  # extract the <pre> block
   wy_text <- wy_html %>%
-    rvest::html_element("pre") %>%
+    rvest::html_element('pre') %>%
     rvest::html_text2()
   
-  wy_int <- stringr::str_match(
-    wy_text,
-    paste0("(?<=", given_year, ")(.*?[a-zA-Z]+)(?=\\r)")
-  )[, 1]
+  # split into lines and find the one matching the year
+  line <- stringr::str_subset(stringr::str_split(wy_text, '\n')[[1]],
+                              paste0('^', given_year, '\\b'))
   
-  wy_parts <- stringr::str_extract_all(wy_int, "[a-zA-Z]+")[[1]]
+  if (length(line) == 0)
+    stop('Could not find line for year ', given_year)
   
-  decode <- function(x) {
-    switch(x,
-           "C"  = "critically dry",
-           "W"  = "wet",
-           "D"  = "dry",
-           "AN" = "above normal",
-           "BN" = "below normal",
-           x)
-  }
+  # split the line into columns by whitespace
+  parts <- stringr::str_split(line, '\\s+')[[1]]
+  parts <- parts[parts != '']  # drop empties
   
-  sac_abb <- decode(wy_parts[1])
-  sj_abb  <- decode(wy_parts[2])
+  # WY type for each basin is at the 6th and 11th position
+  sac <- parts[6]
+  sj  <- parts[11]
   
-  list(sac = sac_abb, sj = sj_abb)
+  decode <- function(x) switch(x,
+                               'C'  = 'critically dry',
+                               'D'  = 'dry',
+                               'BN' = 'below normal',
+                               'AN' = 'above normal',
+                               'W'  = 'wet',
+                               x
+  )
+  
+  list(sac = decode(sac), sj = decode(sj))
 }
+
+
 
 
 # text string for water year

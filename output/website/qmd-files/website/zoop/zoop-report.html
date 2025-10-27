@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.25">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Tracy Shaw and Kathy Hieb">
+
+<title>Zooplankton Report – Environmental Monitoring Program</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<link href="../../../admin/figures-tables/sentinel.ico" rel="icon">
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-55d3274487033b68adafe649666588b9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../../admin/styling_scripts/styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../../admin/figures-tables/admin/EMP_logo.png" alt="EMP logo" class="navbar-logo light-content">
+    <img src="../../../admin/figures-tables/admin/EMP_logo.png" alt="EMP logo" class="navbar-logo dark-content">
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../qmd-files/website/00_index/index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../qmd-files/website/general/data-links.html"> 
+<span class="menu-text">Data Links</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-annual-reports" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Annual Reports</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-annual-reports">    
+        <li>
+    <a class="dropdown-item" href="../../../qmd-files/website/cwq/cwq-report.html">
+ <span class="dropdown-text">Continuous Water Quality</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../qmd-files/website/dwq/dwq-report.html">
+ <span class="dropdown-text">Discrete Water Quality</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../qmd-files/website/benthic/benthic-report.html">
+ <span class="dropdown-text">Benthic Invertebrates</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../qmd-files/website/phyto/phyto-report.html">
+ <span class="dropdown-text">Phytoplankton</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../qmd-files/website/zoop/zoop-report.html">
+ <span class="dropdown-text">Zooplankton</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-special-studies" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Special Studies</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-special-studies">    
+        <li>
+    <a class="dropdown-item" href="../../../qmd-files/website/special-studies/veliger-info.html">
+ <span class="dropdown-text">Veliger Monitoring Program</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="mailto:ted.flynn@water.ca.gov"> 
+<span class="menu-text">Contact Us</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Contents</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#methods" id="toc-methods" class="nav-link" data-scroll-target="#methods">Methods</a></li>
+  <li><a href="#conditions" id="toc-conditions" class="nav-link" data-scroll-target="#conditions">2024 Conditions</a></li>
+  <li><a href="#trends" id="toc-trends" class="nav-link" data-scroll-target="#trends">Trends</a>
+  <ul class="collapse">
+  <li><a href="#calanoid-copepods" id="toc-calanoid-copepods" class="nav-link" data-scroll-target="#calanoid-copepods">Calanoid copepods</a></li>
+  <li><a href="#cyclopoid-copepods" id="toc-cyclopoid-copepods" class="nav-link" data-scroll-target="#cyclopoid-copepods">Cyclopoid copepods</a></li>
+  <li><a href="#cladocerans" id="toc-cladocerans" class="nav-link" data-scroll-target="#cladocerans">Cladocerans</a></li>
+  <li><a href="#rotifers" id="toc-rotifers" class="nav-link" data-scroll-target="#rotifers">Rotifers</a></li>
+  <li><a href="#mysids" id="toc-mysids" class="nav-link" data-scroll-target="#mysids">Mysids</a></li>
+  </ul></li>
+  <li><a href="#zooplankton-biomass" id="toc-zooplankton-biomass" class="nav-link" data-scroll-target="#zooplankton-biomass">Zooplankton biomass</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content column-page-left" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Zooplankton Report</h1>
+</div>
+
+
+
+<div class="quarto-title-meta column-page-left">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Tracy Shaw and Kathy Hieb </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>This report presents zooplankton annual and monthly abundances and distribution trends from water years 1974 through 2024 for the most common copepods (calanoid and cyclopoid), cladocerans, rotifers, and mysids of the upper estuary.</p>
+</section>
+<section id="methods" class="level2">
+<h2 class="anchored" data-anchor-id="methods">Methods</h2>
+<p>Zooplankton have been sampled in the upper SFE since 1972, once or twice per month from March to November through 1994, and monthly from 1995 to the present. Sampling was modified due to the COVID-19 pandemic, with no surveys in April and May 2020, a reduced survey (five stations) in December 2020, and no surveys in January and February 2021. Samples were collected at stations from San Pablo Bay through the Delta (Figure 1), including up to four non-fixed stations representing the low salinity zone (LSZ), defined as bottom specific conductance of 2 and 6 millisiemens per centimeter (approximately 1 and 3 psu). As of June 2024, sampling was suspended at stations 2 and 4 (Carquinez Strait), 325 (San Pablo Bay), and low-salinity zone stations in the San Joaquin River, but this sampling may be reinstated in the future.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-stations" class="quarto-float quarto-figure quarto-figure-center anchored" width="85%" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-stations-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../../../admin/figures-tables/zoop/zoop_station_map.jpg" id="fig-stations" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" style="width:85.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-stations-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Zooplankton were sampled using three gear types that target different size classes: 1) pump samples (collected with a 1/10 hp, 12V utility pump) filtered through a 43-micron mesh net for micro-zooplankton (rotifers, copepod nauplii, and small cyclopoid copepods); 2) Clarke-Bumpus (CB) net with 160-micron mesh to sample meso-zooplankton (cladocerans and most juvenile and adult calanoid copepods); 3) mysid net with 505-micron mesh targeting mysid shrimp and other macro-zooplankton. The mysid and CB nets were mounted on the same tow sled and samples were collected in 10-minute stepped oblique tows over the depth range of each station.</p>
+<p>Catch per unit effort (CPUE) was calculated using the volume of water filtered during a net tow. Volume filtered during mysid and CB tows was determined using a General Oceanics flowmeter mounted in the mouth of each net and calculated as:</p>
+<p><span class="math display">\[V=(endmeter−startmeter)k∗a\]</span><br>
+where V is the volume of water sampled (mL), k is the flow meter constant, and a is the area of the mouth of the net (m<sup>2</sup>).</p>
+<p>The pump samples 19.8 gallons over the upper 30’ of the water column, filtered through a 43-micron mesh net. All zooplankton samples are preserved immediately after collection in 10% formalin with rose bengal dye. Target organisms in each sample are identified and counted in the laboratory using dissecting microscopes. More information about the sampling and processing methods can be found in the metadata <a href="https://filelib.wildlife.ca.gov/Public/IEP_Zooplankton/">here</a>.</p>
+<p>Abundance indices are calculated for each organism from its target gear type (noted above). Abundance is reported as mean CPUE, calculated as the number of each organism collected per cubic meter of water sampled:</p>
+<p><span class="math display">\[CPUE=s∗V^{−1}\]</span><br>
+where <em>s</em> is the estimated count of the target organism in the sample.</p>
+<p>Calanoid and cyclopoid copepod abundance indices reported here comprise adults only, as juveniles cannot always be identified to species. Annual and monthly abundance indices were calculated using 16 fixed stations sampled consistently since 1974 (Figure 1) and two to four non-fixed LSZ stations (described above). Note that the number of LSZ stations per survey varied as only one sample was collected if the LSZ location was the same as a fixed station.</p>
+<p>To analyze long-term trends (1974 to present), annual abundance indices were calculated as the mean CPUE for samples collected from March through November, as winter sampling was inconsistent before 1995. Monthly abundances span the period from October 2023 through December 2024 to encompass both water year and calendar year and are also shown by region, as detailed in each section below. Estuary regions are designated as San Pablo Bay (stations D41, D41A, 325), Suisun and Grizzly Bay (stations 2, 4, D6, 28, 48), Suisun Marsh (stations 32, S42), Confluence (stations 54, 60, 64, 74), Central Delta (stations D16, 86, D28, M10), North Delta (68), and South Delta (92) (Figure 1). Non-fixed LSZ stations were assigned to a geographic region based on their location, which was most often in the Confluence in 2024 (18 of 21), or Suisun and Grizzly Bay (April, May, June). Sampling of LSZ stations in the San Joaquin River was suspended as of June 2024, but an LSZ station was only found in this region in January. Annual indices include data from the 16 core stations and the two LSZ stations not in the San Joaquin River. Monthly CPUE by region for 2024 includes data from all LSZ stations (fixed and non-fixed).</p>
+<p>Biomass of copepods, cladocerans, and rotifers was determined following standard methods (Bashevkin et al.&nbsp;2022 and references therein) using literature values of carbon per individual (Dumont et al.&nbsp;1975, Salonen, K., Latja, R. 1988, Uye et al.&nbsp;1983, Culver et al.&nbsp;1985, Sabatini and Kiørboe 1994, Uye and Sano 1995, Walz 1995, Kimoto et al.&nbsp;1986, Logerwell and Ohman 1999, Hooff &amp; Bollens 2004). For mysids, dry weight was calculated based on length and converted to carbon using a standard conversion of 40% (Wiebe et al.&nbsp;1975, Kiørboe 2013). Biomass is reported as biomass per unit effort (BPUE, calculated using volume filtered as for CPUE) by region for the most abundant species in the estuary (Tables 1, 2, 3, 4).</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../../admin/figures-tables/zoop/zoop_table1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../../admin/figures-tables/zoop/zoop_table2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../../admin/figures-tables/zoop/zoop_table3.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../../admin/figures-tables/zoop/zoop_table4.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="conditions" class="level2">
+<h2 class="anchored" data-anchor-id="conditions">2024 Conditions</h2>
+<p>Freshwater outflow was high only in February and March 2024, in contrast with extended high outflow in 2023 from atmospheric river storms (Figure 2). In 2023 high outflow transported small zooplankton downstream from upper estuary regions, but less intense and shorter duration outflow in 2024 suggests that low numbers of small zooplankton in upper estuary regions during these months are likely related to seasonal patterns of productivity rather than outflow.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../../admin/figures-tables/zoop/zoop_fig2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="trends" class="level2">
+<h2 class="anchored" data-anchor-id="trends">Trends</h2>
+<p>The overall abundance of zooplankton in the estuary has decreased significantly over the course of the Zooplankton Study (Figure 3). Cyclopoid copepods as a whole were the only group that increased in abundance over the study period, but this was driven by the introduction and proliferation of the invasive <em>Limnoithona tetraspina</em> in the mid-1990s. The overall decrease in zooplankton abundance can be attributed to invasive species colonizing the estuary, most notably the Asian clam <em>Potamocorbula amurensis</em> in the mid-1980s (Kimmerer et al.&nbsp;1994; Carlton et al.&nbsp;1990). Abundances of both phytoplankton and zooplankton in the upper estuary have been impacted by the proliferation of <em>P. amurensis</em>, as it is a highly efficient filter feeder and consumes phytoplankton and small zooplankton, including copepod nauplii. In addition to decreased abundance of most zooplankton groups, community compositions have changed dramatically during the study period (Figure 3), driven by a combination of the introduction and spread of non-native species and changes in the abiotic and biotic environments.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../../admin/figures-tables/zoop/zoop_fig3.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<section id="calanoid-copepods" class="level3">
+<h3 class="anchored" data-anchor-id="calanoid-copepods">Calanoid copepods</h3>
+<p>Aside from a 25-year high in calanoid copepod abundance in 2017, total abundance was similar from 1995 to 2024 (Figure 3). Total abundance of calanoid copepods in 2024 declined slightly compared to 2023 but remained within the range of the past six years (2018-2023) (Figure 3). Proportions of <em>Pseudodiaptomus forbesi</em> and <em>Acartiella sinensis</em> also remained similar during this period (Figure 3). Adult calanoid copepod abundance declined only slightly over the study period, but their community composition changed dramatically (Figure 3). When the study began in the early 1970s, the calanoid copepod community was dominated by <em>Acartia</em> spp. and an introduced species in the genus <em>Eurytemora</em> (initially identified as <em>E. affinis</em> (Esterly 1924), now considered <em>E. carolleeae</em> (Alekseev and Soussi 2011), referenced in this report as <em>Eurytemora</em> spp.). Even though <em>Eurytemora</em> spp<em>.</em> is not native, it was once the primary prey of the endangered Delta Smelt. However, as its abundance declined, fish increasingly preyed on more recently introduced calanoids like <em>P. forbesi</em> (Moyle et al.&nbsp;1992; Slater and Baxter 2014).</p>
+<p>One of the first recorded calanoid copepod introductions was <em>Sinocalanus doerrii</em>, a freshwater species native to China that invaded the estuary in 1978 and remained the most dominant calanoid species for a decade (Orsi et al.&nbsp;1983). The calanoid <em>P. forbesi</em> was first detected by the present study in October 1987 (Orsi and Walter 1991), shortly after the <em>Potamocorbula amurensis</em> invasion in the mid-1980s (Carlton et al.&nbsp;1990, Kimmerer et al.&nbsp;1994). Combined effects of these introductions may have influenced subsequent abundance declines of <em>E. affinis</em> and <em>S. doerrii</em>. <em>P. forbesi</em> quickly became the numerically dominant calanoid in the upper estuary and remains the most abundant to this day. The predatory calanoid copepod <em>Acartiella sinensis</em> was introduced in 1993 and soon became the second most abundant calanoid in the upper estuary, dominating the low-salinity zone in the Suisun Marsh and Confluence regions (Orsi and Ohtsuka 1999). This invasion appears to have narrowed the range of <em>P. forbesi</em> towards freshwater areas of the estuary, potentially in relation to predation by <em>A. sinensis</em> on <em>P. forbesi</em> nauplii (Kayfetz and Kimmerer 2017).</p>
+<p>Calanoid abundances, including <em>Eurytemora</em> spp., were very low from January through March in upstream regions (South, Central, and North Delta, and Confluence) (Figure 4), in contrast with seasonal distribution patterns from drought years (2020 through 2022) that showed <em>Eurytemora</em> spp. as the most common calanoid in these regions in spring (see link in Reference section to previous zooplankton annual reports).</p>
+<p>Similar to recent years, <em>Pseudodiaptomus forbesi</em> was dominant in the South, Central, and North Delta, and Confluence but abundances in 2024 remained low until May or June (Figure 4) whereas in prior years abundances increased starting in March (see link in Reference section to previous zooplankton annual reports). <em>P. forbesi</em> inhabits low salinity waters so this species is typically rare in downstream regions but was fairly abundant in May and June in Suisun Marsh and Suisun and Grizzly Bay (Figure 4). Unlike 2023, this species was not found in San Pablo Bay (Shaw and Hieb 2024). <em>P. forbesi</em> was abundant in the North Delta in December 2023 and July 2024 but calanoids were low in all other months in this region. In the Confluence region, <em>P. forbesi</em> abundance increased substantially between April and May and was high in June but decreased in subsequent months (Figure 4).</p>
+<p>The predatory <em>Acartiella sinensis</em> was the dominant species in the Confluence, Suisun Marsh, and Suisun and Grizzly Bay regions in July and August but from September through November numbers of <em>A. sinensis</em> and <em>P. forbesi</em> were similar in these regions (Figure 4). Abundance of <em>A. sinensis</em> in the Confluence region was similar July through November, but high in Suisun Marsh only in August. In Suisun and Grizzly Bay <em>P. forbesi</em> was fairly abundant in May and June but <em>A. sinensis</em> dominated the region from July through October. In these three regions, <em>A. sinensis</em> co-occurred with high densities of one of its primary prey items, <em>Limnoithona tetraspina</em> (Figure 5). <em>P. forbesi</em> abundance was high in Suisun Marsh from March through July in 2024, in contrast with low abundances in this region during the drought years from 2020 through 2022 (see link in Reference section to previous zooplankton annual reports).</p>
+<p><em>Acartia</em> spp. were the only native calanoids commonly found in 2024, and they were present only in the lower estuary. These copepods prefer brackish water and were the most abundant copepods in San Pablo Bay from March through December, though monthly abundances varied (Figure 4). In Suisun and Grizzly Bay, <em>Acartia</em> spp. were present during most months but abundant only in December 2024. <em>Eurytemora</em> spp. were abundant in this region from February through June in 2023, while in 2024 they were only moderately abundant in April and May. In 2024 <em>Tortanus</em> spp. were present in this region throughout the year (Figure 4) while in 2023 they were essentially absent from this region until June (Shaw and Hieb 2024). In San Pablo Bay, <em>Tortanus</em> spp. abundances were low, aside from moderate abundance in February (Figure 4).</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../../admin/figures-tables/zoop/zoop_fig4.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="cyclopoid-copepods" class="level3">
+<h3 class="anchored" data-anchor-id="cyclopoid-copepods">Cyclopoid copepods</h3>
+<p>In contrast with the general decline of major zooplankton groups during the study period, adult cyclopoid copepods increased dramatically, particularly from 2012 to 2022 (Figure 3). In 2023 cyclopoid copepod abundance declined to about half the average for the previous decade (Figure 3), likely because these small organisms were transported downstream by high freshwater outflow, but cyclopoid abundance in 2024 was similar to 2022 (Figure 3).</p>
+<p>Abundances of <em>Oithona</em> spp. and <em>Acanthocyclops</em> copepods were very low when the study began (Figure 3), and the increase in cyclopoid abundance resulted from the introduction of <em>Limnoithona sinensis</em> in the early 1980s and subsequent identification of the invasive <em>Limnoithona tetraspina</em> in 1993 (Ferrari and Orsi 1984; Orsi and Ohtsuka 1999). These two species were reported together as <em>Limnoithona</em> spp. from 1980 through 2006. <em>Limnoithona</em> were identified to species starting in 2007, leading to the discovery that <em>L. tetraspina</em> is by far the dominant species. For the sake of consistency, abundances were combined and reported here as <em>Limnoithona</em> spp. In 2024, <em>Limnoithona</em> spp. was by far the most abundant copepod group collected by this study (Figure 3).</p>
+<p>The increase in <em>L. tetraspina</em> abundance may be related to decreased predation due to the decline of Northern Anchovy in the upper SFE (Kimmerer 2006). In addition, the small size, high growth rate, and motionless behavior of <em>L. tetraspina</em> may decrease its vulnerability to predation in a region where most fish are visual predators (Bouley and Kimmerer 2006, Kimmerer 2006). The introduction of <em>L. tetraspina</em> is linked to <em>P. forbesi</em> distribution shifting upstream of the low-salinity zone of the estuary, as higher densities of <em>L. tetraspina</em> may sustain larger populations of the predatory <em>A. sinensis</em>, which also preys on <em>P. forbesi</em> nauplii (Kayfetz and Kimmerer 2017).</p>
+<p><em>Limnoithona</em> spp<em>.</em> were the most abundant cyclopoids in 2024, but their abundances were generally low from January through May in all regions of the estuary and remained low in the South, Central, and North Delta in comparison with other regions (Figure 5). <em>Limnoithona</em> spp. abundances increased in the Confluence, Suisun Marsh, and Suisun and Grizzly Bay regions starting in June or July and remained high through November (Figure 5). In previous years <em>Limnoithona</em> spp. have been virtually absent from San Pablo Bay, but were moderately abundant here in March and May 2024, then declined with increasing salinities, concurrent with increased abundance of the introduced <em>Oithona davisae,</em> typically the most abundant cyclopoid in this region (Figure 5).</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../../admin/figures-tables/zoop/zoop_fig5.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="cladocerans" class="level3">
+<h3 class="anchored" data-anchor-id="cladocerans">Cladocerans</h3>
+<p>Cladocerans in the upper estuary primarily comprised species in the genera <em>Bosmina</em>, <em>Ceriodaphnia, Daphnia</em>, and <em>Diaphanosoma.</em> Their populations have declined substantially during the study period (Figure 3). Although there has been somewhat of an increasing trend since the late 1990s, abundances in 2023 and 2024 were among the lowest since 2013 (Figure 3). Cladocerans are largely herbivorous and feed primarily on phytoplankton, so they likely were impacted by the invasion of <em>P. amurensis</em> (Baxter et al.&nbsp;2008; Greene et al.&nbsp;2011, Kratina and Winder 2015). Throughout the upper estuary, cladocerans comprise a significant portion of Delta Smelt and juvenile Chinook Salmon diets (Slater and Baxter 2014; Goertler et al.&nbsp;2018) and were historically an important food source for young-of-the-year Striped Bass (Heubach et al.&nbsp;1963). Increased abundances of invasive copepods such as <em>P. forbesi</em> and the declines in native cladocerans may alter the nutritional content of the planktonic prey available to fish (Kratina and Winder 2015).</p>
+<p>In the early years of the study, the cladoceran community was dominated by <em>Bosmina longirostris</em> and <em>Daphnia</em> spp. (Figure 3). Over the last decade, the cladoceran community shifted to higher proportions of <em>Ceriodaphnia</em> spp. and <em>Diaphanosoma</em> spp., although <em>B. longirostris</em> and <em>Daphnia</em> spp. were still present (Figure 3). Cladoceran abundance in 2024 was only slightly higher than 2023, with <em>Diaphanosoma</em> spp. the most abundant taxon, followed by similar abundances of <em>B. longirostris</em> and <em>Ceriodaphnia</em> (Figure 3).</p>
+<p>Cladoceran abundances overall were lower in most regions in 2024 compared to 2023 (Shaw and Hieb 2024) in all regions except the South and Central Delta (Figure 6). Note the difference in scale between these two regions and the rest of the study area (e.g.&nbsp;South Delta CPUE in October 2024 is higher than maximum CPUE in all regions except Central Delta). In the South and Central Delta, low abundances of cladocerans in the early months of the year comprised <em>B. longirostris</em>, <em>Ceriodaphnia</em> spp., <em>Daphnia</em> spp. and the “other” category. Abundances were high from June through September with <em>Diaphanosoma</em> spp. the most abundant taxon in these regions, along with <em>Ceriodaphnia</em> spp. in the Central Delta in July and August, and <em>B. longirostris</em> in July in both regions (Figure 6).</p>
+<p>In the North Delta, abundances were highest in February and March, low July through November, and high in December (2024), with similar species composition (<em>B. longirostris, Ceriodaphnia</em> spp., <em>Daphnia</em> spp., and “other”) during periods of high abundance. In the Confluence region abundances increased starting in January and remained elevated through July, although the species composition changed from <em>B. longirostris</em>, <em>Ceriodaphnia</em>, <em>Daphnia</em>, and “other” from January through April, to higher numbers of <em>Ceriodaphnia</em> in May and a dramatic increase in <em>Diaphanosoma</em> in June (Figure 6). Abundances were much lower from July to September, but <em>Diaphanosoma</em> remained the dominant taxon (Figure 6). In Suisun and Grizzly Bay and Suisun Marsh, cladocerans, largely <em>B. longirostris</em> and “other”, were present in winter and spring months but all taxa were essentially absent after June. The cladoceran community in San Pablo Bay comprised only the “other” category, with the highest CPUE in December (Figure 6).</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../../admin/figures-tables/zoop/zoop_fig6.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="rotifers" class="level3">
+<h3 class="anchored" data-anchor-id="rotifers">Rotifers</h3>
+<p>Although rotifers are the most abundant type of zooplankton in the upper estuary, their abundance decreased dramatically since the start of the study (Figure 3). Interestingly, the decline in rotifer abundance began in the late 1970s, preceding the invasion by <em>P. amurensis</em> (Cloern and Jassby 2012). The rotifer community comprised species from the genera <em>Polyarthra</em>, <em>Synchaeta</em>, <em>Keratella</em>, and <em>Trichocerca</em>, as well as the “other” rotifer category, which includes the genus <em>Asplanchna</em>. Rotifer abundance increased in 2023 after several very low years but decreased again in 2024 when <em>Synchaeta</em> spp. abundance declined to about half that of 2023 (CPUE 5,864 and 11,502, respectively) (Figure 3). In 2024, “other” rotifers were most abundant, followed by <em>Synchaeta</em> spp. <em>Synchaeta bicornis, Polyarthra</em> spp<em>.</em> and <em>Keratella</em> spp. (Figure 3).</p>
+<p><em>Keratella</em> and <em>Polyarthra</em> tended to be most abundant in freshwater and low-salinity regions (Figure 7), their preferred habitats (Winder and Jassby 2011). Increased abundances of these taxa in Suisun Marsh and Suisun and Grizzly Bay in the winter and spring of 2024 suggest fresher than usual conditions, though <em>Synchaeta</em> spp. co-occurred with them in all regions including San Pablo Bay. A spatial and temporal split was discernible between <em>Synchaeta</em> and the other rotifer groups, with <em>Synchaeta</em> spp. the dominant group in the North Delta, Confluence, Suisun Marsh, Suisun and Grizzly Bay, and San Pablo Bay during winter and spring months but largely absent after April except in San Pablo Bay. In Suisun and Grizzly Bay there was a noticeable increase in <em>S. bicornis</em> abundance from August through October, though <em>Synchaeta</em> spp. were also present. The “other” rotifers group was most abundant in the Central Delta during summer. In the South Delta, <em>Polyarthra</em> spp., and “other” were most abundant in spring and summer, with a dramatic increase in abundance of <em>Synchaeta</em> spp. in November 2024 (Figure 7).</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../../admin/figures-tables/zoop/zoop_fig7.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="mysids" class="level3">
+<h3 class="anchored" data-anchor-id="mysids">Mysids</h3>
+<p>Mysid abundances were higher overall during the first 12 years of the Zooplankton Study, with the highest abundance in 1986 (Figure 3). From 1987 to the present, annual abundances have varied from 2.1 to 29.4 (mean 12.3), with the 2024 annual CPUE of 16.6 slightly higher than 2023 (13.1) (Figure 3) and higher than the mean over this period. In addition to an overall decline since the inception of the study, the mysid community composition shifted dramatically. Prior to 1994, the native <em>Neomysis mercedis</em> was the most abundant species but since 1994 the mysid community has been dominated by the introduced <em>Hyperacanthomysis longirostris</em> (formerly <em>Acanthomysis bowmani</em>) (Figure 3). <em>N. mercedis</em> declined significantly during the 1976-1977 drought, likely related to food limitation from a lack of diatoms due to low river discharges (Siegfried et al.&nbsp;1979; Cloern et al.&nbsp;1983). <em>N. mercedis</em> populations rebounded after the drought and abundances remained high in the Suisun Bay region until the introduction of <em>P. amurensis</em> in the mid-1980s, after which their numbers declined dramatically and remained low (Orsi 1999). The mysid community in 2024 was dominated by <em>H. longirostris</em>, along with a small proportion of <em>Neomysis kadiakensis</em>. <em>H. longirostris</em> remained the most common mysid in the upper estuary, while the abundance of the once dominant native species <em>N. mercedis</em> remained extremely low, continuing the overall trend in mysid community composition since 1994.</p>
+<p>The introduced mysid <em>H. longirostris</em> was first detected by the present study in 1993, shortly after the decline of <em>N. mercedis</em>. Although <em>H. longirostris</em> quickly became the most common mysid in the system, total mysid abundances have not returned to their pre-clam (<em>Potamocorbula amurensis</em>) invasion levels (Modlin and Orsi 1997, Figure 3). Historically mysids have been critically important in the diets of many fish species in the upper SFE, including Delta Smelt, Longfin Smelt, Striped Bass, and Chinook Salmon (Moyle et al.&nbsp;1992; Feyrer et al.&nbsp;2003; CDFG 2009; Goertler et al.&nbsp;2018). The decline of mysids in the upper estuary led to a significant decrease in their presence in fish diets (Feyrer et al.&nbsp;2003).</p>
+<p>In 2024 <em>H. longirostris</em>, the dominant mysid species, was most common in the Confluence, Suisun Marsh, and Suisun and Grizzly Bay regions from June through September, with an unusually high abundance in the South Delta in August (Figure 8). <em>Neomysis kadiakensis</em>, the second most abundant mysid species, followed a similar seasonal pattern to that of <em>H. longirostris</em>, although <em>N. kadiakensis</em> was also moderately abundant in San Pablo Bay in summer (Figure 8). Although abundances of the native <em>N. mercedis</em> remain very low, this species was found in the South Delta, Central Delta, Suisun Marsh, and San Pablo Bay in 2024.</p>
+<p>From January through April, mysids were essentially absent from all regions except Suisun and Grizzly Bay and San Pablo Bay. The mysid community in San Pablo Bay typically comprised the “other” species (<em>Acanthomysis aspera, Acanthomysis hwanhaiensis, and Alienacanthomysis macropsis</em>). This group was present during most months but most abundant in summer (June to August), along with smaller numbers of <em>N. kadiakensis</em> and <em>H. longirostris</em> (Figure 8). Note that the present study samples only the upper portion of San Pablo Bay, so these findings do not represent mysid community dynamics in other areas of San Pablo Bay.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../../admin/figures-tables/zoop/zoop_fig8.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="zooplankton-biomass" class="level2">
+<h2 class="anchored" data-anchor-id="zooplankton-biomass">Zooplankton biomass</h2>
+<p>Biomass (biomass per unit effort, BPUE, micrograms of carbon per cubic meter) was calculated for copepods, cladocerans, rotifers, and mysids (Tables 1, 2, 3, 4). Overall, rotifers (41%) and calanoid copepods (30%) comprise the majority of zooplankton biomass, followed by cyclopoid copepods (17%), cladocerans (11%), and mysids (1%) (Table 1). <em>P. forbesi</em> and <em>Eurytemora</em> were significant in all regions except San Pablo Bay, along with <em>Acartiella</em> in the Confluence and lower estuary (Suisun Marsh, Suisun and Grizzly Bay), and <em>Tortanus</em> in Suisun and Grizzly Bay and San Pablo Bay (Table 2). BPUE of cladocerans, largely <em>Diaphanosoma,</em> was high in the South and Central Delta regions (Tables 1, 2). The extremely abundant cyclopoid copepod <em>Limnoithona</em> sp., found in the tens of thousands in Suisun Marsh and Suisun and Grizzly Bay (Figure 5), only accounts for a maximum of 8% of total BPUE in these regions (Table 1). The cyclopoid <em>O. davisae</em> and the calanoids <em>Acartia</em> spp. and <em>Tortanus</em> spp. account for the highest percentage of carbon in San Pablo Bay (Tables 2, 3). Carbon from mysids only accounted for 1% of total carbon (Table 1), with higher BPUE in summer months in Suisun Marsh and Suisun and Grizzly Bay but generally low otherwise (Table 4).</p>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>In 2024, the Zooplankton Study recorded copepods, cladocerans, rotifers, and mysids at abundances consistent with historic downward trends in the upper estuary. Abundances of all zooplankton groups peaked in summer of 2024, and rotifer abundances were also high from February to April. Freshwater outflow in early 2024 was less intense and of shorter duration than in 2023, suggesting that low numbers of small zooplankton in upper estuary regions from January through March are likely related to seasonal patterns of productivity rather than outflow. The small, introduced cyclopoid <em>Limnoithona tetraspina</em> remained the most abundant copepod in upper estuary regions (North, South, and Central Delta), though its BPUE in these regions was low compared to calanoids, cladocerans, and rotifers. Mysid abundance remained low compared to historic levels but increased slightly in 2024 compared to 2023. The mysid community remained dominated by the introduced <em>Hyperacanthomysis longirostris,</em> in comparison to the pre-1987 community, which was dominated by the native <em>Neomysis mercedis</em>.</p>
+<p>The long-term Zooplankton Study allows researchers and managers to track shifts in zooplankton abundances and community composition in the upper estuary for more than five decades. The Zooplankton Study has documented the introduction and dominance of <em>Pseudodiaptomus forbesi</em>, <em>Limnoithona tetraspina</em>, and <em>Hyperacanthomysis longirostris</em>, as well as the community’s response to the invasive clam <em>Potamocorbula amurensis</em>. Understanding these dynamics and how they have fundamentally changed trophic interactions is critical to assessing conservation strategies and food resources for fish in the upper San Francisco Estuary.</p>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<p>Alekseev, VR, Souissi, A.2011. A new species within the <em>Eurytemora affinis</em> complex (Copepoda: Calanoida) from the Atlantic Coast of USA, with observations on eight morphologically different European populations, Zootaxa 2767: 41-56</p>
+<p>Bashevkin SM, Hartman R, Thomas M, Barros A, Burdi CE, Hennessy A, Tempel T, Kayfetz K. 2022. Five decades (1972–2020) of zooplankton monitoring in the upper San Francisco Estuary. https://doi.org/10.1371/journal.pone.0265402</p>
+<p>Baxter R, Feyrer F, Nobriga M, Sommer T. 2008. Pelagic Organism Decline Progress Report: 2007 Synthesis of Results. (filelib.wildlife.ca.gov).</p>
+<p>Bouley P, Kimmerer WJ. 2006. Ecology of a highly abundant, introduced cyclopoid copepod in a temperate estuary. Mar Ecol Prog Ser. 324:219–228.</p>
+<p>Carlton JT, Thompson JK, Schemel LE, Nichols FH. 1990. Remarkable invasion of San Francisco Bay (California, USA) by the Asian clam&nbsp;<em>Potamocorbula amurensis</em>. I. Introduction and dispersal. Mar Ecol Prog Ser. 66:81–94.</p>
+<p>CDFG. 2009. A Status Review of the Longfin Smelt (<em>Spirinchus thaleichthys</em>) in California. Sacramento.</p>
+<p>Cloern JE, Alpine AE, Cole BE, Wong RLJ, Arthur JF, Ball MD. 1983. River discharge controls phytoplankton dynamics in the northern San Francisco Bay estuary. Estuar Coast Shelf Sci. 16(4):415–429.</p>
+<p>Cloern JE, Jassby AD. 2012. Drivers of change in estuarine-coastal ecosystems: Discoveries from four decades of study in San Francisco Bay. Rev Geophys. 50:4001.</p>
+<p>Culver, D, Boucherle, MM, Bean, DJ, Fletcher, JW. 1985. Biomass of Freshwater Crustacean Zooplankton from Length–Weight Regressions. Can. J. Fish. Aquat. Sci. 42(8):<a href="https://doi.org/10.1139/f85-173" class="uri">https://doi.org/10.1139/f85-173</a></p>
+<p>Dumont, HJ, Van de Velde, I, Dumont, S. 1975. The dry weight estimate of biomass in a selection of Cladocera, Copepoda and Rotifera from the plankton, periphyton and benthos of continental waters. Oecologia 19:75–97. <a href="https://doi.org/10.1007/BF00377592" class="uri">https://doi.org/10.1007/BF00377592</a></p>
+<p>Esterly, CO. 1924. The free-swimming Copepoda of San Francisco Bay, University of California Publications in Zoology, Berkeley 26(5): 81-129.</p>
+<p>Ferrari FD, Orsi J. 1984. <em>Oithona davisae</em>, new species, and <em>Limnoithona sinensis</em> (Burckhardt, 1912) (Copepoda: Oithonidae) from the Sacramento-San Joaquin Estuary, California. J Crustac Biol. 4(1):106–126.</p>
+<p>Feyrer F, Herbold B, Matern SA, Moyle PB. 2003. Dietary shifts in a stressed fish assemblage: Consequences of a bivalve invasion in the San Francisco Estuary.</p>
+<p>Goertler P, Jones K, Cordell J, Schreier B, Sommer T. 2018. Effects of extreme hydrologic regimes on juvenile Chinook Salmon prey resources and diet composition in a large river floodplain. Trans Am Fish Soc. 147:287–299.</p>
+<p>Greene VE, Sullivan LJ, Thompson JK, Kimmerer WJ. 2011. Grazing impact of the invasive clam <em>Corbula amurensis</em> on the microplankton assemblage of the northern San Francisco estuary. Mar Ecol Prog Ser. 431:183–193.</p>
+<p>Hartman, R, Burdi, CE, Rasmussen, NL. et al.&nbsp;2025. Hidden Complexities in the Base of the Pelagic Food Web: Correlates Between Zooplankton and Chlorophyll Vary by Functional Feeding Group. Estuaries and Coasts 48:129. <a href="https://doi.org/10.1007/s12237-025-01567-4" class="uri">https://doi.org/10.1007/s12237-025-01567-4</a></p>
+<p>Heubach W, Toth RJ, Mccready AM. 1963. Food of Young-of-the-year Striped Bass (<em>Roccus Saxatilis</em>) in the Sacramento-San Joaquin River. Calif Fish Game. 49(4):224–239.</p>
+<p>Hobbs JA, Bennett WA, Burton JE. 2006. Assessing nursery habitat quality for native smelts (Osmeridae) in the low-salinity zone of the San Francisco estuary. J Fish Biol. 69(3):907–922.</p>
+<p>Hooff, RC, Bollens, SM. 2004. Functional response and potential predatory impact of <em>Tortanus dextrilobatus</em>, a carnivorous copepod recently introduced to the San Francisco Estuary. Mar.&nbsp;Ecol. Prog. Ser. 277: 167-179. <a href="https://doi.org/10.3354/meps277167" class="uri">https://doi.org/10.3354/meps277167</a>.</p>
+<p>Kayfetz K, Kimmerer W. 2017. Abiotic and biotic controls on the copepod <em>Pseudodiaptomus forbesi</em> in the upper San Francisco Estuary. Mar Ecol Prog Ser. 581:85–101.</p>
+<p>Kiørboe T. 2013. Zooplankton body composition. Limnol. Oceanog. 58(5):1843-1850.</p>
+<p>Kimmerer W, Ignoffo TR, Bemowski B, Modéran J, Holmes A, Bergamaschi B. 2018. Zooplankton dynamics in the Cache Slough Complex of the upper San Francisco estuary. San Fr Estuary Watershed Sci. 16(3).</p>
+<p>Kimmerer WJ. 2006. Response of anchovies dampens effects of the invasive bivalve <em>Corbula amurensis</em> on the San Francisco Estuary foodweb. Mar Ecol Prog Ser. 324:207–218.</p>
+<p>Kimmerer WJ, Gartside E, Orsi JJ. 1994. Predation by an introduced clam as the likely cause of substantial declines in zooplankton of San Francisco Bay. Mar Ecol Prog Ser. 113(1–2):81–94.</p>
+<p>Kimoto, K, Uye, S., Onbé, T. 1986. Egg production of a brackish water calanoid copepod copepod <em>Sinocalanus tenellus</em> in relation to food abundance and temperature. Bull. Plankt. Soc. Japan. 33(2):133-145.</p>
+<p>Kratina P, Winder M. 2015. Biotic invasions can alter nutritional composition of zooplankton communities. Oikos. 124:1337–1345.</p>
+<p>Logerwell, EA, Ohman, MD. 1999. Egg-brooding, body size and predation risk in planktonic marine copepods. Oecologia 121:426–431.</p>
+<p>Modlin RF, Orsi JJ. 1997. <em>Acanthomysis bowmani</em>, a new species, and <em>A. aspera</em> Ii, Mysidacea newly reported from the Sacramento-San Joaquin Estuary, California (Crustacea: Mysidae). Proc Biol Soc Washingt. 110(3):439–446.</p>
+<p>Moyle PB, Herbold B, Stevens DE, Miller LW. 1992. Life history and status of Delta Smelt in the Sacramento-San Joaquin estuary, California. Trans Am Fish Soc. 121(1):67–77.</p>
+<p>Orsi J, Walter TC. 1991. <em>Pseudodiaptomus forbesi</em> and <em>P. marinus</em> (Copepoda: Calanoida), the latest copepod immigrants to California’s Sacramento-San Joaquin Estuary. Bull Plankt Soc Japan.:553–562.</p>
+<p>Orsi JJ, Bowman TE, Marelli DC, Hutchinson A. 1983. Recent introduction of the planktonic calanoid copepod <em>Sinocalanus doerrii</em> (Centropagidae) from mainland China to the Sacramento-San Joaquin Estuary of California. J Plankton Res. 5(3):357–375.</p>
+<p>Orsi JJ. 1999. Long-term trends in mysid shrimp and zooplankton. Interagency Ecological Program for the San Francisco Estuary. IEP Newsletter 12(2):13–5.</p>
+<p>Orsi JJ, Ohtsuka S. 1999. Introduction of the Asian copepods <em>Acartiella sinensis</em>, <em>Tortanus dextrilobatus</em> (Copepoda: Calanoida), and <em>Limnoithona tetraspina</em> (Copepoda: Cyclopoida) to the San Francisco Estuary, California, USA. Plankt Biol Ecol. 46(2):128–131.</p>
+<p>Sabatini, M. and Kiørboe, T. 1994. Egg production, growth and development of the cyclopoid copepod <em>Oithona similis</em>, J. Plankt. Res.16(10):1329–1351. <a href="https://doi.org/10.1093/plankt/16.10.1329" class="uri">https://doi.org/10.1093/plankt/16.10.1329</a></p>
+<p>Salonen, K., Latja, R. 1988. Variation in the carbon content of two <em>Asplanchna</em> species. Hydrobiologia 162:79–87. https://doi.org/10.1007/BF00014335</p>
+<p>Schroeter RE, O’Rear TA, Young MJ, Moyle PB. 2015. The aquatic trophic ecology of Suisun Marsh, San Francisco Estuary, California, during autumn in a wet year. San Fr Estuary Watershed Sci. 13(3).</p>
+<p>Shaw, CT, Hieb KA. 2024. Zooplankton Status and Trends Report 2023. <a href="https://emp-dwr.github.io/emp-website/qmd-files/website/zoop/zoop-report.html#introduction">Environmental Monitoring Program - Zooplankton Report</a></p>
+<p>Siegfried CA, Kopache ME, Knight AW. 1979. The Distribution and Abundance of <em>Neomysis mercedis</em> in Relation to the Entrapment Zone in the Western Sacramento-San Joaquin Delta. Trans Am Fish Soc. 108(3):262–270.</p>
+<p>Slater SB, Baxter R. 2014. Diet, Prey Selection, and Body Condition of Age-0 Delta Smelt, <em>Hypomesus transpacificus</em>, in the Upper San Francisco Estuary. San Fr Estuary Watershed Sci. 12(3):1–24.</p>
+<p>Sommer T, Armor C, Baxter R, Breuer R, Brown L, Chotkowski M, Culberson S, Feyrer F, Gingras M, Herbold B, et al.&nbsp;2007. The collapse of pelagic fishes in the upper San Francisco Estuary. Fisheries. 32(6):270–277.</p>
+<p>Uye, S., Iwai, Y. Kasahara, S. 1983. Growth and production of the inshore marine copepod <em>Pseudodiaptomus marinus</em> in the central part of the Inland Sea of Japan. Mar.&nbsp;Biol. 73:91–98. <a href="https://doi.org/10.1007/BF00396289" class="uri">https://doi.org/10.1007/BF00396289</a></p>
+<p>Uye, S, Sano, K. 1995. Seasonal reproductive biology of the small cyclopoid copepod <em>Oithona davisae</em> in a temperate eutrophic inlet. Mar Ecol Prog Ser 118:121-128. <a href="https://doi.org/10.3354/meps118121" class="uri">https://doi.org/10.3354/meps118121</a>.</p>
+<p>Walz, N. 1995. Rotifer populations in plankton communities: Energetics and life history strategies. Experientia 51:437–453. <a href="https://doi.org/10.1007/BF02143197" class="uri">https://doi.org/10.1007/BF02143197</a></p>
+<p>Wiebe PH, Boyd S, Cox JL, 1975. Relationships between zooplankton displacement volume, wet weight, dry weight, and carbon. Fish. Bull. 73(4):777-786.</p>
+<p>Winder M, Jassby AD. 2011. Shifts in Zooplankton Community Structure: Implications for Food Web Processes in the Upper San Francisco Estuary. Estuaries and Coasts. 34:675–690.</p>
+<p>Zooplankton annual reports 2013-2022. Shaw et al., Barros et al., Hennessey et al.</p>
+<p><a href="https://github.com/emp-dwr/emp-website/tree/gh-pages/admin/archive/zoop">emp-website/admin/archive/zoop at gh-pages · emp-dwr/emp-website · GitHub</a></p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p><img src="../../..\admin/figures-tables/admin/EMP_footer.png" alt="DWR, CDFW, and USBR logos" height="50"></p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
