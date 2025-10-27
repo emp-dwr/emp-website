@@ -41,7 +41,7 @@ cwq_stations <- readr::read_csv(here::here('admin/figures-tables/cwq/cwq_station
 styler$style_kable(cwq_stations)
 ```
 
-Data were collected for six water quality parameters and collection devices differed between stations (@tbl-programs). For CEMP and SMWQP, all water samples were collected 1-meter below the water surface using a float-mounted YSI EXO2 multi-parameter water quality sonde. These parameters are:
+Data were collected for six water quality parameters and stations were divided between programs (@tbl-programs). For CEMP and SMWQP, all water samples were collected 1-meter below the water surface using a float-mounted YSI EXO2 multi-parameter water quality sonde. These parameters are:
 
 -   Water Temperature (°C)
 -   Specific Conductance (μS/cm 25°C)

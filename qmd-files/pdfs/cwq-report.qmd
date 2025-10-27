@@ -55,7 +55,7 @@ Water quality data was continuously monitored at 29 sites throughout the Upper E
 
 -   The Cache Slough station (C19) is listed as a monitoring station for D-1641 but has not been in operation since 2015 due to lack of use and safety concerns.
 
-Data were collected for six water quality parameters and collection devices differed between stations (@tbl-programs). For CEMP and SMWQP, all water samples were collected 1-meter below the water surface using a float-mounted YSI EXO2 multi-parameter water quality sonde. These parameters are:
+Data were collected for six water quality parameters and stations were divided between programs (@tbl-programs). For CEMP and SMWQP, all water samples were collected 1-meter below the water surface using a float-mounted YSI EXO2 multi-parameter water quality sonde. These parameters are:
 
 -   Water Temperature (°C)
 -   Specific Conductance (μS/cm 25°C)

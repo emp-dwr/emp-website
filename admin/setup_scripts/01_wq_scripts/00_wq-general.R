@@ -375,9 +375,10 @@ WQFigureClass <- R6Class(
       self$generate_station_colors(df_raw)
       self$df_devicetype <- read_csv(here("admin/figures-tables/cwq/cwq_devicetype.csv"), show_col_types = FALSE) %>%
         mutate(Shape = case_when(
-          grepl("EXO1", DeviceType) ~ 22,
-          grepl("EXO2", DeviceType) ~ 21,
-          TRUE ~ 24
+          grepl("EMP", DeviceType) ~ 24,
+          grepl("USBR", DeviceType) ~ 21,
+          grepl("SMWQP", DeviceType) ~ 22,
+          TRUE ~ 23
         ))
     },
 
@@ -476,7 +477,7 @@ WQFigureClass <- R6Class(
             values = setNames(df_used_devices$Shape, df_used_devices$DeviceType),
             drop = FALSE
           ) +
-          labs(shape = "Device Type") +
+          labs(shape = "Program") +
           guides(
             color = "none",
             fill = "none",
