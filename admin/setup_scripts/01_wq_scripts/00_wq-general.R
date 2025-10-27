@@ -7,87 +7,87 @@ WQStatsClass <- R6Class(
     initialize = function(df_raw) {
       self$df_raw <- df_raw
     },
-
+    
     # calculate the average (either mean or median)
     calc_avg = function(analyte, statistic = c("mean", "median"), region = NULL) {
       statistic <- match.arg(statistic)
-
+      
       df_summ <- self$df_raw
-
+      
       if (!is.null(region)) {
         df_summ <- df_summ %>%
           filter(Region == region)
       }
-
+      
       avg_val <- switch(statistic,
-        "mean" = mean(df_summ %>%
-          filter(Analyte == analyte) %>%
-          pull(Value), na.rm = TRUE),
-        "median" = median(df_summ %>%
-          filter(Analyte == analyte) %>%
-          pull(Value), na.rm = TRUE)
+                        "mean" = mean(df_summ %>%
+                                        filter(Analyte == analyte) %>%
+                                        pull(Value), na.rm = TRUE),
+                        "median" = median(df_summ %>%
+                                            filter(Analyte == analyte) %>%
+                                            pull(Value), na.rm = TRUE)
       )
       return(avg_val)
     },
-
+    
     # calculate the variance (standard deviation for mean, MAD for median)
     calc_variance = function(analyte, statistic = c("mean", "median"), region = NULL) {
       statistic <- match.arg(statistic)
-
+      
       df_summ <- self$df_raw
-
+      
       if (!is.null(region)) {
         df_summ <- df_summ %>%
           filter(Region == region)
       }
-
+      
       if (statistic == "mean") {
         variance_val <- sd(df_summ %>%
-          filter(Analyte == analyte) %>%
-          pull(Value), na.rm = TRUE)
+                             filter(Analyte == analyte) %>%
+                             pull(Value), na.rm = TRUE)
       } else if (statistic == "median") {
         median_val <- self$calc_avg(analyte, "median")
         variance_val <- median(abs(df_summ %>%
-          filter(Analyte == analyte) %>%
-          pull(Value) - median_val), na.rm = TRUE)
+                                     filter(Analyte == analyte) %>%
+                                     pull(Value) - median_val), na.rm = TRUE)
       }
       return(variance_val)
     },
-
+    
     # calculate the minimum value
     calc_min = function(analyte, region = NULL) {
       min_val <- min(self$df_raw %>%
-        filter(Analyte == analyte) %>%
-        {
-          if (!is.null(region)) filter(., Region == region) else .
-        } %>%
-        pull(Value), na.rm = TRUE)
+                       filter(Analyte == analyte) %>%
+                       {
+                         if (!is.null(region)) filter(., Region == region) else .
+                       } %>%
+                       pull(Value), na.rm = TRUE)
       return(min_val)
     },
-
+    
     # calculate the maximum value
     calc_max = function(analyte, region = NULL) {
       max_val <- max(self$df_raw %>%
-        filter(Analyte == analyte) %>%
-        {
-          if (!is.null(region)) filter(., Region == region) else .
-        } %>%
-        pull(Value), na.rm = TRUE)
+                       filter(Analyte == analyte) %>%
+                       {
+                         if (!is.null(region)) filter(., Region == region) else .
+                       } %>%
+                       pull(Value), na.rm = TRUE)
       return(max_val)
     },
-
+    
     # determine chla above 10 ug/L
     calc_chla_below = function() {
       df_chla <- self$df_raw %>%
         filter(Analyte == "Chla")
-
+      
       df_below <- df_chla %>%
         filter(Value <= 10)
-
+      
       test <<- df_below
-
+      
       per_below <- round(nrow(df_below) / nrow(df_chla) * 100, 2)
-
+      
       return(per_below)
     }
   )
@@ -104,69 +104,69 @@ WQStringClass <- R6Class(
     disp_val_range = function(analyte, statistic, region = NULL) {
       avg_val <- self$calc_avg(analyte, statistic, region)
       variance_val <- self$calc_variance(analyte, statistic, region)
-
+      
       filtered_rows <- self$df_raw %>%
         filter(Analyte == analyte) %>%
         {
           if (!is.null(region)) filter(., Region == region) else .
         }
-
+      
       unit_val <- unique(filtered_rows %>% pull(Unit))
-
+      
       if (is.na(unit_val)) {
         result_string <- paste0(format_vals(avg_val, analyte), " \u00B1 ", format_vals(variance_val, analyte))
       } else {
         result_string <- paste0(format_vals(avg_val, analyte), " \u00B1 ", format_vals(variance_val, analyte), " ", unit_val)
       }
-
-
+      
+      
       return(result_string)
     },
-
+    
     # text string for the min and max values + their metadata
     disp_extreme_val = function(analyte, statistic = c("min", "max"), region = NULL) {
       statistic <- match.arg(statistic)
-
+      
       extreme_function <- switch(statistic,
-        "min" = self$calc_min,
-        "max" = self$calc_max
+                                 "min" = self$calc_min,
+                                 "max" = self$calc_max
       )
-
+      
       extreme_val <- extreme_function(analyte, region)
-
+      
       filtered_rows <- self$df_raw %>%
         filter(Analyte == analyte & Value == extreme_val) %>%
         {
           if (!is.null(region)) filter(., Region == region) else .
         }
-
+      
       if (statistic == "min" && any(filtered_rows$DetectStatus == "Nondetect")) {
         extreme_val <- paste0("< ", format_vals(extreme_val, analyte))
       } else {
         extreme_val <- format_vals(extreme_val, analyte)
       }
-
+      
       unit_val <- unique(filtered_rows$Unit)
-
+      
       if (is.na(unit_val)) {
         result_string <- extreme_val
       } else {
         result_string <- paste0(extreme_val, " ", unit_val)
       }
-
-
+      
+      
       return(result_string)
     },
-
+    
     # text string combining the min and max statements
     disp_extreme_range = function(analyte, region = NULL) {
       min_val_str <- self$disp_extreme_val(analyte, "min", region)
       max_val_str <- self$disp_extreme_val(analyte, "max", region)
-
+      
       result_string <- paste(min_val_str, "to", max_val_str)
       return(result_string)
     },
-
+    
     # text string for percentage of nondetects
     disp_nondetect_perc = function(analyte, region = NULL) {
       analyte_rows <- self$df_raw %>%
@@ -174,38 +174,38 @@ WQStringClass <- R6Class(
         {
           if (!is.null(region)) filter(., Region == region) else .
         }
-
+      
       total_samps <- nrow(analyte_rows)
       nondetect_samps <- analyte_rows %>%
         filter(DetectStatus == "Nondetect") %>%
         nrow()
-
+      
       if (nondetect_samps > 0) {
         perc_nondetect <- (nondetect_samps / total_samps) * 100
         result_string <- paste0(round(perc_nondetect, 2), "% of samples were below the reporting limit.")
         return(result_string)
       }
-
+      
       # if no nondetects, return NULL
       return(NULL)
     },
-
+    
     # paragraph statement for WQ
     disp_paragraph = function(analyte, statistic, strings_dwq_prev, include_prev = TRUE) {
       current_val_range <- self$disp_val_range(analyte, statistic)
       extreme_range <- self$disp_extreme_range(analyte)
       nondetect_perc <- self$disp_nondetect_perc(analyte)
       label_val <- unique(self$df_raw %>%
-        filter(Analyte == analyte) %>%
-        pull(Label))
-
+                            filter(Analyte == analyte) %>%
+                            pull(Label))
+      
       if (label_val != "pH") {
         label_val <- tolower(label_val)
       }
-
+      
       fig_ref <- glue("@fig-{tolower(analyte)}")
       tbl_ref <- glue("@tbl-{tolower(analyte)}")
-
+      
       # optional fragment for previous year comparison
       prev_fragment <- if (include_prev) {
         prev_val_range <- strings_dwq_prev$disp_val_range(analyte, statistic)
@@ -213,7 +213,7 @@ WQStringClass <- R6Class(
       } else {
         ". "
       }
-
+      
       paragraph <- glue(
         "The average {label_val} value was {current_val_range}",
         "{prev_fragment}",
@@ -222,36 +222,36 @@ WQStringClass <- R6Class(
         "Per region average, minimum, and maximum values are shown in {tbl_ref}; ",
         "time series plots are shown in {fig_ref}."
       )
-
+      
       return(paragraph)
     },
-
+    
     # paragraph statement for phyto
     disp_phyto_paragraph = function(analyte, statistic, region = NULL, end = FALSE) {
       val_range <- self$disp_val_range(analyte, statistic, region)
       extreme_range <- self$disp_extreme_range(analyte, region)
       nondetect_perc <- self$disp_nondetect_perc(analyte, region)
       label_val <- unique(self$df_raw %>%
-        filter(Analyte == analyte) %>%
-        pull(Label))
-
+                            filter(Analyte == analyte) %>%
+                            pull(Label))
+      
       fp_name <- gsub(" ", "", tolower(region))
       fp_name <- gsub("&", "", fp_name)
       fig_ref <- glue("@fig-wq-{fp_name}")
-
+      
       paragraph <- glue(
         "The average {tolower(label_val)} value was {val_range}; ",
         "values ranged from {extreme_range}. ",
         "{ifelse(!is.null(nondetect_perc), paste0(nondetect_perc, ' '), '')}"
       )
-
+      
       if (end) {
         paragraph <- glue(
           paragraph,
           "Time series plots averaged over region are shown in {fig_ref}."
         )
       }
-
+      
       return(paragraph)
     }
   )
@@ -271,39 +271,39 @@ WQTableClass <- R6Class(
     initialize = function(df_raw) {
       self$df_raw <- df_raw
     },
-
+    
     # create dataframe containing summary stat information per region
     create_summary_df = function(analyte, statistic = c("mean", "median")) {
       statistic <- match.arg(statistic)
-
+      
       summary_list <- list()
-
+      
       na_regions <- self$df_raw %>%
         filter(Analyte == analyte, is.na(Region)) %>%
         pull(Station) %>%
         unique()
-
+      
       if (length(na_regions) > 0) {
         stop(paste("Station(s)", paste(na_regions, collapse = ", "), "aren't assigned to regions"))
       }
-
+      
       regions <- unique(self$df_raw %>% filter(Analyte == analyte) %>% pull(Region))
-
+      
       for (region in regions) {
         region_data <- self$df_raw %>% filter(Analyte == analyte, Region == region)
-
+        
         avg_val <- switch(statistic,
-          "mean" = mean(region_data$Value, na.rm = TRUE),
-          "median" = median(region_data$Value, na.rm = TRUE)
+                          "mean" = mean(region_data$Value, na.rm = TRUE),
+                          "median" = median(region_data$Value, na.rm = TRUE)
         )
-
+        
         min_val <- min(region_data$Value, na.rm = TRUE)
         max_val <- max(region_data$Value, na.rm = TRUE)
-
+        
         detect_status <- region_data %>%
           filter(Value == min_val) %>%
           pull(DetectStatus)
-
+        
         if ("Nondetect" %in% detect_status) {
           if (min_val == max_val) {
             max_val <- format_vals(max_val, analyte)
@@ -321,41 +321,41 @@ WQTableClass <- R6Class(
           min_val <- format_vals(min_val, analyte)
           avg_val <- format_vals(avg_val, analyte)
         }
-
+        
         summary_list[[region]] <- c(
           "Average" = avg_val,
           "Min" = min_val,
           "Max" = max_val
         )
       }
-
+      
       summary_df <- do.call(cbind, summary_list)
-
+      
       summary_df <- as.data.frame(summary_df)[, sort(colnames(summary_df))]
-
+      
       rownames(summary_df) <- NULL
-
+      
       private$summary_df <- cbind(
         Statistic = c("Average", "Min", "Max"),
         as.data.frame(summary_df)
       )
-
+      
       return(invisible(private$summary_df))
     },
-
+    
     # create table with the summary stat information
     create_kable = function() {
       if (is.null(private$summary_df)) {
         stop("Summary dataframe has not been created. Please call create_summary_df first.")
       }
-
+      
       table <- self$style_kable(private$summary_df)
-
+      
       if (private$nondetect_flag) {
         table <- table %>%
           footnote("* value is RL", general_title = "")
       }
-
+      
       return(table)
     }
   )
@@ -381,13 +381,13 @@ WQFigureClass <- R6Class(
           TRUE ~ 23
         ))
     },
-
+    
     # Combine regional plots into one plot for each analyte (gaps)
     wq_return_plt_gaps = function(param, plt_type = c("dwq", "cwq"), ret_region = NULL) {
       df_filt <- self$df_raw %>%
         filter(Analyte == param) %>%
         mutate(Date = as.Date(Date))
-
+      
       # create per-station gaps
       df_filt_completed <- df_filt %>%
         group_by(Analyte, Region, Station) %>%
@@ -400,7 +400,7 @@ WQFigureClass <- R6Class(
         ) %>%
         tidyr::fill(Label, Unit, .direction = "downup") %>% # carry metadata
         ungroup()
-
+      
       if (param == "pH") {
         comb_plt_title <- unique(df_filt$Label)
       } else if (param == "Chla") {
@@ -408,7 +408,7 @@ WQFigureClass <- R6Class(
       } else {
         comb_plt_title <- paste0(unique(df_filt$Label), " (", unique(df_filt$Unit), ")")
       }
-
+      
       # nest by Region
       ndf_filt <- df_filt_completed %>%
         mutate(
@@ -437,9 +437,9 @@ WQFigureClass <- R6Class(
             \(x, y, z) private$wq_region_plt(x, y, z, plt_type = plt_type)
           )
         )
-
+      
       ls_plts <- pull(ndf_filt, plt_single)
-
+      
       if (!is.null(ret_region)) {
         sing_plt <- ndf_filt %>%
           filter(Region == ret_region) %>%
@@ -452,7 +452,7 @@ WQFigureClass <- R6Class(
         theme_void() +
         guides(x = "none", y = "none") +
         theme(axis.title.y = element_text(size = 7, hjust = 0.5, angle = 90))
-
+      
       if (plt_type == "dwq") {
         comb_plts <- wrap_plots(ls_plts, ncol = 2) # two columns
         
@@ -506,12 +506,12 @@ WQFigureClass <- R6Class(
       
       return(final_plt)
     },
-
+    
     # Process the water quality data for a specific region
     phyto_wq_processing = function(region) {
       region_data <- self$df_raw %>%
         filter(Analyte %in% c("Chla", "Pheoa"), Region == region)
-
+      
       region_monthly_data <- region_data %>%
         group_by(Analyte, Month, Region) %>%
         summarize(
@@ -520,16 +520,16 @@ WQFigureClass <- R6Class(
           .groups = "drop"
         ) %>%
         rename(Value = avg_val)
-
+      
       return(region_monthly_data)
     },
-
+    
     # Combine regional plots into one plot for each analyte
     phyto_return_plt = function(region) {
       region_data <- self$phyto_wq_processing(region)
-
+      
       comb_plt_title <- paste0(unique(region_data$Region))
-
+      
       ndf_filt <- region_data %>%
         nest(.by = c(Region), .key = "df_data") %>%
         mutate(
@@ -542,21 +542,21 @@ WQFigureClass <- R6Class(
             \(x, y, z) private$wq_region_plt(x, y, z, plt_type = "dwq", color_by = "Analyte")
           )
         )
-
+      
       ls_plts <- pull(ndf_filt, plt_single)
-
+      
       return(ls_plts)
-
+      
       comb_plts <- wrap_plots(ls_plts, ncol = 2)
-
+      
       label_plt <- ggplot() +
         labs(y = comb_plt_title) +
         theme_void() +
         guides(x = "none", y = "none") +
         theme(axis.title.y = element_text(size = 7, hjust = 0.5, angle = 90))
-
+      
       final_plt <- label_plt + comb_plts + plot_layout(widths = c(1, 1000))
-
+      
       return(final_plt)
     }
   ),
@@ -566,7 +566,7 @@ WQFigureClass <- R6Class(
       df_segment <- df %>%
         filter(DetectStatus == "Nondetect") %>%
         mutate(Month_num = as.numeric(Month))
-
+      
       list(
         # Vertical segment with black outline
         geom_segment(
@@ -597,12 +597,12 @@ WQFigureClass <- R6Class(
         )
       )
     },
-
+    
     # Create single water quality plot for each region
     wq_region_plt = function(df, region, x_lab, plt_type = c("dwq", "cwq"), color_by = "Station") {
       # Argument checking
       plt_type <- match.arg(plt_type)
-
+      
       if (plt_type == "dwq") {
         # Create discrete WQ plot
         plt <- df %>%
@@ -612,30 +612,30 @@ WQFigureClass <- R6Class(
           ) %>%
           ggplot(aes(x = Month_num, y = Value, color = !!sym(color_by)))
         
-          # Add geoms for < RL values if necessary
-          if (any(df$DetectStatus == "Nondetect", na.rm = TRUE)) plt <- plt + private$blw_rl_geom(df, color_by)
-          
-          plt <- plt +
-            geom_borderline(
-              linewidth = 0.6,
-              bordercolor = "black",
-              borderwidth = 0.2,
-              na.rm = TRUE,
-              show.legend = FALSE
-            ) +
-            geom_point(
-              size = 2,
-              shape = 21,          
-              stroke = 0.25,        
-              color = "black",     
-              aes(fill = !!sym(color_by))  
-            ) +
-            scale_fill_manual(values = self$station_colors) +
-            scale_x_continuous(
-              breaks = 1:12,
-              labels = label_order,
-              lim = c(0.75, 12.25)
-            )
+        # Add geoms for < RL values if necessary
+        if (any(df$DetectStatus == "Nondetect", na.rm = TRUE)) plt <- plt + private$blw_rl_geom(df, color_by)
+        
+        plt <- plt +
+          geom_borderline(
+            linewidth = 0.6,
+            bordercolor = "black",
+            borderwidth = 0.2,
+            na.rm = TRUE,
+            show.legend = FALSE
+          ) +
+          geom_point(
+            size = 2,
+            shape = 21,          
+            stroke = 0.25,        
+            color = "black",     
+            aes(fill = !!sym(color_by))  
+          ) +
+          scale_fill_manual(values = self$station_colors) +
+          scale_x_continuous(
+            breaks = 1:12,
+            labels = label_order,
+            lim = c(0.75, 12.25)
+          )
       } else {
         # Create continuous WQ plot
         df <- df %>% 
@@ -660,10 +660,10 @@ WQFigureClass <- R6Class(
           ) +
           # main data: lines with borders
           geom_borderline(aes(color = Station),
-            linewidth = 0.7,
-            bordercolor = "black",
-            borderwidth = 0.1,
-            show.legend = FALSE 
+                          linewidth = 0.7,
+                          bordercolor = "black",
+                          borderwidth = 0.1,
+                          show.legend = FALSE 
           ) +
           guides(
             fill = guide_legend(
@@ -674,13 +674,13 @@ WQFigureClass <- R6Class(
           ) +
           theme(legend.box = "full")
       }
-
+      
       # Add common plot elements
       plt <- plt +
         self$wq_plt_theme +
         self$wq_plt_xaxis(x_lab) +
         ggtitle(region)
-
+      
       if (color_by == "Analyte") {
         plt <- plt + scale_color_manual(values = c("#5ab4ac", "#d8b365"))
       } else if (plt_type == 'cwq') {
@@ -689,7 +689,7 @@ WQFigureClass <- R6Class(
       } else if (plt_type == 'dwq') {
         plt <- plt + scale_color_manual(values = self$station_colors)
       }
-
+      
       return(plt)
     }
   )

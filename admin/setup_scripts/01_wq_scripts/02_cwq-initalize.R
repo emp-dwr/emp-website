@@ -57,23 +57,23 @@ create_figs_cwq <- function() {
   cwq_analytes <- df_analytes %>%
     filter(str_detect(Program, "\\bCEMP\\b")) %>%
     pull(Analyte)
-
+  
   for (param in cwq_analytes) {
     plt <- fig_cwq$wq_return_plt_gaps(param, "cwq")
-
+    
     height_factor <- fig_cwq$df_raw %>%
       pull(Region) %>%
       unique() %>%
       length()
-
+    
     exp_height <- ceiling(height_factor) * 2
-
+    
     ggsave(here(paste0("admin/figures-tables/cwq/cwq_ts_", tolower(param), ".png")),
-      plt,
-      width = 7 * .8, height = exp_height * .8, unit = "in"
+           plt,
+           width = 7 * .8, height = exp_height * .8, unit = "in"
     )
   }
-
+  
   # # RRI fig
   obj_rri$create_rri_plt()
 }

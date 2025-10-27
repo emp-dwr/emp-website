@@ -1,10 +1,10 @@
 # Read in Data ------------------------------------------------------------
 
 df_raw_dwq <- read_quiet_csv(here("admin/test-data/EMP_DWQ_2024_report.csv"),
-  col_types = cols(
-    `Lab: Quality Flag` = col_character(),
-    `Validation Warnings` = col_character()
-  )
+                             col_types = cols(
+                               `Lab: Quality Flag` = col_character(),
+                               `Validation Warnings` = col_character()
+                             )
 )
 
 df_analytes <- read_quiet_csv(here("admin/figures-tables/admin/analyte_table.csv"), locale = locale(encoding = "UTF-8"))
@@ -57,20 +57,20 @@ create_figs_dwq <- function() {
   dwq_analytes <- df_analytes %>%
     filter(str_detect(Program, "\\bDEMP\\b")) %>%
     pull(Analyte)
-
+  
   for (param in dwq_analytes) {
     plt <- fig_dwq$wq_return_plt_gaps(param, "dwq")
-
+    
     height_factor <- fig_dwq$df_raw %>%
       pull(Region) %>%
       unique() %>%
       length()
-
+    
     exp_height <- ceiling(height_factor / 2) * 2
-
+    
     ggsave(here(paste0("admin/figures-tables/dwq/dwq_ts_", tolower(param), ".png")),
-      plt,
-      width = 6 * .8, height = exp_height * .8, unit = "in"
+           plt,
+           width = 6 * .8, height = exp_height * .8, unit = "in"
     )
   }
 }

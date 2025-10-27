@@ -71,7 +71,7 @@ create_figs_benthic <- function() {
   benthic_stations <- obj_ben_all$df_raw %>%
     pull(Station) %>%
     unique()
-
+  
   for (station in benthic_stations) {
     # determine rel height factor
     height_factor <- obj_ben_all$df_raw %>%
@@ -79,40 +79,40 @@ create_figs_benthic <- function() {
       pull(Phylum) %>%
       unique() %>%
       length()
-
+    
     exp_height <- (10 * (ceiling(height_factor / 3) * 0.5)) + 10
-
+    
     # determine file paths
     fp_name <- gsub("2 ", "", tolower(station))
     fp_name <- gsub("&", "", fp_name)
     emp_path <- abs_path_data("Admin/Annual Report Docs/Benthic/figures")
-
+    
     # save time series for all stations
     plt_benthic_ts_all <- fig_ben_all$plt_ben_ts(station, scope = "historical")
-
+    
     ggsave(here(paste0(emp_path, "/timeseries_all/benthic_tsall_", fp_name, ".png")),
-      plt_benthic_ts_all,
-      width = 25, height = exp_height, unit = "cm"
+           plt_benthic_ts_all,
+           width = 25, height = exp_height, unit = "cm"
     )
-
+    
     # save time series by station
     if (station %in% unique(obj_ben_cur$df_raw$Station)) {
       plt_benthic <- fig_ben_cur$plt_org_density(station, program = "Benthic")
       plt_benthic_ts <- fig_ben_cur$plt_ben_ts(station, scope = "current")
-
+      
       ggsave(here(paste0("admin/figures-tables/benthic/benthic_bar_", fp_name, ".png")),
-        plt_benthic,
-        width = 25, height = exp_height, unit = "cm"
+             plt_benthic,
+             width = 25, height = exp_height, unit = "cm"
       )
-
+      
       ggsave(here(paste0(emp_path, "/bargraphs/benthic_bar_", fp_name, ".png")),
-        plt_benthic,
-        width = 25, height = exp_height, unit = "cm"
+             plt_benthic,
+             width = 25, height = exp_height, unit = "cm"
       )
-
+      
       ggsave(here(paste0(emp_path, "/timeseries/benthic_ts_", fp_name, ".png")),
-        plt_benthic_ts,
-        width = 25, height = exp_height, unit = "cm"
+             plt_benthic_ts,
+             width = 25, height = exp_height, unit = "cm"
       )
     }
   }

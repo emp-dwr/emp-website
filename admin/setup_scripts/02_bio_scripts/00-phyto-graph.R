@@ -8,14 +8,14 @@ plt_phywq_avg <- function(df, region) {
       Chla_Value = Chla,
       Pheophytin_Value = Pheophytin
     )
-
+  
   df <- df %>%
     tidyr::pivot_longer(
       cols = Chla_Sign:Pheophytin_Value,
       names_to = c("Analyte", ".value"),
       names_sep = "_"
     )
-
+  
   df <- df %>%
     dplyr::group_by(Analyte, Region, Month) %>%
     dplyr::mutate(
@@ -24,7 +24,7 @@ plt_phywq_avg <- function(df, region) {
         Sign == "<" ~ FALSE
       )
     )
-
+  
   df <- df %>%
     dplyr::group_by(Analyte, Region, Month) %>%
     dplyr::summarize(
@@ -38,7 +38,7 @@ plt_phywq_avg <- function(df, region) {
         Min_Count == FALSE ~ "no"
       )
     )
-
+  
   p <-
     ggplot2::ggplot(df, ggplot2::aes(Month, Value, group = Analyte, color = Analyte)) +
     ggplot2::scale_color_manual(values = c("Chla" = "#5ab4ac", "Pheophytin" = "#d8b365"), labels = c(Chla = "Chlorophyll", Pheophytin = "Pheophytin")) +
@@ -56,6 +56,6 @@ plt_phywq_avg <- function(df, region) {
     #   ) +
     ggplot2::labs(title = glue::glue("{region} Monthly Averages (WQ)"), y = "Pigment Concentration (\U03BCg/L)", x = ggplot2::element_blank()) +
     ggplot2::theme(legend.position = "bottom", legend.margin = ggplot2::margin(-1, 0, -1, 0), plot.title = ggplot2::element_text(hjust = 0.5))
-
+  
   return(p)
 }
