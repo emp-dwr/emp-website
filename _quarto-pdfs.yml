@@ -14,5 +14,4 @@ format:
     header-includes:
       - \usepackage{float}
       - \floatplacement{figure}{H}
-      - \floatplacement{table}{H}
       - \usepackage{lmodern}

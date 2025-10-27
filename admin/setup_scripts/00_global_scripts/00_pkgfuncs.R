@@ -1,11 +1,10 @@
+
 # Import Relevant Functions -----------------------------------------------
 
 `%>%` <- magrittr::`%>%`
 
 read_csv <- readr::read_csv
 locale <- readr::locale
-cols <- readr::cols
-col_character <- readr::col_character
 
 read_html <- rvest::read_html
 html_element <- rvest::html_element
@@ -51,8 +50,6 @@ interval <- lubridate::interval
 parse_date_time <- lubridate::parse_date_time
 
 left_join <- dplyr::left_join
-bind_rows <- dplyr::bind_rows
-group_map <- dplyr::group_map
 filter <- dplyr::filter
 pull <- dplyr::pull
 mutate <- dplyr::mutate
@@ -73,9 +70,6 @@ across <- dplyr::across
 pick <- dplyr::pick
 reframe <- dplyr::reframe
 if_else <- dplyr::if_else
-case_when <- dplyr::case_when
-
-tibble <- tibble::tibble
 
 ggplot <- ggplot2::ggplot
 aes <- ggplot2::aes
@@ -83,7 +77,6 @@ geom_line <- ggplot2::geom_line
 geom_point <- ggplot2::geom_point
 geom_boxplot <- ggplot2::geom_boxplot
 geom_segment <- ggplot2::geom_segment
-expansion <- ggplot2::expansion
 annotate <- ggplot2::annotate
 theme_bw <- ggplot2::theme_bw
 ggtitle <- ggplot2::ggtitle
@@ -95,8 +88,6 @@ scale_x_discrete <- ggplot2::scale_x_discrete
 scale_y_continuous <- ggplot2::scale_y_continuous
 scale_x_date <- ggplot2::scale_x_date
 scale_fill_manual <- ggplot2::scale_fill_manual
-scale_shape_discrete <- ggplot2::scale_shape_discrete
-scale_shape_manual <- ggplot2::scale_shape_manual
 ggsave <- ggplot2::ggsave
 element_blank <- ggplot2::element_blank
 element_text <- ggplot2::element_text

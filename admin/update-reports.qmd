@@ -1,20 +1,14 @@
 # Update Annual Reports
 
-## read in functions (run this first)
-
-```{r}
-source(here::here('admin/import_scripts.R'))
-```
-
 ## generate figures
 
 ```{r}
-create_figs(group = c('cwq'))
+source(here::here('admin/import_scripts.R'))
+
+create_figs()
 ```
 
 ## create pdfs
-
-### all reports (run as-is)
 
 ```{r}
 quarto::quarto_render(
@@ -22,29 +16,13 @@ quarto::quarto_render(
 )
 ```
 
-### specific reports (type name in between `c()`)
-
-```{r}
-render_reports(programs = c('cwq'),
-               report_type = 'pdfs')
-```
-
 ## update website
 
-**WARNING:** after running, once pushed to the GitHub 'gh-pages' branch, website *will* be updated
-
-### all reports (run as-is)
+**WARNING:** after running, once pushed to the GitHub "gh-pages" branch, website *will* be updated
 
 ```{r}
 quarto::quarto_render(
   profile = 'website',
   as_job = TRUE
 )
-```
-
-### specific reports (type name in between `c()`)
-
-```{r}
-render_reports(programs = c('cwq'),
-               report_type = 'website')
 ```
