@@ -46,7 +46,7 @@ In the site descriptions that follow, most species densities are reported as the
 ```{r}
 #| label: fig-abund
 #| echo: false
-#| out-width: 90%
+#| out-width: 70%
 #| fig-align: 'center'
 #| fig-cap: 'List of ten most numerous benthic invertebrate species found at EMP sites.'
 
