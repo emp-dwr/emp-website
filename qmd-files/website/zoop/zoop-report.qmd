@@ -42,31 +42,7 @@ Calanoid and cyclopoid copepod abundance indices reported here comprise adults o
 
 To analyze long-term trends (1974 to present), annual abundance indices were calculated as the mean CPUE for samples collected from March through November, as winter sampling was inconsistent before 1995. Monthly abundances span the period from October 2023 through December 2024 to encompass both water year and calendar year and are also shown by region, as detailed in each section below. Estuary regions are designated as San Pablo Bay (stations D41, D41A, 325), Suisun and Grizzly Bay (stations 2, 4, D6, 28, 48), Suisun Marsh (stations 32, S42), Confluence (stations 54, 60, 64, 74), Central Delta (stations D16, 86, D28, M10), North Delta (68), and South Delta (92) (Figure 1). Non-fixed LSZ stations were assigned to a geographic region based on their location, which was most often in the Confluence in 2024 (18 of 21), or Suisun and Grizzly Bay (April, May, June). Sampling of LSZ stations in the San Joaquin River was suspended as of June 2024, but an LSZ station was only found in this region in January. Annual indices include data from the 16 core stations and the two LSZ stations not in the San Joaquin River. Monthly CPUE by region for 2024 includes data from all LSZ stations (fixed and non-fixed).
 
-Biomass of copepods, cladocerans, and rotifers was determined following standard methods (Bashevkin et al. 2022 and references therein) using literature values of carbon per individual (Dumont et al. 1975, Salonen, K., Latja, R. 1988, Uye et al. 1983, Culver et al. 1985, Sabatini and Kiørboe 1994, Uye and Sano 1995, Walz 1995, Kimoto et al. 1986, Logerwell and Ohman 1999, Hooff & Bollens 2004). For mysids, dry weight was calculated based on length and converted to carbon using a standard conversion of 40% (Wiebe et al. 1975, Kiørboe 2013). Biomass is reported as biomass per unit effort (BPUE, calculated using volume filtered as for CPUE) by region for the most abundant species in the estuary (Tables 1, 2, 3, 4).
-
-```{r echo=FALSE}
-#| fig-align: 'center'
-#| out-width: 70%
-knitr::include_graphics(here::here(file.path('admin/figures-tables/zoop/zoop_table1.png')))
-```
-
-```{r echo=FALSE}
-#| fig-align: 'center'
-#| out-width: 80%
-knitr::include_graphics(here::here(file.path('admin/figures-tables/zoop/zoop_table2.png')))
-```
-
-```{r echo=FALSE}
-#| fig-align: 'center'
-#| out-width: 80%
-knitr::include_graphics(here::here(file.path('admin/figures-tables/zoop/zoop_table3.png')))
-```
-
-```{r echo=FALSE}
-#| fig-align: 'center'
-#| out-width: 80%
-knitr::include_graphics(here::here(file.path('admin/figures-tables/zoop/zoop_table4.png')))
-```
+Biomass of copepods, cladocerans, and rotifers was determined following standard methods (Bashevkin et al. 2022 and references therein) using literature values of carbon per individual (Dumont et al. 1975, Salonen, K., Latja, R. 1988, Uye et al. 1983, Culver et al. 1985, Sabatini and Kiørboe 1994, Uye and Sano 1995, Walz 1995, Kimoto et al. 1986, Logerwell and Ohman 1999, Hooff & Bollens 2004). For mysids, dry weight was calculated based on length and converted to carbon using a standard conversion of 40% (Wiebe et al. 1975, Kiørboe 2013). Biomass is reported as biomass per unit effort (BPUE, calculated using volume filtered as for CPUE) by region for the most abundant species in the estuary.
 
 ## 2024 Conditions
 
@@ -177,6 +153,30 @@ knitr::include_graphics(here::here(file.path('admin/figures-tables/zoop/zoop_fig
 ## Zooplankton biomass
 
 Biomass (biomass per unit effort, BPUE, micrograms of carbon per cubic meter) was calculated for copepods, cladocerans, rotifers, and mysids (Tables 1, 2, 3, 4). Overall, rotifers (41%) and calanoid copepods (30%) comprise the majority of zooplankton biomass, followed by cyclopoid copepods (17%), cladocerans (11%), and mysids (1%) (Table 1). *P. forbesi* and *Eurytemora* were significant in all regions except San Pablo Bay, along with *Acartiella* in the Confluence and lower estuary (Suisun Marsh, Suisun and Grizzly Bay), and *Tortanus* in Suisun and Grizzly Bay and San Pablo Bay (Table 2). BPUE of cladocerans, largely *Diaphanosoma,* was high in the South and Central Delta regions (Tables 1, 2). The extremely abundant cyclopoid copepod *Limnoithona* sp., found in the tens of thousands in Suisun Marsh and Suisun and Grizzly Bay (Figure 5), only accounts for a maximum of 8% of total BPUE in these regions (Table 1). The cyclopoid *O. davisae* and the calanoids *Acartia* spp. and *Tortanus* spp. account for the highest percentage of carbon in San Pablo Bay (Tables 2, 3). Carbon from mysids only accounted for 1% of total carbon (Table 1), with higher BPUE in summer months in Suisun Marsh and Suisun and Grizzly Bay but generally low otherwise (Table 4).
+
+```{r echo=FALSE}
+#| fig-align: 'center'
+#| out-width: 70%
+knitr::include_graphics(here::here(file.path('admin/figures-tables/zoop/zoop_table1.png')))
+```
+
+```{r echo=FALSE}
+#| fig-align: 'center'
+#| out-width: 80%
+knitr::include_graphics(here::here(file.path('admin/figures-tables/zoop/zoop_table2.png')))
+```
+
+```{r echo=FALSE}
+#| fig-align: 'center'
+#| out-width: 80%
+knitr::include_graphics(here::here(file.path('admin/figures-tables/zoop/zoop_table3.png')))
+```
+
+```{r echo=FALSE}
+#| fig-align: 'center'
+#| out-width: 80%
+knitr::include_graphics(here::here(file.path('admin/figures-tables/zoop/zoop_table4.png')))
+```
 
 ## Conclusion
 

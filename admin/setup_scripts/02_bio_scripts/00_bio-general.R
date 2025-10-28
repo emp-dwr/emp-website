@@ -64,68 +64,192 @@ BioFigureClass <- R6Class(
     }, 
     
     # Organism density plots
+    # plt_org_density = function(filt_val, program = c('Phyto', 'Benthic')) {
+    #   program <- match.arg(program)
+    #   
+    #   # ---- GLOBAL MONTH RANGE ----
+    #   if ('Date' %in% names(self$df_raw)) {
+    #     df_all_dates <- self$df_raw
+    #   } else {
+    #     df_all_dates <- self$df_raw %>%
+    #       mutate(Date = as.Date(paste(WaterYear, Month, '01', sep = '-'), format = '%Y-%B-%d'))
+    #   }
+    #   
+    #   global_month_year <- seq(
+    #     lubridate::floor_date(min(df_all_dates$Date, na.rm = TRUE), 'month'),
+    #     lubridate::floor_date(max(df_all_dates$Date, na.rm = TRUE), 'month'),
+    #     by = '1 month'
+    #   ) %>%
+    #     format('%b-%Y')  # abbreviated month + full year label
+    #   
+    #   # ---- PHYTO ----
+    #   if (program == 'Phyto') {
+    #     alg_cat <- private$def_alg_cat(self$df_raw, filt_val, threshold = 1)
+    #     
+    #     df_summ <- self$df_raw %>%
+    #       mutate(
+    #         AlgalGroup = if_else(AlgalGroup %in% alg_cat$other, 'Other', AlgalGroup),
+    #         MonthYear = format(lubridate::floor_date(Date, 'month'), '%b-%Y')
+    #       ) %>%
+    #       private$summarize_phyto(filt_val, summ_grps = c('AlgalGroup', 'MonthYear'))
+    #     
+    #     # Fill missing months with avg = 0 for all AlgalGroups
+    #     df_summ <- df_summ %>%
+    #       tidyr::complete(
+    #         AlgalGroup,
+    #         MonthYear = global_month_year,
+    #         fill = list(avg = 0)
+    #       )
+    #     
+    #     group_var <- sym('AlgalGroup')
+    #     col_colors_all <- self$global_alg_colors
+    #     y_axis_lab <- 'Organisms per mL'
+    #     plt_title <- glue('{filt_val} Phytoplankton Densities')
+    #     
+    #     # ---- BENTHIC ----
+    #   } else if (program == 'Benthic') {
+    #     df_filt <- self$df_raw %>%
+    #       filter(Station == filt_val) %>%
+    #       mutate(
+    #         Date = as.Date(paste(WaterYear, Month, '01', sep = '-'), format = '%Y-%B-%d'),
+    #         MonthYear = format(Date, '%b-%Y')
+    #       )
+    #     
+    #     # count sampling events per month
+    #     num_se_month <- df_filt %>%
+    #       distinct(Station, MonthYear) %>%
+    #       count(MonthYear, name = 'num_se')
+    #     
+    #     # summarize and normalize by number of events
+    #     df_summ <- df_filt %>%
+    #       summarize(total_val = sum(MeanCPUE, na.rm = TRUE), .by = c(MonthYear, Phylum)) %>%
+    #       left_join(num_se_month, by = 'MonthYear') %>%
+    #       mutate(avg = total_val / num_se)
+    #     
+    #     # Fill missing months with avg = 0 for all Phyla
+    #     df_summ <- df_summ %>%
+    #       tidyr::complete(
+    #         Phylum,
+    #         MonthYear = global_month_year,
+    #         fill = list(avg = 0)
+    #       )
+    #     
+    #     group_var <- sym('Phylum')
+    #     col_colors_all <- self$global_phylum_colors
+    #     y_axis_lab <- bquote('CPUE (organisms/m'^2*')')
+    #     plt_title <- glue('{filt_val} Benthic Organism Densities')
+    #   }
+    #   
+    #   # ---- COLOR ORDERING ----
+    #   group_var_levels <- df_summ %>%
+    #     summarize(avg_val = mean(avg, na.rm = TRUE), .by = !!group_var) %>%
+    #     arrange(avg_val) %>%
+    #     pull(!!group_var)
+    #   
+    #   col_colors <- col_colors_all[group_var_levels]
+    #   
+    #   df_summ_c <- df_summ %>%
+    #     mutate(
+    #       !!group_var := factor(!!group_var, levels = group_var_levels),
+    #       ColColor = col_colors[as.character(!!group_var)],
+    #       MonthYear = factor(MonthYear, levels = global_month_year, ordered = TRUE)
+    #     )
+    #   
+    #   # ---- STACKED BAR ----
+    #   plt_stacked <- df_summ_c %>%
+    #     ggplot(aes(MonthYear, avg, fill = !!group_var)) +
+    #     geom_col(color = 'black') +
+    #     theme_bw() +
+    #     scale_y_continuous(name = y_axis_lab, labels = label_comma()) +
+    #     scale_x_discrete(name = NULL, labels = label_order) +
+    #     scale_fill_manual(values = col_colors) +
+    #     guides(fill = 'none')
+    #   
+    #   # ---- FACETS ----
+    #   plt_facet <- plt_stacked +
+    #     facet_wrap(vars(fct_rev(!!group_var)), scales = 'free_y', ncol = 3) +
+    #     theme(axis.text.x = element_text(angle = 45, hjust = 1))
+    #   
+    #   # ---- COMBINE ----
+    #   plt_combined <- wrap_plots(plt_stacked, plt_facet, ncol = 1, axis_titles = 'collect_y') +
+    #     plot_annotation(
+    #       title = plt_title,
+    #       theme = theme(plot.title = element_text(hjust = 0.5))
+    #     )
+    #   
+    #   # ---- HEIGHT ADJUSTMENT ----
+    #   if (program == 'Benthic') {
+    #     height_factor <- df_summ_c %>% distinct(!!group_var) %>% nrow()
+    #     exp_height <- (.5 * ceiling(height_factor / 3)) * 1.2
+    #     return(plt_combined + plot_layout(heights = c(1, exp_height)))
+    #   } else {
+    #     return(plt_combined)
+    #   }
+    # },
     plt_org_density = function(filt_val, program = c("Phyto", "Benthic")) {
       program <- match.arg(program)
-      
+
       if (program == "Phyto") {
         # Data preparation unique to Phytoplankton
         # Define AlgalGroup categories for filt_val (Region) -
         # 'Other' category are AlgalGroups in less than 1% of samples
         alg_cat <- private$def_alg_cat(self$df_raw, filt_val, threshold = 1)
-        
-        df_summ <- self$df_raw %>% 
+
+        df_summ <- self$df_raw %>%
           # Combine 'Other' AlgalGroup categories into one
-          mutate(AlgalGroup = if_else(AlgalGroup %in% alg_cat$other, 'Other', AlgalGroup)) %>% 
-          private$summarize_phyto(filt_val, summ_grps = c("AlgalGroup", "Month"))
-        
+          mutate(MonYear = format(Date, '%b-%y')) %>% # create MonYear column for later
+          mutate(AlgalGroup = if_else(AlgalGroup %in% alg_cat$other, 'Other', AlgalGroup)) %>%
+          private$summarize_phyto(filt_val, summ_grps = c("AlgalGroup", "Month", "MonYear"))
+
         # Define unique group variable for data set
         group_var <- sym("AlgalGroup")
-        
+
         # Use global colors for AlgalGroup
         col_colors_all <- self$global_alg_colors
-        
+
         # Define unique values for plot labels
         y_axis_lab <- "Organisms per mL"
         plt_title <- glue("{filt_val} Phytoplankton Densities")
-        
+
       } else if (program == "Benthic") {
         # Data preparation unique to Benthic
-        
+
         # Filter to station
         df_filt <- self$df_raw %>% filter(Station == filt_val)
-        
+
         # Count number of sampling events for each month during the report year
-        num_se_month <- df_filt %>% 
-          distinct(Station, Month) %>% 
+        num_se_month <- df_filt %>%
+          distinct(Station, Month) %>%
           count(Month, name = "num_se")
-        
+
         # Calculate monthly total densities for each Phylum and normalize them by
         # the total number of sampling events during each month
         df_summ <- df_filt %>%
-          summarize(total_val = sum(MeanCPUE, na.rm = TRUE), .by = c(Month, Phylum)) %>% 
-          left_join(num_se_month, by = "Month") %>% 
+          mutate(MonYear = format(as.Date(paste(Year, Month, '01', sep = '-'), format = '%Y-%B-%d'), '%b-%y')) %>%
+          summarize(total_val = sum(MeanCPUE, na.rm = TRUE), .by = c(Month, Phylum, MonYear)) %>%
+          left_join(num_se_month, by = "Month") %>%
           mutate(avg = total_val / num_se)
-        
+
         # Define unique group variable for data set
         group_var <- sym("Phylum")
-        
+
         # Use global colors for Phylum
         col_colors_all <- self$global_phylum_colors
-        
+
         # Define unique values for plot labels
-        y_axis_lab <- "CPUE"
+        y_axis_lab <- bquote("CPUE (organisms/m"^2*")")
         plt_title <- glue("{filt_val} Benthic Organism Densities")
       }
-      
+
       # Determine only those used in current plot
       group_var_levels <- df_summ %>%
         summarize(avg_val = mean(avg, na.rm = TRUE), .by = !!group_var) %>%
         arrange(avg_val) %>%
         pull(!!group_var)
-      
+
       # Subset to the group_var_levels that actually exist in the data
       col_colors <- col_colors_all[group_var_levels]
-      
+
       # Reorder the levels of group_var based on the averages
       df_summ_c <- df_summ %>%
         mutate(
@@ -133,28 +257,40 @@ BioFigureClass <- R6Class(
           ColColor = col_colors[as.character(!!group_var)]
         )
       
+      # complete missing cases before plotting
+      df_summ_c <- df_summ %>%
+        tidyr::complete(
+          !!group_var,
+          MonYear = label_order,
+          fill = list(avg = NA_real_)
+        ) %>%
+        mutate(
+          !!group_var := factor(!!group_var, levels = group_var_levels),
+          ColColor = col_colors[as.character(!!group_var)],
+          MonYear = factor(MonYear, levels = label_order, ordered = TRUE))
+
       # Create stacked barplot of monthly densities
-      plt_stacked <- df_summ_c %>% 
-        ggplot(aes(Month, avg, fill = !!group_var)) +
+      plt_stacked <- df_summ_c %>%
+        ggplot(aes(MonYear, avg, fill = !!group_var)) +
         geom_col(color = 'black') +
         theme_bw() +
         scale_y_continuous(name = y_axis_lab, labels = label_comma()) +
         scale_x_discrete(name = NULL, labels = label_order) +
         scale_fill_manual(values = col_colors) +
         guides(fill = "none")
-      
+
       # Create faceted barplots
       plt_facet <- plt_stacked +
         facet_wrap(vars(fct_rev(!!group_var)), scales = 'free_y', ncol = 3) +
         theme(axis.text.x = element_text(angle = 45, hjust = 1))
-      
+
       # Combine barplots together using patchwork
       plt_combined <- wrap_plots(plt_stacked, plt_facet, ncol = 1, axis_titles = "collect_y") +
         plot_annotation(
           title = plt_title,
           theme = theme(plot.title = element_text(hjust = 0.5))
         )
-      
+
       # Adjust heights of barplots and faceted barplots for Benthic plots
       if (program == "Benthic") {
         # Determine relative height factor
@@ -369,7 +505,7 @@ BioFigureClass <- R6Class(
         geom_line(na.rm = TRUE) +
         geom_point(size = 2, na.rm = TRUE) +
         theme_bw() +
-        scale_y_continuous(name = "CPUE", labels = label_comma()) +
+        scale_y_continuous(name = "CPUE",, labels = label_comma()) +
         scale_x_date(name = NULL, date_labels = '%m-%y', date_breaks = x_axis_break) +
         scale_color_manual(values = col_colors) +
         guides(color = "none")

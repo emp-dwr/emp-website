@@ -30,6 +30,7 @@ area <- patchwork::area
 `%m+%` <- lubridate::`%m+%`
 `%m-%` <- lubridate::`%m-%`
 `%within%` <- lubridate::`%within%`
+floor_date <- lubridate::floor_date
 
 sym <- rlang::sym
 syms <- rlang::syms

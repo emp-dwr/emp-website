@@ -25,7 +25,7 @@ quarto::quarto_render(
 ### specific reports (type name in between `c()`)
 
 ```{r}
-render_reports(programs = c('cwq'),
+render_reports(programs = c('benthic'),
                report_type = 'pdfs')
 ```
 
@@ -45,6 +45,6 @@ quarto::quarto_render(
 ### specific reports (type name in between `c()`)
 
 ```{r}
-render_reports(programs = c('cwq'),
+render_reports(programs = c('zoop'),
                report_type = 'website')
 ```
