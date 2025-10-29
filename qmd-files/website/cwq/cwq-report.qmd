@@ -50,7 +50,7 @@ Data were collected for six water quality parameters and stations were divided b
 -   Turbidity (FNU)
 -   Fluorescence (μg/L)
 
-For Reclamation, water samples were collected 1-meter below the water surface using float-mounted YSI 6-series and EXO-1 multi-parameter water quality sondes as well as Hydrolab MS5 and HL4 water quality sondes. Parameters collected include:
+For Reclamation, water samples were collected 1-meter below the water surface using float-mounted Hydrolab MS5 and HL4 water quality sondes. Parameters collected include:
 
 -   Water Temperature (°C)
 -   Specific Conductance (μS/cm 25°C)

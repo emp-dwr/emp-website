@@ -9,7 +9,7 @@ source(here::here('admin/import_scripts.R'))
 ## generate figures
 
 ```{r}
-create_figs(group = c('benthic'))
+create_figs(group = c('cwq'))
 ```
 
 ## create pdfs
@@ -45,6 +45,6 @@ quarto::quarto_render(
 ### specific reports (type name in between `c()`)
 
 ```{r}
-render_reports(programs = c('cwq'),
+render_reports(programs = c('benthic'),
                report_type = 'website')
 ```

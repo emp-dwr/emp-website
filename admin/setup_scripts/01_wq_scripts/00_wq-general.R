@@ -375,10 +375,11 @@ WQFigureClass <- R6Class(
       self$generate_station_colors(df_raw)
       self$df_devicetype <- read_csv(here("admin/figures-tables/cwq/cwq_devicetype.csv"), show_col_types = FALSE) %>%
         mutate(Shape = case_when(
-          grepl("EMP", DeviceType) ~ 24,
-          grepl("USBR", DeviceType) ~ 21,
-          grepl("SMWQP", DeviceType) ~ 22,
-          TRUE ~ 23
+          # grepl("YSI EXO1", DeviceType) ~ 21,
+          grepl("YSI EXO2", DeviceType) ~ 21,
+          grepl("Hydrolab HL4", DeviceType) ~ 22,
+          grepl("Hydrolab MS5", DeviceType) ~ 23,
+          TRUE ~ 20
         ))
     },
     
@@ -477,7 +478,7 @@ WQFigureClass <- R6Class(
             values = setNames(df_used_devices$Shape, df_used_devices$DeviceType),
             drop = FALSE
           ) +
-          labs(shape = "Program") +
+          labs(shape = "Field Device") +
           guides(
             color = "none",
             fill = "none",
