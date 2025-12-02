@@ -122,7 +122,7 @@ Previous EMP benthic reports can be found [here](https://github.com/emp-dwr/emp-
 #| out-width: 100%
 #| fig-cap: 'Map of EMP’s benthic field sites.'
 #| 
-knitr::include_graphics(here::here(file.path('admin/figures-tables/benthic/benthic_station_map.png')))
+knitr::include_graphics(here::here(file.path('admin/figures-tables/benthic/benthic_station_map_pdf.jpg')))
 ```
 
 ```{r}

@@ -104,7 +104,7 @@ create_figs_benthic <- function() {
              plt_benthic,
              width = 25, height = exp_height, unit = "cm"
       )
-      
+
       ggsave(here(paste0(emp_path, "/bargraphs/benthic_bar_", fp_name, ".png")),
              plt_benthic,
              width = 25, height = exp_height, unit = "cm"

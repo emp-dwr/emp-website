@@ -128,7 +128,7 @@ Old EMP continuous water quality reports can be found [here](https://github.com/
 #| out-width: 100%
 #| fig-cap: 'Map of EMP’s continuous WQ field sites'
 #| 
-include_graphics(here::here(file.path('admin/figures-tables/cwq/cwq_station_map.png')))
+include_graphics(here::here(file.path('admin/figures-tables/cwq/cwq_station_map_pdf.jpg')))
 ```
 
 ```{r}

@@ -207,22 +207,7 @@ BioFigureClass <- R6Class(
                    scales = 'free_y', ncol = 3) +
         theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
-      # # Create stacked barplot of monthly densities
-      # plt_stacked <- df_summ_c %>%
-      #   ggplot(aes(MonYear, avg, fill = !!group_var)) +
-      #   geom_col(color = 'black') +
-      #   theme_bw() +
-      #   scale_y_continuous(name = y_axis_lab, labels = label_comma()) +
-      #   scale_x_discrete(name = NULL, labels = label_order) +
-      #   scale_fill_manual(values = col_colors) +
-      #   guides(fill = "none")
-      # 
-      # # Create faceted barplots
-      # plt_facet <- plt_stacked +
-      #   facet_wrap(vars(fct_rev(!!group_var)), scales = 'free_y', ncol = 3) +
-      #   theme(axis.text.x = element_text(angle = 45, hjust = 1))
-
-      # Combine barplots together using patchwork
+      # Combine barplots together
       plt_combined <- wrap_plots(plt_stacked, plt_facet, ncol = 1, axis_titles = "collect_y") +
         plot_annotation(
           title = plt_title,

@@ -111,7 +111,7 @@ Previous EMP discrete water quality reports can be found [here](https://github.c
 #| out-width: 100%
 #| fig-cap: 'Map of EMP’s discrete WQ field sites'
 
-knitr::include_graphics(here::here(file.path('admin/figures-tables/dwq/dwq_station_map.png')))
+knitr::include_graphics(here::here(file.path('admin/figures-tables/dwq/dwq_station_map_pdf.jpg')))
 ```
 
 ```{r}
