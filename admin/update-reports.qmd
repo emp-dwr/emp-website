@@ -9,7 +9,7 @@ source(here::here('admin/import_scripts.R'))
 ## generate figures
 
 ```{r}
-create_figs(group = c('dwq'))
+create_figs(group = c('phyto'))
 ```
 
 ## create pdfs
@@ -24,8 +24,10 @@ quarto::quarto_render(
 
 ### specific reports (type name in between `c()`)
 
+options are 'benthic', 'phyto', 'zoop', 'dwq', 'cwq'
+
 ```{r}
-render_reports(programs = c('benthic'),
+render_reports(programs = c('phyto'),
                report_type = 'pdfs')
 ```
 
@@ -45,6 +47,6 @@ quarto::quarto_render(
 ### specific reports (type name in between `c()`)
 
 ```{r}
-render_reports(programs = c('benthic'),
+render_reports(programs = c('phyto'),
                report_type = 'website')
 ```
