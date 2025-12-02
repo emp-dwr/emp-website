@@ -415,8 +415,8 @@ WQFigureClass <- R6Class(
         mutate(
           Region = factor(Region, levels = self$df_regionhex$Region)
         ) %>%
+        arrange(Analyte, Region, Station, Date) %>%
         tidyr::nest(.by = c(Analyte, Region), .key = "df_data") %>%
-        arrange(Analyte, Region) %>%
         mutate(
           num_station = row_number(),
           x_label = if (plt_type == 'dwq') {
@@ -601,41 +601,59 @@ WQFigureClass <- R6Class(
     
     # Create single water quality plot for each region
     wq_region_plt = function(df, region, x_lab, plt_type = c("dwq", "cwq"), color_by = "Station") {
-      # Argument checking
+      
       plt_type <- match.arg(plt_type)
       
-      if (plt_type == "dwq") {
-        # Create discrete WQ plot
-        plt <- df %>%
+      if (plt_type == 'dwq') {
+        df_prep <- df %>%
           mutate(
-            Value = if_else(DetectStatus == "Nondetect", NA_real_, Value),
+            Value = if_else(DetectStatus == 'Nondetect', NA_real_, Value),
             Month_num = as.numeric(Month)
           ) %>%
-          ggplot(aes(x = Month_num, y = Value, color = !!sym(color_by)))
+          arrange(.data[[color_by]], Month_num)
         
-        # Add geoms for < RL values if necessary
-        if (any(df$DetectStatus == "Nondetect", na.rm = TRUE)) plt <- plt + private$blw_rl_geom(df, color_by)
+        stations <- df_prep %>%
+          distinct(.data[[color_by]]) %>%
+          pull(.data[[color_by]])
         
+        # initiate empty plot
+        plt <- ggplot()
+        
+        # add < RL
+        if (any(df$DetectStatus == 'Nondetect', na.rm = TRUE)) {
+          plt <- plt + private$blw_rl_geom(df, color_by)
+        }
+        
+        # add each station as a unit (line + points)
+        for (s in stations) {
+          df_s <- df_prep %>% filter(.data[[color_by]] == s)
+          
+          plt <- plt +
+            geom_borderline(
+              data = df_s,
+              aes(x = Month_num, y = Value, color = .data[[color_by]]),
+              linewidth = 0.6,
+              bordercolor = 'black',
+              borderwidth = 0.2,
+              na.rm = TRUE,
+              show.legend = FALSE
+            ) +
+            geom_point(
+              data = df_s,
+              aes(x = Month_num, y = Value, fill = .data[[color_by]]),
+              size = 2,
+              shape = 21,
+              stroke = 0.25,
+              color = 'black'
+            )
+        }
+
         plt <- plt +
-          geom_borderline(
-            linewidth = 0.6,
-            bordercolor = "black",
-            borderwidth = 0.2,
-            na.rm = TRUE,
-            show.legend = FALSE
-          ) +
-          geom_point(
-            size = 2,
-            shape = 21,          
-            stroke = 0.25,        
-            color = "black",     
-            aes(fill = !!sym(color_by))  
-          ) +
-          scale_fill_manual(values = self$station_colors) +
+          scale_fill_manual(values  = self$station_colors) +
           scale_x_continuous(
             breaks = 1:12,
             labels = label_order,
-            lim = c(0.75, 12.25)
+            limits = c(0.75, 12.25)
           )
       } else {
         # Create continuous WQ plot
