@@ -586,7 +586,7 @@ render_reports <- function(..., report_type) {
 # define default year (change manually if needed)
 # report_year <- as.integer(format(Sys.Date(), "%Y")) - 1
 report_year <- as.integer(2024)
-print(paste('report year:',report_year))
+# print(paste('report year:',report_year))
 
 prev_year <- report_year - 1
 
