@@ -27,7 +27,7 @@ quarto::quarto_render(
 options are 'benthic', 'phyto', 'zoop', 'dwq', 'cwq'
 
 ```{r}
-render_reports(programs = c('benthic'),
+render_reports(programs = c('zoop'),
                report_type = 'pdfs')
 ```
 
@@ -47,6 +47,6 @@ quarto::quarto_render(
 ### specific reports (type name in between `c()`)
 
 ```{r}
-render_reports(programs = c('benthic'),
+render_reports(programs = c('zoop'),
                report_type = 'website')
 ```
