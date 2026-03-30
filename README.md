@@ -1,6 +1,6 @@
 # EMP Website & Annual Reports
 
-This repository holds all the code associated with DWR's Environmental Monitoring Program Website ([link](https://emp-dwr.github.io/emp-website/)).
+This repository holds all the code associated with DWR's Environmental Monitoring Program Website ([link](https://www.empdata.org/qmd-files/website/00_index/index.html)).
 
 For access to EMP datasets, see the [data links](https://emp-dwr.github.io/emp-website/data-links.html) section of the website. 
 
