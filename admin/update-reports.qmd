@@ -4,6 +4,7 @@
 
 ```{r}
 source(here::here('admin/import_scripts.R'))
+print(report_year)
 ```
 
 ## generate figures
@@ -46,7 +47,13 @@ quarto::quarto_render(
 
 ### specific reports (type name in between `c()`)
 
+options are 'benthic', 'phyto', 'zoop', 'dwq', 'cwq'
+
 ```{r}
 render_reports(programs = c('zoop'),
                report_type = 'website')
+```
+
+```{r}
+render_mussels()
 ```

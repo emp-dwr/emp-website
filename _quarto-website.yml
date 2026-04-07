@@ -24,7 +24,7 @@ website:
     collapse-below: lg
     left:
       - text: "Home"
-        href: qmd-files/website/00_index/index.qmd
+        href: qmd-files/website/index.qmd
       - text: "Data Links"
         href: qmd-files/website/general/data-links.qmd
       - text: "Annual Reports"
@@ -43,6 +43,8 @@ website:
         menu:
           - text: "Veliger Monitoring Program"
             href: qmd-files/website/special-studies/veliger-info.qmd
+          - text: "Golden Mussel Sightings"
+            href: qmd-files/website/special-studies/golden-mussels.qmd
       - text: 'Contact Us'
         href: "mailto:ted.flynn@water.ca.gov"
 

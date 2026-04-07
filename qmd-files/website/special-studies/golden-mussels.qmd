@@ -1,0 +1,130 @@
+---
+title: 'Golden Mussel Sightings'
+---
+
+```{r echo = FALSE}
+# read in functions; do not edit
+source(here::here('admin/import_scripts.R'))
+```
+
+This map shows where Golden Mussels (*Limnoperna fortunei*) have been detected at EMP’s continuous water quality monitoring stations over the past year. These sightings are based on visual observations with genetic confirmation typically conducted when mussels are first identified at a new station.
+
+Stations shown in grey indicate no recorded detections to date, while blue stations indicate locations where Golden Mussels were detected previously but have not been observed in the selected month. It should be noted that absence of detections does not necessarily indicate absence of Golden Mussels, as detection depends on monitoring frequency and environmental conditions.
+
+For more information, please contact Morgan Battey at [Morgan.Battey\@water.ca.gov](mailto:Morgan.Battey@water.ca.gov){.email}.
+
+```{r}
+#| include: false
+
+data <- readRDS(here('admin/test-data/mussel_frames_data.rds'))
+frames_data <- data$frames_data
+df_stations  <- data$df_stations
+
+month_years <- frames_data %>%
+  distinct(month_year, month_year_idx) %>%
+  arrange(month_year_idx) %>%
+  pull(month_year)
+
+month_years_full <- format(as.Date(paste('01', month_years), '%d %b %Y'), '%B %Y')
+
+pad <- 0.02
+lat_range <- max(df_stations$Latitude) - min(df_stations$Latitude)
+lon_range <- max(df_stations$Longitude) - min(df_stations$Longitude)
+zoom <- log2(360 / (max(lat_range, lon_range) * (1 + pad))) - 1
+
+p <- plot_ly(frames_data,
+        lat = ~Latitude, lon = ~Longitude, type = 'scattermapbox',
+        mode = 'markers',
+        hoverinfo = 'none',
+        marker = list(color = 'black', size = 12),
+        frame = ~factor(month_year, levels = month_years),
+        showlegend = FALSE) %>%
+  add_trace(
+        lat = ~Latitude, lon = ~Longitude, type = 'scattermapbox',
+        mode = 'markers',
+        hovertext = ~hover_text,
+        hoverinfo = 'text',
+        marker = list(color = ~I(marker_color), size = 10),
+        frame = ~factor(month_year, levels = month_years),
+        showlegend = FALSE) %>%
+  add_trace(lat = NA, lon = NA, type = 'scattermapbox', mode = 'markers',
+            marker = list(color = '#fdd49e', size = 10), name = '1-50 Mussels', showlegend = TRUE) %>%
+  add_trace(lat = NA, lon = NA, type = 'scattermapbox', mode = 'markers',
+            marker = list(color = '#fc8d59', size = 10), name = '50-100 Mussels', showlegend = TRUE) %>%
+  add_trace(lat = NA, lon = NA, type = 'scattermapbox', mode = 'markers',
+            marker = list(color = '#b30000', size = 10), name = '100+ Mussels', showlegend = TRUE) %>%
+  add_trace(lat = NA, lon = NA, type = 'scattermapbox', mode = 'markers',
+            marker = list(color = '#4C78A8', size = 10), name = 'Previous Sightings', showlegend = TRUE) %>%
+  add_trace(lat = NA, lon = NA, type = 'scattermapbox', mode = 'markers',
+            marker = list(color = 'lightgray', size = 10), name = 'No Sightings', showlegend = TRUE) %>%
+  layout(mapbox = list(
+    style = 'white-bg',
+    layers = list(list(
+      below = 'traces',
+      sourcetype = 'raster',
+      source = list('https://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}'),
+      sourceattribution = 'Esri'
+    )),
+    zoom = zoom,
+    center = list(lat = mean(c(min(df_stations$Latitude), max(df_stations$Latitude))),
+                  lon = mean(c(min(df_stations$Longitude), max(df_stations$Longitude)))),
+    domain = list(x = c(0, 0.82), y = c(0, 0.85)))) %>%
+  layout(
+    width = 720, height = 680,
+    margin = list(t = 0, r = 0, b = 110, l = 40),
+    legend = list(x = 0.83, y = 0.425, font = list(size = 10), title = list(text = '<b>Mussel Sightings</b>', font = list(size = 12))),
+    shapes = list(list(
+      type = 'rect', xref = 'paper', yref = 'paper',
+      x0 = 0, y0 = 0, x1 = 0.82, y1 = 0.85,
+      line = list(color = '#aaa', width = 1)
+    ))
+  )
+
+p_built <- plotly_build(p)
+
+date_annotation <- function(month) {
+  list(list(
+    text = paste0('<b>Current Date: ', month, '</b>'),
+    x = 0.41, y = 0.92,
+    xref = 'paper', yref = 'paper',
+    showarrow = FALSE,
+    font = list(size = 16)
+  ))
+}
+
+p_built$x$layout$annotations <- date_annotation(month_years_full[length(month_years_full)])
+
+for (i in seq_along(p_built$x$frames)) {
+  month <- p_built$x$frames[[i]]$name
+  frame_df <- frames_data %>%
+    filter(month_year == month) %>%
+    arrange(`Station Acronym`)
+  p_built$x$frames[[i]]$data[[2]]$marker$color <- frame_df$marker_color
+  p_built$x$frames[[i]]$data[[2]]$hovertext <- frame_df$hover_text
+  p_built$x$frames[[i]]$layout <- list(annotations = date_annotation(month_years_full[i]))
+}
+
+last_month <- month_years[length(month_years)]
+last_df <- frames_data %>%
+  filter(month_year == last_month) %>%
+  arrange(`Station Acronym`)
+p_built$x$data[[2]]$marker$color <- last_df$marker_color
+p_built$x$data[[2]]$hovertext <- last_df$hover_text
+
+p_built$x$layout$sliders[[1]]$currentvalue <- list(visible = FALSE)
+
+for (i in seq_along(p_built$x$layout$sliders[[1]]$steps)) {
+  p_built$x$layout$sliders[[1]]$steps[[i]]$label <- month_years[i]
+}
+
+p_built$x$layout$updatemenus <- NULL
+p_built$x$layout$sliders[[1]]$font <- list(size = 10)
+p_built$x$layout$sliders[[1]]$active <- length(month_years) - 1
+p_built$x$layout$sliders[[1]]$len <- 0.82
+p_built$x$layout$sliders[[1]]$x <- 0
+```
+
+```{r}
+#| echo: false
+div(style = 'display: flex; justify-content: center; height: 680px; width: 720px; margin: 0 auto;', p_built)
+```

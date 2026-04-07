@@ -580,6 +580,19 @@ render_reports <- function(..., report_type) {
   render_report(programs, report_type)
 }
 
+# for use by GitHub for auto-updates
+render_mussels <- function() {
+  file_path <- 'qmd-files/website/special-studies/golden-mussels.qmd'
+  
+  if (!file.exists(file_path)) {
+    stop('File not found: ', file_path)
+  }
+  
+  message('Rendering golden-mussels.qmd...')
+  quarto::quarto_render(input = file_path, profile = 'website')
+  message('Done!')
+}
+
 
 # Global Variables --------------------------------------------------------
 

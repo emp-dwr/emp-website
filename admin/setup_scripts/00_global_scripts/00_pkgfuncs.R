@@ -31,6 +31,7 @@ area <- patchwork::area
 `%m-%` <- lubridate::`%m-%`
 `%within%` <- lubridate::`%within%`
 floor_date <- lubridate::floor_date
+days <- lubridate::days
 
 sym <- rlang::sym
 syms <- rlang::syms
@@ -75,6 +76,7 @@ pick <- dplyr::pick
 reframe <- dplyr::reframe
 if_else <- dplyr::if_else
 case_when <- dplyr::case_when
+slice_max <- dplyr::slice_max
 
 tibble <- tibble::tibble
 
@@ -130,6 +132,7 @@ brewer.pal <- RColorBrewer::brewer.pal
 
 complete <- tidyr::complete
 nest <- tidyr::nest
+crossing <- tidyr::crossing
 
 here <- here::here
 
@@ -144,3 +147,14 @@ label_comma <- scales::label_comma
 geom_treemap <- treemapify::geom_treemap
 geom_treemap_text <- treemapify::geom_treemap_text
 geom_treemap_subgroup_border <- treemapify::geom_treemap_subgroup_border
+
+fromJSON <- jsonlite::fromJSON
+
+plot_ly <- plotly::plot_ly
+add_trace <- plotly::add_trace
+layout <- plotly::layout
+plotly_build <- plotly::plotly_build
+
+div <- htmltools::div
+
+here <- here::here
