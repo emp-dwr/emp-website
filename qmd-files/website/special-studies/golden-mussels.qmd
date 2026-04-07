@@ -1,5 +1,7 @@
 ---
 title: 'Golden Mussel Sightings'
+aliases:
+  - /golden-mussels.html
 ---
 
 This map shows where Golden Mussels (*Limnoperna fortunei*) have been detected at EMP’s continuous water quality monitoring stations over the past year. These sightings are based on visual observations with genetic confirmation typically conducted when mussels are first identified at a new station.
