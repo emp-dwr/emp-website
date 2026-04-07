@@ -5,6 +5,7 @@ library(readr)
 library(plotly)
 library(quarto)
 library(here)
+library(lubridate)
 library(jsonlite)
 
 df_stations <- read_csv(here('admin/figures-tables/special-studies/Mussel_Station_Metadata.csv'))
@@ -14,7 +15,9 @@ sightings <- sightings %>%
   mutate(
     Date = as.Date(as.numeric(Date) - 25569, origin = '1970-01-01'),
     month_year = format(Date, '%b %Y')
-  )
+  ) %>%
+  select(-c('@odata.etag','After submitting this form, report the new sighting to the CDFW website')) %>%
+  rename('Description' = 'Description (e_x002e_g_x002e_, found on sonde body)')
 
 current_month <- as.Date(format(Sys.Date(), '%Y-%m-01')) - months(1)
 month_starts <- sort(seq(from = current_month, by = '-1 month', length.out = 12))

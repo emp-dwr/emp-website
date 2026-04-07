@@ -32,7 +32,7 @@ jobs:
           restore-keys: r-${{ runner.os }}-
 
       - name: Install R packages
-        run: Rscript -e 'install.packages(c("dplyr", "tidyr", "readr", "jsonlite", "here", "plotly", "quarto"))'
+        run: Rscript -e 'install.packages(c("dplyr", "tidyr", "readr", "jsonlite", "here", "plotly", "quarto", "lubridate"))'
 
       - name: Run data prep
         run: Rscript admin/setup_scripts/03_other_scripts/mussel-data-prep.R
