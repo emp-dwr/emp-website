@@ -1,5 +1,9 @@
 
-library(tidyverse)
+library(dplyr)
+library(tidyr)
+library(readr)
+library(plotly)
+library(quarto)
 library(here)
 library(jsonlite)
 
