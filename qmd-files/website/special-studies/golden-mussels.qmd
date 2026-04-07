@@ -11,6 +11,13 @@ For more information, please contact Morgan Battey at [Morgan.Battey\@water.ca.g
 ```{r}
 #| include: false
 
+library(dplyr)
+library(tidyr)
+library(readr)
+library(here)
+library(plotly)
+library(quarto)
+
 data <- readRDS(here('admin/test-data/mussel_frames_data.rds'))
 frames_data <- data$frames_data
 df_stations  <- data$df_stations

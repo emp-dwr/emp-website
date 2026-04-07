@@ -3,8 +3,6 @@ library(dplyr)
 library(tidyr)
 library(readr)
 library(here)
-library(plotly)
-library(quarto)
 library(lubridate)
 library(jsonlite)
 
