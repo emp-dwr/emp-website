@@ -17,6 +17,7 @@ library(readr)
 library(here)
 library(plotly)
 library(quarto)
+library(htmltools)
 
 data <- readRDS(here('admin/test-data/mussel_frames_data.rds'))
 frames_data <- data$frames_data
