@@ -12,7 +12,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-          
+
       - name: Save data to JSON
         env:
           DATA: ${{ toJson(github.event.client_payload.data) }}
@@ -28,7 +28,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ${{ env.R_LIBS_USER }}
-          key: r-${{ runner.os }}-${{ hashFiles('admin/setup_scripts/03_other_scripts/mussel-data-prep.R', 'qmd-files/website/golden-mussels.qmd') }}
+          key: r-${{ runner.os }}-${{ hashFiles('admin/setup_scripts/03_other_scripts/mussel-data-prep.R', 'qmd-files/website/special-studies/golden-mussels.qmd') }}
           restore-keys: r-${{ runner.os }}-
 
       - name: Install R packages
@@ -41,12 +41,15 @@ jobs:
         uses: quarto-dev/quarto-actions/setup@v2
 
       - name: Render Quarto site
-        run: quarto render qmd-files/website/golden-mussels.qmd
+        run: quarto render qmd-files/website/special-studies/golden-mussels.qmd
 
       - name: Commit and push
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
-          git add output/
+          git add \
+            admin/test-data/mussel_data.json \
+            admin/test-data/mussel_frames_data.rds \
+            output/website/qmd-files/website/special-studies/golden-mussels.html
           git diff --staged --quiet || git commit -m "update mussel data and re-render site"
           git push
