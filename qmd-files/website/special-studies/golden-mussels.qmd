@@ -6,7 +6,7 @@ This map shows where Golden Mussels (*Limnoperna fortunei*) have been detected a
 
 Stations shown in grey indicate no recorded detections to date, while blue stations indicate locations where Golden Mussels were detected previously but have not been observed in the selected month. It should be noted that absence of detections does not necessarily indicate absence of Golden Mussels, as detection depends on monitoring frequency and environmental conditions.
 
-For more information, please contact Morgan Battey at [Morgan.Battey\@water.ca.gov](mailto:Morgan.Battey@water.ca.gov){.email}.
+For more information, please contact [CEMP@water.ca.gov](mailto:CEMP@water.ca.gov){.email}.
 
 ```{r}
 #| include: false
