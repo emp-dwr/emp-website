@@ -49,7 +49,9 @@ jobs:
             "readr",
             "jsonlite",
             "here",
-            "lubridate"
+            "lubridate",
+            "plotly",
+            "quarto"
           ))'
 
       - name: Run data prep
