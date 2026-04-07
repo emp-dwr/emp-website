@@ -7,6 +7,7 @@ library(quarto)
 library(here)
 library(lubridate)
 library(jsonlite)
+library(rvest)
 
 df_stations <- read_csv(here('admin/figures-tables/special-studies/Mussel_Station_Metadata.csv'))
 sightings <- fromJSON(readLines(here('admin/test-data/mussel_data.json')))
