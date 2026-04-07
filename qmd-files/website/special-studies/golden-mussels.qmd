@@ -2,11 +2,6 @@
 title: 'Golden Mussel Sightings'
 ---
 
-```{r echo = FALSE}
-# read in functions; do not edit
-source(here::here('admin/import_scripts.R'))
-```
-
 This map shows where Golden Mussels (*Limnoperna fortunei*) have been detected at EMP’s continuous water quality monitoring stations over the past year. These sightings are based on visual observations with genetic confirmation typically conducted when mussels are first identified at a new station.
 
 Stations shown in grey indicate no recorded detections to date, while blue stations indicate locations where Golden Mussels were detected previously but have not been observed in the selected month. It should be noted that absence of detections does not necessarily indicate absence of Golden Mussels, as detection depends on monitoring frequency and environmental conditions.

@@ -4,14 +4,24 @@ on:
   repository_dispatch:
     types: [update-mussels]
 
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: 'pages'
+  cancel-in-progress: false
+
 jobs:
-  update:
+  update-and-deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Save data to JSON
         env:
@@ -25,31 +35,50 @@ jobs:
           use-public-rspm: true
 
       - name: Cache R packages
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: ${{ env.R_LIBS_USER }}
           key: r-${{ runner.os }}-${{ hashFiles('admin/setup_scripts/03_other_scripts/mussel-data-prep.R', 'qmd-files/website/special-studies/golden-mussels.qmd') }}
           restore-keys: r-${{ runner.os }}-
 
       - name: Install R packages
-        run: Rscript -e 'install.packages(c("dplyr", "tidyr", "readr", "jsonlite", "here", "plotly", "quarto", "lubridate", "rvest"))'
+        run: |
+          Rscript -e 'install.packages(c(
+            "dplyr",
+            "tidyr",
+            "readr",
+            "jsonlite",
+            "here",
+            "lubridate"
+          ))'
 
       - name: Run data prep
         run: Rscript admin/setup_scripts/03_other_scripts/mussel-data-prep.R
 
-      - name: Set up Quarto
-        uses: quarto-dev/quarto-actions/setup@v2
-
-      - name: Render Quarto site
-        run: quarto render qmd-files/website/special-studies/golden-mussels.qmd
-
-      - name: Commit and push
+      - name: Commit updated data files
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
           git add \
             admin/test-data/mussel_data.json \
-            admin/test-data/mussel_frames_data.rds \
-            output/website/qmd-files/website/special-studies/golden-mussels.html
-          git diff --staged --quiet || git commit -m "update mussel data and re-render site"
+            admin/test-data/mussel_frames_data.rds
+          git diff --staged --quiet || git commit -m "update golden mussel data files"
           git push
+
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+
+      - name: Render Golden Mussel page
+        run: quarto render qmd-files/website/special-studies/golden-mussels.qmd
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./output/website
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
