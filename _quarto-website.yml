@@ -43,6 +43,8 @@ website:
         menu:
           - text: "Veliger Monitoring Program"
             href: qmd-files/website/special-studies/veliger-info.qmd
+          - text: "Golden Mussel Sightings"
+            href: qmd-files/website/special-studies/golden-mussels.qmd
       - text: 'Contact Us'
         href: "mailto:ted.flynn@water.ca.gov"
 
