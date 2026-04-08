@@ -30,16 +30,16 @@ month_years <- frames_data %>%
 
 month_years_full <- format(as.Date(paste('01', month_years), '%d %b %Y'), '%B %Y')
 
-pad <- 0.02
+pad <- -0.6
 lat_range <- max(df_stations$Latitude) - min(df_stations$Latitude)
 lon_range <- max(df_stations$Longitude) - min(df_stations$Longitude)
-zoom <- log2(360 / (max(lat_range, lon_range) * (1 + pad))) - 1
+zoom <- log2(360/(max(lat_range, lon_range)*(1 + pad))) - 1
 
 p <- plot_ly(frames_data,
         lat = ~Latitude, lon = ~Longitude, type = 'scattermapbox',
         mode = 'markers',
         hoverinfo = 'none',
-        marker = list(color = 'black', size = 12),
+        marker = list(color = 'black', size = 15), # 12
         frame = ~factor(month_year, levels = month_years),
         showlegend = FALSE) %>%
   add_trace(
@@ -47,19 +47,19 @@ p <- plot_ly(frames_data,
         mode = 'markers',
         hovertext = ~hover_text,
         hoverinfo = 'text',
-        marker = list(color = ~I(marker_color), size = 10),
+        marker = list(color = ~I(marker_color), size = 12), # 10
         frame = ~factor(month_year, levels = month_years),
         showlegend = FALSE) %>%
   add_trace(lat = NA, lon = NA, type = 'scattermapbox', mode = 'markers',
-            marker = list(color = '#fdd49e', size = 10), name = '1-50 Mussels', showlegend = TRUE) %>%
+            marker = list(color = '#fdd49e', size = 12), name = '1-50 Mussels', showlegend = TRUE) %>%
   add_trace(lat = NA, lon = NA, type = 'scattermapbox', mode = 'markers',
-            marker = list(color = '#fc8d59', size = 10), name = '50-100 Mussels', showlegend = TRUE) %>%
+            marker = list(color = '#fc8d59', size = 12), name = '50-100 Mussels', showlegend = TRUE) %>%
   add_trace(lat = NA, lon = NA, type = 'scattermapbox', mode = 'markers',
-            marker = list(color = '#b30000', size = 10), name = '100+ Mussels', showlegend = TRUE) %>%
+            marker = list(color = '#b30000', size = 12), name = '100+ Mussels', showlegend = TRUE) %>%
   add_trace(lat = NA, lon = NA, type = 'scattermapbox', mode = 'markers',
-            marker = list(color = '#4C78A8', size = 10), name = 'Previous Sightings', showlegend = TRUE) %>%
+            marker = list(color = '#4C78A8', size = 12), name = 'Previous Sightings', showlegend = TRUE) %>%
   add_trace(lat = NA, lon = NA, type = 'scattermapbox', mode = 'markers',
-            marker = list(color = 'lightgray', size = 10), name = 'No Sightings', showlegend = TRUE) %>%
+            marker = list(color = 'lightgray', size = 12), name = 'No Sightings', showlegend = TRUE) %>%
   layout(mapbox = list(
     style = 'white-bg',
     layers = list(list(
@@ -71,11 +71,11 @@ p <- plot_ly(frames_data,
     zoom = zoom,
     center = list(lat = mean(c(min(df_stations$Latitude), max(df_stations$Latitude))),
                   lon = mean(c(min(df_stations$Longitude), max(df_stations$Longitude)))),
-    domain = list(x = c(0, 0.82), y = c(0, 0.85)))) %>%
+    domain = list(x = c(0, 0.82), y = c(0, 0.85)))) %>% # where map is
   layout(
-    width = 720, height = 680,
+    width = 920, height = 680, # w 720
     margin = list(t = 0, r = 0, b = 110, l = 40),
-    legend = list(x = 0.83, y = 0.425, font = list(size = 10), title = list(text = '<b>Mussel Sightings</b>', font = list(size = 12))),
+    legend = list(x = 0.83, y = 0.425, font = list(size = 12), title = list(text = '<b>Mussel Sightings</b>', font = list(size = 14))), #10, 12
     shapes = list(list(
       type = 'rect', xref = 'paper', yref = 'paper',
       x0 = 0, y0 = 0, x1 = 0.82, y1 = 0.85,
@@ -91,7 +91,7 @@ date_annotation <- function(month) {
     x = 0.41, y = 0.92,
     xref = 'paper', yref = 'paper',
     showarrow = FALSE,
-    font = list(size = 16)
+    font = list(size = 18) # 16
   ))
 }
 
@@ -121,7 +121,7 @@ for (i in seq_along(p_built$x$layout$sliders[[1]]$steps)) {
 }
 
 p_built$x$layout$updatemenus <- NULL
-p_built$x$layout$sliders[[1]]$font <- list(size = 10)
+p_built$x$layout$sliders[[1]]$font <- list(size = 12) # 10
 p_built$x$layout$sliders[[1]]$active <- length(month_years) - 1
 p_built$x$layout$sliders[[1]]$len <- 0.82
 p_built$x$layout$sliders[[1]]$x <- 0
