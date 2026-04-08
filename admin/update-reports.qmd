@@ -54,6 +54,10 @@ render_reports(programs = c('zoop'),
                report_type = 'website')
 ```
 
+### manually render golden mussel report
+
+**Warning:** can easily break, only run if needed
+
 ```{r}
 render_mussels()
 ```
