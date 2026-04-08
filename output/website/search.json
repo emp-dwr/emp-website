@@ -4,14 +4,14 @@
     "href": "qmd-files/website/zoop/zoop-report.html",
     "title": "Zooplankton Report",
     "section": "",
-    "text": "Attaching package: 'dplyr'\n\n\nThe following objects are masked from 'package:stats':\n\n    filter, lag\n\n\nThe following objects are masked from 'package:base':\n\n    intersect, setdiff, setequal, union\n\n\nhere() starts at C:/Coding/emp-website\n\n\n\nAttaching package: 'lubridate'\n\n\nThe following objects are masked from 'package:base':\n\n    date, intersect, setdiff, union\n\n\nRows: 15 Columns: 4\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (2): Station Acronym, Station Name\ndbl (2): Latitude, Longitude\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message."
+    "text": "This report presents zooplankton annual and monthly abundances and distribution trends from water years 1974 through 2024 for the most common copepods (calanoid and cyclopoid), cladocerans, rotifers, and mysids of the upper estuary."
   },
   {
     "objectID": "qmd-files/website/zoop/zoop-report.html#introduction",
     "href": "qmd-files/website/zoop/zoop-report.html#introduction",
     "title": "Zooplankton Report",
-    "section": "Introduction",
-    "text": "Introduction\nThis report presents zooplankton annual and monthly abundances and distribution trends from water years 1974 through 2024 for the most common copepods (calanoid and cyclopoid), cladocerans, rotifers, and mysids of the upper estuary."
+    "section": "",
+    "text": "This report presents zooplankton annual and monthly abundances and distribution trends from water years 1974 through 2024 for the most common copepods (calanoid and cyclopoid), cladocerans, rotifers, and mysids of the upper estuary."
   },
   {
     "objectID": "qmd-files/website/zoop/zoop-report.html#methods",
@@ -88,14 +88,14 @@
     "href": "qmd-files/website/phyto/phyto-report.html",
     "title": "Phytoplankton Report",
     "section": "",
-    "text": "Attaching package: 'dplyr'\n\n\nThe following objects are masked from 'package:stats':\n\n    filter, lag\n\n\nThe following objects are masked from 'package:base':\n\n    intersect, setdiff, setequal, union\n\n\nhere() starts at C:/Coding/emp-website\n\n\n\nAttaching package: 'lubridate'\n\n\nThe following objects are masked from 'package:base':\n\n    date, intersect, setdiff, union\n\n\nRows: 15 Columns: 4\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (2): Station Acronym, Station Name\ndbl (2): Latitude, Longitude\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message."
+    "text": "The Department of Water Resources (DWR) and the US Bureau of Reclamation (USBR) are required by Water Right Decision 1641 (D-1641) to collect phytoplankton and chlorophyll a samples to monitor algal community composition and biomass at select sites in the upper San Francisco Estuary (Estuary). This report describes the results of these monitoring efforts for water year 2024 (October 1st 2023 through September 30th 2024) which was classified as above normal in the Sacramento and San Joaquin Valleys (source)."
   },
   {
     "objectID": "qmd-files/website/phyto/phyto-report.html#introduction",
     "href": "qmd-files/website/phyto/phyto-report.html#introduction",
     "title": "Phytoplankton Report",
-    "section": "Introduction",
-    "text": "Introduction\nThe Department of Water Resources (DWR) and the US Bureau of Reclamation (USBR) are required by Water Right Decision 1641 (D-1641) to collect phytoplankton and chlorophyll a samples to monitor algal community composition and biomass at select sites in the upper San Francisco Estuary (Estuary). This report describes the results of these monitoring efforts for water year 2024 (October 1st 2023 through September 30th 2024) which was classified as above normal in the Sacramento and San Joaquin Valleys (source)."
+    "section": "",
+    "text": "The Department of Water Resources (DWR) and the US Bureau of Reclamation (USBR) are required by Water Right Decision 1641 (D-1641) to collect phytoplankton and chlorophyll a samples to monitor algal community composition and biomass at select sites in the upper San Francisco Estuary (Estuary). This report describes the results of these monitoring efforts for water year 2024 (October 1st 2023 through September 30th 2024) which was classified as above normal in the Sacramento and San Joaquin Valleys (source)."
   },
   {
     "objectID": "qmd-files/website/phyto/phyto-report.html#methods",
@@ -172,14 +172,14 @@
     "href": "qmd-files/website/dwq/dwq-report.html",
     "title": "Discrete Water Quality Report",
     "section": "",
-    "text": "Attaching package: 'dplyr'\n\n\nThe following objects are masked from 'package:stats':\n\n    filter, lag\n\n\nThe following objects are masked from 'package:base':\n\n    intersect, setdiff, setequal, union\n\n\nhere() starts at C:/Coding/emp-website\n\n\n\nAttaching package: 'lubridate'\n\n\nThe following objects are masked from 'package:base':\n\n    date, intersect, setdiff, union\n\n\nRows: 15 Columns: 4\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (2): Station Acronym, Station Name\ndbl (2): Latitude, Longitude\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message."
+    "text": "The Department of Water Resources (DWR) and the US Bureau of Reclamation (USBR) are required by Water Right Decision 1641 (D-1641) to collect discrete water chemistry data to monitor the water quality at select sites in the upper San Francisco Estuary (Estuary). This report describes the results of these monitoring efforts for water year 2024 (October 1st 2023 through September 30th 2024) which was classified as above normal in the Sacramento and San Joaquin Valleys (source). Results are compared to the previous water year, which was classified as wet in both valleys."
   },
   {
     "objectID": "qmd-files/website/dwq/dwq-report.html#introduction",
     "href": "qmd-files/website/dwq/dwq-report.html#introduction",
     "title": "Discrete Water Quality Report",
-    "section": "Introduction",
-    "text": "Introduction\nThe Department of Water Resources (DWR) and the US Bureau of Reclamation (USBR) are required by Water Right Decision 1641 (D-1641) to collect discrete water chemistry data to monitor the water quality at select sites in the upper San Francisco Estuary (Estuary). This report describes the results of these monitoring efforts for water year 2024 (October 1st 2023 through September 30th 2024) which was classified as above normal in the Sacramento and San Joaquin Valleys (source). Results are compared to the previous water year, which was classified as wet in both valleys."
+    "section": "",
+    "text": "The Department of Water Resources (DWR) and the US Bureau of Reclamation (USBR) are required by Water Right Decision 1641 (D-1641) to collect discrete water chemistry data to monitor the water quality at select sites in the upper San Francisco Estuary (Estuary). This report describes the results of these monitoring efforts for water year 2024 (October 1st 2023 through September 30th 2024) which was classified as above normal in the Sacramento and San Joaquin Valleys (source). Results are compared to the previous water year, which was classified as wet in both valleys."
   },
   {
     "objectID": "qmd-files/website/dwq/dwq-report.html#methods",
@@ -214,14 +214,14 @@
     "href": "qmd-files/website/cwq/cwq-report.html",
     "title": "Continuous Water Quality Report",
     "section": "",
-    "text": "Attaching package: 'dplyr'\n\n\nThe following objects are masked from 'package:stats':\n\n    filter, lag\n\n\nThe following objects are masked from 'package:base':\n\n    intersect, setdiff, setequal, union\n\n\nhere() starts at C:/Coding/emp-website\n\n\n\nAttaching package: 'lubridate'\n\n\nThe following objects are masked from 'package:base':\n\n    date, intersect, setdiff, union\n\n\nRows: 15 Columns: 4\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (2): Station Acronym, Station Name\ndbl (2): Latitude, Longitude\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message."
+    "text": "The Department of Water Resources (DWR) and the US Bureau of Reclamation (USBR) are required by Water Right Decision 1641 (D-1641) to collect continuous water chemistry data to monitor the water quality at select sites in the upper San Francisco Estuary (Estuary). This report describes the results of these monitoring efforts for water year 2024 (October 1st 2023 through September 30th 2024) which was classified as above normal in the Sacramento and San Joaquin Valleys (source).\nThis report includes mandated stations collected by DWR’s Continuous Environmental Monitoring Program (CEMP) and Suisun Marsh Water Quality Program (SMWQP) as well as USBR’s Delta Water Quality Monitoring Program (USBR). Stations monitored by other programs were not included in this report. Additional information about these programs can be found here."
   },
   {
     "objectID": "qmd-files/website/cwq/cwq-report.html#introduction",
     "href": "qmd-files/website/cwq/cwq-report.html#introduction",
     "title": "Continuous Water Quality Report",
-    "section": "Introduction",
-    "text": "Introduction\nThe Department of Water Resources (DWR) and the US Bureau of Reclamation (USBR) are required by Water Right Decision 1641 (D-1641) to collect continuous water chemistry data to monitor the water quality at select sites in the upper San Francisco Estuary (Estuary). This report describes the results of these monitoring efforts for water year 2024 (October 1st 2023 through September 30th 2024) which was classified as above normal in the Sacramento and San Joaquin Valleys (source).\nThis report includes mandated stations collected by DWR’s Continuous Environmental Monitoring Program (CEMP) and Suisun Marsh Water Quality Program (SMWQP) as well as USBR’s Delta Water Quality Monitoring Program (USBR). Stations monitored by other programs were not included in this report. Additional information about these programs can be found here."
+    "section": "",
+    "text": "The Department of Water Resources (DWR) and the US Bureau of Reclamation (USBR) are required by Water Right Decision 1641 (D-1641) to collect continuous water chemistry data to monitor the water quality at select sites in the upper San Francisco Estuary (Estuary). This report describes the results of these monitoring efforts for water year 2024 (October 1st 2023 through September 30th 2024) which was classified as above normal in the Sacramento and San Joaquin Valleys (source).\nThis report includes mandated stations collected by DWR’s Continuous Environmental Monitoring Program (CEMP) and Suisun Marsh Water Quality Program (SMWQP) as well as USBR’s Delta Water Quality Monitoring Program (USBR). Stations monitored by other programs were not included in this report. Additional information about these programs can be found here."
   },
   {
     "objectID": "qmd-files/website/cwq/cwq-report.html#methods",
@@ -263,14 +263,14 @@
     "href": "qmd-files/website/benthic/benthic-report.html",
     "title": "Benthic Invertebrates Report",
     "section": "",
-    "text": "Attaching package: 'dplyr'\n\n\nThe following objects are masked from 'package:stats':\n\n    filter, lag\n\n\nThe following objects are masked from 'package:base':\n\n    intersect, setdiff, setequal, union\n\n\nhere() starts at C:/Coding/emp-website\n\n\n\nAttaching package: 'lubridate'\n\n\nThe following objects are masked from 'package:base':\n\n    date, intersect, setdiff, union\n\n\nRows: 15 Columns: 4\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (2): Station Acronym, Station Name\ndbl (2): Latitude, Longitude\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message."
+    "text": "Benthic monitoring conducted by the California Department of Water Resources (DWR) since 1975 has documented changes in the composition, density, and distribution of the macrobenthic biota inhabiting the upper San Francisco Estuary. This monitoring is performed by the Environmental Monitoring Program (EMP) as part of the Interagency Ecological Program (IEP) and is one component of the biological monitoring mandated by Water Right Decision D-1641. Since benthic species respond to changes in physical factors such as freshwater inflows, salinity, and substrate composition, benthic community data provides an indication of physical changes occurring within the Estuary. Benthic monitoring is an important component of the EMP because operation of the State Water Project can change the Estuary’s flow characteristics, affecting the density and distribution of benthic biota. Benthic monitoring data is also used to detect and document the presence of new, non-native species in the Upper Estuary, such as the 1986 arrival and subsequent wide spread of the overbite clam, Potamocorbula amurensis. This article summarizes benthic community characteristics at EMP monitoring sites in Water Year 2024 (October 1st 2023 through September 30th 2024) which was classified as above normal in the Sacramento and San Joaquin Valleys (source). It contextualizes these observations using community data from the preceding decade."
   },
   {
     "objectID": "qmd-files/website/benthic/benthic-report.html#introduction",
     "href": "qmd-files/website/benthic/benthic-report.html#introduction",
     "title": "Benthic Invertebrates Report",
-    "section": "Introduction",
-    "text": "Introduction\nBenthic monitoring conducted by the California Department of Water Resources (DWR) since 1975 has documented changes in the composition, density, and distribution of the macrobenthic biota inhabiting the upper San Francisco Estuary. This monitoring is performed by the Environmental Monitoring Program (EMP) as part of the Interagency Ecological Program (IEP) and is one component of the biological monitoring mandated by Water Right Decision D-1641. Since benthic species respond to changes in physical factors such as freshwater inflows, salinity, and substrate composition, benthic community data provides an indication of physical changes occurring within the Estuary. Benthic monitoring is an important component of the EMP because operation of the State Water Project can change the Estuary’s flow characteristics, affecting the density and distribution of benthic biota. Benthic monitoring data is also used to detect and document the presence of new, non-native species in the Upper Estuary, such as the 1986 arrival and subsequent wide spread of the overbite clam, Potamocorbula amurensis. This article summarizes benthic community characteristics at EMP monitoring sites in Water Year 2024 (October 1st 2023 through September 30th 2024) which was classified as above normal in the Sacramento and San Joaquin Valleys (source). It contextualizes these observations using community data from the preceding decade."
+    "section": "",
+    "text": "Benthic monitoring conducted by the California Department of Water Resources (DWR) since 1975 has documented changes in the composition, density, and distribution of the macrobenthic biota inhabiting the upper San Francisco Estuary. This monitoring is performed by the Environmental Monitoring Program (EMP) as part of the Interagency Ecological Program (IEP) and is one component of the biological monitoring mandated by Water Right Decision D-1641. Since benthic species respond to changes in physical factors such as freshwater inflows, salinity, and substrate composition, benthic community data provides an indication of physical changes occurring within the Estuary. Benthic monitoring is an important component of the EMP because operation of the State Water Project can change the Estuary’s flow characteristics, affecting the density and distribution of benthic biota. Benthic monitoring data is also used to detect and document the presence of new, non-native species in the Upper Estuary, such as the 1986 arrival and subsequent wide spread of the overbite clam, Potamocorbula amurensis. This article summarizes benthic community characteristics at EMP monitoring sites in Water Year 2024 (October 1st 2023 through September 30th 2024) which was classified as above normal in the Sacramento and San Joaquin Valleys (source). It contextualizes these observations using community data from the preceding decade."
   },
   {
     "objectID": "qmd-files/website/benthic/benthic-report.html#methods",
@@ -347,14 +347,14 @@
     "href": "qmd-files/website/general/data-links.html",
     "title": "Data Links",
     "section": "",
-    "text": "Attaching package: 'dplyr'\n\n\nThe following objects are masked from 'package:stats':\n\n    filter, lag\n\n\nThe following objects are masked from 'package:base':\n\n    intersect, setdiff, setequal, union\n\n\nhere() starts at C:/Coding/emp-website\n\n\n\nAttaching package: 'lubridate'\n\n\nThe following objects are masked from 'package:base':\n\n    date, intersect, setdiff, union\n\n\nRows: 15 Columns: 4\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (2): Station Acronym, Station Name\ndbl (2): Latitude, Longitude\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message."
+    "text": "Continuous Water Quality\nContact: Michelle Nelson (Michelle.Nelson@water.ca.gov)\nDiscrete Water Quality\nContact: Julianna Manning (Julianna.Manning@water.ca.gov)\nBenthic Invertebrates\nContact: Betsy Wells (Elizabeth.Wells@water.ca.gov)\nPhytoplankton\nContact: Tiffany Brown (Tiffany.Brown@water.ca.gov)\nZooplankton\nContact: Tracy Shaw (Caroline.Shaw@wildlife.ca.gov)"
   },
   {
     "objectID": "qmd-files/website/general/data-links.html#complete-datasets",
     "href": "qmd-files/website/general/data-links.html#complete-datasets",
     "title": "Data Links",
-    "section": "Complete Datasets",
-    "text": "Complete Datasets\nContinuous Water Quality\nContact: Michelle Nelson (Michelle.Nelson@water.ca.gov)\nDiscrete Water Quality\nContact: Julianna Manning (Julianna.Manning@water.ca.gov)\nBenthic Invertebrates\nContact: Betsy Wells (Elizabeth.Wells@water.ca.gov)\nPhytoplankton\nContact: Tiffany Brown (Tiffany.Brown@water.ca.gov)\nZooplankton\nContact: Tracy Shaw (Caroline.Shaw@wildlife.ca.gov)"
+    "section": "",
+    "text": "Continuous Water Quality\nContact: Michelle Nelson (Michelle.Nelson@water.ca.gov)\nDiscrete Water Quality\nContact: Julianna Manning (Julianna.Manning@water.ca.gov)\nBenthic Invertebrates\nContact: Betsy Wells (Elizabeth.Wells@water.ca.gov)\nPhytoplankton\nContact: Tiffany Brown (Tiffany.Brown@water.ca.gov)\nZooplankton\nContact: Tracy Shaw (Caroline.Shaw@wildlife.ca.gov)"
   },
   {
     "objectID": "qmd-files/website/general/data-links.html#individual-stations-continuous-water-quality",

@@ -1,12 +1,12 @@
 
-library(dplyr)
-library(tidyr)
-library(readr)
-library(here)
-library(lubridate)
-library(jsonlite)
+suppressPackageStartupMessages({
+  library(tidyverse)
+  library(here)
+  library(lubridate)
+  library(jsonlite)
+})
 
-df_stations <- read_csv(here('admin/figures-tables/special-studies/Mussel_Station_Metadata.csv'))
+df_stations <- read_csv(here('admin/figures-tables/special-studies/Mussel_Station_Metadata.csv'), show_col_types = FALSE)
 sightings <- fromJSON(readLines(here('admin/test-data/mussel_data.json')))
 
 sightings <- sightings %>%
