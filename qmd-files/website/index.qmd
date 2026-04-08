@@ -3,8 +3,8 @@ title: "Environmental Monitoring Program"
 subtitle: "CA Department of Water Resources"
 listing:
   id: landing
-  template: ../../../admin/styling_scripts/landing-links.ejs
-  contents: ../../../admin/styling_scripts/landing.yml
+  template: ../../admin/styling_scripts/landing-links.ejs
+  contents: ../../admin/styling_scripts/landing.yml
 ---
 
 ```{r echo = FALSE}

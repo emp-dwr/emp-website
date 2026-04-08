@@ -1,7 +1,5 @@
 ---
 title: "Veliger Monitoring Program"
-aliases:
-  - /veliger.html
 ---
 
 ## Background
