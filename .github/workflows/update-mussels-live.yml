@@ -45,7 +45,8 @@ jobs:
             "plotly",
             "quarto",
             "lubridate",
-            "htmltools"
+            "htmltools",
+            "rvest"
           ))'
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
