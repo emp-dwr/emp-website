@@ -79,24 +79,19 @@ jobs:
           '
       - name: Render Golden Mussel page
         run: quarto render qmd-files/website/special-studies/golden-mussels.qmd
-        
-      - name: Render Golden Mussel page
-        run: quarto render qmd-files/website/special-studies/golden-mussels.qmd
-
       - name: Move rendered output
-            run: |
-              mkdir -p output/website/qmd-files/website/special-studies
-              cp qmd-files/website/special-studies/golden-mussels.html output/website/qmd-files/website/special-studies/
-        
+        run: |
+          mkdir -p output/website/qmd-files/website/special-studies
+          cp qmd-files/website/special-studies/golden-mussels.html output/website/qmd-files/website/special-studies/
       - name: Debug - verify rendered output
         run: |
           echo "--- Output directory contents ---"
-          ls -la output/website/special-studies/
+          ls -la output/website/qmd-files/website/special-studies/
           echo "--- HTML file size ---"
-          wc -c output/website/special-studies/golden-mussels.html
+          wc -c output/website/qmd-files/website/special-studies/golden-mussels.html
           echo "--- Check for new data in HTML ---"
-          grep -c "Apr 2026" output/website/special-studies/golden-mussels.html || echo "Apr 2026 not found in output"
-          grep -c "RRI" output/website/special-studies/golden-mussels.html || echo "RRI not found in output"
+          grep -c "Apr 2026" output/website/qmd-files/website/special-studies/golden-mussels.html || echo "Apr 2026 not found in output"
+          grep -c "RRI" output/website/qmd-files/website/special-studies/golden-mussels.html || echo "RRI not found in output"
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload Pages artifact
