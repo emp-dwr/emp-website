@@ -1,5 +1,6 @@
 name: Deploy Golden Mussel Live Update
 on:
+  workflow_dispatch:
   workflow_run:
     workflows: ["Update Mussel Data Files"]
     types: [completed]
