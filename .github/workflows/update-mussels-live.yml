@@ -6,7 +6,7 @@ on:
     types: [completed]
     branches: [main]
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 concurrency:
@@ -34,12 +34,6 @@ jobs:
         uses: r-lib/actions/setup-r@v2
         with:
           use-public-rspm: true
-      - name: Cache R packages
-        uses: actions/cache@v5
-        with:
-          path: ${{ env.R_LIBS_USER }}
-          key: r-${{ runner.os }}-${{ hashFiles('qmd-files/website/special-studies/golden-mussels.qmd', 'admin/import_scripts.R') }}
-          restore-keys: r-${{ runner.os }}-
       - name: Install R packages
         run: |
           Rscript -e 'install.packages(c(
@@ -55,8 +49,15 @@ jobs:
           ))'
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
-      - name: Render Golden Mussel page
-        run: quarto render qmd-files/website/special-studies/golden-mussels.qmd --project
+      - name: Render site
+        run: quarto render
+      - name: Commit freeze cache
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add _freeze
+          git diff --staged --quiet || git commit -m "update freeze cache"
+          git push origin gh-pages
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload Pages artifact
