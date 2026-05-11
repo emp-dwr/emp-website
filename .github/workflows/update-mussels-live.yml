@@ -84,9 +84,9 @@ jobs:
         run: quarto render qmd-files/website/special-studies/golden-mussels.qmd
 
       - name: Move rendered output
-        run: |
-          mkdir -p output/website/special-studies
-          cp qmd-files/website/special-studies/golden-mussels.html output/website/special-studies/
+            run: |
+              mkdir -p output/website/qmd-files/website/special-studies
+              cp qmd-files/website/special-studies/golden-mussels.html output/website/qmd-files/website/special-studies/
         
       - name: Debug - verify rendered output
         run: |
