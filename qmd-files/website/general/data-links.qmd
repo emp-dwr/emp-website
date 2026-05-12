@@ -2,11 +2,6 @@
 title: "Data Links"
 ---
 
-```{r echo = FALSE}
-# read in functions; do not edit
-source(here::here('admin/import_scripts.R'))
-```
-
 ## Complete Datasets
 
 [**Continuous Water Quality**](https://portal.edirepository.org/nis/mapbrowse?scope=edi&identifier=1177)

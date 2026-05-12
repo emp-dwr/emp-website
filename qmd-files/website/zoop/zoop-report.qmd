@@ -1,11 +1,24 @@
 ---
 title: "Zooplankton Report"
 author: "Tracy Shaw and Kathy Hieb"
+params:
+  report_year: null
 ---
 
 ```{r echo = FALSE}
 # read in functions; do not edit
-source(here::here('admin/import_scripts.R'))
+if (is.null(params$report_year)) {
+  stop('report_year must be supplied explicitly')
+}
+
+report_year <- as.integer(params$report_year)
+prev_year <- report_year - 1
+
+repo_path <- function(...) {
+  file.path(Sys.getenv('QUARTO_PROJECT_DIR'), '..', '..', ...)
+}
+
+source(repo_path('admin', 'import_scripts.R'), local = knitr::knit_global())
 ```
 
 ## Introduction
@@ -16,13 +29,7 @@ This report presents zooplankton annual and monthly abundances and distribution 
 
 Zooplankton have been sampled in the upper SFE since 1972, once or twice per month from March to November through 1994, and monthly from 1995 to the present. Sampling was modified due to the COVID-19 pandemic, with no surveys in April and May 2020, a reduced survey (five stations) in December 2020, and no surveys in January and February 2021. Samples were collected at stations from San Pablo Bay through the Delta (Figure 1), including up to four non-fixed stations representing the low salinity zone (LSZ), defined as bottom specific conductance of 2 and 6 millisiemens per centimeter (approximately 1 and 3 psu). As of June 2024, sampling was suspended at stations 2 and 4 (Carquinez Strait), 325 (San Pablo Bay), and low-salinity zone stations in the San Joaquin River, but this sampling may be reinstated in the future.
 
-```{r echo=FALSE}
-#| fig-align: 'center'
-#| label: fig-stations
-#| out-width: 85%
-
-knitr::include_graphics(here::here(file.path('admin/figures-tables/zoop/zoop_station_map.jpg')))
-```
+![](/admin/figures-tables/zoop/zoop_station_map.jpg){#fig-stations fig-align="center" width="85%"}
 
 Zooplankton were sampled using three gear types that target different size classes: 1) pump samples (collected with a 1/10 hp, 12V utility pump) filtered through a 43-micron mesh net for micro-zooplankton (rotifers, copepod nauplii, and small cyclopoid copepods); 2) Clarke-Bumpus (CB) net with 160-micron mesh to sample meso-zooplankton (cladocerans and most juvenile and adult calanoid copepods); 3) mysid net with 505-micron mesh targeting mysid shrimp and other macro-zooplankton. The mysid and CB nets were mounted on the same tow sled and samples were collected in 10-minute stepped oblique tows over the depth range of each station.
 
@@ -48,22 +55,13 @@ Biomass of copepods, cladocerans, and rotifers was determined following standard
 
 Freshwater outflow was high only in February and March 2024, in contrast with extended high outflow in 2023 from atmospheric river storms (Figure 2). In 2023 high outflow transported small zooplankton downstream from upper estuary regions, but less intense and shorter duration outflow in 2024 suggests that low numbers of small zooplankton in upper estuary regions during these months are likely related to seasonal patterns of productivity rather than outflow.
 
-```{r echo=FALSE}
-#| fig-align: 'center'
-#| out-width: 80%
-knitr::include_graphics(here::here(file.path('admin/figures-tables/zoop/zoop_fig2.png')))
-```
+![](/admin/figures-tables/zoop/zoop_fig2.png){fig-align="center" width="80%"}
 
 ## Trends
 
 The overall abundance of zooplankton in the estuary has decreased significantly over the course of the Zooplankton Study (Figure 3). Cyclopoid copepods as a whole were the only group that increased in abundance over the study period, but this was driven by the introduction and proliferation of the invasive *Limnoithona tetraspina* in the mid-1990s. The overall decrease in zooplankton abundance can be attributed to invasive species colonizing the estuary, most notably the Asian clam *Potamocorbula amurensis* in the mid-1980s (Kimmerer et al. 1994; Carlton et al. 1990). Abundances of both phytoplankton and zooplankton in the upper estuary have been impacted by the proliferation of *P. amurensis*, as it is a highly efficient filter feeder and consumes phytoplankton and small zooplankton, including copepod nauplii. In addition to decreased abundance of most zooplankton groups, community compositions have changed dramatically during the study period (Figure 3), driven by a combination of the introduction and spread of non-native species and changes in the abiotic and biotic environments.
 
-```{r echo=FALSE}
-#| fig-align: 'center'
-#| out-width: 85%
-
-knitr::include_graphics(here::here(file.path('admin/figures-tables/zoop/zoop_fig3.png')))
-```
+![](/admin/figures-tables/zoop/zoop_fig3.png){fig-align="center" width="85%"}
 
 ### Calanoid copepods
 
@@ -79,12 +77,7 @@ The predatory *Acartiella sinensis* was the dominant species in the Confluence, 
 
 *Acartia* spp. were the only native calanoids commonly found in 2024, and they were present only in the lower estuary. These copepods prefer brackish water and were the most abundant copepods in San Pablo Bay from March through December, though monthly abundances varied (Figure 4). In Suisun and Grizzly Bay, *Acartia* spp. were present during most months but abundant only in December 2024. *Eurytemora* spp. were abundant in this region from February through June in 2023, while in 2024 they were only moderately abundant in April and May. In 2024 *Tortanus* spp. were present in this region throughout the year (Figure 4) while in 2023 they were essentially absent from this region until June (Shaw and Hieb 2024). In San Pablo Bay, *Tortanus* spp. abundances were low, aside from moderate abundance in February (Figure 4).
 
-```{r echo=FALSE}
-#| fig-align: 'center'
-#| out-width: 85%
-
-knitr::include_graphics(here::here(file.path('admin/figures-tables/zoop/zoop_fig4.png')))
-```
+![](/admin/figures-tables/zoop/zoop_fig4.png){fig-align="center" width="85%"}
 
 ### Cyclopoid copepods
 
@@ -96,12 +89,7 @@ The increase in *L. tetraspina* abundance may be related to decreased predation 
 
 *Limnoithona* spp*.* were the most abundant cyclopoids in 2024, but their abundances were generally low from January through May in all regions of the estuary and remained low in the South, Central, and North Delta in comparison with other regions (Figure 5). *Limnoithona* spp. abundances increased in the Confluence, Suisun Marsh, and Suisun and Grizzly Bay regions starting in June or July and remained high through November (Figure 5). In previous years *Limnoithona* spp. have been virtually absent from San Pablo Bay, but were moderately abundant here in March and May 2024, then declined with increasing salinities, concurrent with increased abundance of the introduced *Oithona davisae,* typically the most abundant cyclopoid in this region (Figure 5).
 
-```{r echo=FALSE}
-#| fig-align: 'center'
-#| out-width: 85%
-
-knitr::include_graphics(here::here(file.path('admin/figures-tables/zoop/zoop_fig5.png')))
-```
+![](/admin/figures-tables/zoop/zoop_fig5.png){fig-align="center" width="85%"}
 
 ### Cladocerans
 
@@ -113,12 +101,7 @@ Cladoceran abundances overall were lower in most regions in 2024 compared to 202
 
 In the North Delta, abundances were highest in February and March, low July through November, and high in December (2024), with similar species composition (*B. longirostris, Ceriodaphnia* spp., *Daphnia* spp., and “other”) during periods of high abundance. In the Confluence region abundances increased starting in January and remained elevated through July, although the species composition changed from *B. longirostris*, *Ceriodaphnia*, *Daphnia*, and “other” from January through April, to higher numbers of *Ceriodaphnia* in May and a dramatic increase in *Diaphanosoma* in June (Figure 6). Abundances were much lower from July to September, but *Diaphanosoma* remained the dominant taxon (Figure 6). In Suisun and Grizzly Bay and Suisun Marsh, cladocerans, largely *B. longirostris* and “other”, were present in winter and spring months but all taxa were essentially absent after June. The cladoceran community in San Pablo Bay comprised only the “other” category, with the highest CPUE in December (Figure 6).
 
-```{r echo=FALSE}
-#| fig-align: 'center'
-#| out-width: 85%
-
-knitr::include_graphics(here::here(file.path('admin/figures-tables/zoop/zoop_fig6.png')))
-```
+![](/admin/figures-tables/zoop/zoop_fig6.png){fig-align="center" width="85%"}
 
 ### Rotifers
 
@@ -126,12 +109,7 @@ Although rotifers are the most abundant type of zooplankton in the upper estuary
 
 *Keratella* and *Polyarthra* tended to be most abundant in freshwater and low-salinity regions (Figure 7), their preferred habitats (Winder and Jassby 2011). Increased abundances of these taxa in Suisun Marsh and Suisun and Grizzly Bay in the winter and spring of 2024 suggest fresher than usual conditions, though *Synchaeta* spp. co-occurred with them in all regions including San Pablo Bay. A spatial and temporal split was discernible between *Synchaeta* and the other rotifer groups, with *Synchaeta* spp. the dominant group in the North Delta, Confluence, Suisun Marsh, Suisun and Grizzly Bay, and San Pablo Bay during winter and spring months but largely absent after April except in San Pablo Bay. In Suisun and Grizzly Bay there was a noticeable increase in *S. bicornis* abundance from August through October, though *Synchaeta* spp. were also present. The “other” rotifers group was most abundant in the Central Delta during summer. In the South Delta, *Polyarthra* spp., and “other” were most abundant in spring and summer, with a dramatic increase in abundance of *Synchaeta* spp. in November 2024 (Figure 7).
 
-```{r echo=FALSE}
-#| fig-align: 'center'
-#| out-width: 85%
-
-knitr::include_graphics(here::here(file.path('admin/figures-tables/zoop/zoop_fig7.png')))
-```
+![](/admin/figures-tables/zoop/zoop_fig7.png){fig-align="center" width="85%"}
 
 ### Mysids
 
@@ -143,40 +121,19 @@ In 2024 *H. longirostris*, the dominant mysid species, was most common in the Co
 
 From January through April, mysids were essentially absent from all regions except Suisun and Grizzly Bay and San Pablo Bay. The mysid community in San Pablo Bay typically comprised the “other” species (*Acanthomysis aspera, Acanthomysis hwanhaiensis, and Alienacanthomysis macropsis*). This group was present during most months but most abundant in summer (June to August), along with smaller numbers of *N. kadiakensis* and *H. longirostris* (Figure 8). Note that the present study samples only the upper portion of San Pablo Bay, so these findings do not represent mysid community dynamics in other areas of San Pablo Bay.
 
-```{r echo=FALSE}
-#| fig-align: 'center'
-#| out-width: 85%
-
-knitr::include_graphics(here::here(file.path('admin/figures-tables/zoop/zoop_fig8.png')))
-```
+![](/admin/figures-tables/zoop/zoop_fig8.png){fig-align="center" width="85%"}
 
 ## Zooplankton biomass
 
 Biomass (biomass per unit effort, BPUE, micrograms of carbon per cubic meter) was calculated for copepods, cladocerans, rotifers, and mysids (Tables 1, 2, 3, 4). Overall, rotifers (41%) and calanoid copepods (30%) comprise the majority of zooplankton biomass, followed by cyclopoid copepods (17%), cladocerans (11%), and mysids (1%) (Table 1). *P. forbesi* and *Eurytemora* were significant in all regions except San Pablo Bay, along with *Acartiella* in the Confluence and lower estuary (Suisun Marsh, Suisun and Grizzly Bay), and *Tortanus* in Suisun and Grizzly Bay and San Pablo Bay (Table 2). BPUE of cladocerans, largely *Diaphanosoma,* was high in the South and Central Delta regions (Tables 1, 2). The extremely abundant cyclopoid copepod *Limnoithona* sp., found in the tens of thousands in Suisun Marsh and Suisun and Grizzly Bay (Figure 5), only accounts for a maximum of 8% of total BPUE in these regions (Table 1). The cyclopoid *O. davisae* and the calanoids *Acartia* spp. and *Tortanus* spp. account for the highest percentage of carbon in San Pablo Bay (Tables 2, 3). Carbon from mysids only accounted for 1% of total carbon (Table 1), with higher BPUE in summer months in Suisun Marsh and Suisun and Grizzly Bay but generally low otherwise (Table 4).
 
-```{r echo=FALSE}
-#| fig-align: 'center'
-#| out-width: 70%
-knitr::include_graphics(here::here(file.path('admin/figures-tables/zoop/zoop_table1.png')))
-```
+![](/admin/figures-tables/zoop/zoop_table1.png){fig-align="center" width="70%"}
 
-```{r echo=FALSE}
-#| fig-align: 'center'
-#| out-width: 80%
-knitr::include_graphics(here::here(file.path('admin/figures-tables/zoop/zoop_table2.png')))
-```
+![](/admin/figures-tables/zoop/zoop_table2.png){fig-align="center" width="80%"}
 
-```{r echo=FALSE}
-#| fig-align: 'center'
-#| out-width: 80%
-knitr::include_graphics(here::here(file.path('admin/figures-tables/zoop/zoop_table3.png')))
-```
+![](/admin/figures-tables/zoop/zoop_table3.png){fig-align="center" width="80%"}
 
-```{r echo=FALSE}
-#| fig-align: 'center'
-#| out-width: 80%
-knitr::include_graphics(here::here(file.path('admin/figures-tables/zoop/zoop_table4.png')))
-```
+![](/admin/figures-tables/zoop/zoop_table4.png){fig-align="center" width="80%"}
 
 ## Conclusion
 
@@ -194,7 +151,7 @@ Baxter R, Feyrer F, Nobriga M, Sommer T. 2008. Pelagic Organism Decline Progress
 
 Bouley P, Kimmerer WJ. 2006. Ecology of a highly abundant, introduced cyclopoid copepod in a temperate estuary. Mar Ecol Prog Ser. 324:219–228.
 
-Carlton JT, Thompson JK, Schemel LE, Nichols FH. 1990. Remarkable invasion of San Francisco Bay (California, USA) by the Asian clam *Potamocorbula amurensis*. I. Introduction and dispersal. Mar Ecol Prog Ser. 66:81–94.
+Carlton JT, Thompson JK, Schemel LE, Nichols FH. 1990. Remarkable invasion of San Francisco Bay (California, USA) by the Asian clam *Potamocorbula amurensis*. I. Introduction and dispersal. Mar Ecol Prog Ser. 66:81–94.
 
 CDFG. 2009. A Status Review of the Longfin Smelt (*Spirinchus thaleichthys*) in California. Sacramento.
 

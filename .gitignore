@@ -41,3 +41,6 @@ vignettes/*.pdf
 
 **/*.quarto_ipynb
 .positai
+
+# Quarto output
+output/

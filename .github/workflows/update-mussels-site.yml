@@ -1,0 +1,103 @@
+name: Deploy Golden Mussel Site Update
+
+on:
+  workflow_dispatch:
+    inputs:
+      report_year:
+        description: 'Report year used only if frozen report pages need to re-render'
+        required: false
+
+  workflow_run:
+    workflows: ['Update Mussel Data Files']
+    types: [completed]
+    branches: [main]
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+
+      - name: Set report year
+        run: |
+          if [ -n "${{ github.event.inputs.report_year }}" ]; then
+            echo "REPORT_YEAR=${{ github.event.inputs.report_year }}" >> $GITHUB_ENV
+          elif [ -n "${{ vars.REPORT_YEAR }}" ]; then
+            echo "REPORT_YEAR=${{ vars.REPORT_YEAR }}" >> $GITHUB_ENV
+          else
+            echo "REPORT_YEAR=$(date +%Y)" >> $GITHUB_ENV
+          fi
+
+      - name: Set up R
+        uses: r-lib/actions/setup-r@v2
+        with:
+          use-public-rspm: true
+
+      - name: Install R packages
+        run: |
+          Rscript -e 'install.packages(c(
+            "dplyr",
+            "tidyr",
+            "readr",
+            "jsonlite",
+            "here",
+            "plotly",
+            "quarto",
+            "lubridate",
+            "htmltools",
+            "rvest",
+            "knitr",
+            "R6",
+            "ggplot2",
+            "kableExtra",
+            "glue"
+          ))'
+
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+
+      - name: Render site
+        run: quarto render qmd-files/website -P report_year:$REPORT_YEAR
+
+      - name: Commit freeze cache
+        run: |
+          git config user.name 'github-actions'
+          git config user.email 'actions@github.com'
+
+          if [ -d "qmd-files/website/_freeze" ]; then
+            git add qmd-files/website/_freeze
+            git diff --staged --quiet || git commit -m 'update freeze cache [mussel update]'
+            git push origin main
+          else
+            echo "No freeze cache found; skipping freeze cache commit."
+          fi
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './qmd-files/website/_site'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

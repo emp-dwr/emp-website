@@ -2,7 +2,7 @@
 
 ## read in functions (run this first)
 ```{r}
-source(here::here('admin/import_scripts.R'))
+source(here::here('admin', 'setup_scripts', '00_global_scripts', '02_render.R'))
 ```
 
 ## generate figures
@@ -30,16 +30,13 @@ render_report(programs = c('zoop'),
 
 ### all reports (run as-is)
 ```{r}
-quarto::quarto_render(
-  input = 'qmd-files/website',
-  as_job = TRUE
-)
+render_website(report_year = 2024)
 ```
 
 ### specific reports (type name in between `c()`)
 options are 'benthic', 'phyto', 'zoop', 'dwq', 'cwq'
 ```{r}
-render_report(programs = c('dwq'),
+render_report(programs = c('dwq','cwq','benthic','zoop','phyto'),
               report_type = 'website',
               report_year = 2024)
 ```

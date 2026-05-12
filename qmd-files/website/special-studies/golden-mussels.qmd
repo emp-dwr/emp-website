@@ -1,5 +1,6 @@
 ---
 title: 'Golden Mussel Sightings'
+freeze: false
 ---
 
 This map shows where Golden Mussels (*Limnoperna fortunei*) have been detected at EMP’s continuous water quality monitoring stations over the past year. These sightings are based on visual observations with genetic confirmation typically conducted when mussels are first identified at a new station.
@@ -19,7 +20,12 @@ library(plotly)
 library(quarto)
 library(htmltools)
 
-data <- readRDS(here('admin/test-data/mussel_frames_data.rds'))
+# set filepath
+repo_path <- function(...) {
+  file.path(Sys.getenv('QUARTO_PROJECT_DIR'), '..', '..', ...)
+}
+
+data <- readRDS(repo_path('admin', 'test-data', 'mussel_frames_data.rds'))
 frames_data <- data$frames_data
 df_stations  <- data$df_stations
 
