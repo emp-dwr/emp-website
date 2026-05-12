@@ -10,7 +10,7 @@ WQRRIClass <- R6Class(
     
     # text string for CWQ RRI DO
     disp_RRI_months = function(time_period) {
-      df_rl <- read_quiet_csv(here("admin/figures-tables/cwq/stockton_DO_limits.csv"))
+      df_rl <- read_quiet_csv(repo_path('admin', 'figures-tables', 'cwq', 'stockton_DO_limits.csv'))
       
       rel_months <- switch(time_period, # test 2
                            "off months" = df_rl %>% filter(Type == "Off") %>% pull(Month),
@@ -59,7 +59,7 @@ WQRRIClass <- R6Class(
     create_rri_plt = function() {
       df_do <- self$df_raw %>% filter((Site == "RRI") & (Analyte == "DissolvedOxygen"))
       
-      df_rls <- read_quiet_csv(here("admin/figures-tables/cwq/stockton_DO_limits.csv"))
+      df_rls <- read_quiet_csv(repo_path('admin', 'figures-tables', 'cwq', 'stockton_DO_limits.csv'))
       
       df_rls <- df_rls %>%
         mutate(
@@ -93,7 +93,7 @@ WQRRIClass <- R6Class(
       
       plt_do <- self$style_RRI_plt(plt_do)
       
-      ggsave(here("admin/figures-tables/cwq/cwq_rri_do.png"), plt_do, width = 3.5, height = 2.5, unit = "in")
+      ggsave(repo_path('admin', 'figures-tables', 'cwq', 'cwq_rri_do.png'), plt_do, width = 3.5, height = 2.5, unit = "in")
     }
   )
 )

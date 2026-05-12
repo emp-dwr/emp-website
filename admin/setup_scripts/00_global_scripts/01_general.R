@@ -152,8 +152,8 @@ StylingClass <- R6Class(
   public = list(
     df_regionhex = NULL,
     station_colors = NULL,
-    initialize = function(df_regionhex) {
-      self$df_regionhex <- read_csv(here("admin/figures-tables/admin/region_table.csv"), show_col_types = FALSE)
+    initialize = function() {
+      self$df_regionhex <- read_csv(repo_path('admin', 'figures-tables', 'admin', 'region_table.csv'), show_col_types = FALSE)
     },
     
     generate_station_colors = function(df_raw) {
@@ -172,6 +172,7 @@ StylingClass <- R6Class(
       region_station_colors <- df_stn %>%
         group_by(Region) %>%
         group_map(\(df, key) {
+          if (nrow(df) == 0) return(tibble(Station = character(), Color = character()))
           n_stn <- nrow(df)
           center_hex <- df$HexColor[1]
           grad_cols <- self$gen_gradient(center_hex, num_colors = n_stn)
@@ -385,7 +386,7 @@ abs_path_data <- function(fp_rel = NULL) {
 # determine water year
 get_water_year <- function(given_year = report_year) {
   
-  cache_path <- here::here('admin/data/cache/WSIHIST.html')
+  cache_path <- repo_path('admin', 'data', 'cache', 'WSIHIST.html')
   url <- 'https://cdec.water.ca.gov/reportapp/javareports?name=WSIHIST'
   
   # try to read from the website
@@ -470,9 +471,10 @@ str_water_year <- function(given_year = report_year, period = c("cur", "prev")) 
 
 # format numbers for display based on analyte
 format_vals <- function(value, vari) {
-  df_analytes <- read_csv(here("admin/figures-tables/admin/analyte_table.csv"),
-                          locale = locale(encoding = "UTF-8"),
-                          show_col_types = FALSE
+  df_analytes <- readr::read_csv(
+    repo_path('admin', 'figures-tables', 'admin', 'analyte_table.csv'),
+    locale = readr::locale(encoding = 'UTF-8'),
+    show_col_types = FALSE
   )
   
   fracdigits <- df_analytes$FracDigits[df_analytes$Analyte == vari]
@@ -492,14 +494,14 @@ get_edi_url <- function(pkg_id, revision_num = "current") {
   if (revision_num == "current") {
     edi_url <- glue::glue("https://portal.edirepository.org/nis/mapbrowse?scope=edi&identifier={pkg_id}")
   } else {
-    edi_url <- glue("https://portal.edirepository.org/nis/mapbrowse?scope=edi&identifier={pkg_id}&revision={revision}")
+    edi_url <- glue("https://portal.edirepository.org/nis/mapbrowse?scope=edi&identifier={pkg_id}&revision={revision_num}")
   }
   
   return(edi_url)
 }
 
 # Read in EDI file
-get_edi_file <- function(pkg_id, fname) {
+get_edi_file <- function(pkg_id, fname, scope = 'edi') {
   # get latest revision
   revisions <- EDIutils::list_data_package_revisions(scope = "edi", identifier = pkg_id)
   latest_revision <- max(as.numeric(revisions))
@@ -551,55 +553,87 @@ create_figs <- function(group = c("cwq", "dwq", "phyto", "benthic")) {
 }
 
 # render individual reports
-render_report <- function(programs, report_type) {
-  programs <- match.arg(programs, c("benthic", "cwq", "dwq", "phyto", "zoop"), several.ok = TRUE)
-  report_type <- match.arg(report_type, c("pdfs", "website"))
+render_report <- function(programs, report_type, report_year = NULL, as_job = TRUE) {
   
-  for (prog in programs) {
-    base_dir <- if (report_type == "pdfs") {
-      "qmd-files/pdfs"
-    } else {
-      file.path("qmd-files/website/", prog)
-    }
-    
-    profile <- report_type
-    file_path <- file.path(base_dir, paste0(prog, "-report.qmd"))
-    
-    if (!file.exists(file_path)) stop("File not found: ", file_path)
-    
-    message("Rendering ", prog, "-report.qmd...")
-    quarto::quarto_render(input = file_path, profile = profile)
+  if (is.null(report_year)) {
+    stop('report_year must be supplied explicitly, e.g. report_year = 2024')
   }
   
-  message("Done!")
+  programs <- match.arg(
+    programs,
+    c('benthic', 'cwq', 'dwq', 'phyto', 'zoop'),
+    several.ok = TRUE
+  )
+  
+  report_type <- match.arg(report_type, c('pdfs', 'website'))
+  report_year <- as.integer(report_year)
+  
+  for (prog in programs) {
+    
+    file_path <- if (report_type == 'pdfs') {
+      here::here('qmd-files', 'pdfs', paste0(prog, '-report.qmd'))
+    } else {
+      here::here('qmd-files', 'website', prog, paste0(prog, '-report.qmd'))
+    }
+    
+    if (!file.exists(file_path)) {
+      stop('File not found: ', file_path)
+    }
+    
+    message('Rendering ', file_path, ' for report year ', report_year, '...')
+    
+    quarto::quarto_render(
+      input = file_path,
+      execute_params = list(report_year = report_year),
+      as_job = as_job
+    )
+  }
+  
+  message('Done!')
 }
 
-render_reports <- function(..., report_type) {
-  programs <- c(...)
-  report_type <- match.arg(report_type, c("pdfs", "website"))
-  render_report(programs, report_type)
+# render whole website
+render_website <- function(report_year = NULL, as_job = TRUE) {
+  
+  if (is.null(report_year)) {
+    stop('report_year must be supplied explicitly, e.g. report_year = 2024')
+  }
+  
+  report_year <- as.integer(report_year)
+  
+  quarto::quarto_render(
+    input = here::here('qmd-files', 'website'),
+    execute_params = list(report_year = report_year),
+    as_job = as_job
+  )
 }
 
 # for use by GitHub for auto-updates
-render_mussels <- function() {
-  file_path <- 'qmd-files/website/special-studies/golden-mussels.qmd'
+render_mussels <- function(as_job = TRUE) {
+  
+  file_path <- here::here(
+    'qmd-files',
+    'website',
+    'special-studies',
+    'golden-mussels.qmd'
+  )
   
   if (!file.exists(file_path)) {
     stop('File not found: ', file_path)
   }
   
   message('Rendering golden-mussels.qmd...')
-  quarto::quarto_render(input = file_path, profile = 'website')
+  
+  quarto::quarto_render(
+    input = file_path,
+    as_job = as_job
+  )
+  
   message('Done!')
 }
 
 
 # Global Variables --------------------------------------------------------
-
-# define default year (change manually if needed)
-# report_year <- as.integer(format(Sys.Date(), "%Y")) - 1
-report_year <- as.integer(2024)
-# print(paste('report year:',report_year))
 
 prev_year <- report_year - 1
 
@@ -608,6 +642,11 @@ label_order <- c(glue("Oct-{prev_year%%100}"), glue("Nov-{prev_year%%100}"), glu
 styler <- StylingClass$new()
 
 # read in relevant dataframes
-df_analytes <- read_quiet_csv(here("admin/figures-tables/admin/analyte_table.csv"), locale = locale(encoding = "UTF-8"))
+df_analytes <- read_quiet_csv(
+  repo_path('admin', 'figures-tables', 'admin', 'analyte_table.csv'),
+  locale = readr::locale(encoding = 'UTF-8')
+)
 
-df_regions <- read_quiet_csv(here("admin/figures-tables/admin/station_table.csv"))
+df_regions <- read_quiet_csv(
+  repo_path('admin', 'figures-tables', 'admin', 'station_table.csv')
+)

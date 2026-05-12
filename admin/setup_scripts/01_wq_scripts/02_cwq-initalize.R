@@ -1,6 +1,6 @@
 # Read in Data ------------------------------------------------------------
 
-df_raw_cwq <- read_quiet_csv(here("admin/test-data/CWQ_Data_2024.csv"))
+df_raw_cwq <- read_quiet_csv(repo_path('admin', 'test-data', 'CWQ_Data_2024.csv'))
 
 # Create Base CWQ Object --------------------------------------------------
 
@@ -68,9 +68,17 @@ create_figs_cwq <- function() {
     
     exp_height <- ceiling(height_factor) * 2
     
-    ggsave(here(paste0("admin/figures-tables/cwq/cwq_ts_", tolower(param), ".png")),
-           plt,
-           width = 7 * .8, height = exp_height * .8, unit = "in"
+    ggsave(
+      filename = repo_path(
+        'admin',
+        'figures-tables',
+        'cwq',
+        paste0('cwq_ts_', tolower(param), '.png')
+      ),
+      plot = plt,
+      width = 7 * 0.8,
+      height = exp_height * 0.8,
+      units = 'in'
     )
   }
   

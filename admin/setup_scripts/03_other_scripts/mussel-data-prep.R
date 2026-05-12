@@ -6,8 +6,9 @@ library(here)
 library(lubridate)
 library(jsonlite)})
 
-df_stations <- read_csv(here('admin/figures-tables/special-studies/Mussel_Station_Metadata.csv'), show_col_types = FALSE)
-sightings <- fromJSON(readLines(here('admin/test-data/mussel_data.json')))
+df_stations <- read_csv(repo_path('admin', 'figures-tables', 'special-studies', 'Mussel_Station_Metadata.csv'), show_col_types = FALSE)
+
+sightings <- fromJSON(readLines(repo_path('admin', 'test-data', 'mussel_data.json')))
 
 sightings <- sightings %>%
   mutate(
@@ -114,4 +115,19 @@ frames_data <- crossing(
   select(-month_start, -rri_unknown_previous, -has_current_month_sighting, -has_previous_sighting) %>%
   arrange(`Station Acronym`, month_year_idx)
 
-saveRDS(list(frames_data = frames_data, df_stations = df_stations), here('admin/test-data/mussel_frames_data.rds'))
+df_stations <- readr::read_csv(
+  repo_path('admin', 'figures-tables', 'special-studies', 'Mussel_Station_Metadata.csv'),
+  show_col_types = FALSE
+)
+
+sightings <- jsonlite::fromJSON(
+  readLines(repo_path('admin', 'test-data', 'mussel_data.json'))
+)
+
+saveRDS(
+  list(
+    frames_data = frames_data,
+    df_stations = df_stations
+  ),
+  repo_path('admin', 'test-data', 'mussel_frames_data.rds')
+)

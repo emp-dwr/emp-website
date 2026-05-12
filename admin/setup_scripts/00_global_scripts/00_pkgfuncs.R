@@ -1,160 +1,40 @@
-# Import Relevant Functions -----------------------------------------------
-
-`%>%` <- magrittr::`%>%`
-
-read_csv <- readr::read_csv
-locale <- readr::locale
-cols <- readr::cols
-col_character <- readr::col_character
-
-read_html <- rvest::read_html
-html_element <- rvest::html_element
-html_text2 <- rvest::html_text2
-
-include_graphics <- knitr::include_graphics
-kable <- knitr::kable
-include_graphics <- knitr::include_graphics
-is_html_output <- knitr::is_html_output
-is_latex_output <- knitr::is_latex_output
-combine_words <- knitr::combine_words
-
-R6Class <- R6::R6Class
-
-`%/%` <- patchwork:::`/.ggplot`
-`%|%` <- patchwork:::`|.ggplot`
-plot_annotation <- patchwork::plot_annotation
-wrap_plots <- patchwork::wrap_plots
-plot_layout <- patchwork::plot_layout
-area <- patchwork::area
-
-`%m+%` <- lubridate::`%m+%`
-`%m-%` <- lubridate::`%m-%`
-`%within%` <- lubridate::`%within%`
-floor_date <- lubridate::floor_date
-days <- lubridate::days
-
-sym <- rlang::sym
-syms <- rlang::syms
-
-str_match <- stringr::str_match
-str_detect <- stringr::str_detect
-str_remove <- stringr::str_remove
-str_extract_all <- stringr::str_extract_all
-
-glue <- glue::glue
-
-fct_rev <- forcats::fct_rev
-fct_shift <- forcats::fct_shift
-
-ymd <- lubridate::ymd
-year <- lubridate::year
-month <- lubridate::month
-interval <- lubridate::interval
-parse_date_time <- lubridate::parse_date_time
-
-left_join <- dplyr::left_join
-bind_rows <- dplyr::bind_rows
-group_map <- dplyr::group_map
-filter <- dplyr::filter
-pull <- dplyr::pull
-mutate <- dplyr::mutate
-group_by <- dplyr::group_by
-ungroup <- dplyr::ungroup
-rename <- dplyr::rename
-summarize <- dplyr::summarize
-select <- dplyr::select
-arrange <- dplyr::arrange
-n <- dplyr::n
-relocate <- dplyr::relocate
-desc <- dplyr::desc
-slice <- dplyr::slice
-distinct <- dplyr::distinct
-count <- dplyr::count
-row_number <- dplyr::row_number
-across <- dplyr::across
-pick <- dplyr::pick
-reframe <- dplyr::reframe
-if_else <- dplyr::if_else
-case_when <- dplyr::case_when
-slice_max <- dplyr::slice_max
-
-tibble <- tibble::tibble
-
-ggplot <- ggplot2::ggplot
-aes <- ggplot2::aes
-geom_line <- ggplot2::geom_line
-geom_point <- ggplot2::geom_point
-geom_boxplot <- ggplot2::geom_boxplot
-geom_segment <- ggplot2::geom_segment
-expansion <- ggplot2::expansion
-annotate <- ggplot2::annotate
-theme_bw <- ggplot2::theme_bw
-ggtitle <- ggplot2::ggtitle
-labs <- ggplot2::labs
-theme <- ggplot2::theme
-scale_color_manual <- ggplot2::scale_color_manual
-scale_x_continuous <- ggplot2::scale_x_continuous
-scale_x_discrete <- ggplot2::scale_x_discrete
-scale_y_continuous <- ggplot2::scale_y_continuous
-scale_x_date <- ggplot2::scale_x_date
-scale_fill_manual <- ggplot2::scale_fill_manual
-scale_shape_discrete <- ggplot2::scale_shape_discrete
-scale_shape_manual <- ggplot2::scale_shape_manual
-ggsave <- ggplot2::ggsave
-element_blank <- ggplot2::element_blank
-element_text <- ggplot2::element_text
-guide_legend <- ggplot2::guide_legend
-vars <- ggplot2::vars
-geom_text <- ggplot2::geom_text
-geom_col <- ggplot2::geom_col
-theme_void <- ggplot2::theme_void
-guides <- ggplot2::guides
-facet_wrap <- ggplot2::facet_wrap
-coord_cartesian <- ggplot2::coord_cartesian
-xlab <- ggplot2::xlab
-margin <- ggplot2::margin
-unit <- ggplot2::unit
-
-createWorkbook <- openxlsx::createWorkbook
-addWorksheet <- openxlsx::addWorksheet
-writeData <- openxlsx::writeData
-saveWorkbook <- openxlsx::saveWorkbook
-
-kable_styling <- kableExtra::kable_styling
-add_header_above <- kableExtra::add_header_above
-footnote <- kableExtra::footnote
-column_spec <- kableExtra::column_spec
-
-darken <- colorspace::darken
-lighten <- colorspace::lighten
-
-brewer.pal <- RColorBrewer::brewer.pal
-
-complete <- tidyr::complete
-nest <- tidyr::nest
-crossing <- tidyr::crossing
-
-here <- here::here
-
-map <- purrr::map
-pmap <- purrr::pmap
-map2_chr <- purrr::map2_chr
-
-geom_borderline <- ggborderline::geom_borderline
-
-label_comma <- scales::label_comma
-
-geom_treemap <- treemapify::geom_treemap
-geom_treemap_text <- treemapify::geom_treemap_text
-geom_treemap_subgroup_border <- treemapify::geom_treemap_subgroup_border
-
-fromJSON <- jsonlite::fromJSON
-
-plot_ly <- plotly::plot_ly
-add_trace <- plotly::add_trace
-layout <- plotly::layout
-plotly_build <- plotly::plotly_build
-
-div <- htmltools::div
-
-here <- here::here
+suppressPackageStartupMessages({
+  library(conflicted)
+  library(R6)
+  library(dplyr)
+  library(tidyr)
+  library(purrr)
+  library(tibble)
+  library(cowplot)
+  library(xml2)
+  library(ggplot2)
+  library(readr)
+  library(stringr)
+  library(forcats)
+  library(glue)
+  library(lubridate)
+  library(rlang)
+  library(here)
+  library(scales)
+  library(colorspace)
+  library(RColorBrewer)
+  library(patchwork)
+  library(ggborderline)
+  library(treemapify)
+  library(knitr)
+  library(kableExtra)
+  library(openxlsx)
+  library(rvest)
+  library(jsonlite)
+  library(plotly)
+  library(htmltools)
+  library(magrittr)
+})
+  
+conflict_prefer('filter', 'dplyr', quiet = TRUE)
+conflict_prefer('lag', 'dplyr', quiet = TRUE)
+conflict_prefer('intersect', 'dplyr', quiet = TRUE)
+conflict_prefer('setdiff', 'dplyr', quiet = TRUE)
+conflict_prefer('setequal', 'dplyr', quiet = TRUE)
+conflict_prefer('union', 'dplyr', quiet = TRUE)
+conflict_prefer('date', 'lubridate', quiet = TRUE)

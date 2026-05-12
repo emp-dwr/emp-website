@@ -1,17 +1,25 @@
 # Read in Data ------------------------------------------------------------
 
-df_raw_phyto <- read_quiet_csv(here("admin/test-data/EMP_Phyto_Data_2008-2024.csv"))
-
-df_wqraw <- read_quiet_csv(here("admin/test-data/EMP_DWQ_2024_report.csv"),
-                           col_types = cols(
-                             `Lab: Quality Flag` = col_character(),
-                             `Validation Warnings` = col_character()
-                           )
+df_raw_phyto <- read_quiet_csv(
+  repo_path('admin/test-data/EMP_Phyto_Data_2008-2024.csv')
 )
 
-df_analytes <- read_quiet_csv(here("admin/figures-tables/admin/analyte_table.csv"), locale = locale(encoding = "UTF-8"))
+df_wqraw <- read_quiet_csv(
+  repo_path('admin/test-data/EMP_DWQ_2024_report.csv'),
+  col_types = cols(
+    `Lab: Quality Flag` = col_character(),
+    `Validation Warnings` = col_character()
+  )
+)
 
-df_regions <- read_quiet_csv(here("admin/figures-tables/admin/station_table.csv"))
+df_analytes <- read_quiet_csv(
+  repo_path('admin/figures-tables/admin/analyte_table.csv'),
+  locale = locale(encoding = 'UTF-8')
+)
+
+df_regions <- read_quiet_csv(
+  repo_path('admin/figures-tables/admin/station_table.csv')
+)
 
 
 # Create Base Phyto Object ------------------------------------------------
@@ -20,13 +28,13 @@ obj_phyto <- BaseClass$new(df_raw_phyto, df_analytes, df_regions)
 
 obj_phyto$
   remove_EZ()$
-  assign_regions("Phyto")$
+  assign_regions('Phyto')$
   add_month()
 
 # Create Current Year Object ----------------------------------------------
 
 obj_phyto_cur <- obj_phyto$clone(deep = TRUE)
-obj_phyto_cur$filter_years(report_year, range = "single")
+obj_phyto_cur$filter_years(report_year, range = 'single')
 
 # Create Current Year Text Strings ----------------------------------------
 
@@ -40,7 +48,7 @@ obj_pwq$
   format_aquarius()$
   remove_EZ()$
   assign_analyte_meta()$
-  assign_regions("DWQ")$
+  assign_regions('DWQ')$
   add_month()$
   replace_nondetect()
 
@@ -67,19 +75,25 @@ create_figs_phyto <- function() {
   for (region in phyto_regions) {
     plt_wq <- fig_pwq$phyto_return_plt(region)[1][[1]]
     
-    plt_phyto <- fig_phyto$plt_org_density(region, program = "Phyto")
+    plt_phyto <- fig_phyto$plt_org_density(region, program = 'Phyto')
     
-    fp_name <- gsub(" ", "", tolower(region))
-    fp_name <- gsub("&", "", fp_name)
+    fp_name <- gsub(' ', '', tolower(region))
+    fp_name <- gsub('&', '', fp_name)
     
-    ggsave(here(paste0("admin/figures-tables/phyto/phyto_wq_", fp_name, ".png")),
-           plt_wq,
-           width = 6 * .8, height = 3.5 * .8, unit = "in"
+    ggsave(
+      filename = repo_path(paste0('admin/figures-tables/phyto/phyto_wq_', fp_name, '.png')),
+      plot = plt_wq,
+      width = 6 * 0.8,
+      height = 3.5 * 0.8,
+      units = 'in'
     )
     
-    ggsave(here(paste0("admin/figures-tables/phyto/phyto_bar_", fp_name, ".png")),
-           plt_phyto,
-           width = 10, height = 8, unit = "in"
+    ggsave(
+      filename = repo_path(paste0('admin/figures-tables/phyto/phyto_bar_', fp_name, '.png')),
+      plot = plt_phyto,
+      width = 10,
+      height = 8,
+      units = 'in'
     )
   }
 }

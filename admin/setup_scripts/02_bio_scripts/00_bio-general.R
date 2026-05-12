@@ -343,7 +343,7 @@ BioFigureClass <- R6Class(
         )
       
       ggsave(
-        here("admin/figures-tables/phyto/phyto_tree.png"),
+        repo_path('admin', 'figures-tables', 'phyto', 'phyto_tree.png'),
         plt_comb,
         width = 7.5, height = 7, units = 'in'
       )

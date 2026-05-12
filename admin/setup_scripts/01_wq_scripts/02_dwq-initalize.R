@@ -1,15 +1,16 @@
 # Read in Data ------------------------------------------------------------
 
-df_raw_dwq <- read_quiet_csv(here("admin/test-data/EMP_DWQ_2024_report.csv"),
-                             col_types = cols(
-                               `Lab: Quality Flag` = col_character(),
-                               `Validation Warnings` = col_character()
-                             )
+df_raw_dwq <- read_quiet_csv(
+  repo_path('admin', 'test-data', 'EMP_DWQ_2024_report.csv'),
+  col_types = cols(
+    `Lab: Quality Flag` = col_character(),
+    `Validation Warnings` = col_character()
+  )
 )
 
-df_analytes <- read_quiet_csv(here("admin/figures-tables/admin/analyte_table.csv"), locale = locale(encoding = "UTF-8"))
+df_analytes <- read_quiet_csv(repo_path('admin', 'figures-tables', 'admin', 'analyte_table.csv'), locale = locale(encoding = 'UTF-8'))
 
-df_regions <- read_quiet_csv(here("admin/figures-tables/admin/station_table.csv"))
+df_regions <- read_quiet_csv(repo_path('admin', 'figures-tables', 'admin', 'station_table.csv'))
 
 # Create Base DWQ Object --------------------------------------------------
 
@@ -68,9 +69,12 @@ create_figs_dwq <- function() {
     
     exp_height <- ceiling(height_factor / 2) * 2
     
-    ggsave(here(paste0("admin/figures-tables/dwq/dwq_ts_", tolower(param), ".png")),
-           plt,
-           width = 6 * .8, height = exp_height * .8, unit = "in"
+    ggsave(
+      filename = repo_path(paste0('admin/figures-tables/dwq/dwq_ts_', tolower(param), '.png')),
+      plot = plt,
+      width = 6 * 0.8,
+      height = exp_height * 0.8,
+      units = 'in'
     )
   }
 }

@@ -373,7 +373,7 @@ WQFigureClass <- R6Class(
       super$initialize()
       self$df_raw <- df_raw
       self$generate_station_colors(df_raw)
-      self$df_devicetype <- read_csv(here("admin/figures-tables/cwq/cwq_devicetype.csv"), show_col_types = FALSE) %>%
+      self$df_devicetype <- read_csv(repo_path('admin', 'figures-tables', 'cwq', 'cwq_devicetype.csv'), show_col_types = FALSE) %>%
         mutate(Shape = case_when(
           # grepl("YSI EXO1", DeviceType) ~ 21,
           grepl("YSI EXO2", DeviceType) ~ 21,
