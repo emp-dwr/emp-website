@@ -42,5 +42,9 @@ vignettes/*.pdf
 **/*.quarto_ipynb
 .positai
 
+# Quarto working/cache files
+/.quarto/
+
 # Quarto output
 output/
+qmd-files/website/_site/

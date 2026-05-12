@@ -2,7 +2,7 @@ repo_path <- function(...) {
   qpd <- Sys.getenv('QUARTO_PROJECT_DIR')
   
   if (nzchar(qpd)) {
-    file.path(qpd, '..', '..', ...)
+    file.path(qpd, '..', ...)
   } else {
     here::here(...)
   }

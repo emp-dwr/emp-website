@@ -1,0 +1,208 @@
+---
+title: "Phytoplankton Report"
+author: "Tiffany Brown"
+params:
+  report_year: null
+---
+
+```{r echo = FALSE}
+# read in functions; do not edit
+report_year <- as.integer(params$report_year)
+
+repo_path <- function(...) {
+  file.path(Sys.getenv('QUARTO_PROJECT_DIR'), '..', ...)
+}
+
+source(repo_path('admin', 'import_scripts.R'), local = knitr::knit_global())
+```
+
+## Introduction
+
+The Department of Water Resources (DWR) and the US Bureau of Reclamation (USBR) are required by Water Right Decision 1641 (D-1641) to collect phytoplankton and chlorophyll *a* samples to monitor algal community composition and biomass at select sites in the upper San Francisco Estuary (Estuary). This report describes the results of these monitoring efforts for water year `r report_year` (October 1st `r prev_year` through September 30th `r report_year`) `r str_water_year(report_year, 'cur')` [(source)](https://cdec.water.ca.gov/reportapp/javareports?name=WSIHIST).
+
+## Methods
+
+Phytoplankton samples were collected monthly at 24 monitoring sites throughout the Upper Estuary and were grouped into regions based on their geographic location (@fig-stations; @tbl-stations). These sites represent a variety of aquatic habitats, from narrow, freshwater channels to broad, estuarine bays.
+
+![Map of EMP’s phytoplankton field sites.](/admin/figures-tables/phyto/phyto_station_map.png){#fig-stations fig-align="center" width="90%"}
+
+```{r echo=FALSE, warning=FALSE, message=FALSE, results = 'asis'}
+#| label: tbl-stations
+#| tbl-cap: 'Stations included within each region of the Delta'
+
+dwq_stations <- readr::read_csv(
+  repo_path('admin', 'figures-tables', 'phyto', 'phyto_stations.csv')
+)
+
+styler$style_kable(dwq_stations)
+```
+
+### Phytoplankton
+
+The 10 most common genera were determined by summing the normalized organism counts across all stations and months for each genus. For the bar graphs, average organism counts were calculated per month, per region, and normalized to the number of stations. Average summary statistics are reported as the mean (μ) ± the standard deviation.
+
+For more in-depth methodology, see [here](https://portal.edirepository.org/nis/metadataviewer?packageid=edi.1320.6).
+
+### Chlorophyll *a* and Pheophytin *a*
+
+Samples of chlorophyll *a* and pheophytin *a* were collected monthly at 24 monitoring sites throughout the upper Estuary using a submersible pump positioned 1 meter below the water's surface. Average analyte concentrations were then calculated per month, per region, and were normalized to the number of stations. Average summary statistics are reported as the median (M) ± the median absolute deviation.
+
+For more in-depth methodology, see [here](https://portal.edirepository.org/nis/metadataviewer?packageid=edi.1320.6).
+
+## Overall Results
+
+### Phytoplankton Identification
+
+```{r echo = FALSE, results = 'asis'}
+strings_phyto_cur$alg_list_txt()
+
+strings_phyto_cur$gen_list_txt()
+
+strings_phyto_cur$alg_tree_txt()
+```
+
+![Phytoplankton composition by algal group.](/admin/figures-tables/phyto/phyto_tree.png){#fig-alg fig-align="center" width="100%"}
+
+### Pigment Concentrations
+
+`r stats_pwq_cur$calc_chla_below()`% of samples had chlorophyll *a* levels below 10 μg/L, which is considered limiting for zooplankton growth (Müller-Solger et al., 2002). `r strings_pwq_cur$disp_phyto_paragraph('Chla','median')` `r strings_pwq_cur$disp_phyto_paragraph('Pheoa','median')`
+
+## Regional Results
+
+### Carquinez
+
+#### Water Quality
+
+`r strings_pwq_cur$disp_phyto_paragraph('Chla','median','Carquinez')` `r strings_pwq_cur$disp_phyto_paragraph('Pheoa','median','Carquinez', end=TRUE)`
+
+![Chlorophyll a and pheophytin a average concentrations in Carquinez.](/admin/figures-tables/phyto/phyto_wq_carquinez.png){#fig-wq-carquinez fig-align="center"}
+
+#### Phytoplankton
+
+`r strings_phyto_cur$summary_region_txt('Carquinez')` (Other, @fig-phy-carquinez).
+
+![Density of phytoplankton organisms in Carquinez.](/admin/figures-tables/phyto/phyto_bar_carquinez.png){#fig-phy-carquinez fig-align="center"}
+
+### Central Delta
+
+#### Water Quality
+
+`r strings_pwq_cur$disp_phyto_paragraph('Chla','median','Central Delta')` `r strings_pwq_cur$disp_phyto_paragraph('Pheoa','median','Central Delta', end=TRUE)`
+
+![Chlorophyll a and pheophytin a average concentrations in the Central Delta.](/admin/figures-tables/phyto/phyto_wq_centraldelta.png){#fig-wq-centraldelta fig-align="center"}
+
+#### Phytoplankton
+
+`r strings_phyto_cur$summary_region_txt('Central Delta')` (Other, @fig-phy-centraldelta).
+
+![Density of phytoplankton organisms in the Central Delta.](/admin/figures-tables/phyto/phyto_bar_centraldelta.png){#fig-phy-centraldelta fig-align="center"}
+
+### Confluence
+
+#### Water Quality
+
+`r strings_pwq_cur$disp_phyto_paragraph('Chla','median','Confluence')` `r strings_pwq_cur$disp_phyto_paragraph('Pheoa','median','Confluence', end=TRUE)`
+
+![Chlorophyll a and pheophytin a average concentrations in the Confluence.](/admin/figures-tables/phyto/phyto_wq_confluence.png){#fig-wq-confluence fig-align="center"}
+
+#### Phytoplankton
+
+`r strings_phyto_cur$summary_region_txt('Confluence')` (Other, @fig-phy-confluence).
+
+![Density of phytoplankton organisms in the Confluence.](/admin/figures-tables/phyto/phyto_bar_confluence.png){#fig-phy-confluence fig-align="center"}
+
+### North Delta
+
+#### Water Quality
+
+`r strings_pwq_cur$disp_phyto_paragraph('Chla','median','North Delta')` `r strings_pwq_cur$disp_phyto_paragraph('Pheoa','median','North Delta', end=TRUE)`
+
+![Chlorophyll a and pheophytin a average concentrations in the North Delta.](/admin/figures-tables/phyto/phyto_wq_northdelta.png){#fig-wq-northdelta fig-align="center"}
+
+#### Phytoplankton
+
+`r strings_phyto_cur$summary_region_txt('North Delta')` (Other, @fig-phy-northdelta).
+
+![Density of phytoplankton organisms in the North Delta.](/admin/figures-tables/phyto/phyto_bar_northdelta.png){#fig-phy-northdelta fig-align="center"}
+
+### San Pablo Bay
+
+#### Water Quality
+
+`r strings_pwq_cur$disp_phyto_paragraph('Chla','median','San Pablo Bay')` `r strings_pwq_cur$disp_phyto_paragraph('Pheoa','median','San Pablo Bay', end=TRUE)`
+
+![Chlorophyll a and pheophytin a average concentrations in the San Pablo Bay.](/admin/figures-tables/phyto/phyto_wq_sanpablobay.png){#fig-wq-sanpablobay fig-align="center"}
+
+#### Phytoplankton
+
+`r strings_phyto_cur$summary_region_txt('San Pablo Bay')` (Other, @fig-phy-sanpablobay).
+
+![Density of phytoplankton organisms in the San Pablo Bay.](/admin/figures-tables/phyto/phyto_bar_sanpablobay.png){#fig-phy-sanpablobay fig-align="center"}
+
+### South Delta
+
+#### Water Quality
+
+`r strings_pwq_cur$disp_phyto_paragraph('Chla','median','South Delta')` `r strings_pwq_cur$disp_phyto_paragraph('Pheoa','median','South Delta', end=TRUE)`
+
+![Chlorophyll a and pheophytin a average concentrations in the South Delta.](/admin/figures-tables/phyto/phyto_wq_southdelta.png){#fig-wq-southdelta fig-align="center"}
+
+#### Phytoplankton
+
+`r strings_phyto_cur$summary_region_txt('South Delta')` (Other, @fig-phy-southdelta).
+
+![Density of phytoplankton organisms in the South Delta.](/admin/figures-tables/phyto/phyto_bar_southdelta.png){#fig-phy-southdelta fig-align="center"}
+
+### Suisun and Grizzly Bays
+
+#### Water Quality
+
+`r strings_pwq_cur$disp_phyto_paragraph('Chla','median','Suisun and Grizzly Bays')` `r strings_pwq_cur$disp_phyto_paragraph('Pheoa','median','Suisun and Grizzly Bays', end=TRUE)`
+
+![Chlorophyll a and pheophytin a average concentrations in Suisun and Grizzly Bays.](/admin/figures-tables/phyto/phyto_wq_suisunandgrizzlybays.png){#fig-wq-suisunandgrizzlybays fig-align="center"}
+
+#### Phytoplankton
+
+`r strings_phyto_cur$summary_region_txt('Suisun and Grizzly Bays')` (Other, @fig-phy-suisunandgrizzlybays).
+
+![Density of phytoplankton organisms in Suisun and Grizzly Bays.](/admin/figures-tables/phyto/phyto_bar_suisunandgrizzlybays.png){#fig-phy-suisunandgrizzlybays fig-align="center"}
+
+### Suisun Marsh
+
+#### Water Quality
+
+`r strings_pwq_cur$disp_phyto_paragraph('Chla','median','Suisun Marsh')`. `r strings_pwq_cur$disp_phyto_paragraph('Pheoa','median','Suisun Marsh', end=TRUE)`
+
+![Chlorophyll a and pheophytin a average concentrations in Suisun Marsh.](/admin/figures-tables/phyto/phyto_wq_suisunmarsh.png){#fig-wq-suisunmarsh fig-align="center"}
+
+#### Phytoplankton
+
+`r strings_phyto_cur$summary_region_txt('Suisun Marsh')` (Other, @fig-phy-suisunmarsh).
+
+![Density of phytoplankton organisms in Suisun Marsh.](/admin/figures-tables/phyto/phyto_bar_suisunmarsh.png){#fig-phy-suisunmarsh fig-align="center"}
+
+## Interpretations
+
+Water year 2024 was above average in precipitation for both the Sacramento and San Joaquin Rivers and their watersheds. Chlorophyll a and pheophytin a values were low overall, with many samples being below the detection limit. Higher outflows that can occur during wet or above normal water years often reduce the residence time of the water, leading to less opportunities for large algal blooms. The phytoplankton community in all regions was dominated by small, but numerically abundant, cyanobacteria. Phytoplankton fell into 12 distinct categories, similar to previous years, with nearly all groups being found in all regions. However, the top ten taxa fell into just 5 categories, showing that while the overall community is diverse, phytoplankton tend to be numerically dominated by a small number of algal groups.
+
+## References
+
+\[APHA\] American Public Health Association, American Waterworks, and Water Environmental Federation. 2012. Standard Methods for the Examination of Water and Wastewater. 22nd ed. Washington, D.C.: American Public Health Association.
+
+Alpine, A. E., and Cloern, J. E. 1992. Trophic interactions and direct physical effects control phytoplankton biomass and production in an estuary. Limnol. Oceanogr. 37: 946-955
+
+Carmichael, W., ed. 1981. The Water Environment, Algal Toxins and Health. Plenum Press, New York, N. Y.
+
+Gannon, J. E. and R. S. Stemberger. 1978. Zooplankton (especially crustaceans and rotifers) as indicators of water quality. Trans. Amer. Microsc. 97:16.
+
+Horne, A. and Goldman, C. 1994. Limnology. 2nd ed. New York, New York, McGraw-Hill, Inc.
+
+Müller-Solger AB, Jassby AD, Müller-Navarra DC. 2002. Nutritional quality of food resources for zooplankton (Daphnia) in a tidal freshwater system (Sacramento-San Joaquin River Delta). Limnology and Oceanography 47(5): 1468-1476.
+
+Utermöhl, H. 1958. Zur Vervollkommnung der quantitativen Phytoplankton Methodik. Mitt. Int. Verh. Limnol. 9: 38.
+
+van den Hoek, C., D.G. Mann, and H.M. Jahns. 1995. Algae: an introduction to Phycology. Cambridge University Press, United Kingdom.
+
+## Archived Reports
+
+Previous EMP phytoplankton reports can be found [here](https://github.com/emp-dwr/emp-website/tree/gh-pages/admin/archive/phyto).

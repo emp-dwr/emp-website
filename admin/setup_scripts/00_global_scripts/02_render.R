@@ -17,9 +17,9 @@ render_report <- function(programs, report_type, report_year = NULL, as_job = TR
   for (prog in programs) {
     
     file_path <- if (report_type == 'pdfs') {
-      here::here('qmd-files', 'pdfs', paste0(prog, '-report.qmd'))
+      here::here('pdfs', paste0(prog, '-report.qmd'))
     } else {
-      here::here('qmd-files', 'website', prog, paste0(prog, '-report.qmd'))
+      here::here('website', prog, paste0(prog, '-report.qmd'))
     }
     
     if (!file.exists(file_path)) {
@@ -48,7 +48,7 @@ render_website <- function(report_year = NULL, as_job = TRUE) {
   report_year <- as.integer(report_year)
   
   quarto::quarto_render(
-    input = here::here('qmd-files', 'website'),
+    input = here::here('website'),
     execute_params = list(report_year = report_year),
     as_job = as_job
   )
@@ -58,7 +58,6 @@ render_website <- function(report_year = NULL, as_job = TRUE) {
 render_mussels <- function(as_job = TRUE) {
   
   file_path <- here::here(
-    'qmd-files',
     'website',
     'special-studies',
     'golden-mussels.qmd'
