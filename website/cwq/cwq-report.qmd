@@ -5,7 +5,7 @@ params:
   report_year: null
 ---
 
-```{r echo = FALSE}
+```{r include = FALSE}
 # read in functions; do not edit
 report_year <- as.integer(params$report_year)
 
