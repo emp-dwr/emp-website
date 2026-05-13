@@ -52,38 +52,39 @@ jobs:
           use-public-rspm: true
 
       - name: Install R packages
-        run: |
-          Rscript -e 'install.packages(c(
-            "dplyr",
-            "tidyr",
-            "readr",
-            "jsonlite",
-            "here",
-            "plotly",
-            "quarto",
-            "lubridate",
-            "htmltools",
-            "rvest",
-            "knitr",
-            "R6",
-            "ggplot2",
-            "kableExtra",
-            "glue"
-          ))'
+        uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          extra-packages: |
+            any::dplyr
+            any::tidyr
+            any::readr
+            any::jsonlite
+            any::here
+            any::plotly
+            any::quarto
+            any::lubridate
+            any::htmltools
+            any::rvest
+            any::knitr
+            any::R6
+            any::ggplot2
+            any::kableExtra
+            any::glue
+          cache: true
 
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
 
       - name: Render site
-        run: quarto render qmd-files/website -P report_year:$REPORT_YEAR
+        run: quarto render website -P report_year:$REPORT_YEAR
 
       - name: Commit freeze cache
         run: |
           git config user.name 'github-actions'
           git config user.email 'actions@github.com'
 
-          if [ -d "qmd-files/website/_freeze" ]; then
-            git add qmd-files/website/_freeze
+          if [ -d "website/_freeze" ]; then
+            git add website/_freeze
             git diff --staged --quiet || git commit -m 'update freeze cache [mussel update]'
             git push origin main
           else
@@ -96,7 +97,7 @@ jobs:
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './qmd-files/website/_site'
+          path: './website/_site'
 
       - name: Deploy to GitHub Pages
         id: deployment

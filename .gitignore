@@ -46,5 +46,5 @@ vignettes/*.pdf
 /.quarto/
 
 # Quarto output
-output/
-qmd-files/website/_site/
+website/_site/
+pdfs/_pdfs/

@@ -1,11 +1,16 @@
-name: Deploy Full Site
+name: Deploy Golden Mussel Site Update
 
 on:
   workflow_dispatch:
     inputs:
       report_year:
-        description: 'Report year'
-        required: true
+        description: 'Report year used only if frozen report pages need to re-render'
+        required: false
+
+  workflow_run:
+    workflows: ['Update Mussel Data Files']
+    types: [completed]
+    branches: [main]
 
 permissions:
   contents: write
@@ -18,6 +23,8 @@ concurrency:
 
 jobs:
   deploy:
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -25,40 +32,55 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v6
+      - name: Check out repository
+        uses: actions/checkout@v6
         with:
           ref: main
+
+      - name: Set report year
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ -n "${{ github.event.inputs.report_year }}" ]; then
+            echo "REPORT_YEAR=${{ github.event.inputs.report_year }}" >> $GITHUB_ENV
+          elif [ -n "${{ vars.REPORT_YEAR }}" ]; then
+            echo "REPORT_YEAR=${{ vars.REPORT_YEAR }}" >> $GITHUB_ENV
+          else
+            echo "REPORT_YEAR=$(date +%Y)" >> $GITHUB_ENV
+          fi
 
       - name: Set up R
         uses: r-lib/actions/setup-r@v2
         with:
           use-public-rspm: true
-
+          
       - name: Install R packages
-        run: |
-          Rscript -e 'install.packages(c(
-            "dplyr",
-            "tidyr",
-            "readr",
-            "jsonlite",
-            "here",
-            "plotly",
-            "quarto",
-            "lubridate",
-            "htmltools",
-            "rvest",
-            "knitr",
-            "R6",
-            "ggplot2",
-            "kableExtra",
-            "glue"
-          ))'
+        uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          extra-packages: |
+            any::dplyr
+            any::tidyr
+            any::readr
+            any::jsonlite
+            any::here
+            any::plotly
+            any::quarto
+            any::lubridate
+            any::htmltools
+            any::rvest
+            any::knitr
+            any::R6
+            any::ggplot2
+            any::kableExtra
+            any::glue
+          cache: true
 
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
 
-      - name: Render site
-        run: quarto render website -P report_year:${{ github.event.inputs.report_year }}
+      - name: Render Golden Mussel page and update freeze cache
+        run: quarto render website/special-studies/golden-mussels.qmd --profile mussels -P report_year:$REPORT_YEAR
+
+      - name: Render full site using frozen outputs
+        run: quarto render website --profile mussels -P report_year:$REPORT_YEAR
 
       - name: Commit freeze cache
         run: |
@@ -67,7 +89,7 @@ jobs:
 
           if [ -d "website/_freeze" ]; then
             git add website/_freeze
-            git diff --staged --quiet || git commit -m 'update freeze cache'
+            git diff --staged --quiet || git commit -m 'update freeze cache [mussel update]'
             git push origin main
           else
             echo "No freeze cache found; skipping freeze cache commit."

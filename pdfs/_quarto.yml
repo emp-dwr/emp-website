@@ -1,18 +1,20 @@
 project:
   type: default
-  output-dir: output/pdfs
-  execute-dir: file
-  render: 
-    - 'qmd-files/pdfs'
-  
+  output-dir: _pdfs
+  execute-dir: project
+  pre-render: _copy_pdf_resources.R
+
 format:
   pdf:
-    toc: false
     documentclass: article
-    latex-engine: pdflatex
-    number-sections: false
-    header-includes:
-      - \usepackage{float}
-      - \floatplacement{figure}{H}
-      - \floatplacement{table}{H}
-      - \usepackage{lmodern}
+    papersize: letter
+    geometry:
+      - margin=1in
+    toc: true
+    number-sections: true
+    colorlinks: true
+
+execute:
+  echo: false
+  warning: false
+  message: false

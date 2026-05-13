@@ -7,11 +7,17 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: update-mussel-data
+  cancel-in-progress: false
+
 jobs:
   update-data:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v6
+      - name: Check out repository
+        uses: actions/checkout@v6
         with:
           ref: main
 
@@ -19,6 +25,7 @@ jobs:
         env:
           DATA: ${{ toJson(github.event.client_payload.data) }}
         run: |
+          mkdir -p admin/test-data
           echo "$DATA" > admin/test-data/mussel_data.json
 
       - name: Set up R
@@ -27,15 +34,16 @@ jobs:
           use-public-rspm: true
 
       - name: Install R packages
-        run: |
-          Rscript -e 'install.packages(c(
-            "dplyr",
-            "tidyr",
-            "readr",
-            "jsonlite",
-            "here",
-            "lubridate"
-          ))'
+        uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          extra-packages: |
+            any::dplyr
+            any::tidyr
+            any::readr
+            any::jsonlite
+            any::here
+            any::lubridate
+          cache: true
 
       - name: Run data prep
         run: Rscript admin/setup_scripts/03_other_scripts/mussel-data-prep.R
@@ -44,8 +52,14 @@ jobs:
         run: |
           git config user.name 'github-actions'
           git config user.email 'actions@github.com'
+
           git add \
             admin/test-data/mussel_data.json \
             admin/test-data/mussel_frames_data.rds
-          git diff --staged --quiet || git commit -m 'update golden mussel data files'
-          git push origin main
+
+          if git diff --staged --quiet; then
+            echo "No mussel data file changes to commit."
+          else
+            git commit -m 'update golden mussel data files'
+            git push origin main
+          fi

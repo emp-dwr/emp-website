@@ -21,7 +21,7 @@ website:
   page-footer:
     background: '#e8f1f5'
     center: |
-      ![](assets/EMP_footer.png){fig-alt="DWR, CDFW, and USBR logos" height=50px}
+      ![](/assets/EMP_footer.png){fig-alt="DWR, CDFW, and USBR logos" height=50px}
 
   navbar:
     background: '#e8f1f5'
