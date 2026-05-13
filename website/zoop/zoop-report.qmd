@@ -7,15 +7,10 @@ params:
 
 ```{r echo = FALSE}
 # read in functions; do not edit
-if (is.null(params$report_year)) {
-  stop('report_year must be supplied explicitly')
-}
-
 report_year <- as.integer(params$report_year)
-prev_year <- report_year - 1
 
 repo_path <- function(...) {
-  file.path(Sys.getenv('QUARTO_PROJECT_DIR'), '..', '..', ...)
+  file.path(Sys.getenv('QUARTO_PROJECT_DIR'), '..', ...)
 }
 
 source(repo_path('admin', 'import_scripts.R'), local = knitr::knit_global())
