@@ -3,9 +3,22 @@ name: Deploy Full Site
 on:
   workflow_dispatch:
     inputs:
-      report_year:
-        description: 'Report year'
+      report_type:
+        description: 'Report to update'
         required: true
+        type: choice
+        options:
+          - all
+          - cwq
+          - dwq
+          - benthic
+          - phyto
+          - zoop
+
+      report_year:
+        description: 'Report year for selected report'
+        required: true
+        type: string
 
 permissions:
   contents: write
@@ -45,7 +58,6 @@ jobs:
             any::jsonlite
             any::here
             any::plotly
-            any::quarto
             any::lubridate
             any::htmltools
             any::rvest
@@ -60,10 +72,46 @@ jobs:
         uses: quarto-dev/quarto-actions/setup@v2
 
       - name: Remove freeze cache for full rebuild
+        if: ${{ github.event.inputs.report_type == 'all' }}
         run: rm -rf website/_freeze
 
-      - name: Render site
+      - name: Render full site
+        if: ${{ github.event.inputs.report_type == 'all' }}
         run: quarto render website -P report_year:${{ github.event.inputs.report_year }}
+
+      - name: Render selected report page
+        if: ${{ github.event.inputs.report_type != 'all' }}
+        run: |
+          REPORT_TYPE="${{ github.event.inputs.report_type }}"
+          REPORT_YEAR="${{ github.event.inputs.report_year }}"
+
+          case "$REPORT_TYPE" in
+            cwq)
+              REPORT_FILE="website/cwq/cwq-report.qmd"
+              ;;
+            dwq)
+              REPORT_FILE="website/dwq/dwq-report.qmd"
+              ;;
+            benthic)
+              REPORT_FILE="website/benthic/benthic-report.qmd"
+              ;;
+            phyto)
+              REPORT_FILE="website/phyto/phyto-report.qmd"
+              ;;
+            zoop)
+              REPORT_FILE="website/zoop/zoop-report.qmd"
+              ;;
+            *)
+              echo "Unknown report type: $REPORT_TYPE"
+              exit 1
+              ;;
+          esac
+
+          quarto render "$REPORT_FILE" -P report_year:"$REPORT_YEAR"
+
+      - name: Render full site using frozen outputs
+        if: ${{ github.event.inputs.report_type != 'all' }}
+        run: quarto render website --profile freeze -P report_year:${{ github.event.inputs.report_year }}
 
       - name: Commit freeze cache
         run: |

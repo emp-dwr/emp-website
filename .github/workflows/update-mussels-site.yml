@@ -32,13 +32,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v6
+      - name: Check out repository
+        uses: actions/checkout@v6
         with:
           ref: main
 
       - name: Set report year
         run: |
-          if [ -n "${{ github.event.inputs.report_year }}" ]; then
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ -n "${{ github.event.inputs.report_year }}" ]; then
             echo "REPORT_YEAR=${{ github.event.inputs.report_year }}" >> $GITHUB_ENV
           elif [ -n "${{ vars.REPORT_YEAR }}" ]; then
             echo "REPORT_YEAR=${{ vars.REPORT_YEAR }}" >> $GITHUB_ENV
@@ -61,7 +62,6 @@ jobs:
             any::jsonlite
             any::here
             any::plotly
-            any::quarto
             any::lubridate
             any::htmltools
             any::rvest
@@ -75,8 +75,11 @@ jobs:
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
 
-      - name: Render site
-        run: quarto render website -P report_year:$REPORT_YEAR
+      - name: Render Golden Mussel page and update freeze cache
+        run: quarto render website/special-studies/golden-mussels.qmd --profile freeze -P report_year:$REPORT_YEAR
+
+      - name: Render full site using frozen outputs
+        run: quarto render website --profile freeze -P report_year:$REPORT_YEAR
 
       - name: Commit freeze cache
         run: |
@@ -85,8 +88,13 @@ jobs:
 
           if [ -d "website/_freeze" ]; then
             git add website/_freeze
-            git diff --staged --quiet || git commit -m 'update freeze cache [mussel update]'
-            git push origin main
+
+            if git diff --staged --quiet; then
+              echo "No freeze cache changes to commit."
+            else
+              git commit -m 'update freeze cache [mussel update]'
+              git push origin main
+            fi
           else
             echo "No freeze cache found; skipping freeze cache commit."
           fi
