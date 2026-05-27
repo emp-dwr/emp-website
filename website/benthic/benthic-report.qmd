@@ -123,4 +123,4 @@ Hartman, R., Twardochleb, L., Burdi, C. E., & Wells, E. H. (2024). Amazing Graze
 
 ## Archived Reports
 
-Previous EMP benthic reports can be found [here](https://github.com/emp-dwr/emp-website/tree/gh-pages/admin/archive/benthic).
+Previous EMP benthic reports can be found [here](https://github.com/emp-dwr/emp-website/tree/main/admin/archive/benthic).

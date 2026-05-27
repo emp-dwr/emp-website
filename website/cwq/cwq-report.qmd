@@ -198,4 +198,4 @@ Water Year 2024 started off dry, but a series of storms in February and March br
 
 ## Archived Reports
 
-Old EMP continuous water quality reports can be found [here](https://github.com/emp-dwr/emp-website/tree/gh-pages/admin/archive/c-wq).
+Old EMP continuous water quality reports can be found [here](https://github.com/emp-dwr/emp-website/tree/main/admin/archive/c-wq).

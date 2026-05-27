@@ -2,10 +2,6 @@ name: Deploy Golden Mussel Site Update
 
 on:
   workflow_dispatch:
-    inputs:
-      report_year:
-        description: 'Report year used only if frozen report pages need to re-render'
-        required: false
 
   workflow_run:
     workflows: ['Update Mussel Data Files']
@@ -76,7 +72,7 @@ jobs:
         uses: quarto-dev/quarto-actions/setup@v2
 
       - name: Render Golden Mussel page and update freeze cache
-        run: quarto render website/special-studies/golden-mussels.qmd --profile freeze -P report_year:$REPORT_YEAR
+        run: quarto render website/special-studies/golden-mussels.qmd --profile freeze
 
       - name: Render full site using frozen outputs
         run: quarto render website --profile freeze -P report_year:$REPORT_YEAR

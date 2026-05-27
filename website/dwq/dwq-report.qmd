@@ -168,4 +168,4 @@ The average dissolved ammonia, dissolved nitrate + nitrite, and total phosphorus
 
 ## Archived Reports
 
-Previous EMP discrete water quality reports can be found [here](https://github.com/emp-dwr/emp-website/tree/gh-pages/admin/archive/d-wq).
+Previous EMP discrete water quality reports can be found [here](https://github.com/emp-dwr/emp-website/tree/main/admin/archive/d-wq).
