@@ -1,6 +1,7 @@
 name: Update Mussel Data Files
 
 on:
+  workflow_dispatch:
   repository_dispatch:
     types: [update-mussels]
 
