@@ -22,7 +22,7 @@ library(htmltools)
 
 # set filepath
 repo_path <- function(...) {
-  file.path(Sys.getenv('QUARTO_PROJECT_DIR'), '..', ...)
+  file.path(Sys.getenv('QUARTO_PROJECT_DIR'), ...)
 }
 
 data <- readRDS(repo_path('admin', 'test-data', 'mussel_frames_data.rds'))
