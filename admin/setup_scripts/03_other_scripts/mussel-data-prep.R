@@ -7,7 +7,7 @@ library(lubridate)
 library(jsonlite)})
 
 repo_path <- function(...) {
-  file.path(Sys.getenv('QUARTO_PROJECT_DIR'), '..', ...)
+  here::here(...)
 }
 
 df_stations <- read_csv(repo_path('admin', 'figures-tables', 'special-studies', 'Mussel_Station_Metadata.csv'), show_col_types = FALSE)
