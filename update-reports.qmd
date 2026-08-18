@@ -1,13 +1,19 @@
 # Update Annual Reports
 
-## read in functions (run this first)
+## read in scripts
 ```{r}
 source(here::here('admin', 'setup_scripts', '00_global_scripts', '02_render.R'))
 ```
 
+## set report year
+```{r}
+# set report year
+report_year <- 2024
+```
+
 ## generate figures
 ```{r}
-create_figs(group = c('benthic'))
+# create_figs(group = c('benthic'))
 ```
 
 ## create pdfs
@@ -23,22 +29,23 @@ quarto::quarto_render(
 options are 'benthic', 'phyto', 'zoop', 'dwq', 'cwq'
 ```{r}
 render_report(programs = c('zoop'),
-              report_type = 'pdfs')
+              report_type = 'pdfs',
+              report_year = report_year)
 ```
 
 ## preview website locally
 
 ### all reports (run as-is)
 ```{r}
-render_website(report_year = 2024)
+render_website(report_year = report_year)
 ```
 
 ### specific reports (type name in between `c()`)
 options are 'benthic', 'phyto', 'zoop', 'dwq', 'cwq'
 ```{r}
-render_report(programs = c('dwq','cwq','benthic','zoop','phyto'),
+render_report(programs = c('benthic'),
               report_type = 'website',
-              report_year = 2024)
+              report_year = report_year)
 ```
 
 ## deploy to website

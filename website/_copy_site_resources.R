@@ -1,5 +1,8 @@
-website_dir <- normalizePath(getwd(), winslash = '/', mustWork = TRUE)
-repo_dir <- normalizePath(file.path(website_dir, '..'), winslash = '/', mustWork = TRUE)
+repo_dir <- rprojroot::find_root(
+  rprojroot::has_file_pattern("[.]Rproj$")
+)
+
+website_dir <- file.path(repo_dir, "website")
 
 src <- file.path(repo_dir, 'admin', 'figures-tables')
 dst_parent <- file.path(website_dir, 'admin')

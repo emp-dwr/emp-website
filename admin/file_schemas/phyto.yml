@@ -1,0 +1,74 @@
+
+columns:
+  Date:
+    source: "SampleDate"
+    type: date
+  Time:
+    source: "SampleTime"
+    type: time
+  Location:
+    source: "Location"
+    type: character
+  Station:
+    source: "Station"
+    type: character
+  Latitude:
+    source: "Latitude"
+    type: double
+  Longitude:
+    source: "Longitude"
+    type: double
+  Lab:
+    source: "Lab"
+    type: character
+  CountMethod:
+    source: "CountMethod"
+    type: character
+  OrigTaxon:
+    source: "OrigTaxon"
+    type: character
+  Taxon:
+    source: "Taxon"
+    type: character
+  Kingdom:
+    source: "Kingdom"
+    type: character
+  Phylum:
+    source: "Phylum"
+    type: character
+  Class:
+    source: "Class"
+    type: character
+  AlgalGroup:
+    source: "AlgalGroup"
+    type: character
+  Genus:
+    source: "Genus"
+    type: character
+  Species:
+    source: "Species"
+    type: character
+  Cells_per_mL:
+    source: "Cells_per_mL"
+    type: double
+  Units_per_mL:
+    source: "Units_per_mL"
+    type: double
+  Biovolume_per_mL:
+    source: "Biovolume_per_mL"
+    type: double
+  GALD:
+    source: "GALD"
+    type: double
+  PhytoForm:
+    source: "PhytoForm"
+    type: character
+  QualityCheck:
+    source: "QualityCheck"
+    type: character
+  Debris:
+    source: "Debris"
+    type: character
+  Notes:
+    source: "Notes"
+    type: character

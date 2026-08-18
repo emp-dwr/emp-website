@@ -1,0 +1,26 @@
+
+columns:
+  Survey:
+    source: "Survey"
+    type: character
+  Date:
+    source: "Date"
+    type: date
+  Count:
+    source: "Count"
+    type: integer
+  Value:
+    source: "Value"
+    type: double
+  Site:
+    source: "Site"
+    type: character
+  Station:
+    source: "Station"
+    type: character
+  Month:
+    source: "Month"
+    type: integer
+  Analyte:
+    source: "Analyte"
+    type: character

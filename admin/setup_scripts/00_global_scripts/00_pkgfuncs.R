@@ -29,6 +29,7 @@ suppressPackageStartupMessages({
   library(plotly)
   library(htmltools)
   library(magrittr)
+  library(httr2)
 })
   
 conflict_prefer('filter', 'dplyr', quiet = TRUE)

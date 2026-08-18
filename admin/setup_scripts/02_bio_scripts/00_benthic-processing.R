@@ -5,7 +5,7 @@ BenBaseClass <- R6Class(
   public = list(
     df_raw = NULL,
     wkbk = NULL,
-    ben_classif = c("Phylum", "Class_level", "Order_level", "Family_level", "Genus", "Species", "Common_name"),
+    ben_classif = c("Phylum", "Class", "Order", "Family", "Genus", "Species", "Common_name"),
     initialize = function(df_raw) {
       self$df_raw <- df_raw
       self$wkbk <- createWorkbook()

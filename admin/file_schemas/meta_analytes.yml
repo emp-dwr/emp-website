@@ -1,0 +1,20 @@
+
+columns:
+  Program:
+    source: "Program"
+    type: character
+  Analyte:
+    source: "Analyte"
+    type: character
+  Unit:
+    source: "Unit"
+    type: character
+  Label:
+    source: "Label"
+    type: character
+  SigFigs:
+    source: "SigFigs"
+    type: integer
+  FracDigits:
+    source: "FracDigits"
+    type: integer

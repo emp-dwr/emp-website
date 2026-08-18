@@ -1,26 +1,30 @@
 # Read in Data ------------------------------------------------------------
 
-df_raw_phyto <- read_quiet_csv(
-  repo_path('admin/test-data/EMP_Phyto_Data_2008-2024.csv')
+repo_dir <- rprojroot::find_root(
+  rprojroot::has_file_pattern("[.]Rproj$")
 )
 
-df_wqraw <- read_quiet_csv(
-  repo_path('admin/test-data/EMP_DWQ_2024_report.csv'),
-  col_types = cols(
-    `Lab: Quality Flag` = col_character(),
-    `Validation Warnings` = col_character()
-  )
-)
+admin_file <- function(...) {
+  file.path(repo_dir, "admin", ...)
+}
 
-df_analytes <- read_quiet_csv(
-  repo_path('admin/figures-tables/admin/analyte_table.csv'),
-  locale = locale(encoding = 'UTF-8')
-)
+schema_phyto = yaml::read_yaml(admin_file("file_schemas", "phyto.yml"))
+df_raw_phyto = read_typed(schema_phyto, \(ct)
+                          get_edi_file("1320", "EMP_Phyto_FieldOnly", match_type = "regex", col_types = ct))
 
-df_regions <- read_quiet_csv(
-  repo_path('admin/figures-tables/admin/station_table.csv')
-)
+schema_dwq = yaml::read_yaml(admin_file("file_schemas", "dwq.yml"))
+df_raw_dwq = read_typed(schema_dwq, \(ct)
+                        get_edi_file("458", "EMP_DWQ", match_type = "regex", col_types = ct))
 
+schema_analytes <- yaml::read_yaml(admin_file("file_schemas", "meta_analytes.yml"))
+df_analytes <- read_typed(schema_analytes, \(ct)
+                          read_csv(admin_file("figures-tables", "admin", "analyte_table.csv"),
+                                   locale = locale(encoding = "UTF-8"), col_types = ct, lazy = FALSE))
+
+schema_regions <- yaml::read_yaml(admin_file("file_schemas", "meta_regions.yml"))
+df_regions <- read_typed(schema_regions, \(ct)
+                         read_csv(admin_file("figures-tables", "admin", "station_table.csv"),
+                                  col_types = ct, lazy = FALSE))
 
 # Create Base Phyto Object ------------------------------------------------
 
@@ -28,13 +32,14 @@ obj_phyto <- BaseClass$new(df_raw_phyto, df_analytes, df_regions)
 
 obj_phyto$
   remove_EZ()$
-  assign_regions('Phyto')$
   add_month()
 
 # Create Current Year Object ----------------------------------------------
 
 obj_phyto_cur <- obj_phyto$clone(deep = TRUE)
-obj_phyto_cur$filter_years(report_year, range = 'single')
+obj_phyto_cur$
+  filter_years(report_year, range = 'single')$
+  assign_regions('Phyto')
 
 # Create Current Year Text Strings ----------------------------------------
 
@@ -42,18 +47,19 @@ strings_phyto_cur <- PhytoStringClass$new(obj_phyto_cur$df_raw)
 
 # Create Base WQ Object ---------------------------------------------------
 
-obj_pwq <- BaseClass$new(df_wqraw, df_analytes, df_regions)
+obj_pwq <- BaseClass$new(df_raw_dwq, df_analytes, df_regions)
 
 obj_pwq$
   format_aquarius()$
   remove_EZ()$
-  assign_analyte_meta()$
-  assign_regions('DWQ')$
   add_month()$
   replace_nondetect()
 
 obj_pwq_cur <- obj_pwq$clone(deep = TRUE)
-obj_pwq_cur$filter_years(report_year)
+obj_pwq_cur$
+  filter_years(report_year)$
+  assign_regions('DWQ')$
+  assign_analyte_meta()
 
 stats_pwq_cur <- WQStatsClass$new(obj_pwq_cur$df_raw)
 strings_pwq_cur <- WQStringClass$new(obj_pwq_cur$df_raw)
@@ -97,3 +103,5 @@ create_figs_phyto <- function() {
     )
   }
 }
+
+create_figs_phyto()

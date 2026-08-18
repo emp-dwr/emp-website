@@ -1,0 +1,54 @@
+
+columns:
+  Date:
+    source: "Date"
+    type: date
+    format: "%Y-%m-%d"
+  Station:
+    source: "Station"
+    type: character
+  Year:
+    source: "Year"
+    type: integer
+  Month:
+    source: "Month"
+    type: character
+  OrganismCode:
+    source: "OrganismCode"
+    type: character
+  MeanCPUE:
+    source: "MeanCPUE"
+    type: double
+  TotalGrabs:
+    source: "TotalGrabs"
+    type: integer
+  Phylum:
+    source: "Phylum"
+    type: character
+  Class:
+    source: "Class_level"
+    type: character
+  Order:
+    source: "Order_level"
+    type: character
+  Family:
+    source: "Family_level"
+    type: character
+  Genus:
+    source: "Genus"
+    type: character
+  Species:
+    source: "Species"
+    type: character
+  Common_name:
+    source: "Common_name"
+    type: character
+  Location:
+    source: "Location"
+    type: character
+  Latitude:
+    source: "Latitude"
+    type: double
+  Longitude:
+    source: "Longitude"
+    type: double

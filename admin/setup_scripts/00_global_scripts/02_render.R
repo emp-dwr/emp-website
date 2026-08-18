@@ -1,5 +1,5 @@
 # render individual reports
-render_report <- function(programs, report_type, report_year = NULL, as_job = TRUE) {
+render_report <- function(programs, report_type, report_year = NULL, as_job = FALSE) {
   
   if (is.null(report_year)) {
     stop('report_year must be supplied explicitly, e.g. report_year = 2024')
@@ -39,7 +39,7 @@ render_report <- function(programs, report_type, report_year = NULL, as_job = TR
 }
 
 # render whole website
-render_website <- function(report_year = NULL, as_job = TRUE) {
+render_website <- function(report_year = NULL, as_job = FALSE) {
   
   if (is.null(report_year)) {
     stop('report_year must be supplied explicitly, e.g. report_year = 2024')
@@ -55,7 +55,7 @@ render_website <- function(report_year = NULL, as_job = TRUE) {
 }
 
 # for use by GitHub for auto-updates
-render_mussels <- function(as_job = TRUE) {
+render_mussels <- function(as_job = FALSE) {
   
   file_path <- here::here(
     'website',

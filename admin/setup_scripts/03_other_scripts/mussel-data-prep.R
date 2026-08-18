@@ -12,7 +12,7 @@ repo_path <- function(...) {
 
 df_stations <- read_csv(repo_path('admin', 'figures-tables', 'special-studies', 'Mussel_Station_Metadata.csv'), show_col_types = FALSE)
 
-sightings <- fromJSON(readLines(repo_path('admin', 'test-data', 'mussel_data.json')))
+sightings <- fromJSON(readLines(repo_path('admin', 'data', 'mussel_data.json')))
 
 sightings <- sightings %>%
   mutate(
@@ -125,7 +125,7 @@ df_stations <- readr::read_csv(
 )
 
 sightings <- jsonlite::fromJSON(
-  readLines(repo_path('admin', 'test-data', 'mussel_data.json'))
+  readLines(repo_path('admin', 'data', 'mussel_data.json'))
 )
 
 saveRDS(
@@ -133,5 +133,5 @@ saveRDS(
     frames_data = frames_data,
     df_stations = df_stations
   ),
-  repo_path('admin', 'test-data', 'mussel_frames_data.rds')
+  repo_path('admin', 'data', 'mussel_frames_data.rds')
 )

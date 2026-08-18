@@ -49,40 +49,40 @@ BaseClass <- R6Class(
     },
     
     # format Aquarius data (dwq)
-    format_aquarius = function() {
-      self$df_raw <- self$df_raw %>%
-        rename(
-          Value = `Result Value`,
-          Analyte = `Observed Property ID`,
-          DetectStatus = `Lab: Detection Condition`,
-          ReportingLimit = `Lab: MRL`,
-          Station = `Location ID`
-        ) %>%
-        mutate(Date = as.Date(`Observed DateTime`))
-      
-      self$df_raw <- self$df_raw %>%
-        filter(!(Analyte %in% c("Sky Conditions", "Rain"))) %>% # remove character-type analytes
-        filter(is.na(`QC: Type`)) %>% # remove replicates
-        mutate(
-          DetectStatus = case_when(
-            DetectStatus == "NOT_DETECTED" ~ "Nondetect",
-            TRUE ~ "Detect"
-          ),
-          Analyte = case_when(
-            Analyte == "Specific Conductance" ~ "SpCndSurface",
-            Analyte == "Turbidity" ~ "TurbiditySurface",
-            Analyte == "Dissolved Ammonia" ~ "DissAmmonia",
-            Analyte == "Dissolved Nitrate + Nitrite" ~ "DissNitrateNitrite",
-            Analyte == "Total Phosphorus" ~ "TotPhos",
-            Analyte == "Chlorophyll a" ~ "Chla",
-            Analyte == "Pheophytin a" ~ "Pheoa",
-            TRUE ~ Analyte
-          )
-        ) %>%
-        mutate(Value = as.numeric(Value))
-      
-      return(invisible(self))
-    },
+    # format_aquarius = function() {
+    #   self$df_raw <- self$df_raw %>%
+    #     rename(
+    #       Value = `Result Value`,
+    #       Analyte = `Observed Property ID`,
+    #       DetectStatus = `Lab: Detection Condition`,
+    #       ReportingLimit = `Lab: MRL`,
+    #       Station = `Location ID`
+    #     ) %>%
+    #     mutate(Date = as.Date(`Observed DateTime`))
+    #   
+    #   self$df_raw <- self$df_raw %>%
+    #     filter(!(Analyte %in% c("Sky Conditions", "Rain"))) %>% # remove character-type analytes
+    #     filter(is.na(`QC: Type`)) %>% # remove replicates
+    #     mutate(
+    #       DetectStatus = case_when(
+    #         DetectStatus == "NOT_DETECTED" ~ "Nondetect",
+    #         TRUE ~ "Detect"
+    #       ),
+    #       Analyte = case_when(
+    #         Analyte == "Specific Conductance" ~ "SpCndSurface",
+    #         Analyte == "Turbidity" ~ "TurbiditySurface",
+    #         Analyte == "Dissolved Ammonia" ~ "DissAmmonia",
+    #         Analyte == "Dissolved Nitrate + Nitrite" ~ "DissNitrateNitrite",
+    #         Analyte == "Total Phosphorus" ~ "TotPhos",
+    #         Analyte == "Chlorophyll a" ~ "Chla",
+    #         Analyte == "Pheophytin a" ~ "Pheoa",
+    #         TRUE ~ Analyte
+    #       )
+    #     ) %>%
+    #     mutate(Value = as.numeric(Value))
+    #   
+    #   return(invisible(self))
+    # },
     
     # add regions to dataframe
     assign_regions = function(program) {
@@ -153,7 +153,7 @@ StylingClass <- R6Class(
     df_regionhex = NULL,
     station_colors = NULL,
     initialize = function() {
-      self$df_regionhex <- read_csv(repo_path('admin', 'figures-tables', 'admin', 'region_table.csv'), show_col_types = FALSE)
+      self$df_regionhex <- read_csv(repo_path('admin', 'figures-tables', 'admin', 'region_colors.csv'), show_col_types = FALSE)
     },
     
     generate_station_colors = function(df_raw) {
@@ -383,92 +383,6 @@ abs_path_data <- function(fp_rel = NULL) {
   return(fp_abs)
 }
 
-# determine water year
-get_water_year <- function(given_year = report_year) {
-  
-  cache_path <- repo_path('admin', 'data', 'cache', 'WSIHIST.html')
-  url <- 'https://cdec.water.ca.gov/reportapp/javareports?name=WSIHIST'
-  
-  # try to read from the website
-  wy_html <- tryCatch({
-    message('Fetching current WSIHIST data from CDEC...')
-    xml2::read_html(url)
-  }, error = function(e) {
-    warning(paste0('Could not connect to CDEC (', conditionMessage(e),
-                   '). Using cached data instead.'))
-    if (file.exists(cache_path)) {
-      message('Reading cached WSIHIST.html from: ', cache_path)
-      xml2::read_html(cache_path)
-    } else {
-      stop('No cached WSIHIST.html found at ', cache_path,
-           ' and CDEC could not be reached.')
-    }
-  })
-  
-  # cache result if successfully fetched
-  dir.create(dirname(cache_path), showWarnings = FALSE, recursive = TRUE)
-  xml2::write_html(wy_html, cache_path)
-  
-  # extract the <pre> block
-  wy_text <- wy_html %>%
-    rvest::html_element('pre') %>%
-    rvest::html_text2()
-  
-  # split into lines and find the one matching the year
-  line <- stringr::str_subset(stringr::str_split(wy_text, '\n')[[1]],
-                              paste0('^', given_year, '\\b'))
-  
-  if (length(line) == 0)
-    stop('Could not find line for year ', given_year)
-  
-  # split the line into columns by whitespace
-  parts <- stringr::str_split(line, '\\s+')[[1]]
-  parts <- parts[parts != '']  # drop empties
-  
-  # WY type for each basin is at the 6th and 11th position
-  sac <- parts[6]
-  sj  <- parts[11]
-  
-  decode <- function(x) switch(x,
-                               'C'  = 'critically dry',
-                               'D'  = 'dry',
-                               'BN' = 'below normal',
-                               'AN' = 'above normal',
-                               'W'  = 'wet',
-                               x
-  )
-  
-  list(sac = decode(sac), sj = decode(sj))
-}
-
-
-
-
-# text string for water year
-str_water_year <- function(given_year = report_year, period = c("cur", "prev")) {
-  period <- match.arg(period)
-  
-  wy_abb <- get_water_year(given_year)
-  
-  if (period == "cur") {
-    if (wy_abb$sac == wy_abb$sj) {
-      result_string <- glue("which was classified as {wy_abb$sac} in the Sacramento and San Joaquin Valleys")
-    } else {
-      result_string <- glue("which was classified as {wy_abb$sac} in the Sacramento Valley and {wy_abb$sj} in the San Joaquin Valley")
-    }
-  }
-  
-  if (period == "prev") {
-    if (wy_abb$sac == wy_abb$sj) {
-      result_string <- glue("which was classified as {wy_abb$sac} in both valleys")
-    } else {
-      result_string <- glue("which was classified as {wy_abb$sac} in the Sacramento Valley and {wy_abb$sj} in the San Joaquin Valley")
-    }
-  }
-  
-  return(result_string)
-}
-
 # format numbers for display based on analyte
 format_vals <- function(value, vari) {
   df_analytes <- readr::read_csv(
@@ -500,37 +414,84 @@ get_edi_url <- function(pkg_id, revision_num = "current") {
   return(edi_url)
 }
 
-# Read in EDI file
-get_edi_file <- function(pkg_id, fname, scope = 'edi') {
-  # get latest revision
-  revisions <- EDIutils::list_data_package_revisions(scope = "edi", identifier = pkg_id)
-  latest_revision <- max(as.numeric(revisions))
-  package_id_str <- glue::glue("{scope}.{pkg_id}.{latest_revision}")
-  
-  # get entity IDs
-  entities <- EDIutils::list_data_entities(packageId = package_id_str)
-  
-  # slow wrapper (avoid rate limit)
-  slow_read <- purrr::slowly(EDIutils::read_data_entity_name, purrr::rate_delay(pause = 1))
-  
-  # find the matching entity
-  matched <- purrr::keep(entities, function(entity_id) {
-    entity_name <- slow_read(packageId = package_id_str, entityId = entity_id)
-    identical(entity_name, fname)
-  })
-  
-  if (length(matched) == 0) {
-    stop(glue::glue("File '{fname}' not found in package edi.{pkg_id}.{latest_revision}"))
-  }
-  
-  # construct download URL and read csv
-  entity_id <- matched[[1]]
-  file_url <- glue::glue("https://pasta.lternet.edu/package/data/eml/{scope}/{pkg_id}/{latest_revision}/{entity_id}")
-  df <- readr::read_csv(file_url, guess_max = 1000000, show_col_types = FALSE)
-  
-  return(df)
+
+# get API key
+# # must have API key saved as an environment variable if running locally (defaults "EDI_API_KEY")
+# # also can save as repo secret if using GitHub Actions
+edi_get <- function(url, key_name = "EDI_API_KEY") {
+  request(url) %>%
+    req_url_query(key = Sys.getenv(key_name)) %>%
+    req_perform()
 }
 
+# get EDI file
+# # match type: use "regex" if the name isn't consistent (eg. updates annually)
+get_edi_file <- function(pkg_id, fname, scope = "edi", match_type = c("exact", "regex"),
+                         col_types = NULL, key_name = "EDI_API_KEY") {
+  match_type <- match.arg(match_type)
+  base <- "https://pasta.lternet.edu/package"
+  
+  revisions <- edi_get(sprintf("%s/eml/%s/%s", base, scope, pkg_id), key_name) %>%
+    resp_body_string()
+  latest_revision <- max(as.numeric(strsplit(trimws(revisions), "\n")[[1]]))
+  
+  entities <- edi_get(sprintf("%s/data/eml/%s/%s/%s", base, scope, pkg_id, latest_revision), key_name) %>%
+    resp_body_string()
+  entities <- strsplit(trimws(entities), "\n")[[1]]
+  
+  # rate limit to be nicer to servers; technically optional
+  get_name <- purrr::slowly(function(entity_id) {
+    edi_get(sprintf("%s/name/eml/%s/%s/%s/%s", base, scope, pkg_id, latest_revision, entity_id), key_name) %>%
+      resp_body_string() %>% trimws()
+  }, purrr::rate_delay(pause = 0.3))
+  
+  is_match <- function(name) {
+    if (match_type == "regex") grepl(fname, name) else identical(name, fname)
+  }
+  
+  matched <- purrr::keep(entities, ~ is_match(get_name(.x)))
+  if (length(matched) == 0) {
+    stop(sprintf("No entity matching '%s' (%s) in %s.%s.%s",
+                 fname, match_type, scope, pkg_id, latest_revision))
+  }
+  entity_id <- matched[[1]]
+  
+  raw <- edi_get(sprintf("%s/data/eml/%s/%s/%s/%s", base, scope, pkg_id, latest_revision, entity_id), key_name) %>%
+    resp_body_raw()
+  readr::read_csv(raw, show_col_types = FALSE, col_types = col_types, lazy = FALSE)
+}
+
+
+# Read in EDI file (old, can update when EDIutils allows API keys)
+# get_edi_file <- function(pkg_id, fname, scope = 'edi') {
+#   # get latest revision
+#   revisions <- EDIutils::list_data_package_revisions(scope = "edi", identifier = pkg_id)
+#   latest_revision <- max(as.numeric(revisions))
+#   package_id_str <- glue::glue("{scope}.{pkg_id}.{latest_revision}")
+#   
+#   # get entity IDs
+#   entities <- EDIutils::list_data_entities(packageId = package_id_str)
+#   
+#   # slow wrapper (avoid rate limit)
+#   slow_read <- purrr::slowly(EDIutils::read_data_entity_name, purrr::rate_delay(pause = 1))
+#   
+#   # find the matching entity
+#   matched <- purrr::keep(entities, function(entity_id) {
+#     entity_name <- slow_read(packageId = package_id_str, entityId = entity_id)
+#     identical(entity_name, fname)
+#   })
+#   
+#   if (length(matched) == 0) {
+#     stop(glue::glue("File '{fname}' not found in package edi.{pkg_id}.{latest_revision}"))
+#   }
+#   
+#   # construct download URL and read csv
+#   entity_id <- matched[[1]]
+#   file_url <- glue::glue("https://pasta.lternet.edu/package/data/eml/{scope}/{pkg_id}/{latest_revision}/{entity_id}")
+#   df <- readr::read_csv(file_url, guess_max = 1000000, show_col_types = FALSE)
+#   
+#   return(df)
+# }
 
 # generate figures
 create_figs <- function(group = c("cwq", "dwq", "phyto", "benthic")) {
@@ -554,18 +515,4 @@ create_figs <- function(group = c("cwq", "dwq", "phyto", "benthic")) {
 
 # Global Variables --------------------------------------------------------
 
-prev_year <- report_year - 1
-
-label_order <- c(glue("Oct-{prev_year%%100}"), glue("Nov-{prev_year%%100}"), glue("Dec-{prev_year%%100}"), glue("Jan-{report_year%%100}"), glue("Feb-{report_year%%100}"), glue("Mar-{report_year%%100}"), glue("Apr-{report_year%%100}"), glue("May-{report_year%%100}"), glue("Jun-{report_year%%100}"), glue("Jul-{report_year%%100}"), glue("Aug-{report_year%%100}"), glue("Sep-{report_year%%100}"))
-
 styler <- StylingClass$new()
-
-# read in relevant dataframes
-df_analytes <- read_quiet_csv(
-  repo_path('admin', 'figures-tables', 'admin', 'analyte_table.csv'),
-  locale = readr::locale(encoding = 'UTF-8')
-)
-
-df_regions <- read_quiet_csv(
-  repo_path('admin', 'figures-tables', 'admin', 'station_table.csv')
-)

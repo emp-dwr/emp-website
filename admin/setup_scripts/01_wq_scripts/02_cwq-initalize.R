@@ -1,6 +1,27 @@
 # Read in Data ------------------------------------------------------------
 
-df_raw_cwq <- read_quiet_csv(repo_path('admin', 'test-data', 'CWQ_Data_2024.csv'))
+repo_dir <- rprojroot::find_root(
+  rprojroot::has_file_pattern("[.]Rproj$")
+)
+
+admin_file <- function(...) {
+  file.path(repo_dir, "admin", ...)
+}
+
+schema_cwq = yaml::read_yaml(admin_file("file_schemas", "cwq.yml"))
+df_raw_cwq <- read_typed(schema_cwq,
+  \(ct) read_csv(admin_file("data", "CWQ_Data.csv"), col_types = ct, lazy = FALSE)
+)
+
+schema_analytes <- yaml::read_yaml(admin_file("file_schemas", "meta_analytes.yml"))
+df_analytes <- read_typed(schema_analytes, \(ct)
+                          read_csv(admin_file("figures-tables", "admin", "analyte_table.csv"),
+                                   locale = locale(encoding = "UTF-8"), col_types = ct, lazy = FALSE))
+
+schema_regions <- yaml::read_yaml(admin_file("file_schemas", "meta_regions.yml"))
+df_regions <- read_typed(schema_regions, \(ct)
+                         read_csv(admin_file("figures-tables", "admin", "station_table.csv"),
+                                  col_types = ct, lazy = FALSE))
 
 # Create Base CWQ Object --------------------------------------------------
 
@@ -85,3 +106,5 @@ create_figs_cwq <- function() {
   # # RRI fig
   obj_rri$create_rri_plt()
 }
+
+create_figs_cwq()

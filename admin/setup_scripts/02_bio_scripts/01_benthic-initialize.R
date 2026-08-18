@@ -1,34 +1,40 @@
 # Read in Data ------------------------------------------------------------
 
-df_raw_ben <- read_quiet_csv(
-  repo_path('admin/test-data/EMP_Benthic.csv')
+repo_dir <- rprojroot::find_root(
+  rprojroot::has_file_pattern("[.]Rproj$")
 )
 
-df_units <- read_quiet_csv(
-  repo_path('admin/figures-tables/admin/analyte_table.csv'),
-  locale = locale(encoding = 'UTF-8')
-)
+admin_file <- function(...) {
+  file.path(repo_dir, "admin", ...)
+}
 
-df_regions <- read_quiet_csv(
-  repo_path('admin/figures-tables/admin/station_table.csv')
-)
+schema_benthic = yaml::read_yaml(admin_file("file_schemas", "benthic.yml"))
+df_raw_ben = read_typed(schema_benthic, \(ct)
+                        get_edi_file("1036", "DWR Benthic CPUE data", match_type = "regex", col_types = ct))
+
+schema_analytes <- yaml::read_yaml(admin_file("file_schemas", "meta_analytes.yml"))
+df_analytes <- read_typed(schema_analytes, \(ct)
+                          read_csv(admin_file("figures-tables", "admin", "analyte_table.csv"),
+                                   locale = locale(encoding = "UTF-8"), col_types = ct, lazy = FALSE))
+
+schema_regions <- yaml::read_yaml(admin_file("file_schemas", "meta_regions.yml"))
+df_regions <- read_typed(schema_regions, \(ct)
+                         read_csv(admin_file("figures-tables", "admin", "station_table.csv"),
+                                  col_types = ct, lazy = FALSE))
 
 # Create Base Benthic Object ----------------------------------------------
 
-obj_ben <- BaseClass$new(df_raw_ben, df_units, df_regions)
-
-obj_ben$remove_EZ()
-
-obj_ben$simplify_stations()
-
-obj_ben$assign_regions('Benthic')
-
-obj_ben$add_month()
+obj_ben <- BaseClass$new(df_raw_ben, df_analytes, df_regions)
 
 # Create Current Year Object ----------------------------------------------
 
 obj_ben_cur <- obj_ben$clone(deep = TRUE)
-obj_ben_cur$filter_years(report_year, range = 'single')
+obj_ben_cur$
+  filter_years(report_year, range = 'single')$
+  simplify_stations()$
+  remove_EZ()$
+  assign_regions('Benthic')$
+  add_month()
 
 obj_ben_cur <- BenBaseClass$new(obj_ben_cur$df_raw)
 
@@ -138,3 +144,5 @@ create_figs_benthic <- function() {
     }
   }
 }
+
+create_figs_benthic()

@@ -1,0 +1,40 @@
+
+columns:
+  Station:
+    source: "Station"
+    type: character
+  Date:
+    source: "Date"
+    type: date
+    format: "%Y-%m-%d"
+  Time:
+    source: "Time"
+    type: time
+    format: "%H:%M:%S"
+  Sampling_Depth:
+    source: "Sampling_Depth"
+    type: double
+  Analyte:
+    source: "Analyte"
+    type: character
+  Value:
+    source: "Result_Value"
+    type: double
+  Unit:
+    source: "Result_Unit"
+    type: character
+  DetectStatus:
+    source: "Detection_Status"
+    type: character
+  ReportingLimit:
+    source: "MRL"
+    type: double
+  AnalysisMethod:
+    source: "Analysis_Method"
+    type: character
+  QC_Flag:
+    source: "QC_Flag"
+    type: character
+  FieldComment:
+    source: "Field_Comment"
+    type: character

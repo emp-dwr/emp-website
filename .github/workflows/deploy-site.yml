@@ -66,6 +66,7 @@ jobs:
             any::ggplot2
             any::kableExtra
             any::glue
+            any::httr2
           cache: true
 
       - name: Set up Quarto
