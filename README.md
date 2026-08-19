@@ -2,7 +2,7 @@
 
 This repository holds all the code associated with DWR's Environmental Monitoring Program Website ([www.empdata.org](https://www.empdata.org/)).
 
-For access to EMP datasets, see the [data links](https://emp-dwr.github.io/emp-website/data-links.html) section of the website. 
+For access to EMP datasets, see the [data links](https://www.empdata.org/general/data-links.html) section of the website. 
 
 ## Contact
 
