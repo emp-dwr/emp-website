@@ -8,20 +8,26 @@ build_col_spec <- function(schema) {
   )
   do.call(cols, setNames(
     lapply(schema$columns, function(c) {
-      fn <- col_fns[[c$type]]; if (is.null(fn)) stop("unknown type: ", c$type)
+      fn <- col_fns[[c$type]]; if (is.null(fn)) stop('unknown type: ', c$type)
       if (!is.null(c$format)) fn(format = c$format) else fn()
     }),
-    vapply(schema$columns, `[[`, "", "source")
+    vapply(schema$columns, `[[`, '', 'source')
   ))
 }
 
 apply_schema <- function(df, schema) {
   rename_map <- setNames(
-    vapply(schema$columns, `[[`, "", "source"), names(schema$columns))
+    vapply(schema$columns, `[[`, '', 'source'), names(schema$columns))
   missing <- setdiff(unname(rename_map), names(df))
   if (length(missing))
-    stop("expected source columns missing: ", paste(missing, collapse = ", "))
-  dplyr::rename(df, !!!rename_map)
+    stop('expected source columns missing: ', paste(missing, collapse = ', '))
+  df <- dplyr::rename(df, !!!rename_map)
+  
+  to_date <- names(Filter(function(c) identical(c$as, 'date'), schema$columns))
+  if (length(to_date))
+    df <- dplyr::mutate(df, dplyr::across(dplyr::all_of(to_date), as.Date))
+  
+  df
 }
 
 read_typed <- function(schema, reader) {

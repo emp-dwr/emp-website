@@ -52,25 +52,55 @@ jobs:
         uses: r-lib/actions/setup-r-dependencies@v2
         with:
           extra-packages: |
+            any::targets
+            any::tarchetypes
+            any::conflicted
+            any::R6
             any::dplyr
             any::tidyr
-            any::readr
-            any::jsonlite
-            any::here
-            any::plotly
-            any::lubridate
-            any::htmltools
-            any::rvest
-            any::knitr
-            any::R6
+            any::purrr
+            any::tibble
+            any::cowplot
+            any::xml2
             any::ggplot2
-            any::kableExtra
+            any::readr
+            any::stringr
+            any::forcats
             any::glue
+            any::lubridate
+            any::rlang
+            any::here
+            any::rprojroot
+            any::scales
+            any::colorspace
+            any::RColorBrewer
+            any::patchwork
+            any::ggborderline
+            any::treemapify
+            any::knitr
+            any::kableExtra
+            any::openxlsx
+            any::rvest
+            any::jsonlite
+            any::plotly
+            any::htmltools
+            any::magrittr
             any::httr2
+            any::yaml
           cache: true
 
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
+
+      - name: Cache targets store
+        uses: actions/cache@v4
+        with:
+          path: _targets
+          key: targets-${{ github.run_id }}
+          restore-keys: targets-
+
+      - name: Build data pipeline
+        run: Rscript -e 'targets::tar_make()'
 
       - name: Remove freeze cache for full rebuild
         if: ${{ github.event.inputs.report_type == 'all' }}
@@ -110,26 +140,37 @@ jobs:
 
           quarto render "$REPORT_FILE" -P report_year:"$REPORT_YEAR"
 
-      - name: Render full site using frozen outputs
-        if: ${{ github.event.inputs.report_type != 'all' }}
+      - name: Copy figures into site
+        run: |
+          Rscript -e 'source("admin/setup_scripts/00_global_scripts/01_general_copy.R"); copy_figures("website")'
+
+      - name: Rebuild site with fresh figures
         run: quarto render website --profile freeze -P report_year:${{ github.event.inputs.report_year }}
 
-      - name: Commit freeze cache
+      - name: Commit freeze cache and figures
         run: |
           git config user.name 'github-actions'
           git config user.email 'actions@github.com'
-
           if [ -d "website/_freeze" ]; then
             git add website/_freeze
-
-            if git diff --staged --quiet; then
-              echo "No freeze cache changes to commit."
-            else
-              git commit -m 'update freeze cache'
-              git push origin main
-            fi
           else
-            echo "No freeze cache found; skipping freeze cache commit."
+            echo "No freeze cache found; skipping."
+          fi
+          if [ -d "admin/figures-tables" ]; then
+            git add admin/figures-tables
+          else
+            echo "No admin figures found; skipping."
+          fi
+          if [ -d "website/admin/figures-tables" ]; then
+            git add website/admin/figures-tables
+          else
+            echo "No website figures found; skipping."
+          fi
+          if git diff --staged --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m 'update freeze cache and figures'
+            git push origin main
           fi
 
       - name: Setup Pages

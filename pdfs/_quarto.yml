@@ -2,7 +2,6 @@ project:
   type: default
   output-dir: _pdfs
   execute-dir: project
-  pre-render: _copy_pdf_resources.R
 
 format:
   pdf:
@@ -10,9 +9,18 @@ format:
     papersize: letter
     geometry:
       - margin=1in
-    toc: true
+    toc: false
+    keep-tex: true
     number-sections: true
     colorlinks: true
+    fig-pos: 'H'
+    tbl-pos: 'H'
+    # include-in-header:
+    #   text: |
+    #     \usepackage[section]{placeins}
+    #     \setlength{\intextsep}{30pt plus 2pt minus 4pt}
+    #     \setlength{\textfloatsep}{20pt plus 2pt minus 4pt}
+    #     \setlength{\floatsep}{20pt plus 2pt minus 4pt}
 
 execute:
   echo: false

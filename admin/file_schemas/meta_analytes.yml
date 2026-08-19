@@ -1,7 +1,7 @@
 
 columns:
-  Program:
-    source: "Program"
+  Section:
+    source: "Section"
     type: character
   Analyte:
     source: "Analyte"
@@ -18,3 +18,4 @@ columns:
   FracDigits:
     source: "FracDigits"
     type: integer
+

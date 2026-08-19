@@ -1,27 +1,33 @@
 name|type|data|command|depend|seed|path|time|size|bytes|format|repository|iteration|parent|children|seconds|warnings|error
-abs_path_data|function|ef4b10b03d22cd5f
+benthic_schema_file|stem|704f6a54e405331b|28a427ca8c42cb49|2c530c1562a7fbd1|1557541694|admin/file_schemas/benthic.yml|t20683.8401070304s|s984b|984|file|local|vector|||0.109||
+phyto_schema_file|stem|084558c0593df8f9|c55de5338bf0d212|2c530c1562a7fbd1|-1327779586|admin/file_schemas/phyto.yml|t20683.8462778269s|s1414b|1414|file|local|vector|||0||
+dwq_schema_file|stem|d6558cdc75943662|670ba5e97970a34c|2c530c1562a7fbd1|1518114376|admin/file_schemas/dwq.yml|t20683.8444275449s|s756b|756|file|local|vector|||0||
+cwq_data_file|stem|fd6a039730041726|5aa2a4d369223937|2c530c1562a7fbd1|1601230860|admin/data/CWQ_Data.csv|t20683.8483537576s|s2322386b|2322386|file|local|vector|||0||
+analytes_schema_file|stem|1f169ae7a502ee5d|ce93cce561492d4d|2c530c1562a7fbd1|2008756574|admin/file_schemas/meta_analytes.yml|t20683.8358149256s|s342b|342|file|local|vector|||0||
+stations_schema_file|stem|099728a2692867e1|fa6f4982ea3a9094|2c530c1562a7fbd1|-695293443|admin/file_schemas/meta_stations.yml|t20683.8356707351s|s398b|398|file|local|vector|||0||
+stations_file|stem|2a2f49e50d45c12e|af51b03fdfcf7ae5|2c530c1562a7fbd1|-455200594|admin/figures-tables/admin/station_metadata.csv|t20683.813585175s|s5073b|5073|file|local|vector|||0.015||
+cwq_schema_file|stem|7666bc7c7bdb5781|5a84a972fc6d481a|2c530c1562a7fbd1|-541542134|admin/file_schemas/cwq.yml|t20683.8446901095s|s446b|446|file|local|vector|||0||
+schema_benthic|stem|6e762ad7f28b9626|a2e90d7ec419b137|15ed1c3ffdf24cde|-713695724||t20683.8486839765s|s370b|370|rds|local|vector|||0||
+schema_phyto|stem|8d3375b74a803692|843c0c9acdca5fa7|5373b9f95f491406|-1718301787||t20683.8486841741s|s452b|452|rds|local|vector|||0.015||
+schema_dwq|stem|51324aa0d74597b0|32faac40de9f95df|cdbb1a2049bf5af3|2045030964||t20683.8486843361s|s377b|377|rds|local|vector|||0||
+schema_analytes|stem|4065211035139696|f2cf55806f03885f|e01d0195ae986296|54146785||t20683.8486845661s|s205b|205|rds|local|vector|||0||
+schema_stations|stem|75f437848819c6ed|c4e357f60cf2f66b|8fbfa2fae7e87139|-622486004||t20683.8486847345s|s217b|217|rds|local|vector|||0||
+schema_cwq|stem|a60339c2a353789c|3a6e396268d0f5ed|edbd6053106871db|-813238630||t20683.8486848692s|s268b|268|rds|local|vector|||0||
+df_raw_ben|stem|92a430b04d9f399e|03781b8a4237d224|09e810d1ede2341f|-1921501113||t20683.8487599104s|s653156b|653156|rds|local|vector|||6.297||
+df_raw_phyto|stem|344b4e7036de0da8|583bf5ad9ceb3f8d|f027435515cde6ab|408193632||t20683.8487937623s|s638614b|638614|rds|local|vector|||2.734||
+df_raw_dwq|stem|ba24dff2f86243c1|c92244c21418f08a|fbb0a51d0eee1668|432620012||t20683.8488918593s|s1230779b|1230779|rds|local|vector|||7.969|One or more parsing issues, call `problems()` on your data frame for details, e.g.:   dat <- vroom(...)   problems(dat)|
+df_analytes|stem|83c17c28d5a55d45|1d4769d5bfb84e66|05671ac9e3ef4fa5|-1417677545||t20683.8488925139s|s607b|607|rds|local|vector|||0.015||
+df_stations|stem|3a86ecbd98a32ab6|c27599ccf29c231b|512c872c3381208a|-457876663||t20683.8488928157s|s1765b|1765|rds|local|vector|||0||
+df_raw_cwq|stem|1c91e523a5b8acb9|ad1f2a194a2f8790|e1d680243017eb42|-262147580||t20683.8488937721s|s159465b|159465|rds|local|vector|||0.032||
+analytes_file|stem|b98a9067736d564a|72768c9720821528|2c530c1562a7fbd1|-1657288885|admin/figures-tables/admin/analyte_metadata.csv|t20683.9752765724s|s598b|598|file|local|vector|||0||
 edi_get|function|ad7221a5386f0d7f
-apply_schema|function|329d469a7d5626c3
+apply_schema|function|cc585ed1114f5aa2
 build_col_spec|function|1120fad7e8cf6e82
-styler|object|88d62ff4c0f9a9e6
 get_edi_url|function|5d30386b9fad79cb
-BaseClass|object|1dd95b96fc004203
-repo_path|function|db5648365314b302
-create_figs|function|a4942062e9587f6b
-StylingClass|object|6215af2998429b31
-read_quiet_csv|function|80cb39cca5c5cfac
-get_edi_file|function|e0bc149ad120c561
-read_typed|function|8b1b3181cd537c89
-format_vals|function|ef6af2827b2f6ac8
-schema_benthic|stem|df9202894f9a6dae|52e2a83c400d3cbf|2c530c1562a7fbd1|-713695724||t20663.1270851219s|s378b|378|rds|local|vector|||0||
-schema_phyto|stem|723717c45bb1336e|9f445cbca77c881a|2c530c1562a7fbd1|-1718301787||t20663.1270853633s|s417b|417|rds|local|vector|||0||
-schema_regions|stem|2149593dcc9b630d|7abcceb7485d2ffa|2c530c1562a7fbd1|-1860098475||t20663.1270859416s|s174b|174|rds|local|vector|||0||
-schema_dwq|stem|09f2d075692e4bff|e3f088e930bbfcaa|2c530c1562a7fbd1|2045030964||t20663.1270861348s|s375b|375|rds|local|vector|||0||
-schema_cwq|stem|00b63f53b8a3021e|ad38eace013ee873|2c530c1562a7fbd1|-813238630||t20663.1270865249s|s235b|235|rds|local|vector|||0||
-schema_analytes|stem|640e71dfbcdd3fe7|9e78c79cf44fbb0f|2c530c1562a7fbd1|54146785||t20663.1270869009s|s205b|205|rds|local|vector|||0||
-df_raw_ben|stem|f2148d1e00de6627|193c3c252426ff4f|48ce73c5199fdd83|-1921501113||t20663.1271609971s|s649431b|649431|rds|local|vector|||6.219|One or more parsing issues, call `problems()` on your data frame for details, e.g.:   dat <- vroom(...)   problems(dat)|
-df_raw_phyto|stem|d8d7dd20d1d1e4c7|0786c2d185c7071f|e7131d1661d5ae79|408193632||t20663.1271930448s|s638849b|638849|rds|local|vector|||2.562||
-df_regions|stem|fcf1d92d6dabd2f5|0a9381c4541d73d9|84b9d96153a8c8fa|2073059829||t20663.1271937101s|s716b|716|rds|local|vector|||0.016||
-df_raw_dwq|stem|0c9c01d35d0e7f3d|b6ee78fcb77e927d|b7236d26dda8330a|432620012||t20663.1272724752s|s1231044b|1231044|rds|local|vector|||6.344|One or more parsing issues, call `problems()` on your data frame for details, e.g.:   dat <- vroom(...)   problems(dat)|
-df_raw_cwq|stem|19fb9b5ce75116ff|dd1c24300cf1ead5|fa3c47dfe5d21a22|-262147580||t20663.1272741768s|s155235b|155235|rds|local|vector|||0.078|One or more parsing issues, call `problems()` on your data frame for details, e.g.:   dat <- vroom(...)   problems(dat)|
-df_analytes|stem|ba80f86ea57c1fab|cb7c9457f3c022e4|aabad11adb2763dd|-1417677545||t20663.1272746908s|s608b|608|rds|local|vector|||0.015||
+repo_path|function|666fa45fe3fda492
+edi_latest_revision|function|9d42504ab2768ea2
+read_typed|function|71656b4146fe0181
+get_edi_file|function|11356e629c742496
+dwq_rev|stem|43268fc06077f370|45840845818856ce|33f54c09cd44f684|716435825||t20684.7226993497s|s50b|50|rds|local|vector|||0.5||
+ben_rev|stem|1b6fc8baae433075|90b2869dcc12e4fb|33f54c09cd44f684|942597507||t20684.7227015116s|s50b|50|rds|local|vector|||0.156||
+phyto_rev|stem|afdda4169b27e36d|333e6495fafc591d|33f54c09cd44f684|-1313794327||t20684.7227038041s|s50b|50|rds|local|vector|||0.172||

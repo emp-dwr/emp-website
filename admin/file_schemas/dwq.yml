@@ -5,8 +5,8 @@ columns:
     type: character
   Date:
     source: "Date"
-    type: date
-    format: "%Y-%m-%d"
+    type: datetime
+    as: date
   Time:
     source: "Time"
     type: time

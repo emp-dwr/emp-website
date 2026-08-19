@@ -1,3 +1,4 @@
+
 # Create Global Biological (Phyto and Benthic) Figures --------------------
 
 BioFigureClass <- R6Class(
@@ -7,16 +8,20 @@ BioFigureClass <- R6Class(
   
   public = list(
     df_raw = NULL,
+    report_year = NULL,
+    label_order = NULL,
     global_alg_levels = NULL,
     global_alg_colors = NULL,
     global_phylum_levels = NULL,
     global_phylum_colors = NULL,
     
-    initialize = function(df_raw) {
+    initialize = function(df_raw, report_year) {
       self$df_raw <- df_raw
+      self$report_year <- report_year
+      self$label_order <- make_label_order(report_year)
       
       # Only define AlgalGroup categories if AlgalGroup column exists (phyto data)
-      if ("AlgalGroup" %in% colnames(self$df_raw)) {
+      if ('AlgalGroup' %in% colnames(self$df_raw)) {
         # Get all AlgalGroups
         alg_cat_all <- private$def_alg_cat(self$df_raw, threshold = 1)
         
@@ -49,24 +54,31 @@ BioFigureClass <- R6Class(
           self$global_alg_colors <- setNames(color_values, color_names)
       }
 
-      if ("Phylum" %in% colnames(self$df_raw)) {
-        self$global_phylum_levels <- self$df_raw %>%
+      if ('Phylum' %in% colnames(self$df_raw)) {
+        common_phyla <- c('Annelida', 'Arthropoda', 'Mollusca', 'Nematoda', 'Nemertea', 'Chordata', 'Cnidaria', 'Platyhelminthes')
+        
+        observed <- self$df_raw %>%
           filter(!is.na(Phylum)) %>%
           pull(Phylum) %>%
-          unique() %>%
-          sort()
+          unique()
+        
+        self$global_phylum_levels <- c(
+          common_phyla,
+          sort(setdiff(observed, common_phyla))
+        )
         
         self$global_phylum_colors <- setNames(
-          c(brewer.pal(8,'Set2'), brewer.pal(8,'Dark2'), brewer.pal(8,'Set1'))[1:length(self$global_phylum_levels)],
+          c(brewer.pal(8,'Set2'), brewer.pal(8,'Dark2'), brewer.pal(8,'Set1'))[
+            seq_along(self$global_phylum_levels)],
           self$global_phylum_levels
         )
       }
     }, 
     
-    plt_org_density = function(filt_val, program = c("Phyto", "Benthic")) {
-      program <- match.arg(program)
+    plt_org_density = function(filt_val, section = c('Phyto', 'Benthic')) {
+      section <- match.arg(section)
 
-      if (program == "Phyto") {
+      if (section == 'Phyto') {
         # Data preparation unique to Phytoplankton
         # Define AlgalGroup categories for filt_val (Region) -
         # 'Other' category are AlgalGroups in less than 1% of samples
@@ -76,19 +88,19 @@ BioFigureClass <- R6Class(
           # Combine 'Other' AlgalGroup categories into one
           mutate(MonYear = format(Date, '%b-%y')) %>% # create MonYear column for later
           mutate(AlgalGroup = if_else(AlgalGroup %in% alg_cat$other, 'Other', AlgalGroup)) %>%
-          private$summarize_phyto(filt_val, summ_grps = c("AlgalGroup", "Month", "MonYear"))
+          private$summarize_phyto(filt_val, summ_grps = c('AlgalGroup', 'Month', 'MonYear'))
 
         # Define unique group variable for data set
-        group_var <- sym("AlgalGroup")
+        group_var <- sym('AlgalGroup')
 
         # Use global colors for AlgalGroup
         col_colors_all <- self$global_alg_colors
 
         # Define unique values for plot labels
-        y_axis_lab <- "Organisms per mL"
-        plt_title <- glue("{filt_val} Phytoplankton Densities")
+        y_axis_lab <- 'Organisms per mL'
+        plt_title <- glue('{filt_val} Phytoplankton Densities')
 
-      } else if (program == "Benthic") {
+      } else if (section == 'Benthic') {
         # Data preparation unique to Benthic
 
         # Filter to station
@@ -97,25 +109,25 @@ BioFigureClass <- R6Class(
         # Count number of sampling events for each month during the report year
         num_se_month <- df_filt %>%
           distinct(Station, Month) %>%
-          count(Month, name = "num_se")
+          count(Month, name = 'num_se')
 
         # Calculate monthly total densities for each Phylum and normalize them by
         # the total number of sampling events during each month
         df_summ <- df_filt %>%
           mutate(MonYear = format(as.Date(paste(Year, Month, '01', sep = '-'), format = '%Y-%B-%d'), '%b-%y')) %>%
           summarize(total_val = sum(MeanCPUE, na.rm = TRUE), .by = c(Month, Phylum, MonYear)) %>%
-          left_join(num_se_month, by = "Month") %>%
+          left_join(num_se_month, by = 'Month') %>%
           mutate(avg = total_val / num_se)
 
         # Define unique group variable for data set
-        group_var <- sym("Phylum")
+        group_var <- sym('Phylum')
 
         # Use global colors for Phylum
         col_colors_all <- self$global_phylum_colors
 
         # Define unique values for plot labels
-        y_axis_lab <- bquote("CPUE (organisms/m"^2*")")
-        plt_title <- glue("{filt_val} Benthic Organism Densities")
+        y_axis_lab <- bquote('CPUE (organisms/m'^2*')')
+        plt_title <- glue('{filt_val} Benthic Organism Densities')
       }
 
       # Determine only those used in current plot
@@ -128,23 +140,17 @@ BioFigureClass <- R6Class(
       col_colors <- col_colors_all[group_var_levels]
 
       # Reorder the levels of group_var based on the averages
-      df_summ_c <- df_summ %>%
-        mutate(
-          !!group_var := factor(!!group_var, levels = group_var_levels),
-          ColColor = col_colors[as.character(!!group_var)]
-        )
-      
       # complete missing cases before plotting
       df_summ_c <- df_summ %>%
         tidyr::complete(
           !!group_var,
-          MonYear = label_order,
+          MonYear = self$label_order,
           fill = list(avg = NA_real_)
         ) %>%
         mutate(
           !!group_var := factor(!!group_var, levels = group_var_levels),
           ColColor = col_colors[as.character(!!group_var)],
-          MonYear = factor(MonYear, levels = label_order, ordered = TRUE))
+          MonYear = factor(MonYear, levels = self$label_order, ordered = TRUE))
       
       # Create 'no data' labels for months with no data
       no_data_months <- df_summ_c %>%
@@ -153,7 +159,7 @@ BioFigureClass <- R6Class(
         pull(MonYear)
       
       df_nodata_stacked <- tibble(
-        MonYear = factor(no_data_months, levels = label_order, ordered = TRUE),
+        MonYear = factor(no_data_months, levels = self$label_order, ordered = TRUE),
         label = 'No Data'
       )
       
@@ -161,7 +167,7 @@ BioFigureClass <- R6Class(
       
       df_nodata_facet <- tidyr::expand_grid(
         !!sym(group_var_name) := factor(group_var_levels, levels = group_var_levels),
-        MonYear = factor(no_data_months, levels = label_order, ordered = TRUE)
+        MonYear = factor(no_data_months, levels = self$label_order, ordered = TRUE)
       ) %>%
         mutate(label = 'No Data')
       
@@ -181,7 +187,7 @@ BioFigureClass <- R6Class(
         ) +
         theme_bw() +
         scale_y_continuous(name = y_axis_lab, labels = scales::label_comma()) +
-        scale_x_discrete(name = NULL, labels = label_order) +
+        scale_x_discrete(name = NULL, labels = self$label_order) +
         scale_fill_manual(values = col_colors) +
         guides(fill = 'none')
       
@@ -200,7 +206,7 @@ BioFigureClass <- R6Class(
         ) +
         theme_bw() +
         scale_y_continuous(name = y_axis_lab, labels = scales::label_comma()) +
-        scale_x_discrete(name = NULL, labels = label_order) +
+        scale_x_discrete(name = NULL, labels = self$label_order) +
         scale_fill_manual(values = col_colors) +
         guides(fill = 'none') +
         facet_wrap(dplyr::vars(forcats::fct_rev(!!group_var)),
@@ -208,14 +214,14 @@ BioFigureClass <- R6Class(
         theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
       # Combine barplots together
-      plt_combined <- wrap_plots(plt_stacked, plt_facet, ncol = 1, axis_titles = "collect_y") +
+      plt_combined <- wrap_plots(plt_stacked, plt_facet, ncol = 1, axis_titles = 'collect_y') +
         plot_annotation(
           title = plt_title,
           theme = theme(plot.title = element_text(hjust = 0.5))
         )
 
       # Adjust heights of barplots and faceted barplots for Benthic plots
-      if (program == "Benthic") {
+      if (section == 'Benthic') {
         # Determine relative height factor
         height_factor <- df_summ_c %>% distinct(!!group_var) %>% nrow()
         exp_height <- (.5*ceiling(height_factor/3))*1.2
@@ -229,7 +235,7 @@ BioFigureClass <- R6Class(
     # Algal Tree Plots
     plt_algal_tree = function(threshold = 1) {
       # Calculate overall sampling frequency for each AlgalGroup
-      df_summ <- self$df_raw %>% private$summarize_phyto(summ_grps = "AlgalGroup")
+      df_summ <- self$df_raw %>% private$summarize_phyto(summ_grps = 'AlgalGroup')
       
       # Define AlgalGroup categories -
       # 'Other' category are AlgalGroups in less than 1% of samples
@@ -237,12 +243,12 @@ BioFigureClass <- R6Class(
       
       # Create data frames for each tree plot
       df_main <- df_summ %>% 
-        # Combine AlgalGroups in "Other" category
-        mutate(AlgalGroup = if_else(AlgalGroup %in% algal_cat$other, "Other", AlgalGroup)) %>% 
+        # Combine AlgalGroups in 'Other' category
+        mutate(AlgalGroup = if_else(AlgalGroup %in% algal_cat$other, 'Other', AlgalGroup)) %>% 
         summarize(across(c(per, sum_units), sum), .by = AlgalGroup)
       
       df_main_no_cyano <- df_main %>% 
-        filter(AlgalGroup != "Cyanobacteria") %>% 
+        filter(AlgalGroup != 'Cyanobacteria') %>% 
         mutate(
           sum_all = sum(sum_units),
           per_area = sum_units / sum_all * 100
@@ -255,14 +261,14 @@ BioFigureClass <- R6Class(
           per_area = sum_units / sum_all * 100
         )
       
-      # Use global AlgalGroup colors, but handle "Other" grouping
+      # Use global AlgalGroup colors, but handle 'Other' grouping
       uni_groups <- c(df_main$AlgalGroup, df_other$AlgalGroup)
       
       area_colors <- self$global_alg_colors[uni_groups]
       
-      if ("Other" %in% uni_groups && is.na(area_colors["Other"])) {
-        # Use a neutral color for the combined "Other" category
-        area_colors["Other"] <- "gray70"
+      if ('Other' %in% uni_groups && is.na(area_colors['Other'])) {
+        # Use a neutral color for the combined 'Other' category
+        area_colors['Other'] <- 'gray70'
       }
       
       other_group_colors <- self$global_alg_colors[df_other$AlgalGroup]
@@ -272,16 +278,16 @@ BioFigureClass <- R6Class(
       ls_plt_format <- list(
         geom_treemap(),
         geom_treemap_text(
-          place = "center",
+          place = 'center',
           size = 10,
           min.size = 3,
           reflow = TRUE
         ),
-        geom_treemap_subgroup_border(color = "black", size = 1),
+        geom_treemap_subgroup_border(color = 'black', size = 1),
         scale_fill_manual(values = area_colors),
         theme(
-          legend.position = "none", 
-          plot.title = element_text(face = "bold", size = 16, hjust = 0.5),
+          legend.position = 'none', 
+          plot.title = element_text(face = 'bold', size = 16, hjust = 0.5),
           plot.subtitle = element_text(hjust = 0.5)
         )
       )
@@ -293,11 +299,11 @@ BioFigureClass <- R6Class(
           aes(
             area = per, 
             fill = AlgalGroup, 
-            label = paste0(AlgalGroup, "\n", round(per, 1), "%"),
+            label = paste0(AlgalGroup, '\n', round(per, 1), '%'),
             subgroup = AlgalGroup
           )
         ) +
-        labs(subtitle = "Including Cyanobacteria") +
+        labs(subtitle = 'Including Cyanobacteria') +
         ls_plt_format
       
       # Without Cyanobacteria
@@ -306,11 +312,11 @@ BioFigureClass <- R6Class(
           aes(
             area = per_area, 
             fill = AlgalGroup, 
-            label = paste0(AlgalGroup, "\n", round(per, 1), "%"),
+            label = paste0(AlgalGroup, '\n', round(per, 1), '%'),
             subgroup = AlgalGroup
           )
         ) +
-        labs(subtitle = "Without Cyanobacteria") +
+        labs(subtitle = 'Without Cyanobacteria') +
         ls_plt_format
       
       # Generate tree plot for other AlgalGroups
@@ -319,7 +325,7 @@ BioFigureClass <- R6Class(
           aes(
             area = per_area, 
             fill = AlgalGroup, 
-            label = paste0(AlgalGroup, "\n", round(per, 2), "%"), 
+            label = paste0(AlgalGroup, '\n', round(per, 2), '%'), 
             subgroup = AlgalGroup
           )
         ) +
@@ -332,8 +338,8 @@ BioFigureClass <- R6Class(
       # Add Other tree plot to Main tree plots
       plt_comb <- plt_main_c / plt_other + 
         plot_annotation(
-          title = "Main Algal Groups",
-          theme = theme(plot.title = element_text(face = "bold", size = 16, hjust = 0.5))
+          title = 'Main Algal Groups',
+          theme = theme(plot.title = element_text(face = 'bold', size = 16, hjust = 0.5))
         ) +
         plot_layout(
           design = c(
@@ -350,7 +356,7 @@ BioFigureClass <- R6Class(
     },
     
     # Time series plots for either current year or historical (5 years)
-    plt_ben_ts = function(station, scope = c("current", "historical")) {
+    plt_ben_ts = function(station, scope = c('current', 'historical'), report_year) {
       scope <- match.arg(scope)
       
       # Filter to station and create FullTaxa variable
@@ -358,12 +364,12 @@ BioFigureClass <- R6Class(
         filter(Station == station) %>% 
         mutate(FullTaxa = paste(Phylum, Genus, Species))
       
-      if (scope == "current") {
+      if (scope == 'current') {
         # Define date break for x-axis
-        x_axis_break <- "1 month"
-      } else if (scope == "historical") {
+        x_axis_break <- '1 month'
+      } else if (scope == 'historical') {
         # Define date break for x-axis
-        x_axis_break <- "4 months"
+        x_axis_break <- '4 months'
         
         # Filter to past 5 years of data - may not need this if done earlier
         df_filt <- df_filt %>% filter(WaterYear >= (report_year - 5))
@@ -407,7 +413,7 @@ BioFigureClass <- R6Class(
       df_summ_c1 <- df_summ %>% 
         mutate(
           FullTaxa = factor(FullTaxa, levels = FullTaxa_levels),
-          Date = ymd(paste(Year, Month, "01", sep = "-"))
+          Date = ymd(paste(Year, Month, '01', sep = '-'))
         )
       
       # Define date range for filtering later
@@ -418,7 +424,7 @@ BioFigureClass <- R6Class(
       df_summ_c2 <- df_summ_c1 %>% 
         complete(Year, Month, FullTaxa) %>%
         # Recreate Date variable
-        mutate(Date = ymd(paste(Year, Month, "01", sep = "-"))) %>% 
+        mutate(Date = ymd(paste(Year, Month, '01', sep = '-'))) %>% 
         # Filter to original date range
         filter(Date %within% date_range)
       
@@ -426,12 +432,12 @@ BioFigureClass <- R6Class(
       plt_ts <- df_summ_c2 %>%
         ggplot(aes(Date, total_val, color = FullTaxa)) +
         geom_line(na.rm = TRUE) +
-        geom_point(size = 2, na.rm = TRUE) +
+        geom_point(size = 1.5, na.rm = TRUE) +
         theme_bw() +
-        scale_y_continuous(name = "CPUE",, labels = label_comma()) +
+        scale_y_continuous(name = 'CPUE',, labels = label_comma()) +
         scale_x_date(name = NULL, date_labels = '%m-%y', date_breaks = x_axis_break) +
         scale_color_manual(values = col_colors) +
-        guides(color = "none")
+        guides(color = 'none')
       
       # Create faceted time series plots
       plt_facet <- plt_ts +
@@ -448,10 +454,10 @@ BioFigureClass <- R6Class(
           plt_ts, plt_facet, 
           ncol = 1,
           heights = c(1, exp_height),
-          axis_titles = "collect_y"
+          axis_titles = 'collect_y'
         ) +
         plot_annotation(
-          title = glue("{station} Benthic Organism Densities"),
+          title = glue('{station} Benthic Organism Densities'),
           theme = theme(plot.title = element_text(hjust = 0.5))
         )
       

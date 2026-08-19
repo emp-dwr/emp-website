@@ -1,12 +1,13 @@
+
 # render individual reports
-render_report <- function(programs, report_type, report_year = NULL, as_job = FALSE) {
+render_report <- function(sections, report_type, report_year = NULL) {
   
   if (is.null(report_year)) {
-    stop('report_year must be supplied explicitly, e.g. report_year = 2024')
+    stop('report_year must be supplied explicitly')
   }
   
-  programs <- match.arg(
-    programs,
+  sections <- match.arg(
+    sections,
     c('benthic', 'cwq', 'dwq', 'phyto', 'zoop'),
     several.ok = TRUE
   )
@@ -14,12 +15,12 @@ render_report <- function(programs, report_type, report_year = NULL, as_job = FA
   report_type <- match.arg(report_type, c('pdfs', 'website'))
   report_year <- as.integer(report_year)
   
-  for (prog in programs) {
+  for (sect in sections) {
     
     file_path <- if (report_type == 'pdfs') {
-      here::here('pdfs', paste0(prog, '-report.qmd'))
+      here::here('pdfs', paste0(sect, '-report.qmd'))
     } else {
-      here::here('website', prog, paste0(prog, '-report.qmd'))
+      here::here('website', sect, paste0(sect, '-report.qmd'))
     }
     
     if (!file.exists(file_path)) {
@@ -31,27 +32,68 @@ render_report <- function(programs, report_type, report_year = NULL, as_job = FA
     quarto::quarto_render(
       input = file_path,
       execute_params = list(report_year = report_year),
-      as_job = as_job
+      as_job = FALSE,
+      quiet = FALSE
     )
   }
+  
+  message('Copying figures and tables...')
+  copy_figures(report_type)
   
   message('Done!')
 }
 
 # render whole website
-render_website <- function(report_year = NULL, as_job = FALSE) {
+render_website <- function(report_year = NULL) {
   
   if (is.null(report_year)) {
-    stop('report_year must be supplied explicitly, e.g. report_year = 2024')
+    stop('report_year must be supplied explicitly')
   }
   
   report_year <- as.integer(report_year)
   
+  message('Rendering full website for report year ', report_year, '...')
+  quarto::quarto_render(
+    input = here::here('website'),
+    execute_params = list(report_year = report_year)
+  )
+  
+  message('Copying figures and tables...')
+  copy_figures('website')
+  
+  message('Rebuilding site with fresh figures...')
   quarto::quarto_render(
     input = here::here('website'),
     execute_params = list(report_year = report_year),
-    as_job = as_job
+    profile = 'freeze',
+    as_job = FALSE,
+    quiet = FALSE
   )
+  
+  message('Done!')
+}
+
+# render all pdfs
+render_pdfs <- function(report_year = NULL) {
+  
+  if (is.null(report_year)) {
+    stop('report_year must be supplied explicitly')
+  }
+  
+  report_year <- as.integer(report_year)
+
+  message('Rendering all pdfs for report year ', report_year, '...')
+  quarto::quarto_render(
+    input = here::here('pdfs'),
+    execute_params = list(report_year = report_year),
+    quiet = FALSE,
+    as_job = FALSE
+  )
+  
+  message('Copying figures and tables...')
+  copy_figures('pdfs')
+  
+  message('Done!')
 }
 
 # for use by GitHub for auto-updates

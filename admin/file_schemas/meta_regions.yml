@@ -1,14 +1,8 @@
 
 columns:
-  Program:
-    source: "Program"
-    type: character
-  Survey:
-    source: "Survey"
-    type: character
-  Station:
-    source: "Station"
-    type: character
   Region:
     source: "Region"
+    type: character
+  HexColor:
+    source: "HexColor"
     type: character

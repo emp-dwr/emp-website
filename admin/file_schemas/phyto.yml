@@ -2,10 +2,12 @@
 columns:
   Date:
     source: "SampleDate"
-    type: date
+    type: datetime
+    as: date
   Time:
     source: "SampleTime"
     type: time
+    format: "%H:%M:%S"
   Location:
     source: "Location"
     type: character

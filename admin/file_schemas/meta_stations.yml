@@ -1,0 +1,23 @@
+
+columns:
+  Section:
+    source: "Section"
+    type: character
+  Survey:
+    source: "Survey"
+    type: character
+  Station:
+    source: "Station"
+    type: character
+  Latitude:
+    source: "Latitude"
+    type: double
+  Longitude:
+    source: "Longitude"
+    type: double
+  Region:
+    source: "Region"
+    type: character
+  Active:
+    source: "Active"
+    type: character

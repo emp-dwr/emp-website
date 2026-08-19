@@ -1,5 +1,11 @@
 ---
-title: "Discrete Water Quality Monitoring Report for Water Year `r lubridate::year(Sys.Date())-1`"
+title: "Discrete Water Quality Monitoring Report for Water Year `r params$report_year`"
+params:
+  report_year: null
+  
+format:
+  pdf:
+    keep-tex: true
 ---
 
 ```{r setup, include=FALSE, echo=FALSE}
@@ -7,11 +13,21 @@ title: "Discrete Water Quality Monitoring Report for Water Year `r lubridate::ye
 knitr::opts_chunk$set(echo = FALSE, comment = NA, message = FALSE, warning = FALSE, results = 'asis')
 
 # read in functions; do not edit
-source(here::here('admin/import_scripts.R'))
+report_year <- as.integer(params$report_year)
+
+repo_path <- function(...) {
+  qpd <- Sys.getenv('QUARTO_PROJECT_DIR')
+  root <- if (nzchar(qpd)) file.path(qpd, '..') else here::here()
+  normalizePath(file.path(root, ...), winslash = '/', mustWork = FALSE)
+}
+
+source(repo_path('admin', 'import_scripts.R'))
+
+load_section('dwq', envir = knitr::knit_global())
 ```
 
 \begin{center}
-Authors: Julianna Manning, S. Perry, Craig Stuart, and Ted Flynn$^*$ \\
+Authors: Julianna Manning, Craig Stuart, Megan Pagliaro, and Ted Flynn$^*$ \\
 Division of Integrated Science \& Engineering \\
 California Department of Water Resources \\
 West Sacramento, CA
@@ -34,7 +50,7 @@ Reporting Period: October 1, `r prev_year` – September 30, `r report_year`
 
 \vspace*{5mm}
 
-\includegraphics[width=0.6\textwidth]{`r here::here(file.path('admin/figures-tables/admin/EMP_footer.png'))`}
+\includegraphics[width=0.6\textwidth]{`r repo_path('admin/figures-tables/admin/EMP_footer.png')`}
 \end{center}
 
 \newpage
@@ -100,7 +116,7 @@ The average dissolved ammonia, dissolved nitrate + nitrite, and total phosphorus
 
 ## Archived Reports
 
-Previous EMP discrete water quality reports can be found [here](https://github.com/emp-dwr/emp-website/tree/gh-pages/admin/archive/d-wq).
+Previous EMP discrete water quality reports can be found [here](https://github.com/emp-dwr/emp-website/tree/main/admin/archive/d-wq).
 
 \newpage
 
@@ -111,7 +127,7 @@ Previous EMP discrete water quality reports can be found [here](https://github.c
 #| out-width: 100%
 #| fig-cap: 'Map of EMP’s discrete WQ field sites'
 
-knitr::include_graphics(here::here(file.path('admin/figures-tables/dwq/dwq_station_map_pdf.jpg')))
+knitr::include_graphics(repo_path('admin/figures-tables/dwq/dwq_station_map_pdf.jpg'))
 ```
 
 ```{r}
@@ -120,7 +136,7 @@ knitr::include_graphics(here::here(file.path('admin/figures-tables/dwq/dwq_stati
 #| fig-align: 'center'
 #| fig-cap: 'Specific conductance by region in the San Francisco Bay-Delta estuary.'
 
-knitr::include_graphics(here::here(file.path('admin/figures-tables/dwq/dwq_ts_spcndsurface.png')))
+knitr::include_graphics(repo_path('admin/figures-tables/dwq/dwq_ts_spcndsurface.png'))
 ```
 
 ```{r}
@@ -129,7 +145,7 @@ knitr::include_graphics(here::here(file.path('admin/figures-tables/dwq/dwq_ts_sp
 #| fig-align: 'center'
 #| fig-cap: 'Turbidity by region in the San Francisco Bay-Delta estuary.'
  
-include_graphics(here::here(file.path('admin/figures-tables/dwq/dwq_ts_turbiditysurface.png')))
+knitr::include_graphics(repo_path('admin/figures-tables/dwq/dwq_ts_turbiditysurface.png'))
 ```
 
 ```{r}
@@ -138,7 +154,7 @@ include_graphics(here::here(file.path('admin/figures-tables/dwq/dwq_ts_turbidity
 #| fig-align: 'center'
 #| fig-cap: 'Dissolved ammonia by region in the San Francisco Bay-Delta estuary.'
  
-include_graphics(here::here(file.path('admin/figures-tables/dwq/dwq_ts_dissammonia.png')))
+knitr::include_graphics(repo_path('admin/figures-tables/dwq/dwq_ts_dissammonia.png'))
 ```
 
 ```{r}
@@ -147,7 +163,7 @@ include_graphics(here::here(file.path('admin/figures-tables/dwq/dwq_ts_dissammon
 #| fig-align: 'center'
 #| fig-cap: 'Chlorophyll a by region in the San Francisco Bay-Delta estuary.'
 
-include_graphics(here::here(file.path('admin/figures-tables/dwq/dwq_ts_chla.png')))
+knitr::include_graphics(repo_path('admin/figures-tables/dwq/dwq_ts_chla.png'))
 ```
 
 ```{r}
@@ -156,7 +172,7 @@ include_graphics(here::here(file.path('admin/figures-tables/dwq/dwq_ts_chla.png'
 #| fig-align: 'center'
 #| fig-cap: 'Dissovled nitrate nitrite by region in the San Francisco Bay-Delta estuary.'
 
-include_graphics(here::here(file.path('admin/figures-tables/dwq/dwq_ts_dissnitratenitrite.png')))
+knitr::include_graphics(repo_path('admin/figures-tables/dwq/dwq_ts_dissnitratenitrite.png'))
 ```
 
 ```{r}
@@ -165,18 +181,20 @@ include_graphics(here::here(file.path('admin/figures-tables/dwq/dwq_ts_dissnitra
 #| fig-align: 'center'
 #| fig-cap: 'Total phosphorus by region in the San Francisco Bay-Delta estuary.'
 
-include_graphics(here::here(file.path('admin/figures-tables/dwq/dwq_ts_totphos.png')))
+knitr::include_graphics(repo_path('admin/figures-tables/dwq/dwq_ts_totphos.png'))
 ```
 
 \newpage
 
 ## Tables
 
+<!-- \FloatBarrier -->
+
 ```{r echo=FALSE, warning=FALSE, message=FALSE, results = 'asis'}
 #| label: tbl-stations
 #| tbl-cap: 'Discrete WQ stations included within each region of the Delta'
 
-dwq_stations <- readr::read_csv(here::here('admin/figures-tables/dwq/dwq_stations.csv'))
+dwq_stations <- readr::read_csv(repo_path('admin/figures-tables/dwq/dwq_stations.csv'))
 
 styler$style_kable(dwq_stations)
 ```

@@ -1,8 +1,10 @@
 # Update Annual Reports
 
-## read in scripts
+## read in needed scripts
 ```{r}
 source(here::here('admin', 'setup_scripts', '00_global_scripts', '02_render.R'))
+source(here::here('admin', 'setup_scripts', '00_global_scripts', '01_general_copy.R'))
+targets::tar_make()
 ```
 
 ## set report year
@@ -11,24 +13,17 @@ source(here::here('admin', 'setup_scripts', '00_global_scripts', '02_render.R'))
 report_year <- 2024
 ```
 
-## generate figures
-```{r}
-# create_figs(group = c('benthic'))
-```
-
 ## create pdfs
 
 ### all reports (run as-is)
 ```{r}
-quarto::quarto_render(
-  profile = 'pdfs'
-)
+render_pdfs(report_year = report_year)
 ```
 
-### specific reports (type name in between `c()`)
+### specific reports (type name(s) in between `c()`)
 options are 'benthic', 'phyto', 'zoop', 'dwq', 'cwq'
 ```{r}
-render_report(programs = c('zoop'),
+render_report(sections = c('dwq'),
               report_type = 'pdfs',
               report_year = report_year)
 ```
@@ -40,10 +35,10 @@ render_report(programs = c('zoop'),
 render_website(report_year = report_year)
 ```
 
-### specific reports (type name in between `c()`)
+### specific reports (type name(s) in between `c()`)
 options are 'benthic', 'phyto', 'zoop', 'dwq', 'cwq'
 ```{r}
-render_report(programs = c('benthic'),
+render_report(sections = c('dwq'),
               report_type = 'website',
               report_year = report_year)
 ```

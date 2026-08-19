@@ -2,9 +2,13 @@
 
 WQStatsClass <- R6Class(
   "WQStatsClass",
+  
   public = list(
     df_raw = NULL,
-    initialize = function(df_raw) {
+    report_year = NULL,
+    label_order = NULL,
+    
+    initialize = function(df_raw, report_year) {
       self$df_raw <- df_raw
     },
     
@@ -364,14 +368,22 @@ WQTableClass <- R6Class(
 # Create WQ Figures --------------------------------------------------------
 
 WQFigureClass <- R6Class(
-  "WQFigureClass",
+  'WQFigureClass',
+  
   inherit = StylingClass,
+
   public = list(
     df_raw = NULL,
+    report_year = NULL,
+    label_order = NULL,
     df_devicetype = NULL,
-    initialize = function(df_raw, df_devicetype) {
+    
+    initialize = function(df_raw, report_year, df_devicetype = NULL) {
       super$initialize()
       self$df_raw <- df_raw
+      self$report_year <- report_year
+      self$label_order <- make_label_order(report_year)
+      
       self$generate_station_colors(df_raw)
       self$df_devicetype <- read_csv(repo_path('admin', 'figures-tables', 'cwq', 'cwq_devicetype.csv'), show_col_types = FALSE) %>%
         mutate(Shape = case_when(
@@ -388,6 +400,10 @@ WQFigureClass <- R6Class(
       df_filt <- self$df_raw %>%
         filter(Analyte == param) %>%
         mutate(Date = as.Date(Date))
+      
+      if (nrow(df_filt) == 0) {
+        stop('No data for analyte "', param, call. = FALSE)
+      }
       
       # create per-station gaps
       df_filt_completed <- df_filt %>%
@@ -561,6 +577,7 @@ WQFigureClass <- R6Class(
       return(final_plt)
     }
   ),
+  
   private = list(
     # Create segment geoms for below RL values
     blw_rl_geom = function(df, color_by = "Station") {
@@ -652,7 +669,7 @@ WQFigureClass <- R6Class(
           scale_fill_manual(values  = self$station_colors) +
           scale_x_continuous(
             breaks = 1:12,
-            labels = label_order,
+            labels = self$label_order,
             limits = c(0.75, 12.25)
           )
       } else {

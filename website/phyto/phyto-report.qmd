@@ -8,12 +8,11 @@ params:
 ```{r include = FALSE}
 # read in functions; do not edit
 report_year <- as.integer(params$report_year)
-
 repo_path <- function(...) {
   file.path(Sys.getenv('QUARTO_PROJECT_DIR'), '..', ...)
 }
-
 source(repo_path('admin', 'import_scripts.R'), local = knitr::knit_global())
+load_section('phyto', envir = knitr::knit_global())
 ```
 
 ## Introduction

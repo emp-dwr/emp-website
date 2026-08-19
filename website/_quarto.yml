@@ -2,7 +2,7 @@ project:
   type: website
   output-dir: _site
   execute-dir: project
-  pre-render: _copy_site_resources.R
+  
   render:
     - "*.qmd"
     - "**/*.qmd"

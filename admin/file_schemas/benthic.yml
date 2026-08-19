@@ -2,8 +2,8 @@
 columns:
   Date:
     source: "Date"
-    type: date
-    format: "%Y-%m-%d"
+    type: datetime
+    as: date
   Station:
     source: "Station"
     type: character
