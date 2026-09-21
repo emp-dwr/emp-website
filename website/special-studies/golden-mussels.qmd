@@ -25,7 +25,7 @@ repo_path <- function(...) {
   file.path(Sys.getenv('QUARTO_PROJECT_DIR'), '..', ...)
 }
 
-data <- readRDS(repo_path('admin', 'test-data', 'mussel_frames_data.rds'))
+data <- readRDS(repo_path('admin', 'data', 'mussel_frames_data.rds'))
 frames_data <- data$frames_data
 df_stations  <- data$df_stations
 
