@@ -10,7 +10,7 @@ targets::tar_make()
 ## set report year
 ```{r}
 # set report year
-report_year <- 2024
+report_year <- 2025
 ```
 
 ## create pdfs
@@ -23,7 +23,7 @@ render_pdfs(report_year = report_year)
 ### specific reports (type name(s) in between `c()`)
 options are 'benthic', 'phyto', 'zoop', 'dwq', 'cwq'
 ```{r}
-render_report(sections = c('dwq'),
+render_report(sections = c('benthic'),
               report_type = 'pdfs',
               report_year = report_year)
 ```
@@ -38,7 +38,7 @@ render_website(report_year = report_year)
 ### specific reports (type name(s) in between `c()`)
 options are 'benthic', 'phyto', 'zoop', 'dwq', 'cwq'
 ```{r}
-render_report(sections = c('dwq'),
+render_report(sections = c('benthic'),
               report_type = 'website',
               report_year = report_year)
 ```

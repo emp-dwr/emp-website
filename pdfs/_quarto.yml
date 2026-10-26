@@ -14,9 +14,11 @@ format:
     number-sections: true
     colorlinks: true
     fig-pos: 'H'
-    tbl-pos: 'H'
-    # include-in-header:
-    #   text: |
+    # tbl-pos: 'H'
+    include-in-header:
+      text: |
+        \usepackage{float}
+        \floatplacement{table}{H}
     #     \usepackage[section]{placeins}
     #     \setlength{\intextsep}{30pt plus 2pt minus 4pt}
     #     \setlength{\textfloatsep}{20pt plus 2pt minus 4pt}

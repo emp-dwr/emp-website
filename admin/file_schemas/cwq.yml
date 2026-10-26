@@ -6,7 +6,7 @@ columns:
   Date:
     source: "Date"
     type: date
-    format: "%Y-%m-%d"
+    format: ["%Y-%m-%d", "%m/%d/%Y"]
   Count:
     source: "Count"
     type: integer

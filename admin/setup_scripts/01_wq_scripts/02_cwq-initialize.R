@@ -9,6 +9,8 @@ df_stations <- targets::tar_read(df_stations, store = store)
 
 obj_cwq <- BaseClass$new(df_raw_cwq, df_analytes, df_stations)
 
+saveRDS(obj_cwq$df_raw, 'C:/Users/sperry/Desktop/test.rds')
+
 obj_cwq$remove_EZ()
 
 obj_cwq$remove_bottom()

@@ -1,6 +1,6 @@
 ---
 title: "Discrete Water Quality Report"
-author: "Julianna Manning"
+author: "Julianna Manning, Craig Stuart, Megan Pagliaro"
 params:
   report_year: null
 ---
@@ -155,15 +155,15 @@ summary_phos$create_kable()
 
 ## Interpretations
 
-Water year 2024 in the Sacramento and San Joaquin Valleys was classified as above normal. Northern California experienced more atmospheric rivers than the previous year, but they were weaker storms. The majority of those atmospheric rivers made landfall January through March. Then near-record summer air temperatures dried out a lot of California toward the end of the water year.
+Water year 2025 in the Sacramento Valley was classified as above normal (118% of average) and in San Joaquin Valley as below normal (79% of average). Northern California experienced less atmospheric rivers than the previous year but were generally stronger storm events. The majority of the Sacramento and San Joaquin Valleys annual precipitation accumulated during atmospheric rivers in November, January, and March. The precipitation in water year 2025 began in early October and lasted until early June. In water year 2024, precipitation accumulated over a shorter season from early November through April.
 
-The average specific conductance in water year 2024 was a little higher than the previous year. All regions had a notable drop after January due to the influx of freshwater. Most regions then had an increase during the summer months due to the high air temperatures. The Carquinez, San Pablo Bay, and Suisun and Grizzly Bay regions typically have higher values due to the strong marine influence from the Pacific Ocean.
+The average specific conductance in water year 2025 was lower than the previous year. All regions except the South Delta had a notable drop after January due to the influx of freshwater. Most regions then had an increase during the summer months due to lower freshwater input. San Pablo Bay, and Suisun and Grizzly Bay regions typically have higher values due to the strong marine influence from the Pacific Ocean.
 
-The average turbidity in water year 2024 was a little lower than the previous year. Most regions had a spike in February due to sediment re-suspension caused by the high flows after storms. All regions downstream of the Confluence had another spike in May/June after a storm in that area. The Suisun Marsh had the highest values overall.
+The average turbidity in water year 2025 was a little higher than the previous year. Most regions had a spike in February due to sediment re-suspension caused by the high flows after storms. Suisun Marsh and San Pablo Bay had multiple additional spikes later in the water year.
 
-The average chlorophyll *a* in water year 2024 was a little lower than the previous year. The average and minimum values were similar in all regions. C10A in the South Delta had a large spike in July, due to aquatic vegetation that accumulated around the station. It is typically shallow during dry parts of the year.
+The average chlorophyll *a* in water year 2025 was a little lower than the previous year. The average and minimum values were lower in all regions except San Pablo Bay, which recorded slightly higher values. North Delta and San Pablo Bay had the largest spikes in chlorophyll *a* earlier in the water year (December through February). C10A had a notably large spike in July, relative to the rest of the South Delta stations due to aquatic vegetation that accumulated around the station. It is typically shallow during dry parts of the year. Suisun Bay, Grizzly Bay, and the Central Delta showed variable readings throughout the water year, typically \< 5 μg/L.
 
-The average dissolved ammonia, dissolved nitrate + nitrite, and total phosphorus in water year 2024 was similar to the previous year. All three nutrients had a slightly higher percentage of samples below the reporting limit than the previous year. Most regions had a spike in January due to increased runoff of organic matter and pollutants after storms. The South Delta region had some of the highest values of all three nutrients, due to nearby agricultural land use.
+The average dissolved ammonia, dissolved nitrate + nitrite, and total phosphorus in water year 2025 was similar to the previous year. All three nutrients had a slightly higher percentage of samples below the reporting limit than the previous year. Most regions had a spike between November and February due to increased runoff of organic matter and pollutants after storms. The South Delta region had some of the highest values for dissolved nitrate + nitrite and total phosphorus due to nearby agricultural land use. However, dissolved ammonia values were generally similar across most regions throughout water year 2025.
 
 ## Archived Reports
 

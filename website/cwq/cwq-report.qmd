@@ -1,6 +1,6 @@
 ---
 title: "Continuous Water Quality Report"
-author: "Andrew Tran, Vivian Klotz, Catarina Pien"
+author: "Andrew Tran, Vivian Klotz, Lillian McCormick"
 params:
   report_year: null
 ---
@@ -27,9 +27,9 @@ Water quality data was continuously monitored at 29 sites throughout the Upper E
 
 **Notes**:
 
--   The Sherman Island station (SSI), which was called D22A in previous reports, has been changed back to D11A.
+- The Sherman Island station (SSI), which was called D22A in previous reports, has been changed back to D11A.
 
--   The Cache Slough station (C19) is listed as a monitoring station for D-1641 but has not been in operation since 2015 due to lack of use and safety concerns.
+- The Cache Slough station (C19) is listed as a monitoring station for D-1641 but has not been in operation since 2015 due to lack of use and safety concerns.
 
 ![Map of D-1641 continuous WQ field sites](/admin/figures-tables/cwq/cwq_station_map.png){#fig-stations fig-align="center" width="90%"}
 
@@ -44,19 +44,19 @@ cwq_stations <- readr::read_csv(
 styler$style_kable(cwq_stations)
 ```
 
-Data were collected for six water quality parameters and stations were divided between programs (@tbl-programs). For CEMP and SMWQP, all water samples were collected 1-meter below the water surface using a float-mounted YSI EXO2 multi-parameter water quality sonde. These parameters are:
+Data were collected for six water quality parameters and stations were divided between programs (@tbl-programs). For CEMP and SMWQP, all water samples were collected 1-meter below the water surface using a float-mounted YSI EXO2 multi-parameter water quality sonde or on fixed-length cables 1-meter below the mean low water line. These parameters are:
 
--   Water Temperature (°C)
--   Specific Conductance (μS/cm 25°C)
--   Dissolved Oxygen (mg/L)
--   pH
--   Turbidity (FNU)
--   Fluorescence (μg/L)
+- Water Temperature (°C)
+- Specific Conductance (μS/cm 25°C)
+- Dissolved Oxygen (mg/L)
+- pH
+- Turbidity (FNU)
+- Fluorescence (μg/L)
 
 For Reclamation, water samples were collected 1-meter below the water surface using float-mounted Hydrolab MS5 and HL4 water quality sondes. Parameters collected include:
 
--   Water Temperature (°C)
--   Specific Conductance (μS/cm 25°C)
+- Water Temperature (°C)
+- Specific Conductance (μS/cm 25°C)
 
 ```{r echo=FALSE, warning=FALSE, message=FALSE, results = 'asis'}
 #| label: tbl-programs
@@ -130,7 +130,7 @@ summary_spc$create_kable()
 
 C-EMP monitors DO at the Stockton Ship channel to determine if/when it fall below limits established by the CVRWQCB (1998). For the months that coincide with the passage of fall-run Chinook salmon (October, November, and September), values `r obj_rri$disp_RRI_months('on months')`. For all other months, values `r obj_rri$disp_RRI_months('off months')`. A boxplot of the DO values is shown in @fig-rri.
 
-![Range of daily dissolved oxygen values at the Stockton Ship Channel (P8).](/admin/figures-tables/cwq/cwq_rri_do.png){#fig-rri fig-align="center"}
+![Range of daily dissolved oxygen values at the Stockton Ship Channel (P8).](/admin/figures-tables/cwq/cwq_rri_do.png){#fig-rri fig-align="center" width="75%"}
 
 ### pH
 
@@ -185,7 +185,7 @@ summary_spc$create_kable()
 
 ## Interpretations
 
-Water Year 2024 started off dry, but a series of storms in February and March brought the water year to be classified as Above Normal. Patterns in water quality generally followed expected seasonal and regional trends. Specific conductivity varied greatly across the stations and throughout the water year, depending on precipitation and Delta outflow. North and South Delta stations remained fresh throughout the year, whereas most Confluence, Suisun Marsh, and Suisun and Grizzly Bay stations had low specific conductivity values from February through early June. The specific conductivity at D6A, the westernmost station, started increasing in mid-March, far earlier than the rest of the stations. Decreases in dissolved oxygen and increases in turbidity were observed between February and March, likely associated with increased discharge from storm events. Shallow bays and Suisun Marsh exhibited more persistently high and variable turbidity compared with other stations. Elevated fluorescence, dissolved oxygen, and pH were measured in the South Delta during late June and July associated with a bloom event.
+Water Year 2025 was characterized by regional differences in precipitation, with the northern part of the state receiving above average precipitation, and the southern part of the state receiving below average. This was consistent throughout the water year, which resulted in a water year classification of Above Normal. Patterns in water quality generally followed expected seasonal and regional trends. Specific conductivity varied across the stations and throughout the year, depending on Delta outflow and precipitation. The Confluence, Suisun and Grizzly Bays, and Suisun Marsh regions had higher specific conductivity consistent with a dry fall, until larger storms arrived in late December and mid-January. Specific conductivity stayed relatively low until approximately late-May, or late-March in the furthest west station, D6A, which was earlier than in the past water year. Increases in turbidity and decreases in oxygen followed the large storms. Small phytoplankton blooms occurred throughout the year in different regions, including moderate chlorophyll-a fluorescence and higher oxygen in the Suisun and Grizzy Bays in late April and May, and a larger bloom event in the South Delta in July. Dissolved oxygen stayed fairly high throughout the year, with the exception of S33, which showed lower oxygen in late-February to mid-April.
 
 ## References
 

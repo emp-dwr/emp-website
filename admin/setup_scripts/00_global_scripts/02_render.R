@@ -40,6 +40,17 @@ render_report <- function(sections, report_type, report_year = NULL) {
   message('Copying figures and tables...')
   copy_figures(report_type)
   
+  if (report_type == 'website') {
+    message('Rebuilding site with fresh figures...')
+    quarto::quarto_render(
+      input = here::here('website'),
+      execute_params = list(report_year = report_year),
+      profile = 'freeze',
+      as_job = FALSE,
+      quiet = FALSE
+    )
+  }
+  
   message('Done!')
 }
 
