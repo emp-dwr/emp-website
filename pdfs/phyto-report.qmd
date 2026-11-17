@@ -1,5 +1,10 @@
 ---
 title: "Phytoplankton Monitoring Report for Water Year `r lubridate::year(Sys.Date())-1`"
+params:
+  report_year: null
+format:
+  pdf:
+    keep-tex: true
 ---
 
 ```{r setup, include=FALSE, echo=FALSE}
@@ -7,7 +12,13 @@ title: "Phytoplankton Monitoring Report for Water Year `r lubridate::year(Sys.Da
 knitr::opts_chunk$set(echo = FALSE, comment = NA, message = FALSE, warning = FALSE, results = 'asis')
 
 # read in functions; do not edit
-source(here::here('admin/import_scripts.R'))
+report_year <- as.integer(params$report_year)
+
+repo_path <- function(...) {
+  file.path(Sys.getenv('QUARTO_PROJECT_DIR'), '..', ...)
+}
+source(repo_path('admin', 'import_scripts.R'), local = knitr::knit_global())
+load_section('phyto', envir = knitr::knit_global())
 ```
 
 \begin{center}

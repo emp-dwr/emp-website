@@ -18,7 +18,7 @@ df_raw_phyto|stem|344b4e7036de0da8|583bf5ad9ceb3f8d|564a96c00e69fe0b|408193632||
 df_raw_dwq|stem|5b245366f9da32ca|c92244c21418f08a|f960409a0284187b|432620012||t20727.8135126237s|s1294168b|1294168|rds|local|vector|||7.766|One or more parsing issues, call `problems()` on your data frame for details, e.g.:   dat <- vroom(...)   problems(dat)|
 df_analytes|stem|83c17c28d5a55d45|1d4769d5bfb84e66|ce35ac8219e94d89|-1417677545||t20727.8135130415s|s607b|607|rds|local|vector|||0||
 df_stations|stem|3a86ecbd98a32ab6|c27599ccf29c231b|e4e89912e4a0b004|-457876663||t20727.813513334s|s1765b|1765|rds|local|vector|||0.016||
-df_raw_cwq|stem|4a69055cb5a38c6a|ad1f2a194a2f8790|6f55e74e6d8b2b25|-262147580||t20739.9145001541s|s154647b|154647|rds|local|vector|||0.5||
+df_raw_cwq|stem|bfa495e105b3b9ff|ad1f2a194a2f8790|46a10e4a77de5fb4|-262147580||t20774.8042612273s|s155484b|155484|rds|local|vector|||1.297||
 parse_multi_date|function|a738b1c02c2ae856
 edi_get|function|ad7221a5386f0d7f
 build_col_spec|function|e2da961e7ff46f40
@@ -28,7 +28,7 @@ apply_schema|function|b1c12a509838f4de
 edi_latest_revision|function|9d42504ab2768ea2
 read_typed|function|3b8201e26c2de587
 get_edi_file|function|11356e629c742496
-dwq_rev|stem|b6e0692b3bf12957|45840845818856ce|33f54c09cd44f684|716435825||t20752.8025672651s|s50b|50|rds|local|vector|||0.516||
-ben_rev|stem|1b6fc8baae433075|90b2869dcc12e4fb|33f54c09cd44f684|942597507||t20752.8025695324s|s50b|50|rds|local|vector|||0.172||
-phyto_rev|stem|afdda4169b27e36d|333e6495fafc591d|33f54c09cd44f684|-1313794327||t20752.8025717207s|s50b|50|rds|local|vector|||0.157||
-cwq_data_file|stem|af2f95fbe6070449|7feae0161603b366|2c530c1562a7fbd1|1601230860|admin/data/CWQ_Data_2025.csv|t20739.914368704s|s2232132b|2232132|file|local|vector|||0||
+dwq_rev|stem|b6e0692b3bf12957|45840845818856ce|33f54c09cd44f684|716435825||t20774.8724876353s|s50b|50|rds|local|vector|||5.328||
+ben_rev|stem|1b6fc8baae433075|90b2869dcc12e4fb|33f54c09cd44f684|942597507||t20774.872490844s|s50b|50|rds|local|vector|||0.172||
+phyto_rev|stem|afdda4169b27e36d|333e6495fafc591d|33f54c09cd44f684|-1313794327||t20774.8724933715s|s50b|50|rds|local|vector|||0.172||
+cwq_data_file|stem|1e51ff4955aaebc7|7feae0161603b366|2c530c1562a7fbd1|1601230860|admin/data/CWQ_Data_2025.csv|t20774.803972337s|s2223243b|2223243|file|local|vector|||0||

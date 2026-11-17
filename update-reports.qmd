@@ -23,7 +23,7 @@ render_pdfs(report_year = report_year)
 ### specific reports (type name(s) in between `c()`)
 options are 'benthic', 'phyto', 'zoop', 'dwq', 'cwq'
 ```{r}
-render_report(sections = c('benthic'),
+render_report(sections = c('cwq'),
               report_type = 'pdfs',
               report_year = report_year)
 ```
@@ -38,7 +38,7 @@ render_website(report_year = report_year)
 ### specific reports (type name(s) in between `c()`)
 options are 'benthic', 'phyto', 'zoop', 'dwq', 'cwq'
 ```{r}
-render_report(sections = c('benthic'),
+render_report(sections = c('cwq'),
               report_type = 'website',
               report_year = report_year)
 ```

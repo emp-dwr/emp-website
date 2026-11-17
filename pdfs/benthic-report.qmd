@@ -2,7 +2,6 @@
 title: "Benthic Invertebrates Monitoring Report for Water Year `r lubridate::year(Sys.Date())-1`"
 params:
   report_year: null
-  
 format:
   pdf:
     keep-tex: true
@@ -14,6 +13,7 @@ knitr::opts_chunk$set(echo = FALSE, comment = NA, message = FALSE, warning = FAL
 
 # read in functions; do not edit
 report_year <- as.integer(params$report_year)
+
 repo_path <- function(...) {
   file.path(Sys.getenv('QUARTO_PROJECT_DIR'), '..', ...)
 }
