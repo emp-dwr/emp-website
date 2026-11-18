@@ -100,6 +100,8 @@ jobs:
           restore-keys: targets-
 
       - name: Build data pipeline
+        env:
+          EDI_API_KEY: ${{ secrets.EDI_API_KEY }}
         run: Rscript -e 'targets::tar_make()'
 
       - name: Remove freeze cache for full rebuild
