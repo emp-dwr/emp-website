@@ -396,9 +396,7 @@ WQFigureClass <- R6Class(
     # Combine regional plots into one plot for each analyte (gaps)
     wq_return_plt_gaps = function(param, plt_type = c('dwq', 'cwq'), ret_region = NULL) {
       plt_type <- match.arg(plt_type)
-      
-      saveRDS(self$df_raw, 'C:/Users/sperry/Desktop/debug_cwq.rds')
-      
+
       df_filt <- self$df_raw %>%
         filter(Analyte == param) %>%
         mutate(Date = as.Date(Date))
