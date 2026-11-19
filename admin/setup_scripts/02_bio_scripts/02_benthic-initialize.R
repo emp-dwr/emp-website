@@ -69,6 +69,9 @@ fig_ben_cur <- BioFigureClass$new(obj_ben_cur$df_raw, report_year)
 fig_ben_all <- BioFigureClass$new(obj_ben_all$df_raw, report_year)
 
 create_figs_benthic <- function() {
+  # IDs sharepoint saves (so they don't run via GH Actions)
+  save_sharepoint <- Sys.getenv('GITHUB_ACTIONS') != 'true'
+  
   benthic_stations <- obj_ben_all$df_raw %>%
     pull(Station) %>%
     unique()
@@ -83,26 +86,26 @@ create_figs_benthic <- function() {
     
     exp_height <- (10 * (ceiling(height_factor / 3) * 0.5)) + 10
     
-    # determine file paths
-    fp_name <- gsub('2 ', '', tolower(station))
+    # determine file name
+    fp_name <- gsub(' ', '', tolower(station))
     fp_name <- gsub('&', '', fp_name)
-    emp_path <- abs_path_data('Admin/Annual Report Docs/Benthic/figures')
     
     # save time series for all stations
-    plt_benthic_ts_all <- fig_ben_all$plt_ben_ts(station, scope = 'historical', report_year = report_year)
-    
-    ggsave(
-      filename = file.path(emp_path, 'timeseries_all', paste0('benthic_tsall_', fp_name, '.png')),
-      plot = plt_benthic_ts_all,
-      width = 25,
-      height = exp_height,
-      units = 'cm'
-    )
+    if (save_sharepoint) {
+      plt_benthic_ts_all <- fig_ben_all$plt_ben_ts(station, scope = 'historical', report_year = report_year)
+      
+      ggsave(
+        filename = abs_path_data(paste0('Admin/Annual Report Docs/Benthic/figures/timeseries_all/benthic_tsall_', fp_name, '.png')),
+        plot = plt_benthic_ts_all,
+        width = 25,
+        height = exp_height,
+        units = 'cm'
+      )
+    }
     
     # save time series by station
     if (station %in% unique(obj_ben_cur$df_raw$Station)) {
       plt_benthic <- fig_ben_cur$plt_org_density(station, section = 'Benthic')
-      plt_benthic_ts <- fig_ben_cur$plt_ben_ts(station, scope = 'current', report_year = report_year)
       
       ggsave(
         filename = repo_path(paste0('admin/figures-tables/benthic/benthic_bar_', fp_name, '.png')),
@@ -112,21 +115,25 @@ create_figs_benthic <- function() {
         units = 'cm'
       )
       
-      ggsave(
-        filename = file.path(emp_path, 'bargraphs', paste0('benthic_bar_', fp_name, '.png')),
-        plot = plt_benthic,
-        width = 25,
-        height = exp_height,
-        units = 'cm'
-      )
-      
-      ggsave(
-        filename = file.path(emp_path, 'timeseries', paste0('benthic_ts_', fp_name, '.png')),
-        plot = plt_benthic_ts,
-        width = 25,
-        height = exp_height,
-        units = 'cm'
-      )
+      if (save_sharepoint) {
+        plt_benthic_ts <- fig_ben_cur$plt_ben_ts(station, scope = 'current', report_year = report_year)
+        
+        ggsave(
+          filename = abs_path_data(paste0('Admin/Annual Report Docs/Benthic/figures/bargraphs/benthic_bar_', fp_name, '.png')),
+          plot = plt_benthic,
+          width = 25,
+          height = exp_height,
+          units = 'cm'
+        )
+        
+        ggsave(
+          filename = abs_path_data(paste0('Admin/Annual Report Docs/Benthic/figures/timeseries/benthic_ts_', fp_name, '.png')),
+          plot = plt_benthic_ts,
+          width = 25,
+          height = exp_height,
+          units = 'cm'
+        )
+      }
     }
   }
 }
