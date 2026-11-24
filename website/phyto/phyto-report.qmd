@@ -68,20 +68,6 @@ strings_phyto_cur$alg_tree_txt()
 
 ## Regional Results
 
-### Carquinez
-
-#### Water Quality
-
-`r strings_pwq_cur$disp_phyto_paragraph('Chla','median','Carquinez')` `r strings_pwq_cur$disp_phyto_paragraph('Pheoa','median','Carquinez', end=TRUE)`
-
-![Chlorophyll a and pheophytin a average concentrations in Carquinez.](/admin/figures-tables/phyto/phyto_wq_carquinez.png){#fig-wq-carquinez fig-align="center"}
-
-#### Phytoplankton
-
-`r strings_phyto_cur$summary_region_txt('Carquinez')` (Other, @fig-phy-carquinez).
-
-![Density of phytoplankton organisms in Carquinez.](/admin/figures-tables/phyto/phyto_bar_carquinez.png){#fig-phy-carquinez fig-align="center"}
-
 ### Central Delta
 
 #### Water Quality

@@ -38,7 +38,7 @@ render_website(report_year = report_year)
 ### specific reports (type name(s) in between `c()`)
 options are 'benthic', 'phyto', 'zoop', 'dwq', 'cwq'
 ```{r}
-render_report(sections = c('cwq'),
+render_report(sections = c('phyto'),
               report_type = 'website',
               report_year = report_year)
 ```

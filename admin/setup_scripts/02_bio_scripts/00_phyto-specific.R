@@ -14,7 +14,7 @@ PhytoStatsClass <- R6Class(
       # Calculate sampling frequency for each specified phytoplankton group
       df_freq <- df_data %>%
         group_by(pick({{ summ_grps }})) %>% 
-        summarize(sum_units = sum(Units_per_mL, na.rm = TRUE), .groups = "drop") %>% 
+        summarize(sum_units = sum(Units_per_mL, na.rm = TRUE), .groups = 'drop') %>% 
         mutate(
           total_units = sum(sum_units, na.rm = TRUE),
           per = sum_units / total_units * 100
@@ -24,12 +24,12 @@ PhytoStatsClass <- R6Class(
       # Count number of sampling events for each month during the report year
       num_se_month <- df_data %>% 
         distinct(Station, Date, Month) %>% 
-        count(Month, name = "num_se")
+        count(Month, name = 'num_se')
       
       # Calculate summary statistics (normalized densities and standard
       # deviation) by each summ_grps
-      if (any(summ_grps == "Month")) {
-        df_norm_dens <- df_freq %>% left_join(num_se_month, by = "Month")
+      if (any(summ_grps == 'Month')) {
+        df_norm_dens <- df_freq %>% left_join(num_se_month, by = 'Month')
       } else {
         df_norm_dens <- df_freq %>% mutate(num_se = sum(num_se_month$num_se, na.rm = TRUE))
       }
@@ -53,7 +53,7 @@ PhytoStatsClass <- R6Class(
     
     # Define AlgalGroups in either 'Main' or 'Other' category using frequency threshold
     def_alg_cat = function(df_data, region = NULL, threshold) {
-      df_per <- private$summarize_phyto(df_data, region = region, summ_grps = "AlgalGroup")
+      df_per <- private$summarize_phyto(df_data, region = region, summ_grps = 'AlgalGroup')
       
       list(
         main = filter(df_per, per >= threshold),
@@ -98,9 +98,9 @@ PhytoStringClass <- R6Class(
     # Create bullet list of top 10 genera
     gen_list_txt = function() {
       top_genus <- self$df_raw %>% 
-        private$summarize_phyto(summ_grps = c("Genus", "AlgalGroup")) %>% 
+        private$summarize_phyto(summ_grps = c('Genus', 'AlgalGroup')) %>% 
         slice(1:10) %>% 
-        mutate(genus_group = paste0(Genus, " (", tolower(AlgalGroup), ")")) %>% 
+        mutate(genus_group = paste0(Genus, ' (', tolower(AlgalGroup), ')')) %>% 
         pull(genus_group)
       
       gen_list <- self$styling$bullet_list(top_genus)
@@ -113,7 +113,7 @@ PhytoStringClass <- R6Class(
     
     # Create algal tree plot text
     alg_tree_txt = function(threshold = 1) {
-      df_per <- self$df_raw %>% private$summarize_phyto(summ_grps = "AlgalGroup")
+      df_per <- self$df_raw %>% private$summarize_phyto(summ_grps = 'AlgalGroup')
       
       # 'Other' category are AlgalGroups in less than 1% of samples
       main_cat <- private$def_alg_cat(self$df_raw, threshold = threshold)$main
@@ -131,7 +131,7 @@ PhytoStringClass <- R6Class(
     # Create summary of organisms by region
     summary_region_txt = function(region, threshold = 1) {
       df_summ <- self$df_raw %>% 
-        private$summarize_phyto(region, summ_grps = "AlgalGroup") %>% 
+        private$summarize_phyto(region, summ_grps = 'AlgalGroup') %>% 
         mutate(
           per = round(per, 1),
           across(c(avg, sd), \(x) round(x, 0))

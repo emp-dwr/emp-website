@@ -2,6 +2,7 @@
 
 store <- normalizePath(repo_path('_targets'))
 df_raw_phyto <- targets::tar_read(df_raw_phyto, store = store)
+df_raw_dwq <- targets::tar_read(df_raw_dwq, store = store)
 df_analytes <- targets::tar_read(df_analytes, store = store)
 df_stations <- targets::tar_read(df_stations, store = store)
 
